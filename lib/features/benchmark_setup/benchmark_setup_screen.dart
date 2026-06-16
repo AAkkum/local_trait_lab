@@ -10,7 +10,7 @@ class BenchmarkSetupScreen extends StatelessWidget {
   final AppController controller;
 
   Future<void> _pickZip() async {
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+    final FilePickerResult? result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: <String>['zip'],
     );
@@ -20,7 +20,7 @@ class BenchmarkSetupScreen extends StatelessWidget {
   }
 
   Future<void> _pickDirectory() async {
-    final String? directory = await FilePicker.platform.getDirectoryPath();
+    final String? directory = await FilePicker.getDirectoryPath();
     if (directory != null) {
       await controller.importBenchmarkDirectory(directory);
     }

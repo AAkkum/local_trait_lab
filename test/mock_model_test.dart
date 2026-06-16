@@ -7,20 +7,20 @@ import 'package:emotion_benchmark_app/models/gemma/gemma_analysis_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final InputAsset image = InputAsset(
+  const InputAsset image = InputAsset(
     type: InputAssetType.image,
     uri: 'memory://test.jpg',
     displayName: 'test.jpg',
     mimeType: 'image/jpeg',
     sizeBytes: 4,
-    bytes: const <int>[1, 2, 3, 4],
+    bytes: <int>[1, 2, 3, 4],
   );
 
   test('mock gemma returns a standardized result', () async {
     final GemmaAnalysisModel model = GemmaAnalysisModel();
     await model.load(const ModelConfig(modelId: 'gemma', variantId: 'gemma_e2b', version: 'mock', runtimeOptions: <String, Object?>{'backend': 'mock'}));
     final result = await model.analyze(
-      AnalysisRequest(taskId: 'emotion_classification', inputs: <InputAsset>[image], taskSpec: TaskCatalog.emotionClassification),
+      const AnalysisRequest(taskId: 'emotion_classification', inputs: <InputAsset>[image], taskSpec: TaskCatalog.emotionClassification),
     );
     expect(result.succeeded, isTrue);
     expect(result.prediction!.scores.length, 7);
@@ -30,7 +30,7 @@ void main() {
     final EmotiEffEmotionModel model = EmotiEffEmotionModel();
     await model.load(const ModelConfig(modelId: 'emotieff', variantId: 'emotieff_mock_onnx', version: 'mock', runtimeOptions: <String, Object?>{'backend': 'mock'}));
     final result = await model.analyze(
-      AnalysisRequest(taskId: 'emotion_classification', inputs: <InputAsset>[image], taskSpec: TaskCatalog.emotionClassification),
+      const AnalysisRequest(taskId: 'emotion_classification', inputs: <InputAsset>[image], taskSpec: TaskCatalog.emotionClassification),
     );
     expect(result.succeeded, isTrue);
     expect(result.prediction!.scores.length, 7);

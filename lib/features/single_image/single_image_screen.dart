@@ -10,7 +10,7 @@ class SingleImageScreen extends StatelessWidget {
   final AppController controller;
 
   Future<void> _pickImage() async {
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+    final FilePickerResult? result = await FilePicker.pickFiles(
       type: FileType.image,
       allowMultiple: false,
       withData: true,

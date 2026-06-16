@@ -4,18 +4,18 @@ import 'task_spec.dart';
 class TaskCatalog {
   const TaskCatalog._();
 
-  static final AnalysisTaskSpec emotionClassification = AnalysisTaskSpec(
+  static const AnalysisTaskSpec emotionClassification = AnalysisTaskSpec(
     id: 'emotion_classification',
     displayName: 'Emotion Classification',
-    acceptedInputTypes: const <InputAssetType>[InputAssetType.image],
-    labelSpace: const LabelSpace(id: 'emotion7', labels: kEmotionLabels),
-    outputSchema: const OutputSchema(
+    acceptedInputTypes: <InputAssetType>[InputAssetType.image],
+    labelSpace: LabelSpace(id: 'emotion7', labels: kEmotionLabels),
+    outputSchema: OutputSchema(
       id: 'emotion_json_v1',
       allowedLabels: kEmotionLabels,
       requiresScoreVector: true,
       strictJson: true,
     ),
-    promptTemplate: const PromptTemplate(
+    promptTemplate: PromptTemplate(
       systemInstructions:
           'You are an emotion classification component. Output JSON only. Do not add prose, markdown, or explanations.',
       userTemplate:

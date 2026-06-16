@@ -37,12 +37,14 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 12),
               for (final model in controller.models)
                 Card(
-                  child: RadioListTile<String>(
-                    value: model.id,
-                    groupValue: controller.selectedModelId,
-                    onChanged: (String? value) {
-                      if (value != null) controller.selectModel(value);
-                    },
+                  child: ListTile(
+                    selected: controller.selectedModelId == model.id,
+                    onTap: () => controller.selectModel(model.id),
+                    leading: Icon(
+                      controller.selectedModelId == model.id
+                          ? Icons.radio_button_checked
+                          : Icons.radio_button_unchecked,
+                    ),
                     title: Text(model.displayName),
                     subtitle: Text(
                       'Family: ${model.family} | Benchmark: ${model.benchmarkEligible ? 'eligible' : 'disabled'} | '

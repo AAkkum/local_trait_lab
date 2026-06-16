@@ -39,7 +39,7 @@ class SettingsScreen extends StatelessWidget {
                         Text(model.displayName, style: Theme.of(context).textTheme.titleMedium),
                         const SizedBox(height: 8),
                         DropdownButtonFormField<String>(
-                          value: (controller.settings.modelConfigs[model.id] ?? model.config).runtimeBackend,
+                          initialValue: (controller.settings.modelConfigs[model.id] ?? model.config).runtimeBackend,
                           decoration: const InputDecoration(labelText: 'Runtime backend'),
                           items: const <DropdownMenuItem<String>>[
                             DropdownMenuItem(value: 'mock', child: Text('mock')),
