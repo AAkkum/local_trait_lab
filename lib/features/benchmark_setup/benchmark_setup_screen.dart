@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/app_controller.dart';
 import '../benchmark_progress/benchmark_progress_screen.dart';
+import '../shared/model_selector.dart';
 
 class BenchmarkSetupScreen extends StatelessWidget {
   const BenchmarkSetupScreen({super.key, required this.controller});
@@ -29,7 +30,7 @@ class BenchmarkSetupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Benchmark Setup')),
+      appBar: AppBar(title: const Text('Dataset benchmark')),
       body: AnimatedBuilder(
         animation: controller,
         builder: (BuildContext context, Widget? child) {
@@ -37,18 +38,23 @@ class BenchmarkSetupScreen extends StatelessWidget {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: <Widget>[
-              Text('Selected model: ${controller.selectedModel.displayName}'),
+              Text(
+                'Import a labeled emotion dataset and run the selected local model on the same analysis path used by the single-image workflow.',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 12),
+              ModelSelector(controller: controller),
               const SizedBox(height: 12),
               OutlinedButton.icon(
                 onPressed: _pickZip,
                 icon: const Icon(Icons.archive),
-                label: const Text('Import Dataset ZIP'),
+                label: const Text('Import dataset ZIP'),
               ),
               const SizedBox(height: 8),
               OutlinedButton.icon(
                 onPressed: _pickDirectory,
                 icon: const Icon(Icons.folder_open),
-                label: const Text('Import Dataset Folder'),
+                label: const Text('Import dataset folder'),
               ),
               const SizedBox(height: 16),
               if (dataset != null) ...<Widget>[
@@ -66,7 +72,7 @@ class BenchmarkSetupScreen extends StatelessWidget {
                         );
                       },
                 icon: const Icon(Icons.play_circle_outline),
-                label: const Text('Start Benchmark'),
+                label: const Text('Start benchmark'),
               ),
               if (controller.errorMessage != null) ...<Widget>[
                 const SizedBox(height: 12),

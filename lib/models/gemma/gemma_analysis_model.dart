@@ -81,7 +81,7 @@ class GemmaAnalysisModel implements AnalysisModel {
         request: request,
         failure: AnalysisFailure(
           type: AnalysisFailureType.runtimeUnavailable,
-          message: 'Gemma runtime backend ${config.runtimeBackend} is not yet connected.',
+          message: 'Gemma local runtime ${config.runtimeBackend} is not yet connected.',
         ),
       );
     }

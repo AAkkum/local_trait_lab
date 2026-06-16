@@ -1,9 +1,9 @@
-import 'package:emotion_benchmark_app/analysis/analysis_request.dart';
-import 'package:emotion_benchmark_app/analysis/model_config.dart';
-import 'package:emotion_benchmark_app/analysis/task_catalog.dart';
-import 'package:emotion_benchmark_app/analysis/task_spec.dart';
-import 'package:emotion_benchmark_app/models/emotieff/emotieff_analysis_model.dart';
-import 'package:emotion_benchmark_app/models/gemma/gemma_analysis_model.dart';
+import 'package:local_trait_lab/analysis/analysis_request.dart';
+import 'package:local_trait_lab/analysis/model_config.dart';
+import 'package:local_trait_lab/analysis/task_catalog.dart';
+import 'package:local_trait_lab/analysis/task_spec.dart';
+import 'package:local_trait_lab/models/emotieff/emotieff_analysis_model.dart';
+import 'package:local_trait_lab/models/gemma/gemma_analysis_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

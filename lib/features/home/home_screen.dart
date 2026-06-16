@@ -14,9 +14,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Emotion Benchmark App'),
+        title: const Text('Local Trait Lab'),
         actions: <Widget>[
           IconButton(
+            tooltip: 'Settings',
             icon: const Icon(Icons.settings),
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => SettingsScreen(controller: controller)),
@@ -30,42 +31,46 @@ class HomeScreen extends StatelessWidget {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: <Widget>[
-              const Text(
-                'Select a model backend',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              Text('Choose an analysis', style: Theme.of(context).textTheme.headlineSmall),
+              const SizedBox(height: 8),
+              Text(
+                'Start with the trait you want to infer. Model details stay inside each workflow so the home screen does not become a wall of variants.',
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
-              const SizedBox(height: 12),
-              for (final model in controller.models)
-                Card(
-                  child: ListTile(
-                    selected: controller.selectedModelId == model.id,
-                    onTap: () => controller.selectModel(model.id),
-                    leading: Icon(
-                      controller.selectedModelId == model.id
-                          ? Icons.radio_button_checked
-                          : Icons.radio_button_unchecked,
-                    ),
-                    title: Text(model.displayName),
-                    subtitle: Text(
-                      'Family: ${model.family} | Benchmark: ${model.benchmarkEligible ? 'eligible' : 'disabled'} | '
-                      'Backend: ${(controller.settings.modelConfigs[model.id] ?? model.config).runtimeBackend}',
-                    ),
-                  ),
-                ),
               const SizedBox(height: 16),
-              FilledButton.icon(
-                icon: const Icon(Icons.image_search),
-                label: const Text('Single Image Demo'),
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(builder: (_) => SingleImageScreen(controller: controller)),
+              Card(
+                child: ListTile(
+                  leading: const Icon(Icons.mood),
+                  title: const Text('Emotion analysis'),
+                  subtitle: Text('Single image inference · current model: ${controller.selectedModel.displayName}'),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => SingleImageScreen(controller: controller)),
+                  ),
                 ),
               ),
               const SizedBox(height: 8),
-              FilledButton.icon(
-                icon: const Icon(Icons.analytics),
-                label: const Text('Benchmark Mode'),
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(builder: (_) => BenchmarkSetupScreen(controller: controller)),
+              Card(
+                child: ListTile(
+                  leading: const Icon(Icons.analytics),
+                  title: const Text('Dataset benchmark'),
+                  subtitle: const Text('Evaluate a selected model on labeled emotion datasets'),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => BenchmarkSetupScreen(controller: controller)),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Card(
+                child: ListTile(
+                  leading: const Icon(Icons.tune),
+                  title: const Text('Advanced settings'),
+                  subtitle: const Text('Local runtime and model file configuration'),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => SettingsScreen(controller: controller)),
+                  ),
                 ),
               ),
               if (controller.errorMessage != null) ...<Widget>[

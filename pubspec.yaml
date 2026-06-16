@@ -1,4 +1,4 @@
-name: emotion_benchmark_app
+name: local_trait_lab
 description: Android-first Flutter prototype for modular on-device emotion model comparison.
 publish_to: "none"
 version: 0.1.0+1

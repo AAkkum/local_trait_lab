@@ -1,4 +1,4 @@
-package com.example.emotion_benchmark_app
+package com.atabey.local_trait_lab
 
 import io.flutter.embedding.android.FlutterActivity
 

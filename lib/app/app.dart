@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import '../analysis/analysis_registry.dart';
 import '../analysis/model_config.dart';
 import '../data/persistence/settings_repository.dart';
-import 'app_controller.dart';
 import '../features/home/home_screen.dart';
+import 'app_controller.dart';
 
-class EmotionBenchmarkApp extends StatefulWidget {
-  const EmotionBenchmarkApp({super.key});
+class LocalTraitLabApp extends StatefulWidget {
+  const LocalTraitLabApp({super.key});
 
   @override
-  State<EmotionBenchmarkApp> createState() => _EmotionBenchmarkAppState();
+  State<LocalTraitLabApp> createState() => _LocalTraitLabAppState();
 }
 
-class _EmotionBenchmarkAppState extends State<EmotionBenchmarkApp> {
+class _LocalTraitLabAppState extends State<LocalTraitLabApp> {
   late final AppController _controller;
 
   @override
@@ -32,7 +32,8 @@ class _EmotionBenchmarkAppState extends State<EmotionBenchmarkApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Emotion Benchmark App',
+      title: 'Local Trait Lab',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(colorSchemeSeed: Colors.teal, useMaterial3: true),
       home: AnimatedBuilder(
         animation: _controller,

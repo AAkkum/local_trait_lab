@@ -1,4 +1,4 @@
-# Emotion Benchmark App
+# Local Trait Lab
 
 Android-first Flutter research prototype for comparing on-device emotion analysis backends with:
 

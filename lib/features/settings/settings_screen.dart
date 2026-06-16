@@ -11,22 +11,16 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(title: const Text('Advanced settings')),
       body: AnimatedBuilder(
         animation: controller,
         builder: (BuildContext context, Widget? child) {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: <Widget>[
-              SwitchListTile(
-                title: const Text('Debug mode'),
-                value: controller.settings.debugMode,
-                onChanged: controller.updateDebugMode,
-              ),
-              SwitchListTile(
-                title: const Text('Retain raw outputs'),
-                value: controller.settings.rawOutputRetention,
-                onChanged: controller.updateRawOutputRetention,
+              Text(
+                'These settings are for local model execution only. They are not the future study server. The server part will later receive consented study answers or processed results, not run this inference path by default.',
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 12),
               for (final model in controller.models)
@@ -40,19 +34,22 @@ class SettingsScreen extends StatelessWidget {
                         const SizedBox(height: 8),
                         DropdownButtonFormField<String>(
                           initialValue: (controller.settings.modelConfigs[model.id] ?? model.config).runtimeBackend,
-                          decoration: const InputDecoration(labelText: 'Runtime backend'),
+                          decoration: const InputDecoration(
+                            labelText: 'Local runtime',
+                            helperText: 'mock now; ONNX or Android native later for real on-device inference',
+                          ),
                           items: const <DropdownMenuItem<String>>[
                             DropdownMenuItem(value: 'mock', child: Text('mock')),
                             DropdownMenuItem(value: 'onnx', child: Text('onnx')),
-                            DropdownMenuItem(value: 'android_native', child: Text('android_native')),
+                            DropdownMenuItem(value: 'android_native', child: Text('android native')),
                           ],
-                          onChanged: (String? backend) {
-                            if (backend == null) return;
+                          onChanged: (String? runtime) {
+                            if (runtime == null) return;
                             final ModelConfig current = controller.settings.modelConfigs[model.id] ?? model.config;
                             controller.updateModelConfig(
                               model.id,
                               current.copyWith(
-                                runtimeOptions: <String, Object?>{...current.runtimeOptions, 'backend': backend},
+                                runtimeOptions: <String, Object?>{...current.runtimeOptions, 'backend': runtime},
                               ),
                             );
                           },
@@ -60,7 +57,10 @@ class SettingsScreen extends StatelessWidget {
                         const SizedBox(height: 8),
                         TextFormField(
                           initialValue: ((controller.settings.modelConfigs[model.id] ?? model.config).assetConfig['asset_path']) as String? ?? '',
-                          decoration: const InputDecoration(labelText: 'Asset path'),
+                          decoration: const InputDecoration(
+                            labelText: 'Model file path',
+                            helperText: 'Future path to a downloaded model file or folder on the device',
+                          ),
                           onChanged: (String path) {
                             final ModelConfig current = controller.settings.modelConfigs[model.id] ?? model.config;
                             controller.updateModelConfig(

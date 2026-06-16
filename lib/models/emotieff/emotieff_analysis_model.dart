@@ -75,7 +75,7 @@ class EmotiEffEmotionModel implements AnalysisModel {
         request: request,
         failure: AnalysisFailure(
           type: AnalysisFailureType.runtimeUnavailable,
-          message: 'EmotiEff backend ${config.runtimeBackend} is not yet connected.',
+          message: 'EmotiEff local runtime ${config.runtimeBackend} is not yet connected.',
         ),
       );
     }

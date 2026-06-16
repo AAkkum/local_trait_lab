@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:emotion_benchmark_app/benchmark/export.dart';
-import 'package:emotion_benchmark_app/benchmark/metrics.dart';
+import 'package:local_trait_lab/benchmark/export.dart';
+import 'package:local_trait_lab/benchmark/metrics.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

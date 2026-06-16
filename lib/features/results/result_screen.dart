@@ -13,7 +13,7 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final result = controller.lastResult;
     return Scaffold(
-      appBar: AppBar(title: const Text('Result View')),
+      appBar: AppBar(title: const Text('Analysis result')),
       body: result == null
           ? const Center(child: Text('No result available.'))
           : ListView(
@@ -43,7 +43,7 @@ class ResultScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text('Latency: ${result.metadata.latencyMs} ms'),
                 Text('Input file: ${result.metadata.inputFile}'),
-                Text('Runtime backend: ${result.metadata.runtimeBackend}'),
+                Text('Local runtime: ${result.metadata.runtimeBackend}'),
                 const SizedBox(height: 12),
                 ExpansionTile(
                   title: const Text('Raw output'),

@@ -1,4 +1,4 @@
-import 'package:emotion_benchmark_app/models/gemma/gemma_output_parser.dart';
+import 'package:local_trait_lab/models/gemma/gemma_output_parser.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

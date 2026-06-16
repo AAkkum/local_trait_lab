@@ -1,6 +1,6 @@
-import 'package:emotion_benchmark_app/analysis/analysis_result.dart';
-import 'package:emotion_benchmark_app/analysis/label_mapping.dart';
-import 'package:emotion_benchmark_app/models/emotieff/emotieff_label_mapper.dart';
+import 'package:local_trait_lab/analysis/analysis_result.dart';
+import 'package:local_trait_lab/analysis/label_mapping.dart';
+import 'package:local_trait_lab/models/emotieff/emotieff_label_mapper.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
