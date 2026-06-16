@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                 child: ListTile(
                   leading: const Icon(Icons.mood),
                   title: const Text('Emotion analysis'),
-                  subtitle: Text('Single image inference · current model: ${controller.selectedModel.displayName}'),
+                  subtitle: Text('Single image inference · current model family: ${controller.selectedModel.displayName}'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute<void>(builder: (_) => SingleImageScreen(controller: controller)),

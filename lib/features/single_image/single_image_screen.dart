@@ -79,7 +79,7 @@ class ModelSelectorPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Select an image and run local emotion classification. Expand the model section only if you want to compare a different local model.',
+      'Select an image and run local emotion classification. Expand the model section only if you want to compare Gemma against EmotiEff.',
       style: Theme.of(context).textTheme.bodyMedium,
     );
   }

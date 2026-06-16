@@ -55,6 +55,11 @@ class AppController extends ChangeNotifier {
   String get selectedModelId => _selectedModelId ?? _registry.first.id;
   RegisteredModel get selectedModel => _registry.firstWhere((RegisteredModel model) => model.id == selectedModelId);
   AppSettings get settings => _settings;
+  ModelConfig configForModel(String modelId) {
+    final RegisteredModel model = _registry.firstWhere((RegisteredModel entry) => entry.id == modelId);
+    return _settings.modelConfigs[modelId] ?? model.config;
+  }
+
   InputAsset? get selectedImage => _selectedImage;
   AnalysisResult? get lastResult => _lastResult;
   BenchmarkDataset? get benchmarkDataset => _benchmarkDataset;

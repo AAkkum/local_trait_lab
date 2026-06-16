@@ -1,5 +1,5 @@
-import '../../core/utils/math_utils.dart';
 import '../../analysis/task_spec.dart';
+import '../../core/utils/math_utils.dart';
 import 'emotieff_runtime.dart';
 
 class EmotiEffMockRuntime implements EmotiEffRuntime {
@@ -16,9 +16,7 @@ class EmotiEffMockRuntime implements EmotiEffRuntime {
   ];
 
   @override
-  Future<EmotiEffRuntimeOutput> classifyEmotion({
-    required InputAsset asset,
-  }) async {
+  Future<EmotiEffRuntimeOutput> classifyEmotion({required InputAsset asset}) async {
     final int hash = stableStringHash(asset.displayName);
     final int predictedIndex = hash % _backendLabels.length;
     final Map<String, double> logits = <String, double>{};
@@ -33,4 +31,7 @@ class EmotiEffMockRuntime implements EmotiEffRuntime {
       debug: <String, Object?>{'backend_labels': _backendLabels},
     );
   }
+
+  @override
+  Future<void> close() async {}
 }

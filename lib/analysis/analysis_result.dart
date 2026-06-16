@@ -19,6 +19,7 @@ class Prediction {
 enum AnalysisFailureType {
   modelNotLoaded,
   unsupportedTask,
+  invalidInput,
   unsupportedLabelOutput,
   invalidStructuredOutput,
   invalidDataset,

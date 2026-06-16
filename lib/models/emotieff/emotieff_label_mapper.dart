@@ -1,9 +1,17 @@
 const Map<String, String> kEmotiEffBackendToStandard = <String, String>{
   'anger': 'angry',
+  'Anger': 'angry',
   'disgust': 'disgust',
+  'Disgust': 'disgust',
   'fear': 'fear',
+  'Fear': 'fear',
   'joy': 'happy',
+  'happiness': 'happy',
+  'Happiness': 'happy',
   'neutral': 'neutral',
+  'Neutral': 'neutral',
   'sadness': 'sad',
+  'Sadness': 'sad',
   'surprise': 'surprise',
+  'Surprise': 'surprise',
 };

@@ -7,6 +7,7 @@ import '../../analysis/task_spec.dart';
 import '../../core/utils/math_utils.dart';
 import 'emotieff_label_mapper.dart';
 import 'emotieff_mock_runtime.dart';
+import 'emotieff_onnx_runtime.dart';
 import 'emotieff_runtime.dart';
 
 class EmotiEffEmotionModel implements AnalysisModel {
@@ -39,8 +40,11 @@ class EmotiEffEmotionModel implements AnalysisModel {
       case 'mock':
         _runtime = const EmotiEffMockRuntime();
       case 'onnx':
+        _runtime = EmotiEffOnnxRuntime(
+          modelPath: (config.assetConfig['asset_path'] as String?) ?? '',
+          variantId: config.variantId,
+        );
       case 'android_native':
-        // TODO(atabey): Connect real EmotiEff/HSEmotion runtime here via ONNX or platform channel.
         _runtime = null;
       default:
         _runtime = null;
@@ -121,6 +125,7 @@ class EmotiEffEmotionModel implements AnalysisModel {
 
   @override
   Future<void> unload() async {
+    await _runtime?.close();
     _runtime = null;
     _config = null;
     _isLoaded = false;

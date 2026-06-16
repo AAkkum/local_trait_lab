@@ -18,4 +18,6 @@ abstract class EmotiEffRuntime {
   Future<EmotiEffRuntimeOutput> classifyEmotion({
     required InputAsset asset,
   });
+
+  Future<void> close() async {}
 }
