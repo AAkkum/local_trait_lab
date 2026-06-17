@@ -39,7 +39,7 @@ class BenchmarkSetupScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             children: <Widget>[
               Text(
-                'Import a labeled emotion dataset and run the selected local model on the same analysis path used by the single-image workflow.',
+                'Import a labeled emotion dataset and evaluate the selected model.',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 12),

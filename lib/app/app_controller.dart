@@ -108,18 +108,26 @@ class AppController extends ChangeNotifier {
 
     final RegisteredModel modelDescriptor = selectedModel;
     final AnalysisModel model = modelDescriptor.factory();
-    final ModelConfig config = _settings.modelConfigs[modelDescriptor.id] ?? modelDescriptor.config;
-    await model.load(config);
-    _lastResult = await model.analyze(
-      AnalysisRequest(
-        taskId: TaskCatalog.emotionClassification.id,
-        inputs: <InputAsset>[_selectedImage!],
-        taskSpec: TaskCatalog.emotionClassification,
-      ),
-    );
-    await model.unload();
-    _isBusy = false;
-    notifyListeners();
+    try {
+      final ModelConfig config = _settings.modelConfigs[modelDescriptor.id] ?? modelDescriptor.config;
+      await model.load(config);
+      _lastResult = await model.analyze(
+        AnalysisRequest(
+          taskId: TaskCatalog.emotionClassification.id,
+          inputs: <InputAsset>[_selectedImage!],
+          taskSpec: TaskCatalog.emotionClassification,
+        ),
+      );
+    } catch (error, stackTrace) {
+      debugPrint('Single-image analysis failed: $error');
+      debugPrint('$stackTrace');
+      _lastResult = null;
+      _errorMessage = error.toString();
+    } finally {
+      await model.unload();
+      _isBusy = false;
+      notifyListeners();
+    }
   }
 
   Future<void> importBenchmarkZip(String path) async {
@@ -160,21 +168,28 @@ class AppController extends ChangeNotifier {
 
     final RegisteredModel modelDescriptor = selectedModel;
     final AnalysisModel model = modelDescriptor.factory();
-    final ModelConfig config = _settings.modelConfigs[modelDescriptor.id] ?? modelDescriptor.config;
-    await model.load(config);
-    _benchmarkResult = await _benchmarkRunner.run(
-      dataset: dataset,
-      model: model,
-      taskSpec: TaskCatalog.emotionClassification,
-      onProgress: (BenchmarkProgress progress) {
-        _benchmarkProgress = progress;
-        notifyListeners();
-      },
-      shouldCancel: () => _benchmarkCancelled,
-    );
-    await model.unload();
-    _isBusy = false;
-    notifyListeners();
+    try {
+      final ModelConfig config = _settings.modelConfigs[modelDescriptor.id] ?? modelDescriptor.config;
+      await model.load(config);
+      _benchmarkResult = await _benchmarkRunner.run(
+        dataset: dataset,
+        model: model,
+        taskSpec: TaskCatalog.emotionClassification,
+        onProgress: (BenchmarkProgress progress) {
+          _benchmarkProgress = progress;
+          notifyListeners();
+        },
+        shouldCancel: () => _benchmarkCancelled,
+      );
+    } catch (error, stackTrace) {
+      debugPrint('Benchmark failed: $error');
+      debugPrint('$stackTrace');
+      _errorMessage = error.toString();
+    } finally {
+      await model.unload();
+      _isBusy = false;
+      notifyListeners();
+    }
   }
 
   void cancelBenchmark() {

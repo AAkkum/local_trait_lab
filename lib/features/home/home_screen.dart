@@ -31,10 +31,10 @@ class HomeScreen extends StatelessWidget {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: <Widget>[
-              Text('Choose an analysis', style: Theme.of(context).textTheme.headlineSmall),
+              Text('Analysis workflows', style: Theme.of(context).textTheme.headlineSmall),
               const SizedBox(height: 8),
               Text(
-                'Start with the trait you want to infer. Model details stay inside each workflow so the home screen does not become a wall of variants.',
+                'Run single-image inference or evaluate a model on a labeled dataset.',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 16),
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                 child: ListTile(
                   leading: const Icon(Icons.mood),
                   title: const Text('Emotion analysis'),
-                  subtitle: Text('Single image inference · current model family: ${controller.selectedModel.displayName}'),
+                  subtitle: Text('Single image inference · model family: ${controller.selectedModel.displayName}'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute<void>(builder: (_) => SingleImageScreen(controller: controller)),
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                 child: ListTile(
                   leading: const Icon(Icons.analytics),
                   title: const Text('Dataset benchmark'),
-                  subtitle: const Text('Evaluate a selected model on labeled emotion datasets'),
+                  subtitle: const Text('Evaluate model predictions on labeled images'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute<void>(builder: (_) => BenchmarkSetupScreen(controller: controller)),
@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                 child: ListTile(
                   leading: const Icon(Icons.tune),
                   title: const Text('Advanced settings'),
-                  subtitle: const Text('Local runtime and model file configuration'),
+                  subtitle: const Text('Model variants and local runtime configuration'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute<void>(builder: (_) => SettingsScreen(controller: controller)),

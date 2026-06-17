@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
 
 import '../../analysis/analysis_registry.dart';
 import '../../analysis/model_config.dart';
@@ -21,7 +25,7 @@ class SettingsScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             children: <Widget>[
               Text(
-                'These settings configure local model execution only. They are not the future study server. For EmotiEff, choose one model variant and one local runtime.',
+                'Configure model variants, local runtimes, and imported model files.',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 12),
@@ -87,7 +91,7 @@ class _ModelSettingsCard extends StatelessWidget {
               initialValue: config.runtimeBackend,
               decoration: const InputDecoration(
                 labelText: 'Local runtime',
-                helperText: 'mock for UI tests; ONNX Runtime for the first real EmotiEff implementation',
+                helperText: 'Select the local execution runtime for this model.',
               ),
               items: <DropdownMenuItem<String>>[
                 for (final runtime in model.runtimeOptions)
@@ -105,10 +109,10 @@ class _ModelSettingsCard extends StatelessWidget {
             TextFormField(
               initialValue: (config.assetConfig['asset_path'] as String?) ?? '',
               decoration: InputDecoration(
-                labelText: 'Model file path',
+                labelText: 'Imported model path',
                 helperText: selectedVariant.expectedFileName == null
-                    ? 'Future path to a downloaded model file or folder on the device'
-                    : 'Path to ${selectedVariant.expectedFileName} on the device',
+                    ? 'Path to the app-private imported model file'
+                    : 'Import ${selectedVariant.expectedFileName}; the app stores a private copy for ONNX Runtime',
               ),
               onChanged: (String path) {
                 controller.updateModelConfig(
@@ -120,23 +124,48 @@ class _ModelSettingsCard extends StatelessWidget {
             const SizedBox(height: 8),
             OutlinedButton.icon(
               onPressed: () async {
-                final FilePickerResult? result = await FilePicker.pickFiles(
-                  type: FileType.custom,
-                  allowedExtensions: <String>['onnx'],
+                final FilePickerResult? result = await FilePicker.pickFiles(type: FileType.any);
+                final PlatformFile? picked = result?.files.single;
+                if (picked == null) return;
+                final String path = await _importModelFile(
+                  preferredFileName: selectedVariant.expectedFileName ?? picked.name,
+                  sourcePath: picked.path,
+                  sourceBytes: picked.bytes,
                 );
-                final String? path = result?.files.single.path;
-                if (path == null) return;
                 await controller.updateModelConfig(
                   model.id,
                   config.copyWith(assetConfig: <String, Object?>{...config.assetConfig, 'asset_path': path}),
                 );
               },
               icon: const Icon(Icons.file_open),
-              label: const Text('Pick ONNX file'),
+              label: const Text('Import ONNX file'),
             ),
           ],
         ),
       ),
     );
+  }
+
+  Future<String> _importModelFile({
+    required String preferredFileName,
+    String? sourcePath,
+    List<int>? sourceBytes,
+  }) async {
+    final List<int> bytes;
+    if (sourceBytes != null && sourceBytes.isNotEmpty) {
+      bytes = sourceBytes;
+    } else if (sourcePath != null) {
+      bytes = await File(sourcePath).readAsBytes();
+    } else {
+      throw const FileSystemException('No ONNX model source selected.');
+    }
+
+    final Directory documents = await getApplicationDocumentsDirectory();
+    final Directory modelsDir = Directory(p.join(documents.path, 'models'));
+    await modelsDir.create(recursive: true);
+    final String safeName = preferredFileName.replaceAll(RegExp(r'[^A-Za-z0-9_.-]'), '_');
+    final File target = File(p.join(modelsDir.path, safeName));
+    await target.writeAsBytes(bytes, flush: true);
+    return target.path;
   }
 }

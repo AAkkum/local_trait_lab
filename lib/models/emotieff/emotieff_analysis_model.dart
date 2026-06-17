@@ -44,8 +44,6 @@ class EmotiEffEmotionModel implements AnalysisModel {
           modelPath: (config.assetConfig['asset_path'] as String?) ?? '',
           variantId: config.variantId,
         );
-      case 'android_native':
-        _runtime = null;
       default:
         _runtime = null;
     }
@@ -120,6 +118,14 @@ class EmotiEffEmotionModel implements AnalysisModel {
       );
     } on AnalysisFailure catch (failure) {
       return _failureResult(request: request, failure: failure);
+    } catch (error) {
+      return _failureResult(
+        request: request,
+        failure: AnalysisFailure(
+          type: AnalysisFailureType.unknown,
+          message: error.toString(),
+        ),
+      );
     }
   }
 
