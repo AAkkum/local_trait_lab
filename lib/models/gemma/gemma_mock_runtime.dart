@@ -7,6 +7,12 @@ class GemmaMockRuntime implements GemmaRuntime {
   const GemmaMockRuntime();
 
   @override
+  Future<void> load() async {}
+
+  @override
+  Future<void> close() async {}
+
+  @override
   Future<GemmaRuntimeOutput> runTask({
     required AnalysisTaskSpec taskSpec,
     required InputAsset asset,
@@ -16,7 +22,8 @@ class GemmaMockRuntime implements GemmaRuntime {
     final int predictedIndex = hash % kEmotionLabels.length;
     final Map<String, double> scores = <String, double>{};
     for (int i = 0; i < kEmotionLabels.length; i++) {
-      scores[kEmotionLabels[i]] = i == predictedIndex ? 3.0 : ((hash + i) % 10) / 20.0;
+      scores[kEmotionLabels[i]] =
+          i == predictedIndex ? 3.0 : ((hash + i) % 10) / 20.0;
     }
 
     final Map<String, double> normalized = softmaxScores(scores);
@@ -40,7 +47,9 @@ class GemmaMockRuntime implements GemmaRuntime {
       rawText: json,
       latencyMs: 120 + (hash % 80),
       runtimeBackend: 'mock',
-      debug: <String, Object?>{'prompt_preview': prompt.substring(0, prompt.length.clamp(0, 160))},
+      debug: <String, Object?>{
+        'prompt_preview': prompt.substring(0, prompt.length.clamp(0, 160))
+      },
     );
   }
 }

@@ -23,21 +23,24 @@ class ZipDatasetSource implements DatasetSource {
     final List<int> bytes = await zipFile.readAsBytes();
     final Archive archive = ZipDecoder().decodeBytes(bytes);
     final Map<String, ArchiveFile> files = <String, ArchiveFile>{
-      for (final ArchiveFile file in archive) file.name: file,
+      for (final ArchiveFile file in archive)
+        if (!file.isFile) file.name: file,
+      for (final ArchiveFile file in archive)
+        if (file.isFile) file.name: file,
     };
 
-    final ArchiveFile? labelsFile = files['labels.csv'] ?? files['dataset/labels.csv'];
-    if (labelsFile == null) {
-      throw const AnalysisFailure(
-        type: AnalysisFailureType.invalidDataset,
-        message: 'labels.csv missing from zip dataset.',
-      );
-    }
-
+    final ArchiveFile labelsFile = _findLabelsFile(files);
+    final String labelsDir = p.posix.dirname(labelsFile.name) == '.'
+        ? ''
+        : p.posix.dirname(labelsFile.name);
     final String csv = utf8.decode(labelsFile.content as List<int>);
     final List<LabeledExample> examples = <LabeledExample>[];
     for (final _CsvRow row in _parseLabels(csv)) {
-      final ArchiveFile? image = files[row.file] ?? files['dataset/${row.file}'];
+      final String relativeToLabels =
+          labelsDir.isEmpty ? row.file : p.posix.join(labelsDir, row.file);
+      final ArchiveFile? image = files[row.file] ??
+          files[relativeToLabels] ??
+          files['dataset/${row.file}'];
       if (image == null) {
         throw AnalysisFailure(
           type: AnalysisFailureType.invalidDataset,
@@ -50,7 +53,7 @@ class ZipDatasetSource implements DatasetSource {
           groundTruthLabel: row.label,
           image: InputAsset(
             type: InputAssetType.image,
-            uri: 'zip://${zipFile.path}/${row.file}',
+            uri: 'zip://${zipFile.path}/${image.name}',
             displayName: p.basename(row.file),
             mimeType: _guessMimeType(row.file),
             sizeBytes: image.size,
@@ -64,6 +67,26 @@ class ZipDatasetSource implements DatasetSource {
       name: p.basename(zipFile.path),
       examples: examples,
       sourceType: 'zip',
+    );
+  }
+
+  ArchiveFile _findLabelsFile(Map<String, ArchiveFile> files) {
+    final ArchiveFile? root = files['labels.csv'];
+    if (root != null) return root;
+    final ArchiveFile? dataset = files['dataset/labels.csv'];
+    if (dataset != null) return dataset;
+
+    final List<ArchiveFile> candidates = files.values
+        .where((ArchiveFile file) =>
+            file.isFile && p.posix.basename(file.name) == 'labels.csv')
+        .toList()
+      ..sort((ArchiveFile a, ArchiveFile b) =>
+          a.name.length.compareTo(b.name.length));
+    if (candidates.isNotEmpty) return candidates.first;
+
+    throw const AnalysisFailure(
+      type: AnalysisFailureType.invalidDataset,
+      message: 'labels.csv missing from zip dataset.',
     );
   }
 }
@@ -90,7 +113,8 @@ class TreeUriDatasetSource implements DatasetSource {
       if (!await imageFile.exists()) {
         throw AnalysisFailure(
           type: AnalysisFailureType.invalidDataset,
-          message: 'Image ${row.file} listed in labels.csv not found in directory.',
+          message:
+              'Image ${row.file} listed in labels.csv not found in directory.',
         );
       }
       final List<int> bytes = await imageFile.readAsBytes();
@@ -125,7 +149,10 @@ class _CsvRow {
 }
 
 List<_CsvRow> _parseLabels(String csv) {
-  final List<String> lines = const LineSplitter().convert(csv).where((String line) => line.trim().isNotEmpty).toList();
+  final List<String> lines = const LineSplitter()
+      .convert(csv)
+      .where((String line) => line.trim().isNotEmpty)
+      .toList();
   if (lines.isEmpty) {
     throw const AnalysisFailure(
       type: AnalysisFailureType.invalidDataset,
@@ -141,25 +168,28 @@ List<_CsvRow> _parseLabels(String csv) {
     );
   }
 
-  return lines.skip(1).map((_CsvRow Function(String) build) {
-    return build;
-  }((String line) {
-    final List<String> parts = line.split(',');
-    if (parts.length != 2) {
-      throw AnalysisFailure(
-        type: AnalysisFailureType.invalidDataset,
-        message: 'Invalid labels.csv row: $line',
-      );
-    }
-    final String label = parts[1].trim();
-    if (!isSupportedEmotionLabel(label)) {
-      throw AnalysisFailure(
-        type: AnalysisFailureType.invalidDataset,
-        message: 'Unsupported ground-truth label: $label',
-      );
-    }
-    return _CsvRow(parts[0].trim(), label);
-  })).toList();
+  return lines
+      .skip(1)
+      .map((_CsvRow Function(String) build) {
+        return build;
+      }((String line) {
+        final List<String> parts = line.split(',');
+        if (parts.length != 2) {
+          throw AnalysisFailure(
+            type: AnalysisFailureType.invalidDataset,
+            message: 'Invalid labels.csv row: $line',
+          );
+        }
+        final String label = parts[1].trim();
+        if (!isSupportedEmotionLabel(label)) {
+          throw AnalysisFailure(
+            type: AnalysisFailureType.invalidDataset,
+            message: 'Unsupported ground-truth label: $label',
+          );
+        }
+        return _CsvRow(parts[0].trim(), label);
+      }))
+      .toList();
 }
 
 String _guessMimeType(String filePath) {

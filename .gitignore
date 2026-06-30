@@ -4,3 +4,16 @@
 .packages
 build/
 pubspec.lock
+
+# Large local benchmark datasets
+tools/affectnet/
+
+# Generated local benchmark subsets
+tools/affectnet7_*/
+
+# Local model artifacts
+ResEmoteNet/*.pth
+ResEmoteNet/onnx/
+ResEmoteNet/.venv/
+tools/affectnet7_*.zip
+**/__pycache__/

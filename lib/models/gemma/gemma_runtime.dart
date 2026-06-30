@@ -15,9 +15,13 @@ class GemmaRuntimeOutput {
 }
 
 abstract class GemmaRuntime {
+  Future<void> load() async {}
+
   Future<GemmaRuntimeOutput> runTask({
     required AnalysisTaskSpec taskSpec,
     required InputAsset asset,
     required String prompt,
   });
+
+  Future<void> close() async {}
 }

@@ -20,13 +20,6 @@ class BenchmarkSetupScreen extends StatelessWidget {
     }
   }
 
-  Future<void> _pickDirectory() async {
-    final String? directory = await FilePicker.getDirectoryPath();
-    if (directory != null) {
-      await controller.importBenchmarkDirectory(directory);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +43,6 @@ class BenchmarkSetupScreen extends StatelessWidget {
                 icon: const Icon(Icons.archive),
                 label: const Text('Import dataset ZIP'),
               ),
-              const SizedBox(height: 8),
-              OutlinedButton.icon(
-                onPressed: _pickDirectory,
-                icon: const Icon(Icons.folder_open),
-                label: const Text('Import dataset folder'),
-              ),
               const SizedBox(height: 16),
               if (dataset != null) ...<Widget>[
                 Text('Dataset: ${dataset.name}'),
@@ -68,7 +55,9 @@ class BenchmarkSetupScreen extends StatelessWidget {
                     ? null
                     : () {
                         Navigator.of(context).push(
-                          MaterialPageRoute<void>(builder: (_) => BenchmarkProgressScreen(controller: controller)),
+                          MaterialPageRoute<void>(
+                              builder: (_) => BenchmarkProgressScreen(
+                                  controller: controller)),
                         );
                       },
                 icon: const Icon(Icons.play_circle_outline),
@@ -76,7 +65,8 @@ class BenchmarkSetupScreen extends StatelessWidget {
               ),
               if (controller.errorMessage != null) ...<Widget>[
                 const SizedBox(height: 12),
-                Text(controller.errorMessage!, style: const TextStyle(color: Colors.red)),
+                Text(controller.errorMessage!,
+                    style: const TextStyle(color: Colors.red)),
               ],
             ],
           );

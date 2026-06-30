@@ -1,0 +1,13 @@
+{
+  "id": "emotion_classification",
+  "display_name": "Emotion Classification",
+  "system_instructions": "Return JSON only.",
+  "user_template": "Classify the main facial emotion. Allowed labels: angry, disgust, fear, happy, neutral, sad, surprise. Return exactly: {\"label\":\"one_label\"}",
+  "output_schema": {
+    "type": "object",
+    "required": ["label"],
+    "allowed_labels": ["angry", "disgust", "fear", "happy", "neutral", "sad", "surprise"],
+    "requires_score_vector": false,
+    "strict_json": true
+  }
+}

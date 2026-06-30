@@ -16,6 +16,7 @@ dependencies:
   image: ^4.5.4
   flutter_onnxruntime: ^1.8.0
   google_mlkit_face_detection: ^0.13.2
+  share_plus: ^11.0.0
 
 dev_dependencies:
   flutter_test:
@@ -24,3 +25,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/gemma_tasks/

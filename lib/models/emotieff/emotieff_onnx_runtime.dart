@@ -45,25 +45,43 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
     'Surprise',
   ];
 
+  static const List<String> _resEmoteNetLabels = <String>[
+    'Happiness',
+    'Surprise',
+    'Sadness',
+    'Anger',
+    'Disgust',
+    'Fear',
+    'Neutral',
+  ];
+
   @override
-  Future<EmotiEffRuntimeOutput> classifyEmotion({required InputAsset asset}) async {
+  Future<EmotiEffRuntimeOutput> classifyEmotion(
+      {required InputAsset asset}) async {
     final Stopwatch stopwatch = Stopwatch()..start();
-    debugPrint('[EmotiEff ONNX] classify start asset=${asset.displayName} variant=$variantId path=$modelPath');
+    debugPrint(
+        '[EmotiEff ONNX] classify start asset=${asset.displayName} variant=$variantId path=$modelPath');
     final OrtSession session = await _loadSession();
-    debugPrint('[EmotiEff ONNX] session loaded inputs=${session.inputNames} outputs=${session.outputNames}');
+    debugPrint(
+        '[EmotiEff ONNX] session loaded inputs=${session.inputNames} outputs=${session.outputNames}');
     final List<String> labels = _labelsForVariant();
     final int inputSize = _inputSizeForVariant();
     final _PreparedImage prepared = await _preprocessImage(asset, inputSize);
-    debugPrint('[EmotiEff ONNX] preprocessing done faceDetected=${prepared.faceDetected} faceCount=${prepared.faceCount} crop=${prepared.cropRectangle}');
-    final String inputName = session.inputNames.isNotEmpty ? session.inputNames.first : 'input';
-    final String outputName = session.outputNames.isNotEmpty ? session.outputNames.first : 'output';
+    debugPrint(
+        '[EmotiEff ONNX] preprocessing done faceDetected=${prepared.faceDetected} faceCount=${prepared.faceCount} crop=${prepared.cropRectangle}');
+    final String inputName =
+        session.inputNames.isNotEmpty ? session.inputNames.first : 'input';
+    final String outputName =
+        session.outputNames.isNotEmpty ? session.outputNames.first : 'output';
 
     debugPrint('[EmotiEff ONNX] creating input tensor');
-    final OrtValue inputTensor = await OrtValue.fromList(prepared.tensor, <int>[1, 3, inputSize, inputSize]);
+    final OrtValue inputTensor = await OrtValue.fromList(
+        prepared.tensor, <int>[1, 3, inputSize, inputSize]);
     final Map<String, OrtValue> outputs;
     try {
       debugPrint('[EmotiEff ONNX] running session');
-      outputs = await session.run(<String, OrtValue>{inputName: inputTensor}).timeout(
+      outputs =
+          await session.run(<String, OrtValue>{inputName: inputTensor}).timeout(
         const Duration(seconds: 20),
         onTimeout: () {
           throw const AnalysisFailure(
@@ -72,12 +90,14 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
           );
         },
       );
-      debugPrint('[EmotiEff ONNX] session returned outputs=${outputs.keys.toList()}');
+      debugPrint(
+          '[EmotiEff ONNX] session returned outputs=${outputs.keys.toList()}');
     } finally {
       await inputTensor.dispose();
     }
 
-    final OrtValue? outputTensor = outputs[outputName] ?? (outputs.isNotEmpty ? outputs.values.first : null);
+    final OrtValue? outputTensor = outputs[outputName] ??
+        (outputs.isNotEmpty ? outputs.values.first : null);
     if (outputTensor == null) {
       throw const AnalysisFailure(
         type: AnalysisFailureType.invalidStructuredOutput,
@@ -85,7 +105,8 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
       );
     }
 
-    final List<dynamic> flattened = await outputTensor.asFlattenedList().timeout(
+    final List<dynamic> flattened =
+        await outputTensor.asFlattenedList().timeout(
       const Duration(seconds: 10),
       onTimeout: () {
         throw const AnalysisFailure(
@@ -99,12 +120,14 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
     }
     stopwatch.stop();
 
-    final List<double> scores = flattened.map((dynamic value) => (value as num).toDouble()).toList();
+    final List<double> scores =
+        flattened.map((dynamic value) => (value as num).toDouble()).toList();
     final List<double> emotionScores = _emotionPart(scores, labels.length);
     if (emotionScores.length < labels.length) {
       throw AnalysisFailure(
         type: AnalysisFailureType.invalidStructuredOutput,
-        message: 'ONNX output has ${emotionScores.length} scores, expected at least ${labels.length}.',
+        message:
+            'ONNX output has ${emotionScores.length} scores, expected at least ${labels.length}.',
       );
     }
 
@@ -123,7 +146,7 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
         'face_detected': prepared.faceDetected,
         'face_count': prepared.faceCount,
         'crop_rectangle': prepared.cropRectangle,
-        'preprocessing': 'ML Kit largest-face crop with margin, then EmotiEff resize/normalize.',
+        'preprocessing': _preprocessingDescription(),
       },
     );
   }
@@ -140,21 +163,24 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
     if (modelPath.trim().isEmpty) {
       throw const AnalysisFailure(
         type: AnalysisFailureType.runtimeUnavailable,
-        message: 'No EmotiEff ONNX model file path configured. Select an .onnx file in Advanced settings.',
+        message:
+            'No EmotiEff ONNX model file path configured. Select an .onnx file in Advanced settings.',
       );
     }
     final File modelFile = File(modelPath);
     if (!await modelFile.exists()) {
       throw AnalysisFailure(
         type: AnalysisFailureType.runtimeUnavailable,
-        message: 'Configured EmotiEff ONNX model file does not exist: $modelPath',
+        message:
+            'Configured EmotiEff ONNX model file does not exist: $modelPath',
       );
     }
     final int modelSize = await modelFile.length();
     if (modelSize < 1024 * 1024) {
       throw AnalysisFailure(
         type: AnalysisFailureType.runtimeUnavailable,
-        message: 'Configured ONNX file is only $modelSize bytes. This is too small for the EmotiEff model and is probably not the real model file.',
+        message:
+            'Configured ONNX file is only $modelSize bytes. This is too small for the EmotiEff model and is probably not the real model file.',
       );
     }
 
@@ -164,10 +190,12 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
     debugPrint('[EmotiEff ONNX] creating ONNX session from $modelPath');
     final OrtSession session;
     try {
-      session = await OnnxRuntime().createSession(
+      session = await OnnxRuntime()
+          .createSession(
         modelPath,
         options: OrtSessionOptions(intraOpNumThreads: 2),
-      ).timeout(
+      )
+          .timeout(
         const Duration(seconds: 20),
         onTimeout: () {
           throw const AnalysisFailure(
@@ -181,8 +209,12 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
     } on PlatformException catch (error) {
       throw AnalysisFailure(
         type: AnalysisFailureType.runtimeUnavailable,
-        message: 'ONNX Runtime could not load the imported model file. Re-import a valid .onnx file in Advanced settings. Details: ${error.code}',
-        details: <String, Object?>{'path': modelPath, 'platform_message': error.message},
+        message:
+            'ONNX Runtime could not load the imported model file. Re-import a valid .onnx file in Advanced settings. Details: ${error.code}',
+        details: <String, Object?>{
+          'path': modelPath,
+          'platform_message': error.message
+        },
       );
     }
     debugPrint('[EmotiEff ONNX] ONNX session created');
@@ -190,7 +222,8 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
     return session;
   }
 
-  Future<_PreparedImage> _preprocessImage(InputAsset asset, int inputSize) async {
+  Future<_PreparedImage> _preprocessImage(
+      InputAsset asset, int inputSize) async {
     final List<int>? bytes = asset.bytes;
     if (bytes == null || bytes.isEmpty) {
       throw const AnalysisFailure(
@@ -206,17 +239,20 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
       );
     }
 
-    debugPrint('[EmotiEff ONNX] decoded image ${decoded.width}x${decoded.height}; detecting face');
+    debugPrint(
+        '[EmotiEff ONNX] decoded image ${decoded.width}x${decoded.height}; detecting face');
     final List<Face> faces = await _detectFaces(asset, bytes).timeout(
       const Duration(seconds: 5),
       onTimeout: () {
-        debugPrint('[EmotiEff ONNX] face detection timeout; falling back to full image');
+        debugPrint(
+            '[EmotiEff ONNX] face detection timeout; falling back to full image');
         return <Face>[];
       },
     );
     debugPrint('[EmotiEff ONNX] face detection returned ${faces.length} faces');
     final _CropResult crop = _cropLargestFace(decoded, faces);
-    final img.Image resized = img.copyResize(crop.image, width: inputSize, height: inputSize);
+    final img.Image resized =
+        img.copyResize(crop.image, width: inputSize, height: inputSize);
     final Float32List tensor = _imageToTensor(resized, inputSize);
     return _PreparedImage(
       tensor: tensor,
@@ -252,7 +288,8 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
     }
 
     final Directory directory = await getTemporaryDirectory();
-    final String safeName = asset.displayName.replaceAll(RegExp(r'[^A-Za-z0-9_.-]'), '_');
+    final String safeName =
+        asset.displayName.replaceAll(RegExp(r'[^A-Za-z0-9_.-]'), '_');
     final File file = File('${directory.path}/mlkit_$safeName');
     await file.writeAsBytes(bytes, flush: true);
     return file.path;
@@ -263,7 +300,12 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
       return _CropResult(
         image: decoded,
         faceDetected: false,
-        cropRectangle: <String, int>{'x': 0, 'y': 0, 'width': decoded.width, 'height': decoded.height},
+        cropRectangle: <String, int>{
+          'x': 0,
+          'y': 0,
+          'width': decoded.width,
+          'height': decoded.height
+        },
       );
     }
 
@@ -278,14 +320,20 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
     final int x = (box.left - marginX).floor().clamp(0, decoded.width - 1);
     final int y = (box.top - marginY).floor().clamp(0, decoded.height - 1);
     final int right = (box.right + marginX).ceil().clamp(x + 1, decoded.width);
-    final int bottom = (box.bottom + marginY).ceil().clamp(y + 1, decoded.height);
+    final int bottom =
+        (box.bottom + marginY).ceil().clamp(y + 1, decoded.height);
     final int width = right - x;
     final int height = bottom - y;
 
     return _CropResult(
       image: img.copyCrop(decoded, x: x, y: y, width: width, height: height),
       faceDetected: true,
-      cropRectangle: <String, int>{'x': x, 'y': y, 'width': width, 'height': height},
+      cropRectangle: <String, int>{
+        'x': x,
+        'y': y,
+        'width': width,
+        'height': height
+      },
     );
   }
 
@@ -307,17 +355,42 @@ class EmotiEffOnnxRuntime implements EmotiEffRuntime {
     return tensor;
   }
 
-  List<String> _labelsForVariant() => variantId.contains('_7') ? _labels7 : _labels8;
+  List<String> _labelsForVariant() {
+    if (variantId.startsWith('resemotenet_')) return _resEmoteNetLabels;
+    return variantId.contains('_7') ? _labels7 : _labels8;
+  }
 
   int _inputSizeForVariant() {
+    if (variantId == 'resemotenet_bs32') return 64;
+    if (variantId.startsWith('resemotenet_')) return 224;
     if (variantId.startsWith('mbf_')) return 112;
     if (variantId.contains('_b2_')) return 260;
     return 224;
   }
 
-  List<double> _meanForVariant() => variantId.startsWith('mbf_') ? const <double>[0.5, 0.5, 0.5] : const <double>[0.485, 0.456, 0.406];
+  List<double> _meanForVariant() {
+    if (variantId.startsWith('mbf_')) {
+      return const <double>[0.5, 0.5, 0.5];
+    }
+    return const <double>[0.485, 0.456, 0.406];
+  }
 
-  List<double> _stdForVariant() => variantId.startsWith('mbf_') ? const <double>[0.5, 0.5, 0.5] : const <double>[0.229, 0.224, 0.225];
+  List<double> _stdForVariant() {
+    if (variantId.startsWith('mbf_')) {
+      return const <double>[0.5, 0.5, 0.5];
+    }
+    return const <double>[0.229, 0.224, 0.225];
+  }
+
+  String _preprocessingDescription() {
+    if (variantId == 'resemotenet_bs32') {
+      return 'ML Kit largest-face crop with margin, then ResEmoteNet reproduction 64x64 RGB ImageNet normalization.';
+    }
+    if (variantId.startsWith('resemotenet_')) {
+      return 'ML Kit largest-face crop with margin, then ResEmoteNet Kaggle 224x224 RGB ImageNet normalization.';
+    }
+    return 'ML Kit largest-face crop with margin, then EmotiEff resize/normalize.';
+  }
 
   List<double> _emotionPart(List<double> scores, int labelCount) {
     if (variantId.contains('_mtl') && scores.length >= labelCount + 2) {

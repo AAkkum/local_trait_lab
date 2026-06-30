@@ -38,10 +38,10 @@ class GemmaOutputParser {
 
     final Object? labelValue = decoded['label'];
     final Object? scoresValue = decoded['scores'];
-    if (labelValue is! String || scoresValue is! Map<String, dynamic>) {
+    if (labelValue is! String) {
       throw const AnalysisFailure(
         type: AnalysisFailureType.invalidStructuredOutput,
-        message: 'Gemma output is missing label or scores.',
+        message: 'Gemma output is missing label.',
       );
     }
 
@@ -53,15 +53,21 @@ class GemmaOutputParser {
     }
 
     final Map<String, double> rawScores = <String, double>{};
-    for (final String label in kEmotionLabels) {
-      final Object? value = scoresValue[label];
-      if (value is num) {
-        rawScores[label] = value.toDouble();
-      } else {
-        throw AnalysisFailure(
-          type: AnalysisFailureType.invalidStructuredOutput,
-          message: 'Missing score for $label',
-        );
+    if (scoresValue is Map<String, dynamic>) {
+      for (final String label in kEmotionLabels) {
+        final Object? value = scoresValue[label];
+        if (value is num) {
+          rawScores[label] = value.toDouble();
+        } else {
+          throw AnalysisFailure(
+            type: AnalysisFailureType.invalidStructuredOutput,
+            message: 'Missing score for $label',
+          );
+        }
+      }
+    } else {
+      for (final String label in kEmotionLabels) {
+        rawScores[label] = label == labelValue ? 1.0 : 0.0;
       }
     }
 

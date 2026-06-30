@@ -30,6 +30,12 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- Optional GPU/OpenCL libraries used by LiteRT-LM on Android 12+.
+             Declaring them lets the runtime load vendor GPU drivers when available. -->
+        <uses-native-library android:name="libvndksupport.so" android:required="false" />
+        <uses-native-library android:name="libOpenCL.so" android:required="false" />
+        <uses-native-library android:name="libOpenCL-car.so" android:required="false" />
+        <uses-native-library android:name="libOpenCL-pixel.so" android:required="false" />
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

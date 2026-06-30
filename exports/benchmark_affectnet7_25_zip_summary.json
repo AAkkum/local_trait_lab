@@ -1,0 +1,3448 @@
+{
+  "dataset": {
+    "name": "affectnet7_25.zip"
+  },
+  "model": {
+    "model_id": "gemma_e2b",
+    "display_name": "gemma_e2b",
+    "family": "gemma"
+  },
+  "metrics": {
+    "accuracy": 0.428571,
+    "macro_f1": 0.351813,
+    "average_latency_ms": 6931.08,
+    "median_latency_ms": 6422.0,
+    "evaluated_examples": 175,
+    "failed_examples": 0,
+    "confusion_matrix": {
+      "angry": {
+        "angry": 13,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 1,
+        "neutral": 9,
+        "sad": 0,
+        "surprise": 2
+      },
+      "disgust": {
+        "angry": 9,
+        "disgust": 1,
+        "fear": 0,
+        "happy": 3,
+        "neutral": 10,
+        "sad": 0,
+        "surprise": 2
+      },
+      "fear": {
+        "angry": 0,
+        "disgust": 1,
+        "fear": 0,
+        "happy": 1,
+        "neutral": 8,
+        "sad": 0,
+        "surprise": 15
+      },
+      "happy": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 21,
+        "neutral": 4,
+        "sad": 0,
+        "surprise": 0
+      },
+      "neutral": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 0,
+        "neutral": 24,
+        "sad": 1,
+        "surprise": 0
+      },
+      "sad": {
+        "angry": 2,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 3,
+        "neutral": 16,
+        "sad": 3,
+        "surprise": 1
+      },
+      "surprise": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 2,
+        "neutral": 10,
+        "sad": 0,
+        "surprise": 13
+      }
+    },
+    "per_class": {
+      "angry": {
+        "precision": 0.541667,
+        "recall": 0.52,
+        "f1": 0.530612
+      },
+      "disgust": {
+        "precision": 0.5,
+        "recall": 0.04,
+        "f1": 0.074074
+      },
+      "fear": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "happy": {
+        "precision": 0.677419,
+        "recall": 0.84,
+        "f1": 0.75
+      },
+      "neutral": {
+        "precision": 0.296296,
+        "recall": 0.96,
+        "f1": 0.45283
+      },
+      "sad": {
+        "precision": 0.75,
+        "recall": 0.12,
+        "f1": 0.206897
+      },
+      "surprise": {
+        "precision": 0.393939,
+        "recall": 0.52,
+        "f1": 0.448276
+      }
+    }
+  },
+  "predictions": [
+    {
+      "file": "images/angry_00001.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 4343,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00002.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 4791,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00003.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 4055,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00004.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 4592,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/angry_00005.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 4680,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00006.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5284,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00007.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 5077,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/angry_00008.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5677,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00009.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5973,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00010.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5640,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00011.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 6286,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00012.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 7165,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00013.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 8927,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00014.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 9120,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00015.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 9904,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00016.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 12322,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00017.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 9717,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00018.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 7904,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00019.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 7015,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00020.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 7685,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00021.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5559,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00022.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5262,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00023.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5126,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00024.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 6085,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/angry_00025.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6755,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00001.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5184,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00002.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 1.0,
+      "latency_ms": 5276,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 1.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00003.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 4916,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00004.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 5356,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/disgust_00005.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 6986,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00006.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 6656,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00007.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5010,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00008.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 5098,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00009.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5098,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00010.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5159,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00011.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5540,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00012.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5792,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00013.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 7739,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00014.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5571,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00015.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 9225,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00016.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 5863,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/disgust_00017.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 7409,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00018.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 7382,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00019.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5591,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00020.png",
+      "ground_truth": "disgust",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 5595,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00021.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5085,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00022.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 8553,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00023.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6591,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00024.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 7456,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/disgust_00025.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6654,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00001.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 5645,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00002.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 5615,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00003.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6008,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00004.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 7124,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00005.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6365,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00006.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 5761,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00007.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 7655,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00008.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 7067,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00009.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6177,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00010.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "disgust",
+      "confidence": 1.0,
+      "latency_ms": 6430,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 1.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00011.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6114,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00012.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6373,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00013.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6185,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00014.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 7088,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00015.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 8272,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00016.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6185,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00017.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6504,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00018.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6822,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00019.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 6920,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00020.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 7204,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00021.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 9381,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00022.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 7028,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00023.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 9554,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/fear_00024.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6910,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/fear_00025.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 16666,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00001.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 9729,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00002.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 9440,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00003.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 9227,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00004.png",
+      "ground_truth": "happy",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 9262,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00005.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 9029,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00006.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 6572,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00007.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 4373,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00008.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 4568,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00009.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 4615,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00010.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 5038,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00011.png",
+      "ground_truth": "happy",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 4955,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00012.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 4937,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00013.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 5122,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00014.png",
+      "ground_truth": "happy",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5346,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00015.png",
+      "ground_truth": "happy",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5647,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00016.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 6138,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00017.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 6538,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00018.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 6658,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00019.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 6700,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00020.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 6422,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00021.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 6298,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00022.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 5833,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00023.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 5926,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00024.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 5269,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/happy_00025.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 5590,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00001.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5911,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00002.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5862,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00003.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5776,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00004.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5774,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00005.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5826,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00006.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 1.0,
+      "latency_ms": 6267,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 1.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00007.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6740,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00008.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6831,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00009.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6705,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00010.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6853,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00011.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6365,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00012.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6502,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00013.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6968,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00014.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6553,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00015.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6283,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00016.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5763,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00017.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5838,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00018.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5782,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00019.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5838,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00020.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5694,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00021.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5893,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00022.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6377,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00023.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5912,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00024.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6219,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/neutral_00025.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6888,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00001.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 1.0,
+      "latency_ms": 9026,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 1.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00002.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 8236,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00003.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 9172,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00004.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 8878,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00005.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 7067,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00006.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 16757,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00007.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 15550,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00008.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 1.0,
+      "latency_ms": 14197,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 1.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00009.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 4107,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00010.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 4063,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00011.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 5650,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00012.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 4615,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00013.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 5103,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00014.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 4840,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00015.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 1.0,
+      "latency_ms": 5226,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 1.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00016.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6321,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00017.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "angry",
+      "confidence": 1.0,
+      "latency_ms": 5919,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00018.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 12762,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00019.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6408,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00020.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 7005,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00021.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 7943,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/sad_00022.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6255,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00023.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 7044,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00024.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 11687,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/sad_00025.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6023,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00001.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6376,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00002.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 8845,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00003.png",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6697,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00004.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6546,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00005.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 10080,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00006.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 7076,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00007.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 7962,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00008.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 8510,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00009.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 7282,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00010.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 9857,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00011.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 8474,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00012.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 7517,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00013.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6528,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00014.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 8255,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00015.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6470,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00016.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 6204,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00017.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 9164,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00018.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 10413,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 1.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00019.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 8386,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00020.png",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6309,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00021.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 7784,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00022.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 8760,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    },
+    {
+      "file": "images/surprise_00023.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 9396,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00024.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 1.0,
+      "latency_ms": 6632,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 0.0,
+        "sad": 0.0,
+        "surprise": 1.0
+      }
+    },
+    {
+      "file": "images/surprise_00025.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 8128,
+      "model_id": "gemma_e2b",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0,
+        "disgust": 0.0,
+        "fear": 0.0,
+        "happy": 0.0,
+        "neutral": 1.0,
+        "sad": 0.0,
+        "surprise": 0.0
+      }
+    }
+  ],
+  "timestamp": "2026-07-01T00:04:32.535752"
+}

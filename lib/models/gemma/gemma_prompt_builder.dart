@@ -7,8 +7,10 @@ class GemmaPromptBuilder {
   String buildEmotionPrompt({
     required AnalysisTaskSpec taskSpec,
     required InputAsset asset,
+    PromptTemplate? overrideTemplate,
   }) {
-    final PromptTemplate? template = taskSpec.promptTemplate;
+    final PromptTemplate? template =
+        overrideTemplate ?? taskSpec.promptTemplate;
     if (template == null) {
       throw StateError('Emotion task requires a prompt template.');
     }

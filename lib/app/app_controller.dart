@@ -23,7 +23,8 @@ class AppController extends ChangeNotifier {
     BenchmarkRunner? benchmarkRunner,
   })  : _registry = registry,
         _settingsRepository = settingsRepository,
-        _datasetImportService = datasetImportService ?? const DatasetImportService(),
+        _datasetImportService =
+            datasetImportService ?? const DatasetImportService(),
         _benchmarkRunner = benchmarkRunner ?? const BenchmarkRunner();
 
   final List<RegisteredModel> _registry;
@@ -53,10 +54,12 @@ class AppController extends ChangeNotifier {
   bool get initialized => _initialized;
   List<RegisteredModel> get models => _registry;
   String get selectedModelId => _selectedModelId ?? _registry.first.id;
-  RegisteredModel get selectedModel => _registry.firstWhere((RegisteredModel model) => model.id == selectedModelId);
+  RegisteredModel get selectedModel => _registry
+      .firstWhere((RegisteredModel model) => model.id == selectedModelId);
   AppSettings get settings => _settings;
   ModelConfig configForModel(String modelId) {
-    final RegisteredModel model = _registry.firstWhere((RegisteredModel entry) => entry.id == modelId);
+    final RegisteredModel model =
+        _registry.firstWhere((RegisteredModel entry) => entry.id == modelId);
     return _settings.modelConfigs[modelId] ?? model.config;
   }
 
@@ -109,7 +112,8 @@ class AppController extends ChangeNotifier {
     final RegisteredModel modelDescriptor = selectedModel;
     final AnalysisModel model = modelDescriptor.factory();
     try {
-      final ModelConfig config = _settings.modelConfigs[modelDescriptor.id] ?? modelDescriptor.config;
+      final ModelConfig config =
+          _settings.modelConfigs[modelDescriptor.id] ?? modelDescriptor.config;
       await model.load(config);
       _lastResult = await model.analyze(
         AnalysisRequest(
@@ -158,10 +162,10 @@ class AppController extends ChangeNotifier {
     _benchmarkCancelled = false;
     _errorMessage = null;
     _benchmarkResult = null;
-    _benchmarkProgress = const BenchmarkProgress(
+    _benchmarkProgress = BenchmarkProgress(
       current: 0,
-      total: 0,
-      currentFile: '',
+      total: dataset.examples.length,
+      currentFile: 'Loading model',
       averageLatencyMs: 0,
     );
     notifyListeners();
@@ -169,7 +173,8 @@ class AppController extends ChangeNotifier {
     final RegisteredModel modelDescriptor = selectedModel;
     final AnalysisModel model = modelDescriptor.factory();
     try {
-      final ModelConfig config = _settings.modelConfigs[modelDescriptor.id] ?? modelDescriptor.config;
+      final ModelConfig config =
+          _settings.modelConfigs[modelDescriptor.id] ?? modelDescriptor.config;
       await model.load(config);
       _benchmarkResult = await _benchmarkRunner.run(
         dataset: dataset,
@@ -198,7 +203,10 @@ class AppController extends ChangeNotifier {
 
   Future<void> updateModelConfig(String modelId, ModelConfig config) async {
     _settings = _settings.copyWith(
-      modelConfigs: <String, ModelConfig>{..._settings.modelConfigs, modelId: config},
+      modelConfigs: <String, ModelConfig>{
+        ..._settings.modelConfigs,
+        modelId: config
+      },
     );
     await _settingsRepository.save(_settings);
     notifyListeners();
