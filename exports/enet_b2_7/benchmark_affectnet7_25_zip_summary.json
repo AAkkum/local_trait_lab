@@ -1,0 +1,3448 @@
+{
+  "dataset": {
+    "name": "affectnet7_25.zip"
+  },
+  "model": {
+    "model_id": "enet_b2_7",
+    "display_name": "enet_b2_7",
+    "family": "emotieff"
+  },
+  "metrics": {
+    "accuracy": 0.685714,
+    "macro_f1": 0.685428,
+    "average_latency_ms": 1219.171,
+    "median_latency_ms": 590.0,
+    "evaluated_examples": 175,
+    "failed_examples": 0,
+    "confusion_matrix": {
+      "angry": {
+        "angry": 17,
+        "disgust": 3,
+        "fear": 2,
+        "happy": 0,
+        "neutral": 2,
+        "sad": 0,
+        "surprise": 1
+      },
+      "disgust": {
+        "angry": 6,
+        "disgust": 16,
+        "fear": 0,
+        "happy": 0,
+        "neutral": 0,
+        "sad": 2,
+        "surprise": 1
+      },
+      "fear": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 22,
+        "happy": 0,
+        "neutral": 0,
+        "sad": 2,
+        "surprise": 1
+      },
+      "happy": {
+        "angry": 1,
+        "disgust": 0,
+        "fear": 2,
+        "happy": 19,
+        "neutral": 1,
+        "sad": 0,
+        "surprise": 2
+      },
+      "neutral": {
+        "angry": 3,
+        "disgust": 2,
+        "fear": 0,
+        "happy": 2,
+        "neutral": 12,
+        "sad": 0,
+        "surprise": 6
+      },
+      "sad": {
+        "angry": 3,
+        "disgust": 2,
+        "fear": 0,
+        "happy": 0,
+        "neutral": 2,
+        "sad": 18,
+        "surprise": 0
+      },
+      "surprise": {
+        "angry": 1,
+        "disgust": 0,
+        "fear": 7,
+        "happy": 0,
+        "neutral": 1,
+        "sad": 0,
+        "surprise": 16
+      }
+    },
+    "per_class": {
+      "angry": {
+        "precision": 0.548387,
+        "recall": 0.68,
+        "f1": 0.607143
+      },
+      "disgust": {
+        "precision": 0.695652,
+        "recall": 0.64,
+        "f1": 0.666667
+      },
+      "fear": {
+        "precision": 0.666667,
+        "recall": 0.88,
+        "f1": 0.758621
+      },
+      "happy": {
+        "precision": 0.904762,
+        "recall": 0.76,
+        "f1": 0.826087
+      },
+      "neutral": {
+        "precision": 0.666667,
+        "recall": 0.48,
+        "f1": 0.55814
+      },
+      "sad": {
+        "precision": 0.818182,
+        "recall": 0.72,
+        "f1": 0.765957
+      },
+      "surprise": {
+        "precision": 0.592593,
+        "recall": 0.64,
+        "f1": 0.615385
+      }
+    }
+  },
+  "predictions": [
+    {
+      "file": "images/angry_00001.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 0.552609,
+      "latency_ms": 1027,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.30925437543953854,
+        "disgust": 0.007755945341045079,
+        "fear": 0.00057586179261204,
+        "happy": 0.05952091554616282,
+        "neutral": 0.552608866450859,
+        "sad": 0.051046511770398456,
+        "surprise": 0.019237523659383946
+      }
+    },
+    {
+      "file": "images/angry_00002.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.805893,
+      "latency_ms": 1487,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.8058930439450825,
+        "disgust": 0.062068811809559685,
+        "fear": 0.034541139437788075,
+        "happy": 0.007385891884672914,
+        "neutral": 0.03344502682192374,
+        "sad": 0.026383485768263017,
+        "surprise": 0.030282600332710206
+      }
+    },
+    {
+      "file": "images/angry_00003.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.568274,
+      "latency_ms": 305,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.5682741301496314,
+        "disgust": 0.006184399014747644,
+        "fear": 0.386064841594495,
+        "happy": 0.0004262279195155193,
+        "neutral": 0.0004096415622451475,
+        "sad": 0.03535863739490551,
+        "surprise": 0.0032821223644598388
+      }
+    },
+    {
+      "file": "images/angry_00004.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "fear",
+      "confidence": 0.910214,
+      "latency_ms": 656,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04087252869462277,
+        "disgust": 0.0022390141239060583,
+        "fear": 0.9102137523164201,
+        "happy": 0.0007533750130379787,
+        "neutral": 0.0008427815899200134,
+        "sad": 0.0028819294133996523,
+        "surprise": 0.042196618848693676
+      }
+    },
+    {
+      "file": "images/angry_00005.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.907147,
+      "latency_ms": 694,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9071465919017838,
+        "disgust": 0.0041381677285001845,
+        "fear": 0.0006412713017757914,
+        "happy": 0.004019660304155506,
+        "neutral": 0.07308518167464281,
+        "sad": 0.009093119539557083,
+        "surprise": 0.0018760075495847554
+      }
+    },
+    {
+      "file": "images/angry_00006.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.391741,
+      "latency_ms": 1359,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.3917408134576539,
+        "disgust": 0.07250809032515264,
+        "fear": 0.007798390397741313,
+        "happy": 0.0008427944974489266,
+        "neutral": 0.3640411567112172,
+        "sad": 0.14227228981614207,
+        "surprise": 0.02079646479464401
+      }
+    },
+    {
+      "file": "images/angry_00007.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.888312,
+      "latency_ms": 562,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.10521661859286462,
+        "disgust": 0.8883123894093169,
+        "fear": 0.0002745689006503326,
+        "happy": 0.0033842931006226266,
+        "neutral": 0.0006155006760928056,
+        "sad": 0.0018737973154870418,
+        "surprise": 0.0003228320049656615
+      }
+    },
+    {
+      "file": "images/angry_00008.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.834215,
+      "latency_ms": 1124,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.8342146496437464,
+        "disgust": 0.031057221335401706,
+        "fear": 0.015049687740170339,
+        "happy": 0.0013901749928767547,
+        "neutral": 0.051382076116032425,
+        "sad": 0.05958356022642353,
+        "surprise": 0.007322629945349037
+      }
+    },
+    {
+      "file": "images/angry_00009.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.90871,
+      "latency_ms": 1229,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.08051594998553573,
+        "disgust": 0.9087099298713522,
+        "fear": 0.0008753346590324303,
+        "happy": 0.0041816865113647765,
+        "neutral": 0.0014714355447446204,
+        "sad": 0.0034719948378938675,
+        "surprise": 0.0007736685900762888
+      }
+    },
+    {
+      "file": "images/angry_00010.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.947161,
+      "latency_ms": 304,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9471612282708834,
+        "disgust": 0.01881747202732199,
+        "fear": 0.0261860180835265,
+        "happy": 0.00142596744070986,
+        "neutral": 0.0009990691290647047,
+        "sad": 0.002184196814531038,
+        "surprise": 0.0032260482339625998
+      }
+    },
+    {
+      "file": "images/angry_00011.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.963287,
+      "latency_ms": 637,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9632873886035683,
+        "disgust": 0.0025187156166681835,
+        "fear": 0.025043706187149763,
+        "happy": 0.00015748423643362287,
+        "neutral": 0.00031082648636222344,
+        "sad": 0.000095689082179271,
+        "surprise": 0.008586189787638556
+      }
+    },
+    {
+      "file": "images/angry_00012.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "surprise",
+      "confidence": 0.248865,
+      "latency_ms": 651,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.14649816154314996,
+        "disgust": 0.04701234837746064,
+        "fear": 0.13404928508937547,
+        "happy": 0.24349186343216875,
+        "neutral": 0.012836487572927867,
+        "sad": 0.1672467679103032,
+        "surprise": 0.2488650860746142
+      }
+    },
+    {
+      "file": "images/angry_00013.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.852777,
+      "latency_ms": 1227,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.8527768469644674,
+        "disgust": 0.11342115102422841,
+        "fear": 0.02532561997262999,
+        "happy": 0.0002378224912125785,
+        "neutral": 0.0013529411381134522,
+        "sad": 0.002944420100625909,
+        "surprise": 0.003941198308722238
+      }
+    },
+    {
+      "file": "images/angry_00014.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.744166,
+      "latency_ms": 220,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.7441659141137505,
+        "disgust": 0.23970290311485606,
+        "fear": 0.013402850710425634,
+        "happy": 0.00007681133522309472,
+        "neutral": 0.00023953509043984298,
+        "sad": 0.001341647957451094,
+        "surprise": 0.0010703376778536727
+      }
+    },
+    {
+      "file": "images/angry_00015.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.41184,
+      "latency_ms": 459,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.4118396107011541,
+        "disgust": 0.02225731503543082,
+        "fear": 0.0017189866789433781,
+        "happy": 0.001152215352487229,
+        "neutral": 0.28594921183362465,
+        "sad": 0.2715915681450387,
+        "surprise": 0.005491092253321143
+      }
+    },
+    {
+      "file": "images/angry_00016.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.969532,
+      "latency_ms": 2425,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9695317113754329,
+        "disgust": 0.002621250484695926,
+        "fear": 0.0007366687353485157,
+        "happy": 0.0006212825523957185,
+        "neutral": 0.015257534805164154,
+        "sad": 0.010907893919877936,
+        "surprise": 0.0003236581270847896
+      }
+    },
+    {
+      "file": "images/angry_00017.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.734931,
+      "latency_ms": 249,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.7349307633682489,
+        "disgust": 0.02268945654771712,
+        "fear": 0.053613605152067256,
+        "happy": 0.010112289702722908,
+        "neutral": 0.06035809538860655,
+        "sad": 0.03985633380563334,
+        "surprise": 0.0784394560350037
+      }
+    },
+    {
+      "file": "images/angry_00018.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "fear",
+      "confidence": 0.670394,
+      "latency_ms": 331,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.2953294354590419,
+        "disgust": 0.001008023997415118,
+        "fear": 0.6703944897142116,
+        "happy": 0.000770100986791816,
+        "neutral": 0.0006863031703834685,
+        "sad": 0.026791253004722813,
+        "surprise": 0.0050203936674333895
+      }
+    },
+    {
+      "file": "images/angry_00019.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.960961,
+      "latency_ms": 696,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9609610863599222,
+        "disgust": 0.0039000481580948546,
+        "fear": 0.006316303803385141,
+        "happy": 0.00006888491427283292,
+        "neutral": 0.012026811706061917,
+        "sad": 0.01563046240541651,
+        "surprise": 0.0010964026528465693
+      }
+    },
+    {
+      "file": "images/angry_00020.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 0.364651,
+      "latency_ms": 2295,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04073466162308759,
+        "disgust": 0.019537694798493915,
+        "fear": 0.1873264306282565,
+        "happy": 0.02093416987106881,
+        "neutral": 0.36465109650358635,
+        "sad": 0.2443506864107093,
+        "surprise": 0.12246526016479757
+      }
+    },
+    {
+      "file": "images/angry_00021.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.950454,
+      "latency_ms": 292,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9504541802964406,
+        "disgust": 0.04540298753762332,
+        "fear": 0.0032032954963913556,
+        "happy": 0.00028740655982118147,
+        "neutral": 0.00012330228220728306,
+        "sad": 0.000285148528241377,
+        "surprise": 0.0002436792992748118
+      }
+    },
+    {
+      "file": "images/angry_00022.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.469268,
+      "latency_ms": 582,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.46926758613814573,
+        "disgust": 0.044535314010475044,
+        "fear": 0.007539169837006908,
+        "happy": 0.0007724783815162736,
+        "neutral": 0.055725388288920645,
+        "sad": 0.4207149424983147,
+        "surprise": 0.001445120845620734
+      }
+    },
+    {
+      "file": "images/angry_00023.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.568607,
+      "latency_ms": 481,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.5686069966837959,
+        "disgust": 0.03880170966070382,
+        "fear": 0.0033692992272208195,
+        "happy": 0.0053156771267321955,
+        "neutral": 0.35131906902196713,
+        "sad": 0.026343254513427727,
+        "surprise": 0.006243993766152397
+      }
+    },
+    {
+      "file": "images/angry_00024.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.589262,
+      "latency_ms": 1270,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.39387880270375075,
+        "disgust": 0.5892616303010045,
+        "fear": 0.0022886397843325545,
+        "happy": 0.0006971115954990637,
+        "neutral": 0.0028180888235071603,
+        "sad": 0.009985661689679617,
+        "surprise": 0.0010700651022263906
+      }
+    },
+    {
+      "file": "images/angry_00025.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.725234,
+      "latency_ms": 2238,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.7252337893104394,
+        "disgust": 0.052353132534913825,
+        "fear": 0.021262640490824148,
+        "happy": 0.002738923294664717,
+        "neutral": 0.08216704192680917,
+        "sad": 0.11205689125022167,
+        "surprise": 0.004187581192127179
+      }
+    },
+    {
+      "file": "images/disgust_00001.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.851145,
+      "latency_ms": 714,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1472163137067583,
+        "disgust": 0.851144565697344,
+        "fear": 0.00039794571107191606,
+        "happy": 0.00013776796117909743,
+        "neutral": 0.00039039168380228424,
+        "sad": 0.0005664246871397564,
+        "surprise": 0.00014659055270451694
+      }
+    },
+    {
+      "file": "images/disgust_00002.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.971461,
+      "latency_ms": 226,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02165389285835649,
+        "disgust": 0.9714608177130567,
+        "fear": 0.00007897648367013209,
+        "happy": 0.0006669945262293024,
+        "neutral": 0.0017982116720460905,
+        "sad": 0.004164805995002451,
+        "surprise": 0.0001763007516388223
+      }
+    },
+    {
+      "file": "images/disgust_00003.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.997165,
+      "latency_ms": 328,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00245588951540106,
+        "disgust": 0.9971647022031035,
+        "fear": 0.00006340928675791182,
+        "happy": 0.000013361729842219376,
+        "neutral": 0.00001456388462436452,
+        "sad": 0.0002808309856021123,
+        "surprise": 0.000007242394668859982
+      }
+    },
+    {
+      "file": "images/disgust_00004.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.917964,
+      "latency_ms": 497,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.023634825928950748,
+        "disgust": 0.9179641155120248,
+        "fear": 0.04143467936838162,
+        "happy": 0.0005226677828413151,
+        "neutral": 0.0008714021321089645,
+        "sad": 0.013941114704551992,
+        "surprise": 0.0016311945711404772
+      }
+    },
+    {
+      "file": "images/disgust_00005.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.291832,
+      "latency_ms": 1907,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.29183202032703165,
+        "disgust": 0.15354443799312498,
+        "fear": 0.019802119335573583,
+        "happy": 0.15518747821627382,
+        "neutral": 0.24574651121944524,
+        "sad": 0.10320879046028632,
+        "surprise": 0.030678642448264293
+      }
+    },
+    {
+      "file": "images/disgust_00006.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.889328,
+      "latency_ms": 1238,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.10189023987103692,
+        "disgust": 0.8893284072098323,
+        "fear": 0.0006934294583691068,
+        "happy": 0.00027300004844952724,
+        "neutral": 0.0010042056141369062,
+        "sad": 0.006377143409211038,
+        "surprise": 0.00043357438896418795
+      }
+    },
+    {
+      "file": "images/disgust_00007.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.559921,
+      "latency_ms": 300,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.033671894127414,
+        "disgust": 0.3521660793391871,
+        "fear": 0.004404564455673814,
+        "happy": 0.0031607733200985535,
+        "neutral": 0.044087136442275,
+        "sad": 0.5599214462894617,
+        "surprise": 0.002588106025889891
+      }
+    },
+    {
+      "file": "images/disgust_00008.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.9024,
+      "latency_ms": 483,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0718033263256155,
+        "disgust": 0.9023996927208574,
+        "fear": 0.00008674692495612618,
+        "happy": 0.012494270492246624,
+        "neutral": 0.009064934803918701,
+        "sad": 0.0010804563874160446,
+        "surprise": 0.003070572344989369
+      }
+    },
+    {
+      "file": "images/disgust_00009.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.77481,
+      "latency_ms": 403,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.7748099715288662,
+        "disgust": 0.13754809924756528,
+        "fear": 0.06485548253814544,
+        "happy": 0.0007917080335920518,
+        "neutral": 0.0015374953100335473,
+        "sad": 0.015952920643752696,
+        "surprise": 0.004504322698044851
+      }
+    },
+    {
+      "file": "images/disgust_00010.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.540099,
+      "latency_ms": 582,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.4490383644399514,
+        "disgust": 0.5400990510125969,
+        "fear": 0.008739792425988291,
+        "happy": 0.000331671959292274,
+        "neutral": 0.00013189168429368915,
+        "sad": 0.0012996917678967854,
+        "surprise": 0.00035953670998077695
+      }
+    },
+    {
+      "file": "images/disgust_00011.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.910148,
+      "latency_ms": 419,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.08885459771698709,
+        "disgust": 0.9101483187510349,
+        "fear": 0.00004822445214532388,
+        "happy": 0.00007134158829003623,
+        "neutral": 0.0004454354458117789,
+        "sad": 0.0003621922332782991,
+        "surprise": 0.00006988981245250998
+      }
+    },
+    {
+      "file": "images/disgust_00012.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.786128,
+      "latency_ms": 624,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.7861284220680484,
+        "disgust": 0.1807489282669706,
+        "fear": 0.02695682275730264,
+        "happy": 0.00036426724831412695,
+        "neutral": 0.000745466847145983,
+        "sad": 0.004313346172284843,
+        "surprise": 0.0007427466399334123
+      }
+    },
+    {
+      "file": "images/disgust_00013.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.288208,
+      "latency_ms": 2762,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.28820839558188105,
+        "disgust": 0.23843402441752892,
+        "fear": 0.007437887216467932,
+        "happy": 0.15004553366049175,
+        "neutral": 0.18889995497635753,
+        "sad": 0.12344017936730813,
+        "surprise": 0.0035340247799646985
+      }
+    },
+    {
+      "file": "images/disgust_00014.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.765688,
+      "latency_ms": 384,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.10834402812950505,
+        "disgust": 0.7656880037730025,
+        "fear": 0.025578970780666153,
+        "happy": 0.0010183432953676807,
+        "neutral": 0.022670923367355808,
+        "sad": 0.06498283528663276,
+        "surprise": 0.011716895367470089
+      }
+    },
+    {
+      "file": "images/disgust_00015.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "surprise",
+      "confidence": 0.324223,
+      "latency_ms": 4490,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.14212542030050937,
+        "disgust": 0.11533507767745708,
+        "fear": 0.14943963265753768,
+        "happy": 0.03262712129802231,
+        "neutral": 0.08735109048814271,
+        "sad": 0.14889833250554277,
+        "surprise": 0.32422332507278806
+      }
+    },
+    {
+      "file": "images/disgust_00016.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.849475,
+      "latency_ms": 765,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.143303743213586,
+        "disgust": 0.8494748510637924,
+        "fear": 0.0018947757087834935,
+        "happy": 0.0019556230047388778,
+        "neutral": 0.0016270580887136567,
+        "sad": 0.0007185135051404038,
+        "surprise": 0.0010254354152451346
+      }
+    },
+    {
+      "file": "images/disgust_00017.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.323327,
+      "latency_ms": 2239,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.32332717988780724,
+        "disgust": 0.24617264683350487,
+        "fear": 0.004724497661776985,
+        "happy": 0.011223502752458302,
+        "neutral": 0.3179172956823832,
+        "sad": 0.0757440357030211,
+        "surprise": 0.02089084147904808
+      }
+    },
+    {
+      "file": "images/disgust_00018.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.856703,
+      "latency_ms": 1889,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03744591805797943,
+        "disgust": 0.0408903746366305,
+        "fear": 0.020169277801477745,
+        "happy": 0.0014186273854995186,
+        "neutral": 0.03361876650568655,
+        "sad": 0.8567026657320653,
+        "surprise": 0.009754369880661005
+      }
+    },
+    {
+      "file": "images/disgust_00019.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.972057,
+      "latency_ms": 270,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.024315673758152547,
+        "disgust": 0.972057160734493,
+        "fear": 0.0005933963427447366,
+        "happy": 0.0003068130741957506,
+        "neutral": 0.00014278672246469508,
+        "sad": 0.002506065333027846,
+        "surprise": 0.00007810403492161114
+      }
+    },
+    {
+      "file": "images/disgust_00020.png",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.877173,
+      "latency_ms": 553,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0984585662706364,
+        "disgust": 0.8771726157115265,
+        "fear": 0.0017586589450287243,
+        "happy": 0.005736148479937481,
+        "neutral": 0.0040966031119745745,
+        "sad": 0.008066201101008969,
+        "surprise": 0.004711206379887326
+      }
+    },
+    {
+      "file": "images/disgust_00021.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.910717,
+      "latency_ms": 314,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.05723151071512556,
+        "disgust": 0.9107173849557076,
+        "fear": 0.001609387957698009,
+        "happy": 0.0005285495385079577,
+        "neutral": 0.002299428724171856,
+        "sad": 0.027060277852805608,
+        "surprise": 0.0005534602559832344
+      }
+    },
+    {
+      "file": "images/disgust_00022.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.716783,
+      "latency_ms": 3871,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.21770172611055863,
+        "disgust": 0.7167832019888328,
+        "fear": 0.009116421984200445,
+        "happy": 0.004470523614402824,
+        "neutral": 0.026025692431307083,
+        "sad": 0.005590710638677331,
+        "surprise": 0.02031172323202068
+      }
+    },
+    {
+      "file": "images/disgust_00023.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.987302,
+      "latency_ms": 2271,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0021517932215351847,
+        "disgust": 0.9873022779747479,
+        "fear": 0.0009112940351388716,
+        "happy": 0.0003952331142631155,
+        "neutral": 0.0006007165315781768,
+        "sad": 0.008556120295258244,
+        "surprise": 0.00008256482747856586
+      }
+    },
+    {
+      "file": "images/disgust_00024.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.475389,
+      "latency_ms": 2285,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.3540647401050094,
+        "disgust": 0.4753890642367987,
+        "fear": 0.005470560699661315,
+        "happy": 0.03695108471961949,
+        "neutral": 0.06776295871824049,
+        "sad": 0.03956572919030988,
+        "surprise": 0.020795862330360612
+      }
+    },
+    {
+      "file": "images/disgust_00025.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.781734,
+      "latency_ms": 1902,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.7817340529671443,
+        "disgust": 0.13070108997281785,
+        "fear": 0.015203975180071931,
+        "happy": 0.0011236086504686537,
+        "neutral": 0.03900202889328738,
+        "sad": 0.018012668750881138,
+        "surprise": 0.014222575585328731
+      }
+    },
+    {
+      "file": "images/fear_00001.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.825209,
+      "latency_ms": 566,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04387589303230106,
+        "disgust": 0.005080298523141675,
+        "fear": 0.8252093291465992,
+        "happy": 0.0001594299675064903,
+        "neutral": 0.009044862837781326,
+        "sad": 0.004304638628425876,
+        "surprise": 0.11232554786424433
+      }
+    },
+    {
+      "file": "images/fear_00002.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.603643,
+      "latency_ms": 354,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03222525135462801,
+        "disgust": 0.029168569435224796,
+        "fear": 0.6036430896326099,
+        "happy": 0.0076970854275389446,
+        "neutral": 0.04983029547720948,
+        "sad": 0.1506255409668035,
+        "surprise": 0.12681016770598516
+      }
+    },
+    {
+      "file": "images/fear_00003.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.791959,
+      "latency_ms": 348,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.002679283444443498,
+        "disgust": 0.0025751082088942487,
+        "fear": 0.7919594396425569,
+        "happy": 0.00021069794375798588,
+        "neutral": 0.007159514267882031,
+        "sad": 0.02541916613996823,
+        "surprise": 0.16999679035249698
+      }
+    },
+    {
+      "file": "images/fear_00004.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.975581,
+      "latency_ms": 1680,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0004513717854433603,
+        "disgust": 0.00008248717761270767,
+        "fear": 0.9755808485503865,
+        "happy": 0.00004852837339210133,
+        "neutral": 0.00027999365945699983,
+        "sad": 0.017294308154943545,
+        "surprise": 0.006262462298764984
+      }
+    },
+    {
+      "file": "images/fear_00005.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.800318,
+      "latency_ms": 524,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000471407510111687,
+        "disgust": 0.0009932507606642824,
+        "fear": 0.8003180122329667,
+        "happy": 0.008053669290807334,
+        "neutral": 0.014909452161039777,
+        "sad": 0.020640512811394507,
+        "surprise": 0.15461369523301569
+      }
+    },
+    {
+      "file": "images/fear_00006.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.578497,
+      "latency_ms": 335,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.003467380654691158,
+        "disgust": 0.003156058733746437,
+        "fear": 0.5784974438535394,
+        "happy": 0.0021031579176639674,
+        "neutral": 0.027213147129561174,
+        "sad": 0.34747727217196867,
+        "surprise": 0.038085539538829205
+      }
+    },
+    {
+      "file": "images/fear_00007.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.716534,
+      "latency_ms": 2097,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0048428971115651205,
+        "disgust": 0.004890121899157612,
+        "fear": 0.716533500388507,
+        "happy": 0.0017366353264484805,
+        "neutral": 0.006134990281510887,
+        "sad": 0.022491392719646463,
+        "surprise": 0.24337046227316447
+      }
+    },
+    {
+      "file": "images/fear_00008.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.554798,
+      "latency_ms": 1130,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.18308385860024814,
+        "disgust": 0.09974384568371471,
+        "fear": 0.5547979404832573,
+        "happy": 0.0032413015071704058,
+        "neutral": 0.016158317363583027,
+        "sad": 0.03503951615465782,
+        "surprise": 0.1079352202073686
+      }
+    },
+    {
+      "file": "images/fear_00009.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.470397,
+      "latency_ms": 525,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.32054239041491733,
+        "disgust": 0.008488300547978113,
+        "fear": 0.4703965875383332,
+        "happy": 0.0004358190029216635,
+        "neutral": 0.04172407512938703,
+        "sad": 0.10941387889754288,
+        "surprise": 0.04899894846891978
+      }
+    },
+    {
+      "file": "images/fear_00010.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.973881,
+      "latency_ms": 455,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005353727215890149,
+        "disgust": 0.0020131099517278145,
+        "fear": 0.9738805022036736,
+        "happy": 0.00048062859831925594,
+        "neutral": 0.000031078870711415454,
+        "sad": 0.015148204316260492,
+        "surprise": 0.0030927488434173483
+      }
+    },
+    {
+      "file": "images/fear_00011.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.589922,
+      "latency_ms": 396,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0005914112227366392,
+        "disgust": 0.00034076039858869163,
+        "fear": 0.5899223275931572,
+        "happy": 0.0014778746920228205,
+        "neutral": 0.0024995034749397313,
+        "sad": 0.0008645162002683816,
+        "surprise": 0.4043036064182864
+      }
+    },
+    {
+      "file": "images/fear_00012.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.984754,
+      "latency_ms": 696,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0008556011893991048,
+        "disgust": 0.0004100109019534874,
+        "fear": 0.9847536956388067,
+        "happy": 0.00004255693494678802,
+        "neutral": 0.00008294386306468703,
+        "sad": 0.009780178258488243,
+        "surprise": 0.004075013213340982
+      }
+    },
+    {
+      "file": "images/fear_00013.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.630657,
+      "latency_ms": 426,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0009742289062027428,
+        "disgust": 0.0005190643616533432,
+        "fear": 0.6306565146698461,
+        "happy": 0.001577124850071706,
+        "neutral": 0.0023892868190973967,
+        "sad": 0.0020451317271133144,
+        "surprise": 0.36183864866601556
+      }
+    },
+    {
+      "file": "images/fear_00014.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.356109,
+      "latency_ms": 804,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0446504609598774,
+        "disgust": 0.0010757742235584533,
+        "fear": 0.3561093434648445,
+        "happy": 0.0007041367135368449,
+        "neutral": 0.25829406716030623,
+        "sad": 0.19136472312615296,
+        "surprise": 0.1478014943517236
+      }
+    },
+    {
+      "file": "images/fear_00015.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.931411,
+      "latency_ms": 2576,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.010682186682822918,
+        "disgust": 0.03363532311958352,
+        "fear": 0.9314112181972756,
+        "happy": 0.0002949646201009195,
+        "neutral": 0.0012306912397717787,
+        "sad": 0.0016847491089342136,
+        "surprise": 0.02106086703151079
+      }
+    },
+    {
+      "file": "images/fear_00016.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.575416,
+      "latency_ms": 401,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.028851243424451604,
+        "disgust": 0.007346630791817253,
+        "fear": 0.5754164583192224,
+        "happy": 0.001393972342018913,
+        "neutral": 0.14172453732670465,
+        "sad": 0.1684037029653226,
+        "surprise": 0.07686345483046259
+      }
+    },
+    {
+      "file": "images/fear_00017.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.570461,
+      "latency_ms": 872,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.022973493811546314,
+        "disgust": 0.04378576974801547,
+        "fear": 0.5704613894150591,
+        "happy": 0.003772658541555355,
+        "neutral": 0.008116342549491527,
+        "sad": 0.33083418957046967,
+        "surprise": 0.020056156363862526
+      }
+    },
+    {
+      "file": "images/fear_00018.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.728916,
+      "latency_ms": 288,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0006835014298526839,
+        "disgust": 0.0011733151511298518,
+        "fear": 0.7289163251157599,
+        "happy": 0.0037105672989903356,
+        "neutral": 0.0015614167892015736,
+        "sad": 0.23287607859201534,
+        "surprise": 0.03107879562305041
+      }
+    },
+    {
+      "file": "images/fear_00019.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 0.294501,
+      "latency_ms": 388,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.2331135426359345,
+        "disgust": 0.0031776515808140384,
+        "fear": 0.18918749468621815,
+        "happy": 0.22116492462472995,
+        "neutral": 0.011484343581640457,
+        "sad": 0.04737068466943654,
+        "surprise": 0.2945013582212263
+      }
+    },
+    {
+      "file": "images/fear_00020.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.681608,
+      "latency_ms": 1601,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.015116993660493497,
+        "disgust": 0.006010248720448184,
+        "fear": 0.6816080281511473,
+        "happy": 0.0010194681509480567,
+        "neutral": 0.028484927288583317,
+        "sad": 0.09420165350544846,
+        "surprise": 0.1735586805229312
+      }
+    },
+    {
+      "file": "images/fear_00021.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.500778,
+      "latency_ms": 3788,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04632347089555761,
+        "disgust": 0.04866916202216997,
+        "fear": 0.500778248416944,
+        "happy": 0.002791863534830993,
+        "neutral": 0.03058868244248062,
+        "sad": 0.30954983369591393,
+        "surprise": 0.06129873899210284
+      }
+    },
+    {
+      "file": "images/fear_00022.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.87212,
+      "latency_ms": 1607,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.004317298988808225,
+        "disgust": 0.0023360438245443875,
+        "fear": 0.8721203998140303,
+        "happy": 0.00015723636574553523,
+        "neutral": 0.009814145277008395,
+        "sad": 0.0034268332450985237,
+        "surprise": 0.10782804248476488
+      }
+    },
+    {
+      "file": "images/fear_00023.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.323004,
+      "latency_ms": 3803,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0585768748806633,
+        "disgust": 0.0009928672942835475,
+        "fear": 0.28375349165239233,
+        "happy": 0.001648420611146794,
+        "neutral": 0.1619340980499564,
+        "sad": 0.32300425942784206,
+        "surprise": 0.17008998808371548
+      }
+    },
+    {
+      "file": "images/fear_00024.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.782034,
+      "latency_ms": 482,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0025743349573928757,
+        "disgust": 0.0008912277087602489,
+        "fear": 0.21374478534399724,
+        "happy": 0.00009904196673437443,
+        "neutral": 0.0002142555930430223,
+        "sad": 0.7820342317727572,
+        "surprise": 0.0004421226573150287
+      }
+    },
+    {
+      "file": "images/fear_00025.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.557388,
+      "latency_ms": 1344,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02220288546517609,
+        "disgust": 0.043398531940387335,
+        "fear": 0.557387833384973,
+        "happy": 0.0008092605324997106,
+        "neutral": 0.09069880270887112,
+        "sad": 0.11675867671620266,
+        "surprise": 0.16874400925188993
+      }
+    },
+    {
+      "file": "images/happy_00001.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.99502,
+      "latency_ms": 517,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00009740479579020175,
+        "disgust": 0.000004212016270054509,
+        "fear": 0.000029506576814723767,
+        "happy": 0.9950195794388289,
+        "neutral": 0.003268096415956582,
+        "sad": 0.000055188494087244806,
+        "surprise": 0.0015260122622521115
+      }
+    },
+    {
+      "file": "images/happy_00002.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.996408,
+      "latency_ms": 534,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00035626348220231557,
+        "disgust": 0.0004310959789565462,
+        "fear": 0.00012523889919901083,
+        "happy": 0.996408467086865,
+        "neutral": 0.0012316024759713566,
+        "sad": 0.00019559343492362867,
+        "surprise": 0.0012517386418820441
+      }
+    },
+    {
+      "file": "images/happy_00003.png",
+      "ground_truth": "happy",
+      "predicted_label": "fear",
+      "confidence": 0.546655,
+      "latency_ms": 708,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0033296996517377876,
+        "disgust": 0.006044885300030715,
+        "fear": 0.5466553430827116,
+        "happy": 0.21713811588250242,
+        "neutral": 0.0047871691342871794,
+        "sad": 0.054006406082712746,
+        "surprise": 0.1680383808660176
+      }
+    },
+    {
+      "file": "images/happy_00004.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.954507,
+      "latency_ms": 490,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0003852170406173452,
+        "disgust": 0.0002416174066431458,
+        "fear": 0.00042167416100857456,
+        "happy": 0.9545067803417964,
+        "neutral": 0.040271308582360936,
+        "sad": 0.001224989771157643,
+        "surprise": 0.0029484126964159406
+      }
+    },
+    {
+      "file": "images/happy_00005.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.978934,
+      "latency_ms": 548,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000009194822898919,
+        "disgust": 0.00012816502901337953,
+        "fear": 0.0005750446610341981,
+        "happy": 0.9789342547070823,
+        "neutral": 0.0004636295274393641,
+        "sad": 0.00009190700557849578,
+        "surprise": 0.019797804246953182
+      }
+    },
+    {
+      "file": "images/happy_00006.png",
+      "ground_truth": "happy",
+      "predicted_label": "fear",
+      "confidence": 0.332409,
+      "latency_ms": 553,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06949440788966753,
+        "disgust": 0.02995206781219683,
+        "fear": 0.33240926137467813,
+        "happy": 0.0896757660398597,
+        "neutral": 0.07112675789814979,
+        "sad": 0.20521600894044445,
+        "surprise": 0.20212573004500362
+      }
+    },
+    {
+      "file": "images/happy_00007.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.971714,
+      "latency_ms": 490,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0023998103523974064,
+        "disgust": 0.005660329089904747,
+        "fear": 0.001248451221872779,
+        "happy": 0.9717137846975052,
+        "neutral": 0.011357600134222283,
+        "sad": 0.0012033647785439667,
+        "surprise": 0.00641665972555359
+      }
+    },
+    {
+      "file": "images/happy_00008.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.98638,
+      "latency_ms": 576,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00020969865520215918,
+        "disgust": 0.003884532039570153,
+        "fear": 0.0008401276269970415,
+        "happy": 0.9863800669438146,
+        "neutral": 0.0010856195562711517,
+        "sad": 0.0000645084253071789,
+        "surprise": 0.007535446752837552
+      }
+    },
+    {
+      "file": "images/happy_00009.png",
+      "ground_truth": "happy",
+      "predicted_label": "surprise",
+      "confidence": 0.506777,
+      "latency_ms": 555,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0005924444269891968,
+        "disgust": 0.00011110138195473706,
+        "fear": 0.0008850201682414861,
+        "happy": 0.48911661549836694,
+        "neutral": 0.0022237535890500515,
+        "sad": 0.0002938826935366093,
+        "surprise": 0.506777182241861
+      }
+    },
+    {
+      "file": "images/happy_00010.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.997312,
+      "latency_ms": 482,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 2.8667923461765483e-7,
+        "disgust": 0.0000013669963000567875,
+        "fear": 0.000016403256910764925,
+        "happy": 0.9973122826038194,
+        "neutral": 0.00004682410035601319,
+        "sad": 0.000008135940963697843,
+        "surprise": 0.0026147004224155
+      }
+    },
+    {
+      "file": "images/happy_00011.png",
+      "ground_truth": "happy",
+      "predicted_label": "angry",
+      "confidence": 0.304545,
+      "latency_ms": 590,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.3045449885254448,
+        "disgust": 0.1330353629551245,
+        "fear": 0.0692370614670073,
+        "happy": 0.12034222335196865,
+        "neutral": 0.15678363587202823,
+        "sad": 0.04304344652589971,
+        "surprise": 0.17301328130252683
+      }
+    },
+    {
+      "file": "images/happy_00012.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.893196,
+      "latency_ms": 490,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.004603387468627727,
+        "disgust": 0.014640793984161925,
+        "fear": 0.0009707635496064828,
+        "happy": 0.8931955683420436,
+        "neutral": 0.0663563316837934,
+        "sad": 0.004246161462989148,
+        "surprise": 0.015986993508777747
+      }
+    },
+    {
+      "file": "images/happy_00013.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.814539,
+      "latency_ms": 513,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0003774791717812512,
+        "disgust": 0.00005726173150822122,
+        "fear": 0.0011590940841370394,
+        "happy": 0.814539036573596,
+        "neutral": 0.1638138924398118,
+        "sad": 0.003738668697940687,
+        "surprise": 0.016314567301224936
+      }
+    },
+    {
+      "file": "images/happy_00014.png",
+      "ground_truth": "happy",
+      "predicted_label": "surprise",
+      "confidence": 0.660566,
+      "latency_ms": 546,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.012326058853126874,
+        "disgust": 0.005796004185074845,
+        "fear": 0.009765397663962588,
+        "happy": 0.18156602530820737,
+        "neutral": 0.1222634847858748,
+        "sad": 0.007716792772976957,
+        "surprise": 0.6605662364307765
+      }
+    },
+    {
+      "file": "images/happy_00015.png",
+      "ground_truth": "happy",
+      "predicted_label": "neutral",
+      "confidence": 0.382327,
+      "latency_ms": 547,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.002155470302644223,
+        "disgust": 0.0019149263727029193,
+        "fear": 0.0010882069018319843,
+        "happy": 0.24003652089899966,
+        "neutral": 0.3823271497271878,
+        "sad": 0.36628950384437575,
+        "surprise": 0.0061882219522578
+      }
+    },
+    {
+      "file": "images/happy_00016.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 495,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 4.117366964367648e-12,
+        "disgust": 9.151778317150509e-11,
+        "fear": 4.896891097050119e-13,
+        "happy": 0.9999995986620055,
+        "neutral": 8.932123298384465e-9,
+        "sad": 1.0963143411593095e-11,
+        "surprise": 3.9229878325710115e-7
+      }
+    },
+    {
+      "file": "images/happy_00017.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.722609,
+      "latency_ms": 564,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005802911230305573,
+        "disgust": 0.004153862096062986,
+        "fear": 0.004104495794416285,
+        "happy": 0.7226086138130535,
+        "neutral": 0.027189266718619844,
+        "sad": 0.0008707432974574572,
+        "surprise": 0.23527010705008428
+      }
+    },
+    {
+      "file": "images/happy_00018.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.794741,
+      "latency_ms": 540,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00877189585054947,
+        "disgust": 0.003482592288623768,
+        "fear": 0.010027405290817819,
+        "happy": 0.794740503562192,
+        "neutral": 0.02039420523679748,
+        "sad": 0.00540824136732551,
+        "surprise": 0.15717515640369412
+      }
+    },
+    {
+      "file": "images/happy_00019.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.986092,
+      "latency_ms": 530,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000038837631798595226,
+        "disgust": 0.00006549306795589614,
+        "fear": 0.00005421270691849434,
+        "happy": 0.9860920861079732,
+        "neutral": 0.009609954913825134,
+        "sad": 0.00322091194472439,
+        "surprise": 0.0009185036268043079
+      }
+    },
+    {
+      "file": "images/happy_00020.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 499,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 7.179451605541465e-11,
+        "disgust": 3.16859850682132e-13,
+        "fear": 4.778828829405046e-19,
+        "happy": 0.9999999994750932,
+        "neutral": 4.16879590867674e-10,
+        "sad": 2.3160892939334224e-11,
+        "surprise": 1.275482329049333e-11
+      }
+    },
+    {
+      "file": "images/happy_00021.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.958767,
+      "latency_ms": 499,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0028189900621946296,
+        "disgust": 0.008027243014143667,
+        "fear": 0.001119555435512056,
+        "happy": 0.9587668972740755,
+        "neutral": 0.015141550247061819,
+        "sad": 0.008764353809932427,
+        "surprise": 0.005361410157079784
+      }
+    },
+    {
+      "file": "images/happy_00022.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999991,
+      "latency_ms": 535,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 7.622818645690311e-8,
+        "disgust": 1.292602999014185e-8,
+        "fear": 7.620027523882291e-9,
+        "happy": 0.9999908942652872,
+        "neutral": 0.000004226644418067696,
+        "sad": 2.6390804690548754e-8,
+        "surprise": 0.000004755925245847759
+      }
+    },
+    {
+      "file": "images/happy_00023.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.970218,
+      "latency_ms": 538,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00007055109023518026,
+        "disgust": 0.00002653108803418326,
+        "fear": 0.00014643552440823368,
+        "happy": 0.9702178392792545,
+        "neutral": 0.02579444314710574,
+        "sad": 0.0018908532075044197,
+        "surprise": 0.0018533466634576327
+      }
+    },
+    {
+      "file": "images/happy_00024.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.907163,
+      "latency_ms": 516,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.001546004810615461,
+        "disgust": 0.04606161178985543,
+        "fear": 0.000512509607658237,
+        "happy": 0.9071631160175938,
+        "neutral": 0.00627948208101507,
+        "sad": 0.0008163433765473077,
+        "surprise": 0.037620932316714595
+      }
+    },
+    {
+      "file": "images/happy_00025.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.754995,
+      "latency_ms": 555,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005584751112322265,
+        "disgust": 0.009474861281657688,
+        "fear": 0.001791195051802024,
+        "happy": 0.7549949302706899,
+        "neutral": 0.05570232121851082,
+        "sad": 0.0030727686696120802,
+        "surprise": 0.1693791723954051
+      }
+    },
+    {
+      "file": "images/neutral_00001.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.279315,
+      "latency_ms": 500,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.013738414359711723,
+        "disgust": 0.005618065156684477,
+        "fear": 0.046250506827954896,
+        "happy": 0.17982176885429305,
+        "neutral": 0.27931464123997357,
+        "sad": 0.27589961619977943,
+        "surprise": 0.19935698736160284
+      }
+    },
+    {
+      "file": "images/neutral_00002.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.548003,
+      "latency_ms": 595,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02266999872734811,
+        "disgust": 0.059919583311308096,
+        "fear": 0.001827033902760612,
+        "happy": 0.21070032099194116,
+        "neutral": 0.5480029392511594,
+        "sad": 0.10528778078135717,
+        "surprise": 0.051592343034125576
+      }
+    },
+    {
+      "file": "images/neutral_00003.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.759689,
+      "latency_ms": 477,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.015681634445359034,
+        "disgust": 0.00531084419374089,
+        "fear": 0.0012502644009108423,
+        "happy": 0.07588281550108138,
+        "neutral": 0.7596894790568968,
+        "sad": 0.10588448567100876,
+        "surprise": 0.03630047673100217
+      }
+    },
+    {
+      "file": "images/neutral_00004.png",
+      "ground_truth": "neutral",
+      "predicted_label": "disgust",
+      "confidence": 0.336896,
+      "latency_ms": 558,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.16871124377414395,
+        "disgust": 0.3368959262302817,
+        "fear": 0.05172476635783524,
+        "happy": 0.03709020068885742,
+        "neutral": 0.07049662494983377,
+        "sad": 0.3213588328911406,
+        "surprise": 0.013722405107907436
+      }
+    },
+    {
+      "file": "images/neutral_00005.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.632251,
+      "latency_ms": 597,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.11610687680465333,
+        "disgust": 0.006433484073037588,
+        "fear": 0.001148411238411528,
+        "happy": 0.19357862698262648,
+        "neutral": 0.632250619625138,
+        "sad": 0.015451584420226231,
+        "surprise": 0.035030396855906865
+      }
+    },
+    {
+      "file": "images/neutral_00006.png",
+      "ground_truth": "neutral",
+      "predicted_label": "angry",
+      "confidence": 0.536678,
+      "latency_ms": 556,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.5366784028415562,
+        "disgust": 0.25317991733955325,
+        "fear": 0.02645091642684793,
+        "happy": 0.003647438937406568,
+        "neutral": 0.03732279210116529,
+        "sad": 0.12681492650841864,
+        "surprise": 0.015905605845052094
+      }
+    },
+    {
+      "file": "images/neutral_00007.png",
+      "ground_truth": "neutral",
+      "predicted_label": "surprise",
+      "confidence": 0.426554,
+      "latency_ms": 487,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.15078559393239185,
+        "disgust": 0.03976274116251333,
+        "fear": 0.039318963973125634,
+        "happy": 0.004445480218919259,
+        "neutral": 0.17294268044136232,
+        "sad": 0.16619082570450547,
+        "surprise": 0.4265537145671822
+      }
+    },
+    {
+      "file": "images/neutral_00008.png",
+      "ground_truth": "neutral",
+      "predicted_label": "surprise",
+      "confidence": 0.5038,
+      "latency_ms": 546,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.14193873761964124,
+        "disgust": 0.01287345137986509,
+        "fear": 0.22849059058246846,
+        "happy": 0.012685899030917085,
+        "neutral": 0.07097880613536942,
+        "sad": 0.029232510776963525,
+        "surprise": 0.5038000044747752
+      }
+    },
+    {
+      "file": "images/neutral_00009.png",
+      "ground_truth": "neutral",
+      "predicted_label": "surprise",
+      "confidence": 0.607995,
+      "latency_ms": 566,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.006629867385596182,
+        "disgust": 0.0013932715245029885,
+        "fear": 0.3310183794105404,
+        "happy": 0.0003312096283012441,
+        "neutral": 0.040881189473796285,
+        "sad": 0.011751148492557064,
+        "surprise": 0.6079949340847057
+      }
+    },
+    {
+      "file": "images/neutral_00010.png",
+      "ground_truth": "neutral",
+      "predicted_label": "disgust",
+      "confidence": 0.568418,
+      "latency_ms": 498,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.30285054910686987,
+        "disgust": 0.5684177710404784,
+        "fear": 0.0131939079247982,
+        "happy": 0.009293602529043436,
+        "neutral": 0.03661680450604546,
+        "sad": 0.06119427850504946,
+        "surprise": 0.008433086387715111
+      }
+    },
+    {
+      "file": "images/neutral_00011.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.615282,
+      "latency_ms": 581,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07792332440454462,
+        "disgust": 0.02407629504115545,
+        "fear": 0.056294981646309666,
+        "happy": 0.010299438395998992,
+        "neutral": 0.6152824406336647,
+        "sad": 0.09912704614852824,
+        "surprise": 0.11699647372979825
+      }
+    },
+    {
+      "file": "images/neutral_00012.png",
+      "ground_truth": "neutral",
+      "predicted_label": "surprise",
+      "confidence": 0.317587,
+      "latency_ms": 487,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.057746575878844804,
+        "disgust": 0.02061947061934623,
+        "fear": 0.07813523272078754,
+        "happy": 0.009189905560866733,
+        "neutral": 0.23428900381836612,
+        "sad": 0.28243234656512156,
+        "surprise": 0.31758746483666705
+      }
+    },
+    {
+      "file": "images/neutral_00013.png",
+      "ground_truth": "neutral",
+      "predicted_label": "angry",
+      "confidence": 0.464432,
+      "latency_ms": 549,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.46443246137902544,
+        "disgust": 0.006637461427805457,
+        "fear": 0.0034256802011640793,
+        "happy": 0.01187345324261814,
+        "neutral": 0.4583195965012182,
+        "sad": 0.042481682951764584,
+        "surprise": 0.01282966429640428
+      }
+    },
+    {
+      "file": "images/neutral_00014.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.465136,
+      "latency_ms": 583,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.38582211130180216,
+        "disgust": 0.016779912185018946,
+        "fear": 0.006203764939831232,
+        "happy": 0.09201501406269519,
+        "neutral": 0.46513605598534036,
+        "sad": 0.01926745457484463,
+        "surprise": 0.014775686950467428
+      }
+    },
+    {
+      "file": "images/neutral_00015.png",
+      "ground_truth": "neutral",
+      "predicted_label": "surprise",
+      "confidence": 0.424574,
+      "latency_ms": 479,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.18305893232214338,
+        "disgust": 0.033696801157150756,
+        "fear": 0.04164403196614423,
+        "happy": 0.015721688723603845,
+        "neutral": 0.24304872987047,
+        "sad": 0.058255580713293655,
+        "surprise": 0.4245742352471942
+      }
+    },
+    {
+      "file": "images/neutral_00016.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.677536,
+      "latency_ms": 561,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01862800262414091,
+        "disgust": 0.0019094138626335698,
+        "fear": 0.0009880622961797516,
+        "happy": 0.15850765724339583,
+        "neutral": 0.6775358793270313,
+        "sad": 0.12076377035746755,
+        "surprise": 0.02166721428915116
+      }
+    },
+    {
+      "file": "images/neutral_00017.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.757692,
+      "latency_ms": 517,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.010815297294836273,
+        "disgust": 0.00021803550006616707,
+        "fear": 0.02032327194710458,
+        "happy": 0.013572374086825954,
+        "neutral": 0.7576924202395405,
+        "sad": 0.0866129029634944,
+        "surprise": 0.1107656979681322
+      }
+    },
+    {
+      "file": "images/neutral_00018.png",
+      "ground_truth": "neutral",
+      "predicted_label": "surprise",
+      "confidence": 0.211848,
+      "latency_ms": 509,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1938486672984999,
+        "disgust": 0.16076882834063846,
+        "fear": 0.008348636671423944,
+        "happy": 0.1869411866927704,
+        "neutral": 0.2070199726966117,
+        "sad": 0.03122426550732316,
+        "surprise": 0.21184844279273243
+      }
+    },
+    {
+      "file": "images/neutral_00019.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.431896,
+      "latency_ms": 491,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04342621121583744,
+        "disgust": 0.0182375875119937,
+        "fear": 0.012422838891852916,
+        "happy": 0.06276498929604614,
+        "neutral": 0.4318962250645399,
+        "sad": 0.4129321333259685,
+        "surprise": 0.01832001469376141
+      }
+    },
+    {
+      "file": "images/neutral_00020.png",
+      "ground_truth": "neutral",
+      "predicted_label": "happy",
+      "confidence": 0.492009,
+      "latency_ms": 549,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.021024663993681414,
+        "disgust": 0.0023006501984191344,
+        "fear": 0.0015312547910888126,
+        "happy": 0.4920086255830562,
+        "neutral": 0.3638007587183021,
+        "sad": 0.022597042541663902,
+        "surprise": 0.09673700417378851
+      }
+    },
+    {
+      "file": "images/neutral_00021.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.618088,
+      "latency_ms": 494,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07755555683269238,
+        "disgust": 0.005665886382137732,
+        "fear": 0.014824439792230502,
+        "happy": 0.042332606810012496,
+        "neutral": 0.6180884587904805,
+        "sad": 0.013413675524890955,
+        "surprise": 0.2281193758675554
+      }
+    },
+    {
+      "file": "images/neutral_00022.png",
+      "ground_truth": "neutral",
+      "predicted_label": "angry",
+      "confidence": 0.531733,
+      "latency_ms": 611,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.531733224629331,
+        "disgust": 0.14286665353811095,
+        "fear": 0.06869097337333083,
+        "happy": 0.0025874307084556136,
+        "neutral": 0.08565331611041586,
+        "sad": 0.02828964462083479,
+        "surprise": 0.1401787570195209
+      }
+    },
+    {
+      "file": "images/neutral_00023.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.584508,
+      "latency_ms": 527,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.2130668407954962,
+        "disgust": 0.02994994002071388,
+        "fear": 0.0019100197876282577,
+        "happy": 0.014833607764879781,
+        "neutral": 0.5845075977476198,
+        "sad": 0.09307227822228878,
+        "surprise": 0.0626597156613733
+      }
+    },
+    {
+      "file": "images/neutral_00024.png",
+      "ground_truth": "neutral",
+      "predicted_label": "happy",
+      "confidence": 0.552644,
+      "latency_ms": 493,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0014312627502733489,
+        "disgust": 0.00012266430740702058,
+        "fear": 0.0001143988304130794,
+        "happy": 0.55264418289494,
+        "neutral": 0.39454701625243843,
+        "sad": 0.04960273586381736,
+        "surprise": 0.001537739100710792
+      }
+    },
+    {
+      "file": "images/neutral_00025.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.437669,
+      "latency_ms": 565,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.08422241942165827,
+        "disgust": 0.0279695634011759,
+        "fear": 0.04060985484919694,
+        "happy": 0.030631682295290043,
+        "neutral": 0.4376686545620385,
+        "sad": 0.09833898765561655,
+        "surprise": 0.28055883781502383
+      }
+    },
+    {
+      "file": "images/sad_00001.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.990858,
+      "latency_ms": 2561,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0026768101891578907,
+        "disgust": 0.002451424124926646,
+        "fear": 0.0033934394676496935,
+        "happy": 0.000025471346099419903,
+        "neutral": 0.000538987739644116,
+        "sad": 0.9908584135463039,
+        "surprise": 0.00005545358621845919
+      }
+    },
+    {
+      "file": "images/sad_00002.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.670249,
+      "latency_ms": 3921,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07560653265415622,
+        "disgust": 0.002367538904778754,
+        "fear": 0.00263996922910851,
+        "happy": 0.00025102057135802564,
+        "neutral": 0.24677484899382374,
+        "sad": 0.6702485334695384,
+        "surprise": 0.002111556177236329
+      }
+    },
+    {
+      "file": "images/sad_00003.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.968577,
+      "latency_ms": 3377,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0070704134879984734,
+        "disgust": 0.023415586880049973,
+        "fear": 0.0008384246834841578,
+        "happy": 0.000015090940514507901,
+        "neutral": 0.0000786626371260642,
+        "sad": 0.9685773264234303,
+        "surprise": 0.000004494947396624979
+      }
+    },
+    {
+      "file": "images/sad_00004.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "angry",
+      "confidence": 0.431887,
+      "latency_ms": 3054,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.4318873172858574,
+        "disgust": 0.11778076856658572,
+        "fear": 0.14607144480841652,
+        "happy": 0.0031266054635743497,
+        "neutral": 0.06876650860637377,
+        "sad": 0.11446030141922843,
+        "surprise": 0.11790705384996367
+      }
+    },
+    {
+      "file": "images/sad_00005.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "angry",
+      "confidence": 0.719797,
+      "latency_ms": 1506,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.7197974775214507,
+        "disgust": 0.050027598495274016,
+        "fear": 0.05723899317885046,
+        "happy": 0.0001284891336253724,
+        "neutral": 0.026478213317338236,
+        "sad": 0.14175849401249632,
+        "surprise": 0.004570734340965003
+      }
+    },
+    {
+      "file": "images/sad_00006.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.949187,
+      "latency_ms": 1656,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.010798551490420217,
+        "disgust": 0.006163512321184585,
+        "fear": 0.01918271991233974,
+        "happy": 0.0008177754301057747,
+        "neutral": 0.007287878586562853,
+        "sad": 0.9491870759638171,
+        "surprise": 0.006562486295569826
+      }
+    },
+    {
+      "file": "images/sad_00007.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.826557,
+      "latency_ms": 1554,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.004680854961819951,
+        "disgust": 0.004425787545377153,
+        "fear": 0.13036963336255578,
+        "happy": 0.00008491880950547638,
+        "neutral": 0.01699540035805542,
+        "sad": 0.8265568747464657,
+        "surprise": 0.016886530216220615
+      }
+    },
+    {
+      "file": "images/sad_00008.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.81477,
+      "latency_ms": 1924,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.09409019050728648,
+        "disgust": 0.02528028257343343,
+        "fear": 0.03270187512940532,
+        "happy": 0.0002844552615605689,
+        "neutral": 0.029462167747330105,
+        "sad": 0.8147699984618684,
+        "surprise": 0.0034110303191156807
+      }
+    },
+    {
+      "file": "images/sad_00009.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.514488,
+      "latency_ms": 757,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.019139660082076668,
+        "disgust": 0.013372994667319942,
+        "fear": 0.2686343590673681,
+        "happy": 0.0006682570985135106,
+        "neutral": 0.09513495197912487,
+        "sad": 0.5144877580815459,
+        "surprise": 0.08856201902405088
+      }
+    },
+    {
+      "file": "images/sad_00010.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "angry",
+      "confidence": 0.395453,
+      "latency_ms": 342,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.39545349185580925,
+        "disgust": 0.005589641243646712,
+        "fear": 0.02464133170979596,
+        "happy": 0.00040237144660452723,
+        "neutral": 0.1700590109885164,
+        "sad": 0.3816498531673625,
+        "surprise": 0.02220429958826477
+      }
+    },
+    {
+      "file": "images/sad_00011.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.726842,
+      "latency_ms": 1879,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.029683906068114496,
+        "disgust": 0.0216191082774811,
+        "fear": 0.002754536863739348,
+        "happy": 0.09672842069691703,
+        "neutral": 0.7268422864228186,
+        "sad": 0.09074902157005593,
+        "surprise": 0.03162272010087336
+      }
+    },
+    {
+      "file": "images/sad_00012.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "disgust",
+      "confidence": 0.326769,
+      "latency_ms": 1091,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.27306925695346895,
+        "disgust": 0.32676863314560345,
+        "fear": 0.2515665165050971,
+        "happy": 0.006718135382649984,
+        "neutral": 0.013544405414351274,
+        "sad": 0.10069083084408101,
+        "surprise": 0.027642221754748154
+      }
+    },
+    {
+      "file": "images/sad_00013.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.932437,
+      "latency_ms": 1002,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00012247709464852812,
+        "disgust": 0.00039376550618357164,
+        "fear": 0.06674458899677418,
+        "happy": 0.00006520258097736381,
+        "neutral": 0.00011688086010738108,
+        "sad": 0.9324374085287257,
+        "surprise": 0.0001196764325833156
+      }
+    },
+    {
+      "file": "images/sad_00014.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.767948,
+      "latency_ms": 372,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06800609238952289,
+        "disgust": 0.029532210462529084,
+        "fear": 0.004175347899823355,
+        "happy": 0.004395151076969333,
+        "neutral": 0.11784507161782344,
+        "sad": 0.767947855243982,
+        "surprise": 0.008098271309349842
+      }
+    },
+    {
+      "file": "images/sad_00015.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.936644,
+      "latency_ms": 843,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.011038803457738713,
+        "disgust": 0.016073514522086194,
+        "fear": 0.0007406146746441519,
+        "happy": 0.004086209390624964,
+        "neutral": 0.03084692003174897,
+        "sad": 0.9366442746010173,
+        "surprise": 0.0005696633221398271
+      }
+    },
+    {
+      "file": "images/sad_00016.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.594695,
+      "latency_ms": 1464,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.023560093045550127,
+        "disgust": 0.007307918042982487,
+        "fear": 0.014551193061368884,
+        "happy": 0.005757161720642421,
+        "neutral": 0.33642846694356715,
+        "sad": 0.5946949557177112,
+        "surprise": 0.0177002114681776
+      }
+    },
+    {
+      "file": "images/sad_00017.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.61426,
+      "latency_ms": 703,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.21040099033090875,
+        "disgust": 0.01682634453144315,
+        "fear": 0.0677893824709176,
+        "happy": 0.0006772104629250068,
+        "neutral": 0.07916895566676563,
+        "sad": 0.6142600991801296,
+        "surprise": 0.01087701735691025
+      }
+    },
+    {
+      "file": "images/sad_00018.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "disgust",
+      "confidence": 0.395282,
+      "latency_ms": 5665,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0668718571018069,
+        "disgust": 0.39528212924981004,
+        "fear": 0.02798218811047373,
+        "happy": 0.09468438449472495,
+        "neutral": 0.07711364992892254,
+        "sad": 0.3044181331113579,
+        "surprise": 0.03364765800290393
+      }
+    },
+    {
+      "file": "images/sad_00019.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.374137,
+      "latency_ms": 1970,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.08745218829828784,
+        "disgust": 0.18780915926794695,
+        "fear": 0.10991660400700745,
+        "happy": 0.028566668259500837,
+        "neutral": 0.12779872889860433,
+        "sad": 0.3741371073931835,
+        "surprise": 0.08431954387546924
+      }
+    },
+    {
+      "file": "images/sad_00020.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.736596,
+      "latency_ms": 631,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06409032033249781,
+        "disgust": 0.0011393286270035049,
+        "fear": 0.01125725916226528,
+        "happy": 0.0005914847245232428,
+        "neutral": 0.17631284222659935,
+        "sad": 0.7365964426722058,
+        "surprise": 0.010012322254905075
+      }
+    },
+    {
+      "file": "images/sad_00021.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.363844,
+      "latency_ms": 1436,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.2880889272070196,
+        "disgust": 0.3043802850576402,
+        "fear": 0.04090003190754759,
+        "happy": 0.0003771184467219159,
+        "neutral": 0.00124435267884641,
+        "sad": 0.36384370320375126,
+        "surprise": 0.0011655814984727999
+      }
+    },
+    {
+      "file": "images/sad_00022.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.980915,
+      "latency_ms": 593,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0010412594911851764,
+        "disgust": 0.008887987756948124,
+        "fear": 0.007099482261295642,
+        "happy": 0.00012803596033986674,
+        "neutral": 0.001803900426514539,
+        "sad": 0.9809152208851248,
+        "surprise": 0.0001241132185918543
+      }
+    },
+    {
+      "file": "images/sad_00023.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.828099,
+      "latency_ms": 1454,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005243573856902416,
+        "disgust": 0.006758434994770475,
+        "fear": 0.15413821205592082,
+        "happy": 0.0007723019475269611,
+        "neutral": 0.002668850844388006,
+        "sad": 0.828098576543368,
+        "surprise": 0.0023200497571232367
+      }
+    },
+    {
+      "file": "images/sad_00024.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.870989,
+      "latency_ms": 5793,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.002059253615546538,
+        "disgust": 0.009120995456120438,
+        "fear": 0.03576485119833052,
+        "happy": 0.042473205291276205,
+        "neutral": 0.027136774638312693,
+        "sad": 0.8709890367535692,
+        "surprise": 0.012455883046844321
+      }
+    },
+    {
+      "file": "images/sad_00025.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.571607,
+      "latency_ms": 3524,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.011262668586614318,
+        "disgust": 0.008598676448491488,
+        "fear": 0.0647376040200648,
+        "happy": 0.01171822943706205,
+        "neutral": 0.5716065817044849,
+        "sad": 0.12878761727409577,
+        "surprise": 0.20328862252918667
+      }
+    },
+    {
+      "file": "images/surprise_00001.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.538432,
+      "latency_ms": 567,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.033246573439060685,
+        "disgust": 0.027507137988037694,
+        "fear": 0.25888205241535167,
+        "happy": 0.004792007976324482,
+        "neutral": 0.06820631994080668,
+        "sad": 0.06893438501289449,
+        "surprise": 0.5384315232275243
+      }
+    },
+    {
+      "file": "images/surprise_00002.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.555801,
+      "latency_ms": 3141,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.007916855269718316,
+        "disgust": 0.0029690511730751726,
+        "fear": 0.5558006436596487,
+        "happy": 0.0003611856819842739,
+        "neutral": 0.007959897008872804,
+        "sad": 0.01033092595952549,
+        "surprise": 0.4146614412471753
+      }
+    },
+    {
+      "file": "images/surprise_00003.png",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.615877,
+      "latency_ms": 505,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.10475717350528535,
+        "disgust": 0.003498594969721897,
+        "fear": 0.17934790310395685,
+        "happy": 0.024223006459423213,
+        "neutral": 0.04799428409843456,
+        "sad": 0.024302362002378532,
+        "surprise": 0.6158766758607996
+      }
+    },
+    {
+      "file": "images/surprise_00004.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.432986,
+      "latency_ms": 244,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.011370240090674241,
+        "disgust": 0.002502446312708668,
+        "fear": 0.4329861224410757,
+        "happy": 0.00121398169883264,
+        "neutral": 0.046598165760457895,
+        "sad": 0.11252954888000932,
+        "surprise": 0.39279949481624166
+      }
+    },
+    {
+      "file": "images/surprise_00005.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 0.678731,
+      "latency_ms": 5205,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.021224892948325594,
+        "disgust": 0.0013189070276478738,
+        "fear": 0.030393158230583958,
+        "happy": 0.010314442512068858,
+        "neutral": 0.6787313647713654,
+        "sad": 0.21300888043148922,
+        "surprise": 0.04500835407851909
+      }
+    },
+    {
+      "file": "images/surprise_00006.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.5682,
+      "latency_ms": 597,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.008831217477414199,
+        "disgust": 0.000353663220022762,
+        "fear": 0.568199987075297,
+        "happy": 0.0027837445309768886,
+        "neutral": 0.0011617104698348898,
+        "sad": 0.0004233640296791938,
+        "surprise": 0.4182463131967752
+      }
+    },
+    {
+      "file": "images/surprise_00007.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.519359,
+      "latency_ms": 1741,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.016992624123101915,
+        "disgust": 0.00857987849380324,
+        "fear": 0.1462753618522496,
+        "happy": 0.0011201497877334082,
+        "neutral": 0.17282227042829018,
+        "sad": 0.1348509457909347,
+        "surprise": 0.519358769523887
+      }
+    },
+    {
+      "file": "images/surprise_00008.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.636635,
+      "latency_ms": 3102,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02313893127892811,
+        "disgust": 0.002556789379117172,
+        "fear": 0.6366354320874823,
+        "happy": 0.0021875662335689053,
+        "neutral": 0.08146456577036729,
+        "sad": 0.07929851009515873,
+        "surprise": 0.17471820515537737
+      }
+    },
+    {
+      "file": "images/surprise_00009.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.61393,
+      "latency_ms": 916,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.006335459230815456,
+        "disgust": 0.0032078081515514835,
+        "fear": 0.2537093147419581,
+        "happy": 0.007056619579683947,
+        "neutral": 0.1055477123477061,
+        "sad": 0.010213565040666473,
+        "surprise": 0.6139295209076183
+      }
+    },
+    {
+      "file": "images/surprise_00010.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.776107,
+      "latency_ms": 5473,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0029278455862556045,
+        "disgust": 0.0009652908555041915,
+        "fear": 0.12937973841333084,
+        "happy": 0.005169382849249525,
+        "neutral": 0.0574469219561557,
+        "sad": 0.02800401496771595,
+        "surprise": 0.7761068053717881
+      }
+    },
+    {
+      "file": "images/surprise_00011.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.466101,
+      "latency_ms": 2163,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.026716663615018094,
+        "disgust": 0.001666066137035712,
+        "fear": 0.46610111702624407,
+        "happy": 0.002250966635830379,
+        "neutral": 0.02573758815701863,
+        "sad": 0.06495953666355493,
+        "surprise": 0.41256806176529814
+      }
+    },
+    {
+      "file": "images/surprise_00012.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.704541,
+      "latency_ms": 1288,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.025563731839476266,
+        "disgust": 0.010591886383184352,
+        "fear": 0.07694693043327869,
+        "happy": 0.03547542715062878,
+        "neutral": 0.14350789584404425,
+        "sad": 0.003373455326522726,
+        "surprise": 0.7045406730228649
+      }
+    },
+    {
+      "file": "images/surprise_00013.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.544396,
+      "latency_ms": 796,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0055199660118442585,
+        "disgust": 0.0004829261093065778,
+        "fear": 0.544395889626459,
+        "happy": 0.002290078384607156,
+        "neutral": 0.013106458002908395,
+        "sad": 0.0018278016369455083,
+        "surprise": 0.4323768802279291
+      }
+    },
+    {
+      "file": "images/surprise_00014.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.713294,
+      "latency_ms": 3297,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.012510751815661669,
+        "disgust": 0.01820319489078247,
+        "fear": 0.06955432807503568,
+        "happy": 0.06483438499923407,
+        "neutral": 0.11020350714198664,
+        "sad": 0.011399478663381661,
+        "surprise": 0.7132943544139178
+      }
+    },
+    {
+      "file": "images/surprise_00015.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.74957,
+      "latency_ms": 993,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.013694936488572918,
+        "disgust": 0.006930691917962885,
+        "fear": 0.1831378898787031,
+        "happy": 0.009333109751722067,
+        "neutral": 0.0342945352440529,
+        "sad": 0.0030387998995703735,
+        "surprise": 0.7495700368194158
+      }
+    },
+    {
+      "file": "images/surprise_00016.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.497829,
+      "latency_ms": 323,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0031569932990905035,
+        "disgust": 0.0005179607984444718,
+        "fear": 0.22336113565767735,
+        "happy": 0.046915800645761244,
+        "neutral": 0.15988991884911088,
+        "sad": 0.06832968401633586,
+        "surprise": 0.49782850673357976
+      }
+    },
+    {
+      "file": "images/surprise_00017.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.603148,
+      "latency_ms": 4330,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0019573923243586195,
+        "disgust": 0.00041603947339534364,
+        "fear": 0.3871118596039221,
+        "happy": 0.0008562109761766166,
+        "neutral": 0.00590247933580572,
+        "sad": 0.0006076652571669718,
+        "surprise": 0.6031483530291747
+      }
+    },
+    {
+      "file": "images/surprise_00018.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.646036,
+      "latency_ms": 4655,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0014257746383360796,
+        "disgust": 0.001665872813280965,
+        "fear": 0.026328047457367023,
+        "happy": 0.3239447751621721,
+        "neutral": 0.0005686083755180857,
+        "sad": 0.00003127428076512312,
+        "surprise": 0.6460356472725606
+      }
+    },
+    {
+      "file": "images/surprise_00019.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.870673,
+      "latency_ms": 3127,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.015079386943666787,
+        "disgust": 0.0010201445611821866,
+        "fear": 0.09321049168179074,
+        "happy": 0.002194140935000697,
+        "neutral": 0.013984362279024137,
+        "sad": 0.003838435236159304,
+        "surprise": 0.8706730383631762
+      }
+    },
+    {
+      "file": "images/surprise_00020.png",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.387689,
+      "latency_ms": 496,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.15270207261816743,
+        "disgust": 0.08949976438196681,
+        "fear": 0.180987085997609,
+        "happy": 0.022225703993528603,
+        "neutral": 0.02603535243418191,
+        "sad": 0.14086062881496939,
+        "surprise": 0.38768939175957695
+      }
+    },
+    {
+      "file": "images/surprise_00021.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.419145,
+      "latency_ms": 2979,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01454839809515083,
+        "disgust": 0.009902733913077142,
+        "fear": 0.4191446923884677,
+        "happy": 0.050278982448545416,
+        "neutral": 0.052385852617232755,
+        "sad": 0.08023371856052038,
+        "surprise": 0.37350562197700593
+      }
+    },
+    {
+      "file": "images/surprise_00022.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "angry",
+      "confidence": 0.688099,
+      "latency_ms": 3463,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.688098996151138,
+        "disgust": 0.045641559505931587,
+        "fear": 0.0527569433033278,
+        "happy": 0.0004757046800457047,
+        "neutral": 0.07772823815256107,
+        "sad": 0.10026150265746032,
+        "surprise": 0.03503705554953545
+      }
+    },
+    {
+      "file": "images/surprise_00023.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.724692,
+      "latency_ms": 2887,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.029932216841351878,
+        "disgust": 0.004782120824543329,
+        "fear": 0.022635574450760598,
+        "happy": 0.05072591883323785,
+        "neutral": 0.14366006555160937,
+        "sad": 0.023572119740058625,
+        "surprise": 0.7246919837584385
+      }
+    },
+    {
+      "file": "images/surprise_00024.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.6977,
+      "latency_ms": 740,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0009381636769517604,
+        "disgust": 0.0004801246262538259,
+        "fear": 0.20470470803166343,
+        "happy": 0.002173935436616957,
+        "neutral": 0.07977664087024385,
+        "sad": 0.014226837574954986,
+        "surprise": 0.6976995897833153
+      }
+    },
+    {
+      "file": "images/surprise_00025.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.804342,
+      "latency_ms": 2467,
+      "model_id": "enet_b2_7",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.008017496242026535,
+        "disgust": 0.0015951438085045361,
+        "fear": 0.03149701458789587,
+        "happy": 0.042349157633613584,
+        "neutral": 0.1077704787871826,
+        "sad": 0.004428557157239346,
+        "surprise": 0.8043421517835376
+      }
+    }
+  ],
+  "timestamp": "2026-07-01T00:35:57.412472"
+}

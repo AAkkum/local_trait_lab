@@ -1,0 +1,3448 @@
+{
+  "dataset": {
+    "name": "affectnet7_25.zip"
+  },
+  "model": {
+    "model_id": "resemotenet_kaggle_224",
+    "display_name": "resemotenet_kaggle_224",
+    "family": "emotieff"
+  },
+  "metrics": {
+    "accuracy": 0.645714,
+    "macro_f1": 0.643603,
+    "average_latency_ms": 1338.674,
+    "median_latency_ms": 713.0,
+    "evaluated_examples": 175,
+    "failed_examples": 0,
+    "confusion_matrix": {
+      "angry": {
+        "angry": 13,
+        "disgust": 3,
+        "fear": 2,
+        "happy": 1,
+        "neutral": 3,
+        "sad": 3,
+        "surprise": 0
+      },
+      "disgust": {
+        "angry": 3,
+        "disgust": 16,
+        "fear": 1,
+        "happy": 1,
+        "neutral": 3,
+        "sad": 1,
+        "surprise": 0
+      },
+      "fear": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 11,
+        "happy": 0,
+        "neutral": 6,
+        "sad": 5,
+        "surprise": 3
+      },
+      "happy": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 23,
+        "neutral": 2,
+        "sad": 0,
+        "surprise": 0
+      },
+      "neutral": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 4,
+        "neutral": 21,
+        "sad": 0,
+        "surprise": 0
+      },
+      "sad": {
+        "angry": 1,
+        "disgust": 1,
+        "fear": 0,
+        "happy": 0,
+        "neutral": 6,
+        "sad": 17,
+        "surprise": 0
+      },
+      "surprise": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 4,
+        "happy": 2,
+        "neutral": 7,
+        "sad": 0,
+        "surprise": 12
+      }
+    },
+    "per_class": {
+      "angry": {
+        "precision": 0.764706,
+        "recall": 0.52,
+        "f1": 0.619048
+      },
+      "disgust": {
+        "precision": 0.8,
+        "recall": 0.64,
+        "f1": 0.711111
+      },
+      "fear": {
+        "precision": 0.611111,
+        "recall": 0.44,
+        "f1": 0.511628
+      },
+      "happy": {
+        "precision": 0.741935,
+        "recall": 0.92,
+        "f1": 0.821429
+      },
+      "neutral": {
+        "precision": 0.4375,
+        "recall": 0.84,
+        "f1": 0.575342
+      },
+      "sad": {
+        "precision": 0.653846,
+        "recall": 0.68,
+        "f1": 0.666667
+      },
+      "surprise": {
+        "precision": 0.8,
+        "recall": 0.48,
+        "f1": 0.6
+      }
+    }
+  },
+  "predictions": [
+    {
+      "file": "images/angry_00001.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.690255,
+      "latency_ms": 1101,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.08649984276898698,
+        "disgust": 0.0492969472584549,
+        "fear": 0.015836474521164944,
+        "happy": 0.000030509346230958192,
+        "neutral": 0.00913083774950097,
+        "sad": 0.6902549481453746,
+        "surprise": 0.14895044021028675
+      }
+    },
+    {
+      "file": "images/angry_00002.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 0.990793,
+      "latency_ms": 1513,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00016448528655284915,
+        "disgust": 0.00011843155005694833,
+        "fear": 0.00010894481258623802,
+        "happy": 0.007960157704030545,
+        "neutral": 0.9907929244098374,
+        "sad": 0.0006087929900443926,
+        "surprise": 0.00024626324689186035
+      }
+    },
+    {
+      "file": "images/angry_00003.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.970875,
+      "latency_ms": 290,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9708748697872766,
+        "disgust": 0.026904773468372473,
+        "fear": 0.001995200410078822,
+        "happy": 4.2362324247154274e-9,
+        "neutral": 1.045442813923695e-7,
+        "sad": 0.0000425063570730801,
+        "surprise": 0.00018254119668538932
+      }
+    },
+    {
+      "file": "images/angry_00004.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "fear",
+      "confidence": 0.919836,
+      "latency_ms": 660,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0012526813173266173,
+        "disgust": 0.0001397981477085791,
+        "fear": 0.9198360498387227,
+        "happy": 0.00000496438372729765,
+        "neutral": 0.0000015401898884611434,
+        "sad": 0.0012111390549927705,
+        "surprise": 0.07755382706763354
+      }
+    },
+    {
+      "file": "images/angry_00005.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.987971,
+      "latency_ms": 766,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9879707264657538,
+        "disgust": 0.0003035086756499722,
+        "fear": 0.010891214332213997,
+        "happy": 0.000002661225337202322,
+        "neutral": 0.00004624225438808254,
+        "sad": 0.0005726679851221002,
+        "surprise": 0.00021297906153496486
+      }
+    },
+    {
+      "file": "images/angry_00006.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.794342,
+      "latency_ms": 1460,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1300196274406408,
+        "disgust": 0.7943420624540207,
+        "fear": 0.000036815164158561696,
+        "happy": 1.036173706558137e-8,
+        "neutral": 0.00005862508672631198,
+        "sad": 0.07552941022523418,
+        "surprise": 0.000013449267482447585
+      }
+    },
+    {
+      "file": "images/angry_00007.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.96065,
+      "latency_ms": 653,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9606504084796997,
+        "disgust": 0.030741792541104793,
+        "fear": 0.0024202517058681022,
+        "happy": 0.00004511664836972932,
+        "neutral": 0.00014583829228153344,
+        "sad": 0.005981648445609754,
+        "surprise": 0.000014943887066539773
+      }
+    },
+    {
+      "file": "images/angry_00008.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.560936,
+      "latency_ms": 1273,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.43453448146904194,
+        "disgust": 0.5609359998688904,
+        "fear": 0.0003550151214180861,
+        "happy": 0.000005519816667574443,
+        "neutral": 0.00032276063154119814,
+        "sad": 0.0036496549510692286,
+        "surprise": 0.00019656814137155267
+      }
+    },
+    {
+      "file": "images/angry_00009.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "happy",
+      "confidence": 0.806781,
+      "latency_ms": 1355,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.14598901227489425,
+        "disgust": 0.009074565082320992,
+        "fear": 0.009967225146971572,
+        "happy": 0.8067812250432923,
+        "neutral": 0.02068733687587334,
+        "sad": 0.006906844552062036,
+        "surprise": 0.0005937910245854068
+      }
+    },
+    {
+      "file": "images/angry_00010.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.995959,
+      "latency_ms": 356,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9959590328204962,
+        "disgust": 0.000024723821288198735,
+        "fear": 0.003986175859115402,
+        "happy": 0.0000017587113432653985,
+        "neutral": 0.000001192198221854346,
+        "sad": 0.00002325265875366151,
+        "surprise": 0.000003863930781482055
+      }
+    },
+    {
+      "file": "images/angry_00011.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.901264,
+      "latency_ms": 753,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9012640446808772,
+        "disgust": 0.0014286614049659023,
+        "fear": 0.03295712788627746,
+        "happy": 0.0013601277606975835,
+        "neutral": 0.04886218416717592,
+        "sad": 0.008254296237140246,
+        "surprise": 0.005873557862865724
+      }
+    },
+    {
+      "file": "images/angry_00012.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.800054,
+      "latency_ms": 725,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.8000540113056195,
+        "disgust": 0.00146642398654341,
+        "fear": 0.12268721049212052,
+        "happy": 0.03757990935213573,
+        "neutral": 0.002438226873819734,
+        "sad": 0.023239080582766154,
+        "surprise": 0.012535137406994926
+      }
+    },
+    {
+      "file": "images/angry_00013.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.901253,
+      "latency_ms": 1283,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9012529075409185,
+        "disgust": 0.00024949491220677334,
+        "fear": 0.09513321538959447,
+        "happy": 5.009361994373944e-7,
+        "neutral": 0.00003333295393146233,
+        "sad": 0.003146932151413626,
+        "surprise": 0.00018361611573573675
+      }
+    },
+    {
+      "file": "images/angry_00014.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.964235,
+      "latency_ms": 255,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9642345145174701,
+        "disgust": 0.035262646604861884,
+        "fear": 0.00042937151007879214,
+        "happy": 1.6633080250048786e-9,
+        "neutral": 2.0226971980623125e-7,
+        "sad": 0.00007208446782441805,
+        "surprise": 0.0000011789667366187284
+      }
+    },
+    {
+      "file": "images/angry_00015.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.529786,
+      "latency_ms": 559,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.46931632066513823,
+        "disgust": 0.00006033446028217064,
+        "fear": 0.0007008688292735842,
+        "happy": 2.8181215144920213e-10,
+        "neutral": 0.00013172045982016753,
+        "sad": 0.5297858095627228,
+        "surprise": 0.0000049457409509252205
+      }
+    },
+    {
+      "file": "images/angry_00016.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.987162,
+      "latency_ms": 2696,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9871620279253989,
+        "disgust": 0.000004839476703288532,
+        "fear": 0.0005675900877546632,
+        "happy": 1.1555088078674523e-8,
+        "neutral": 0.00034770258275854566,
+        "sad": 0.011917542998478107,
+        "surprise": 2.853738186570451e-7
+      }
+    },
+    {
+      "file": "images/angry_00017.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.893832,
+      "latency_ms": 345,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06703007986956555,
+        "disgust": 0.0005122933415429588,
+        "fear": 0.029283732232892833,
+        "happy": 0.000002557720796437935,
+        "neutral": 0.004464283884059881,
+        "sad": 0.8938324360204851,
+        "surprise": 0.004874616930657172
+      }
+    },
+    {
+      "file": "images/angry_00018.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "fear",
+      "confidence": 0.799744,
+      "latency_ms": 415,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.19978942359927088,
+        "disgust": 0.000011358338205539812,
+        "fear": 0.7997443764663308,
+        "happy": 1.0299896573236102e-9,
+        "neutral": 8.70490917636742e-9,
+        "sad": 0.0003933763790122191,
+        "surprise": 0.00006145548228173882
+      }
+    },
+    {
+      "file": "images/angry_00019.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.998776,
+      "latency_ms": 951,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9987762883690211,
+        "disgust": 0.00004050149436836714,
+        "fear": 0.0005583908469188377,
+        "happy": 6.04683529575287e-9,
+        "neutral": 0.000007543186972949024,
+        "sad": 0.0006148702072801806,
+        "surprise": 0.000002399848603319242
+      }
+    },
+    {
+      "file": "images/angry_00020.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 0.999981,
+      "latency_ms": 2523,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.5143441717248503e-7,
+        "disgust": 5.14649913430962e-9,
+        "fear": 3.0542348174089796e-8,
+        "happy": 0.00001758962329484681,
+        "neutral": 0.9999812869254818,
+        "sad": 9.258675834121723e-7,
+        "surprise": 1.0460375259131217e-8
+      }
+    },
+    {
+      "file": "images/angry_00021.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.996142,
+      "latency_ms": 318,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9961424364080087,
+        "disgust": 0.000103854336294193,
+        "fear": 0.0036790502243987744,
+        "happy": 0.00000421761804062727,
+        "neutral": 0.000004416981276516677,
+        "sad": 0.00006481085166131613,
+        "surprise": 0.0000012135803195901757
+      }
+    },
+    {
+      "file": "images/angry_00022.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.900052,
+      "latency_ms": 664,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9000519170704745,
+        "disgust": 0.0279933988491165,
+        "fear": 0.011795041187754011,
+        "happy": 0.000012575703749667029,
+        "neutral": 0.003048179457139769,
+        "sad": 0.04962711620392192,
+        "surprise": 0.007471771527843608
+      }
+    },
+    {
+      "file": "images/angry_00023.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.969212,
+      "latency_ms": 591,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9692121139057672,
+        "disgust": 0.0007301503446309367,
+        "fear": 0.006457177557093217,
+        "happy": 0.000018288053712093734,
+        "neutral": 0.012880791878441098,
+        "sad": 0.010099145701412723,
+        "surprise": 0.0006023325589426053
+      }
+    },
+    {
+      "file": "images/angry_00024.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.918809,
+      "latency_ms": 1350,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07607511299321264,
+        "disgust": 0.9188087837005728,
+        "fear": 0.0000011506716663298183,
+        "happy": 0.000006945185035726751,
+        "neutral": 0.004744977549231356,
+        "sad": 0.0003625585112709949,
+        "surprise": 4.713890104555022e-7
+      }
+    },
+    {
+      "file": "images/angry_00025.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 0.998892,
+      "latency_ms": 3031,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0005837922116702143,
+        "disgust": 7.197273652965058e-7,
+        "fear": 0.000011798874232995894,
+        "happy": 0.00005809056570337187,
+        "neutral": 0.9988915796272132,
+        "sad": 0.00045370017211084876,
+        "surprise": 3.188217041475764e-7
+      }
+    },
+    {
+      "file": "images/disgust_00001.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.620997,
+      "latency_ms": 792,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.6209970770982451,
+        "disgust": 0.3775519506216752,
+        "fear": 0.00012340281165673276,
+        "happy": 1.8226553985105542e-7,
+        "neutral": 0.000053881912070951765,
+        "sad": 0.0012532100028079306,
+        "surprise": 0.000020295288004170125
+      }
+    },
+    {
+      "file": "images/disgust_00002.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.998885,
+      "latency_ms": 274,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0011097586777584051,
+        "disgust": 0.9988853139377686,
+        "fear": 2.3850078227852593e-7,
+        "happy": 7.095372556038227e-9,
+        "neutral": 1.7668307406904243e-8,
+        "sad": 0.000004620670442295192,
+        "surprise": 4.344956875826844e-8
+      }
+    },
+    {
+      "file": "images/disgust_00003.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999927,
+      "latency_ms": 409,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00007296249844393089,
+        "disgust": 0.9999267483992328,
+        "fear": 1.9550015252641833e-9,
+        "happy": 3.7951044286181315e-11,
+        "neutral": 1.043239317463672e-10,
+        "sad": 2.8658260652608316e-7,
+        "surprise": 4.2244022576159745e-10
+      }
+    },
+    {
+      "file": "images/disgust_00004.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999921,
+      "latency_ms": 517,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00005362404297234387,
+        "disgust": 0.9999210804888172,
+        "fear": 0.0000065531230817108175,
+        "happy": 9.002961791857669e-8,
+        "neutral": 1.9957729771803794e-8,
+        "sad": 0.000011319428962614703,
+        "surprise": 0.00000731292881838996
+      }
+    },
+    {
+      "file": "images/disgust_00005.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.576048,
+      "latency_ms": 2056,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.39045379553475085,
+        "disgust": 0.5760481922720584,
+        "fear": 0.0009015380529909231,
+        "happy": 0.00014039601918864253,
+        "neutral": 0.012424527708092735,
+        "sad": 0.018732614569429283,
+        "surprise": 0.0012989358434888762
+      }
+    },
+    {
+      "file": "images/disgust_00006.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999962,
+      "latency_ms": 1379,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000023775127322541984,
+        "disgust": 0.9999619322195353,
+        "fear": 1.894638196585762e-8,
+        "happy": 4.6300017506166565e-10,
+        "neutral": 6.802226241725941e-9,
+        "sad": 0.00001426014683893517,
+        "surprise": 6.294694685835624e-9
+      }
+    },
+    {
+      "file": "images/disgust_00007.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999958,
+      "latency_ms": 347,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000006660204363768169,
+        "disgust": 0.9999580796250166,
+        "fear": 4.3542508160874986e-8,
+        "happy": 1.5138793060544003e-10,
+        "neutral": 1.178657982538774e-9,
+        "sad": 0.00003519870790958904,
+        "surprise": 1.6590156040759935e-8
+      }
+    },
+    {
+      "file": "images/disgust_00008.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999863,
+      "latency_ms": 521,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00010244644232422988,
+        "disgust": 0.9998633252256458,
+        "fear": 0.000005448440407797894,
+        "happy": 1.5196946517309105e-7,
+        "neutral": 7.692320989435044e-8,
+        "sad": 0.000023738376848992786,
+        "surprise": 0.000004812622098151346
+      }
+    },
+    {
+      "file": "images/disgust_00009.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999472,
+      "latency_ms": 423,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0003964463103895881,
+        "disgust": 0.9994721304631998,
+        "fear": 0.0000015224982843895601,
+        "happy": 1.075937814973931e-8,
+        "neutral": 1.3037939565254382e-7,
+        "sad": 0.00012944499256124632,
+        "surprise": 3.1459679113436243e-7
+      }
+    },
+    {
+      "file": "images/disgust_00010.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.997652,
+      "latency_ms": 605,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.9976516339076702,
+        "disgust": 0.001047208544401846,
+        "fear": 0.0007539249309413806,
+        "happy": 4.729216023989429e-9,
+        "neutral": 0.0000014048586568125899,
+        "sad": 0.0005449245162128311,
+        "surprise": 8.985129006430536e-7
+      }
+    },
+    {
+      "file": "images/disgust_00011.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.998867,
+      "latency_ms": 521,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0010839834550106027,
+        "disgust": 0.9988668786410893,
+        "fear": 2.685649503801999e-7,
+        "happy": 3.390918085208919e-8,
+        "neutral": 6.924644106919695e-7,
+        "sad": 0.00004576194784036773,
+        "surprise": 0.0000023810175178184215
+      }
+    },
+    {
+      "file": "images/disgust_00012.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.999652,
+      "latency_ms": 810,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.999651806037686,
+        "disgust": 0.000016155353479627076,
+        "fear": 0.0003040120030576065,
+        "happy": 4.27493076327212e-8,
+        "neutral": 0.000003876570177941432,
+        "sad": 0.0000235230502466618,
+        "surprise": 5.842360444844094e-7
+      }
+    },
+    {
+      "file": "images/disgust_00013.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999218,
+      "latency_ms": 4197,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00025581023932771024,
+        "disgust": 0.9992182597726985,
+        "fear": 0.000006049748223199524,
+        "happy": 7.217391118227568e-8,
+        "neutral": 3.66709426815493e-7,
+        "sad": 0.0005140529180539975,
+        "surprise": 0.0000053884383585029186
+      }
+    },
+    {
+      "file": "images/disgust_00014.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.926583,
+      "latency_ms": 378,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00646519448960371,
+        "disgust": 0.926582847971407,
+        "fear": 0.00005408981255078922,
+        "happy": 0.0000013458190236772746,
+        "neutral": 0.00012894767276333264,
+        "sad": 0.06674032287877203,
+        "surprise": 0.000027251355879190223
+      }
+    },
+    {
+      "file": "images/disgust_00015.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.978085,
+      "latency_ms": 4746,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0017701149339504844,
+        "disgust": 0.9780847367787942,
+        "fear": 0.0005380014660441644,
+        "happy": 0.0006636361336431644,
+        "neutral": 0.004445823380817435,
+        "sad": 0.014051982228616512,
+        "surprise": 0.00044570507813381036
+      }
+    },
+    {
+      "file": "images/disgust_00016.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999964,
+      "latency_ms": 822,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000021201496439160707,
+        "disgust": 0.9999635771842877,
+        "fear": 0.000009450001824551253,
+        "happy": 1.3006134225049992e-8,
+        "neutral": 8.083239348449477e-10,
+        "sad": 0.000005488155560561559,
+        "surprise": 2.6934742986779135e-7
+      }
+    },
+    {
+      "file": "images/disgust_00017.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 0.989272,
+      "latency_ms": 2371,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00023010552099144208,
+        "disgust": 0.0038967240890221753,
+        "fear": 0.00002920089345411903,
+        "happy": 0.005834687655124025,
+        "neutral": 0.9892724829663383,
+        "sad": 0.0004737921215976137,
+        "surprise": 0.0002630067534723283
+      }
+    },
+    {
+      "file": "images/disgust_00018.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 0.985399,
+      "latency_ms": 2167,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00003367072207040387,
+        "disgust": 0.000002293779939145979,
+        "fear": 0.000190400220017798,
+        "happy": 0.012588122846136113,
+        "neutral": 0.9853992491061875,
+        "sad": 0.00176873353859438,
+        "surprise": 0.000017529787054691634
+      }
+    },
+    {
+      "file": "images/disgust_00019.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999999,
+      "latency_ms": 344,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 8.564380627039954e-7,
+        "disgust": 0.9999989900218875,
+        "fear": 5.012879897330398e-10,
+        "happy": 2.688639131074455e-12,
+        "neutral": 3.870374037964078e-12,
+        "sad": 1.5297485634205833e-7,
+        "surprise": 5.7346066324460676e-11
+      }
+    },
+    {
+      "file": "images/disgust_00020.png",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 0.998831,
+      "latency_ms": 543,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000013572381891257637,
+        "disgust": 0.000001358781947353131,
+        "fear": 1.0506017487686866e-8,
+        "happy": 0.0011661006696968427,
+        "neutral": 0.9988307393235103,
+        "sad": 4.256016930223446e-7,
+        "surprise": 7.878945918507127e-9
+      }
+    },
+    {
+      "file": "images/disgust_00021.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.998216,
+      "latency_ms": 372,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0008337535578157889,
+        "disgust": 0.00009350545693077641,
+        "fear": 0.00034231489212571356,
+        "happy": 4.126830307224352e-8,
+        "neutral": 0.00036507994082760693,
+        "sad": 0.9982156939806964,
+        "surprise": 0.00014961090330058505
+      }
+    },
+    {
+      "file": "images/disgust_00022.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.997419,
+      "latency_ms": 5547,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00225893248478529,
+        "disgust": 0.997419240847967,
+        "fear": 0.000024535278889671002,
+        "happy": 0.0000154815573375159,
+        "neutral": 0.000022049933212110874,
+        "sad": 0.00019348935180287077,
+        "surprise": 0.00006627054600559482
+      }
+    },
+    {
+      "file": "images/disgust_00023.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.999929,
+      "latency_ms": 3112,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000030406881554997078,
+        "disgust": 0.99992905850302,
+        "fear": 0.0000013528423988309165,
+        "happy": 4.32866581620479e-9,
+        "neutral": 2.9307211974225205e-9,
+        "sad": 0.000039085877783917956,
+        "surprise": 8.863585544489458e-8
+      }
+    },
+    {
+      "file": "images/disgust_00024.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "happy",
+      "confidence": 0.936857,
+      "latency_ms": 2118,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0026482018581303357,
+        "disgust": 0.0028748207281385834,
+        "fear": 0.002940506683289349,
+        "happy": 0.9368567118644517,
+        "neutral": 0.04255422818458633,
+        "sad": 0.002703344655185907,
+        "surprise": 0.009422186026217647
+      }
+    },
+    {
+      "file": "images/disgust_00025.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "fear",
+      "confidence": 0.41139,
+      "latency_ms": 1798,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07423226100635653,
+        "disgust": 0.013687989077397187,
+        "fear": 0.41139027543342316,
+        "happy": 0.001060846455967614,
+        "neutral": 0.012199824586896628,
+        "sad": 0.2619920286254901,
+        "surprise": 0.2254367748144688
+      }
+    },
+    {
+      "file": "images/fear_00001.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.808766,
+      "latency_ms": 573,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1533054530712288,
+        "disgust": 0.00019909083864672492,
+        "fear": 0.8087656804112477,
+        "happy": 0.000026467768901882827,
+        "neutral": 0.00006160875667505068,
+        "sad": 0.001733289574487796,
+        "surprise": 0.03590840957881212
+      }
+    },
+    {
+      "file": "images/fear_00002.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.99795,
+      "latency_ms": 454,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 6.722779350351561e-7,
+        "disgust": 1.80555881520642e-9,
+        "fear": 0.9979498414831751,
+        "happy": 1.8071866428344045e-11,
+        "neutral": 7.253403348595424e-10,
+        "sad": 0.0003051891838222764,
+        "surprise": 0.0017442945060963146
+      }
+    },
+    {
+      "file": "images/fear_00003.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.998937,
+      "latency_ms": 389,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000006479499563362214,
+        "disgust": 2.503602693564533e-7,
+        "fear": 0.9989374056052596,
+        "happy": 1.7087745068484538e-11,
+        "neutral": 6.564770504019383e-10,
+        "sad": 0.0005220270430796012,
+        "surprise": 0.0005338368182634897
+      }
+    },
+    {
+      "file": "images/fear_00004.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.995469,
+      "latency_ms": 1703,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000027826102894969527,
+        "disgust": 2.613208883111764e-8,
+        "fear": 0.9954686842471788,
+        "happy": 9.519725043199422e-9,
+        "neutral": 1.2588275566530963e-7,
+        "sad": 0.0012609829783814116,
+        "surprise": 0.003242345136975296
+      }
+    },
+    {
+      "file": "images/fear_00005.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.950651,
+      "latency_ms": 535,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000007020040320279033,
+        "disgust": 1.6191464029043812e-7,
+        "fear": 0.9506511604197044,
+        "happy": 1.280948523386412e-8,
+        "neutral": 1.4676745758901805e-7,
+        "sad": 0.0024827416987912047,
+        "surprise": 0.04685875634960086
+      }
+    },
+    {
+      "file": "images/fear_00006.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.436955,
+      "latency_ms": 392,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0008252146772103729,
+        "disgust": 0.0000899532553894992,
+        "fear": 0.1642451651013125,
+        "happy": 0.000057931981501469026,
+        "neutral": 0.0048573666489127474,
+        "sad": 0.43695467592615755,
+        "surprise": 0.3929696924095159
+      }
+    },
+    {
+      "file": "images/fear_00007.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 0.994939,
+      "latency_ms": 2155,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000025967911302292163,
+        "disgust": 7.953666667881594e-8,
+        "fear": 0.0012409197778322628,
+        "happy": 0.0025110926230637646,
+        "neutral": 0.9949389266664184,
+        "sad": 0.0002328079390105587,
+        "surprise": 0.001050205545706102
+      }
+    },
+    {
+      "file": "images/fear_00008.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.867601,
+      "latency_ms": 1180,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005323300156743786,
+        "disgust": 0.00018058559116131587,
+        "fear": 0.867600939086893,
+        "happy": 0.00007105784097874673,
+        "neutral": 0.0009922854105007771,
+        "sad": 0.039351439205267506,
+        "surprise": 0.08648039270845505
+      }
+    },
+    {
+      "file": "images/fear_00009.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.37303,
+      "latency_ms": 530,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.35553820066410263,
+        "disgust": 0.00017678968149618783,
+        "fear": 0.37303006624363827,
+        "happy": 0.00004916726624051067,
+        "neutral": 0.007180382160849362,
+        "sad": 0.2489266562995168,
+        "surprise": 0.01509873768415618
+      }
+    },
+    {
+      "file": "images/fear_00010.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.987928,
+      "latency_ms": 552,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.007267017338189495,
+        "disgust": 0.0000052933095863809645,
+        "fear": 0.9879284583883636,
+        "happy": 3.300758133104767e-7,
+        "neutral": 0.0000011759926142214641,
+        "sad": 0.003899108530530015,
+        "surprise": 0.0008986163649032032
+      }
+    },
+    {
+      "file": "images/fear_00011.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 0.93789,
+      "latency_ms": 449,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 8.636048406146707e-7,
+        "disgust": 3.021820635744582e-9,
+        "fear": 0.062085106438392344,
+        "happy": 3.193960938707421e-8,
+        "neutral": 1.4571886167145733e-8,
+        "sad": 0.00002400728511321736,
+        "surprise": 0.9378899731383377
+      }
+    },
+    {
+      "file": "images/fear_00012.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.823425,
+      "latency_ms": 697,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00005936340240217792,
+        "disgust": 3.813341578837878e-7,
+        "fear": 0.17649219720740303,
+        "happy": 6.008062295147741e-10,
+        "neutral": 6.68887417953285e-7,
+        "sad": 0.823425113694935,
+        "surprise": 0.00002227487287794233
+      }
+    },
+    {
+      "file": "images/fear_00013.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 0.772445,
+      "latency_ms": 432,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000012078800836046796,
+        "disgust": 1.765410659655432e-9,
+        "fear": 0.2275356566747506,
+        "happy": 5.98366966777187e-8,
+        "neutral": 1.4622312824986826e-8,
+        "sad": 0.00001846666909861431,
+        "surprise": 0.772444592551647
+      }
+    },
+    {
+      "file": "images/fear_00014.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.615608,
+      "latency_ms": 797,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0012441066501904952,
+        "disgust": 7.348301770646117e-7,
+        "fear": 0.37458656777332744,
+        "happy": 1.541913224183971e-7,
+        "neutral": 0.00021737875582363166,
+        "sad": 0.6156083443825463,
+        "surprise": 0.008342713416612647
+      }
+    },
+    {
+      "file": "images/fear_00015.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 0.985521,
+      "latency_ms": 3681,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0026500140491550177,
+        "disgust": 0.00007200673666142716,
+        "fear": 0.0021201865820735283,
+        "happy": 0.005780005510467888,
+        "neutral": 0.9855206012520517,
+        "sad": 0.0017447053737380286,
+        "surprise": 0.0021124804958523296
+      }
+    },
+    {
+      "file": "images/fear_00016.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.812771,
+      "latency_ms": 446,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.001023345669595661,
+        "disgust": 0.000028197995802570538,
+        "fear": 0.8127710233696211,
+        "happy": 0.000016256720151105312,
+        "neutral": 0.0000386819636745986,
+        "sad": 0.005271402535341244,
+        "surprise": 0.1808510917458137
+      }
+    },
+    {
+      "file": "images/fear_00017.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.875965,
+      "latency_ms": 889,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005954700882133286,
+        "disgust": 0.0002178868690969798,
+        "fear": 0.10489419414022087,
+        "happy": 0.0027766259733026364,
+        "neutral": 0.0025697513023022586,
+        "sad": 0.8759645560434294,
+        "surprise": 0.0076222847895145145
+      }
+    },
+    {
+      "file": "images/fear_00018.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 0.810897,
+      "latency_ms": 322,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00008446152453996867,
+        "disgust": 0.000007972574622019662,
+        "fear": 0.18151070974828518,
+        "happy": 0.000002377341023480629,
+        "neutral": 0.000010736306344262276,
+        "sad": 0.007486527452671395,
+        "surprise": 0.8108972150525138
+      }
+    },
+    {
+      "file": "images/fear_00019.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.895944,
+      "latency_ms": 418,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.012704808758152573,
+        "disgust": 0.07259642983795898,
+        "fear": 0.8959438364856601,
+        "happy": 0.00002083627221391564,
+        "neutral": 0.0000026461941576233,
+        "sad": 0.012717554247804614,
+        "surprise": 0.0060138882040520186
+      }
+    },
+    {
+      "file": "images/fear_00020.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 0.996823,
+      "latency_ms": 1546,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00017300034594790797,
+        "disgust": 0.0000016614495002234967,
+        "fear": 0.0008256040828826912,
+        "happy": 0.0011204011169181124,
+        "neutral": 0.99682329849902,
+        "sad": 0.0004545144826489803,
+        "surprise": 0.0006015200230820943
+      }
+    },
+    {
+      "file": "images/fear_00021.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 0.999699,
+      "latency_ms": 3792,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000010054575160453747,
+        "disgust": 5.599269738263592e-9,
+        "fear": 0.000010398246571047972,
+        "happy": 0.00015413492609789344,
+        "neutral": 0.9996994112348837,
+        "sad": 0.00013434647470621908,
+        "surprise": 6.980609554440505e-7
+      }
+    },
+    {
+      "file": "images/fear_00022.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 0.868579,
+      "latency_ms": 1575,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0013524582600643266,
+        "disgust": 3.577190113937022e-7,
+        "fear": 0.09753889443993337,
+        "happy": 0.0032422433332992134,
+        "neutral": 0.8685789256917424,
+        "sad": 0.0029686964858131686,
+        "surprise": 0.02631842407013609
+      }
+    },
+    {
+      "file": "images/fear_00023.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 0.99914,
+      "latency_ms": 3862,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000061582401897450914,
+        "disgust": 5.231726254614404e-8,
+        "fear": 0.000007667221027983357,
+        "happy": 0.0007914905641207142,
+        "neutral": 0.9991404154136676,
+        "sad": 0.000052744137038083106,
+        "surprise": 0.0000014721066931576242
+      }
+    },
+    {
+      "file": "images/fear_00024.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.998522,
+      "latency_ms": 593,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000016129374934859382,
+        "disgust": 1.4289246848377849e-8,
+        "fear": 0.0014608013150831487,
+        "happy": 1.9046069168588475e-10,
+        "neutral": 3.136253112698038e-7,
+        "sad": 0.9985222429969836,
+        "surprise": 4.982079797021833e-7
+      }
+    },
+    {
+      "file": "images/fear_00025.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.719204,
+      "latency_ms": 1348,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03255026603599487,
+        "disgust": 0.0021114465931329897,
+        "fear": 0.7192037864629431,
+        "happy": 0.0012750506751662673,
+        "neutral": 0.0049652028105710575,
+        "sad": 0.05507140781718774,
+        "surprise": 0.18482283960500392
+      }
+    },
+    {
+      "file": "images/happy_00001.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.997786,
+      "latency_ms": 554,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00001217251011935672,
+        "disgust": 0.00000396707170313463,
+        "fear": 0.000007604500396839186,
+        "happy": 0.9977856546706841,
+        "neutral": 0.002154307241737718,
+        "sad": 0.000031861227827131684,
+        "surprise": 0.000004432777531904625
+      }
+    },
+    {
+      "file": "images/happy_00002.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999989,
+      "latency_ms": 500,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 9.821096960258244e-8,
+        "disgust": 3.9020233641979645e-10,
+        "fear": 2.8683007935707204e-8,
+        "happy": 0.9999890876490827,
+        "neutral": 0.000010760231797204432,
+        "sad": 4.4156955453956805e-9,
+        "surprise": 2.0419244800782355e-8
+      }
+    },
+    {
+      "file": "images/happy_00003.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999998,
+      "latency_ms": 527,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.1379000273945416e-9,
+        "disgust": 9.87394017390466e-13,
+        "fear": 2.0554258702829014e-9,
+        "happy": 0.9999981399871103,
+        "neutral": 0.000001803310927790947,
+        "sad": 5.833619890648479e-11,
+        "surprise": 5.344931255737863e-8
+      }
+    },
+    {
+      "file": "images/happy_00004.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 692,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.2366712045941561e-11,
+        "disgust": 6.3170659248981295e-15,
+        "fear": 1.792378861237753e-11,
+        "happy": 0.9999998077353501,
+        "neutral": 1.9182851219159445e-7,
+        "sad": 7.599436755429171e-13,
+        "surprise": 4.050809291274406e-10
+      }
+    },
+    {
+      "file": "images/happy_00005.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999998,
+      "latency_ms": 558,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 6.000295185792764e-10,
+        "disgust": 8.6310724681113e-13,
+        "fear": 7.716421783335738e-10,
+        "happy": 0.9999979960265111,
+        "neutral": 0.000001992074640511326,
+        "sad": 3.880869020383593e-11,
+        "surprise": 1.0487504837369216e-8
+      }
+    },
+    {
+      "file": "images/happy_00006.png",
+      "ground_truth": "happy",
+      "predicted_label": "neutral",
+      "confidence": 0.541624,
+      "latency_ms": 735,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000016107028794919646,
+        "disgust": 2.3531675885064436e-8,
+        "fear": 0.000005745433522837865,
+        "happy": 0.458343670612271,
+        "neutral": 0.541624177832459,
+        "sad": 0.000013495127442635625,
+        "surprise": 0.000011276759749183476
+      }
+    },
+    {
+      "file": "images/happy_00007.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999999,
+      "latency_ms": 643,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 4.5635307705029884e-11,
+        "disgust": 5.737856130098809e-14,
+        "fear": 1.0486525519923347e-10,
+        "happy": 0.999998613085201,
+        "neutral": 0.0000013849029150303843,
+        "sad": 1.526000146836126e-11,
+        "surprise": 1.846066007257762e-9
+      }
+    },
+    {
+      "file": "images/happy_00008.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 594,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 7.181303605183544e-12,
+        "disgust": 2.830774125398302e-15,
+        "fear": 3.2532304267624554e-12,
+        "happy": 0.9999999876535747,
+        "neutral": 1.2296026354274703e-8,
+        "sad": 6.87922112884092e-14,
+        "surprise": 3.989282200129337e-11
+      }
+    },
+    {
+      "file": "images/happy_00009.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999994,
+      "latency_ms": 556,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.820425173304178e-9,
+        "disgust": 5.17152148486352e-12,
+        "fear": 5.6280831379668e-9,
+        "happy": 0.9999941022505242,
+        "neutral": 0.000005752213769459727,
+        "sad": 3.644218077523881e-10,
+        "surprise": 1.377176044612882e-7
+      }
+    },
+    {
+      "file": "images/happy_00010.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 562,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.18022844748155e-11,
+        "disgust": 1.8295151226957826e-14,
+        "fear": 1.2065592394446198e-11,
+        "happy": 0.999999829159934,
+        "neutral": 1.7054643174125772e-7,
+        "sad": 6.767967484892806e-13,
+        "surprise": 2.6907115749523003e-10
+      }
+    },
+    {
+      "file": "images/happy_00011.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.992073,
+      "latency_ms": 545,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000005721233991439702,
+        "disgust": 8.949306049645848e-7,
+        "fear": 0.000011636346651284726,
+        "happy": 0.9920733831909252,
+        "neutral": 0.007843144272352436,
+        "sad": 0.000024472121753005402,
+        "surprise": 0.000040747903721710646
+      }
+    },
+    {
+      "file": "images/happy_00012.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999482,
+      "latency_ms": 546,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.4963423001393625e-7,
+        "disgust": 2.000903160990041e-8,
+        "fear": 2.429932744629031e-7,
+        "happy": 0.9994824564913151,
+        "neutral": 0.00051365831581843,
+        "sad": 3.159666190032749e-7,
+        "surprise": 0.0000031565897114954262
+      }
+    },
+    {
+      "file": "images/happy_00013.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.99315,
+      "latency_ms": 734,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 5.873478286731815e-8,
+        "disgust": 2.259269981775959e-9,
+        "fear": 1.3135025059465601e-7,
+        "happy": 0.9931504481323068,
+        "neutral": 0.00684840267640037,
+        "sad": 3.439380164006607e-7,
+        "surprise": 6.129089730012987e-7
+      }
+    },
+    {
+      "file": "images/happy_00014.png",
+      "ground_truth": "happy",
+      "predicted_label": "neutral",
+      "confidence": 0.86598,
+      "latency_ms": 654,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00012583764137042786,
+        "disgust": 0.000013953806072871713,
+        "fear": 0.00008773695305748933,
+        "happy": 0.13330434640850397,
+        "neutral": 0.865980452114225,
+        "sad": 0.0003949026317290867,
+        "surprise": 0.00009277044504106275
+      }
+    },
+    {
+      "file": "images/happy_00015.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.99841,
+      "latency_ms": 571,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 4.511400779359127e-8,
+        "disgust": 2.837464043330441e-9,
+        "fear": 5.948110417180856e-8,
+        "happy": 0.9984095295549953,
+        "neutral": 0.0015897748130966284,
+        "sad": 5.673391650993382e-7,
+        "surprise": 2.0860166992722448e-8
+      }
+    },
+    {
+      "file": "images/happy_00016.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 604,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.2127490835245142e-10,
+        "disgust": 1.4314587692413193e-13,
+        "fear": 7.840838281181843e-11,
+        "happy": 0.9999999049606908,
+        "neutral": 9.353323434736147e-8,
+        "sad": 2.339724719771936e-12,
+        "surprise": 1.3039089641240994e-9
+      }
+    },
+    {
+      "file": "images/happy_00017.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999988,
+      "latency_ms": 687,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 4.082905555360433e-10,
+        "disgust": 6.411973509116553e-13,
+        "fear": 1.5883680450924652e-9,
+        "happy": 0.9999879497936071,
+        "neutral": 0.000011950360499337263,
+        "sad": 8.728437687923391e-11,
+        "surprise": 9.776130939247217e-8
+      }
+    },
+    {
+      "file": "images/happy_00018.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 717,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.8425794111042128e-11,
+        "disgust": 7.0958944049134724e-15,
+        "fear": 1.2606505632179516e-11,
+        "happy": 0.9999998414913855,
+        "neutral": 1.5836844848177534e-7,
+        "sad": 9.051964912063834e-13,
+        "surprise": 1.0822110248777801e-10
+      }
+    },
+    {
+      "file": "images/happy_00019.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999998,
+      "latency_ms": 564,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.6341702904849408e-10,
+        "disgust": 8.82911936995102e-13,
+        "fear": 3.2343538353782606e-10,
+        "happy": 0.9999975462932338,
+        "neutral": 0.000002442361825084385,
+        "sad": 4.0392367626050857e-11,
+        "surprise": 1.0816813485834314e-8
+      }
+    },
+    {
+      "file": "images/happy_00020.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 586,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.650800564100829e-11,
+        "disgust": 1.2678811357278629e-14,
+        "fear": 7.850303301910843e-12,
+        "happy": 0.9999999548933582,
+        "neutral": 4.501516933540687e-8,
+        "sad": 3.680884417228866e-13,
+        "surprise": 6.673333629610822e-11
+      }
+    },
+    {
+      "file": "images/happy_00021.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999996,
+      "latency_ms": 598,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.566614247825751e-7,
+        "disgust": 4.991344666753e-10,
+        "fear": 1.0954752412210494e-7,
+        "happy": 0.9999957808771933,
+        "neutral": 0.0000037644369412180152,
+        "sad": 1.0714740815407366e-8,
+        "surprise": 1.7726304141170164e-7
+      }
+    },
+    {
+      "file": "images/happy_00022.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 1.0,
+      "latency_ms": 592,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 7.442780309591587e-12,
+        "disgust": 1.9989585140587484e-14,
+        "fear": 7.712594758719646e-12,
+        "happy": 0.999999796486745,
+        "neutral": 2.0345307631810703e-7,
+        "sad": 8.427065449228265e-13,
+        "surprise": 4.4160584003027624e-11
+      }
+    },
+    {
+      "file": "images/happy_00023.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999833,
+      "latency_ms": 608,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 4.052273155918252e-8,
+        "disgust": 1.6424442825226568e-10,
+        "fear": 1.2657088036896302e-7,
+        "happy": 0.999832732771645,
+        "neutral": 0.00016148776790339748,
+        "sad": 1.1875161603683682e-8,
+        "surprise": 0.000005600327433693117
+      }
+    },
+    {
+      "file": "images/happy_00024.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999995,
+      "latency_ms": 531,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.1205504028579655e-8,
+        "disgust": 5.970349411209457e-11,
+        "fear": 2.8083709499448033e-9,
+        "happy": 0.999995407171148,
+        "neutral": 0.0000045749821907301765,
+        "sad": 3.7533109387318097e-10,
+        "surprise": 3.3977515411239594e-9
+      }
+    },
+    {
+      "file": "images/happy_00025.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.999945,
+      "latency_ms": 552,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 9.950466627758882e-7,
+        "disgust": 7.61637230560743e-9,
+        "fear": 9.066275827722326e-7,
+        "happy": 0.9999454935694965,
+        "neutral": 0.00004970174990756116,
+        "sad": 1.5433498743516055e-7,
+        "surprise": 0.0000027410549907781652
+      }
+    },
+    {
+      "file": "images/neutral_00001.png",
+      "ground_truth": "neutral",
+      "predicted_label": "happy",
+      "confidence": 0.99605,
+      "latency_ms": 545,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 6.145754434216951e-8,
+        "disgust": 2.4555906288495828e-9,
+        "fear": 5.862192230800203e-8,
+        "happy": 0.9960502695409671,
+        "neutral": 0.003949310392673555,
+        "sad": 4.1028508866063605e-8,
+        "surprise": 2.565027931467257e-7
+      }
+    },
+    {
+      "file": "images/neutral_00002.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999893,
+      "latency_ms": 565,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.5724452055867975e-11,
+        "disgust": 7.410271209415075e-14,
+        "fear": 2.9279905915782806e-12,
+        "happy": 0.00010701744148328749,
+        "neutral": 0.9998929822891358,
+        "sad": 2.498960644443733e-10,
+        "surprise": 7.582872661372051e-13
+      }
+    },
+    {
+      "file": "images/neutral_00003.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999998,
+      "latency_ms": 712,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 8.074511895902236e-10,
+        "disgust": 6.073492206939882e-12,
+        "fear": 3.769118230779583e-10,
+        "happy": 0.0000017832032337079987,
+        "neutral": 0.9999981411005909,
+        "sad": 7.447602457918733e-8,
+        "surprise": 2.971425736101082e-11
+      }
+    },
+    {
+      "file": "images/neutral_00004.png",
+      "ground_truth": "neutral",
+      "predicted_label": "happy",
+      "confidence": 0.579491,
+      "latency_ms": 567,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 4.986622041683463e-7,
+        "disgust": 6.140251471749646e-8,
+        "fear": 2.8420341384957517e-7,
+        "happy": 0.5794909140968122,
+        "neutral": 0.4205064544503714,
+        "sad": 9.216840345362311e-7,
+        "surprise": 8.655006492517158e-7
+      }
+    },
+    {
+      "file": "images/neutral_00005.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 1.0,
+      "latency_ms": 702,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 4.9371589858517e-11,
+        "disgust": 1.1624951031321217e-13,
+        "fear": 4.700281632027722e-11,
+        "happy": 3.750054022479363e-7,
+        "neutral": 0.9999996228574596,
+        "sad": 1.9779576490718973e-9,
+        "surprise": 6.268981820425682e-11
+      }
+    },
+    {
+      "file": "images/neutral_00006.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999983,
+      "latency_ms": 543,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 2.757389538739624e-7,
+        "disgust": 4.9633387670838315e-9,
+        "fear": 1.856304606672913e-8,
+        "happy": 0.000014874610101965688,
+        "neutral": 0.9999833367805763,
+        "sad": 0.0000014877633003671416,
+        "surprise": 1.5806827439402734e-9
+      }
+    },
+    {
+      "file": "images/neutral_00007.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999999,
+      "latency_ms": 493,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 2.0529202018771417e-9,
+        "disgust": 5.454389869524594e-12,
+        "fear": 2.311909767003451e-9,
+        "happy": 0.0000012313141725759935,
+        "neutral": 0.9999985718983879,
+        "sad": 1.9226460633999938e-7,
+        "surprise": 1.5254886780508903e-10
+      }
+    },
+    {
+      "file": "images/neutral_00008.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999994,
+      "latency_ms": 631,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 3.426457155047835e-11,
+        "disgust": 4.0122157744439377e-13,
+        "fear": 1.4138935875506286e-11,
+        "happy": 0.000006346520599831738,
+        "neutral": 0.9999936523423677,
+        "sad": 1.0805584299144518e-9,
+        "surprise": 7.669412173319618e-12
+      }
+    },
+    {
+      "file": "images/neutral_00009.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999922,
+      "latency_ms": 749,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000017040373097238551,
+        "disgust": 2.787612078281461e-9,
+        "fear": 0.0000059792641439261125,
+        "happy": 0.00003173105543904202,
+        "neutral": 0.9999223247502211,
+        "sad": 0.000034501106606064966,
+        "surprise": 0.00000375699866825912
+      }
+    },
+    {
+      "file": "images/neutral_00010.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.9783,
+      "latency_ms": 665,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.6789906658085907e-8,
+        "disgust": 4.616055374970119e-10,
+        "fear": 1.5089012547885376e-9,
+        "happy": 0.021699491739066025,
+        "neutral": 0.9783004041534615,
+        "sad": 8.518319820501474e-8,
+        "surprise": 1.6386084192775735e-10
+      }
+    },
+    {
+      "file": "images/neutral_00011.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999979,
+      "latency_ms": 594,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 7.034520516118116e-10,
+        "disgust": 5.391545559417397e-11,
+        "fear": 9.273739286537652e-11,
+        "happy": 0.000020628339636305303,
+        "neutral": 0.9999793645426269,
+        "sad": 6.164512695797484e-9,
+        "surprise": 1.0311925703857317e-10
+      }
+    },
+    {
+      "file": "images/neutral_00012.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999958,
+      "latency_ms": 603,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.5409292919004344e-8,
+        "disgust": 6.59495850539708e-10,
+        "fear": 4.6774671285725905e-9,
+        "happy": 0.0000417549800833253,
+        "neutral": 0.9999580442655157,
+        "sad": 1.7639980732703937e-7,
+        "surprise": 3.6083376738420018e-9
+      }
+    },
+    {
+      "file": "images/neutral_00013.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999987,
+      "latency_ms": 720,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.651803714558069e-7,
+        "disgust": 2.0508621636066962e-10,
+        "fear": 1.5659902261286152e-7,
+        "happy": 0.00000825767380477563,
+        "neutral": 0.9999874293411511,
+        "sad": 0.00000397739810624071,
+        "surprise": 1.3602457692631695e-8
+      }
+    },
+    {
+      "file": "images/neutral_00014.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999925,
+      "latency_ms": 671,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00004314651216880318,
+        "disgust": 8.281210336916987e-9,
+        "fear": 0.000001360543282934109,
+        "happy": 0.000006946144520129126,
+        "neutral": 0.9999247308315311,
+        "sad": 0.000023737825496420003,
+        "surprise": 6.986179052476668e-8
+      }
+    },
+    {
+      "file": "images/neutral_00015.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999983,
+      "latency_ms": 573,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 5.342733354104697e-9,
+        "disgust": 1.1065998041274323e-11,
+        "fear": 5.732963084095108e-9,
+        "happy": 0.00001668061840343851,
+        "neutral": 0.9999831268810724,
+        "sad": 1.7970084267278984e-7,
+        "surprise": 1.7129190346764808e-9
+      }
+    },
+    {
+      "file": "images/neutral_00016.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.98529,
+      "latency_ms": 545,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000021969266068442223,
+        "disgust": 5.376675804330657e-7,
+        "fear": 0.000004492820088048582,
+        "happy": 0.01464058600007842,
+        "neutral": 0.9852903854606238,
+        "sad": 0.00004987360261569189,
+        "surprise": 0.000011927522406966394
+      }
+    },
+    {
+      "file": "images/neutral_00017.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999981,
+      "latency_ms": 596,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 6.4984419802024064e-9,
+        "disgust": 6.9088554246293725e-12,
+        "fear": 7.307206754788255e-8,
+        "happy": 0.0000168704940325929,
+        "neutral": 0.9999811863596606,
+        "sad": 0.0000018468708879073353,
+        "surprise": 1.669800067888393e-8
+      }
+    },
+    {
+      "file": "images/neutral_00018.png",
+      "ground_truth": "neutral",
+      "predicted_label": "happy",
+      "confidence": 0.997859,
+      "latency_ms": 735,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 6.750860642425517e-7,
+        "disgust": 2.375609453548161e-8,
+        "fear": 1.6751642589848073e-7,
+        "happy": 0.9978592587036202,
+        "neutral": 0.00213943685786254,
+        "sad": 7.642970894348912e-8,
+        "surprise": 3.6165022352900466e-7
+      }
+    },
+    {
+      "file": "images/neutral_00019.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999927,
+      "latency_ms": 716,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 1.3559284634375602e-9,
+        "disgust": 6.233173197938234e-12,
+        "fear": 8.775174228617897e-10,
+        "happy": 0.00007282845143396595,
+        "neutral": 0.9999270153503972,
+        "sad": 1.538983368265116e-7,
+        "surprise": 6.015312367242189e-11
+      }
+    },
+    {
+      "file": "images/neutral_00020.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.99993,
+      "latency_ms": 710,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000012429287674940128,
+        "disgust": 3.344874596810198e-8,
+        "fear": 1.6428790980865344e-7,
+        "happy": 0.00006511586136649795,
+        "neutral": 0.9999299573018358,
+        "sad": 0.000003398823354469292,
+        "surprise": 8.734802011368563e-8
+      }
+    },
+    {
+      "file": "images/neutral_00021.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999992,
+      "latency_ms": 716,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 7.072667437894773e-10,
+        "disgust": 8.338661907088737e-15,
+        "fear": 3.920570194334531e-9,
+        "happy": 0.000007862319060109425,
+        "neutral": 0.999992118997416,
+        "sad": 1.3852032501333568e-8,
+        "surprise": 2.0364609933583674e-10
+      }
+    },
+    {
+      "file": "images/neutral_00022.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999997,
+      "latency_ms": 574,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 6.383116700326515e-9,
+        "disgust": 7.780466462970886e-12,
+        "fear": 8.949568226109993e-9,
+        "happy": 0.000002793864827885064,
+        "neutral": 0.9999971470582221,
+        "sad": 3.634856142433526e-8,
+        "surprise": 7.387923115208379e-9
+      }
+    },
+    {
+      "file": "images/neutral_00023.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.999999,
+      "latency_ms": 599,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 3.4336755006553184e-9,
+        "disgust": 2.5202688553916335e-11,
+        "fear": 1.155640114265269e-9,
+        "happy": 0.0000014213901329305138,
+        "neutral": 0.9999985083849654,
+        "sad": 6.519565653353265e-8,
+        "surprise": 4.1472694821701135e-10
+      }
+    },
+    {
+      "file": "images/neutral_00024.png",
+      "ground_truth": "neutral",
+      "predicted_label": "happy",
+      "confidence": 0.997228,
+      "latency_ms": 561,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 3.166243516216573e-8,
+        "disgust": 2.933436637847917e-9,
+        "fear": 4.4253060601743474e-8,
+        "happy": 0.9972283803517676,
+        "neutral": 0.0027712319904584217,
+        "sad": 2.0967666699068842e-7,
+        "surprise": 9.913217464862515e-8
+      }
+    },
+    {
+      "file": "images/neutral_00025.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.998868,
+      "latency_ms": 694,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 3.6275390760046685e-9,
+        "disgust": 5.059943468857975e-10,
+        "fear": 1.0545817727589715e-9,
+        "happy": 0.001131716412224116,
+        "neutral": 0.99886824989106,
+        "sad": 2.5095450557700176e-8,
+        "surprise": 3.41315017519679e-9
+      }
+    },
+    {
+      "file": "images/sad_00001.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.989144,
+      "latency_ms": 2587,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00002998077428942254,
+        "disgust": 0.0000015697764352584507,
+        "fear": 0.00004815863734989777,
+        "happy": 4.993708316339591e-8,
+        "neutral": 0.01077539253750969,
+        "sad": 0.9891440234228571,
+        "surprise": 8.249144755398315e-7
+      }
+    },
+    {
+      "file": "images/sad_00002.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.997703,
+      "latency_ms": 3095,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0005612616130744032,
+        "disgust": 7.940888522015414e-7,
+        "fear": 0.0014992616212778959,
+        "happy": 9.61611120832977e-9,
+        "neutral": 0.00023145325359403738,
+        "sad": 0.9977029549309757,
+        "surprise": 0.0000042648761145315445
+      }
+    },
+    {
+      "file": "images/sad_00003.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.996237,
+      "latency_ms": 3554,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00276639460784304,
+        "disgust": 0.000033491244222640214,
+        "fear": 0.0007470487923877673,
+        "happy": 6.963151715891539e-8,
+        "neutral": 0.00021244259885947153,
+        "sad": 0.9962373391454483,
+        "surprise": 0.0000032139797216160073
+      }
+    },
+    {
+      "file": "images/sad_00004.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.987483,
+      "latency_ms": 3153,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0006327947507091254,
+        "disgust": 0.0022604441336449873,
+        "fear": 0.00027575583507420676,
+        "happy": 0.0059405712311067635,
+        "neutral": 0.9874825111921413,
+        "sad": 0.003138305408528755,
+        "surprise": 0.00026961744879483543
+      }
+    },
+    {
+      "file": "images/sad_00005.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "angry",
+      "confidence": 0.634114,
+      "latency_ms": 1614,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.6341136960454934,
+        "disgust": 0.018972113266901507,
+        "fear": 0.012554067245932032,
+        "happy": 0.000039125068908315315,
+        "neutral": 0.03432241061745529,
+        "sad": 0.29917517237494606,
+        "surprise": 0.0008234153803634304
+      }
+    },
+    {
+      "file": "images/sad_00006.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.997931,
+      "latency_ms": 2223,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000009798364637555823,
+        "disgust": 2.5819744234185684e-7,
+        "fear": 0.00010173967579013065,
+        "happy": 0.00060648948315153,
+        "neutral": 0.9979313335079317,
+        "sad": 0.0010595938194962622,
+        "surprise": 0.0002907869515503667
+      }
+    },
+    {
+      "file": "images/sad_00007.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.99943,
+      "latency_ms": 1599,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000021922167744093716,
+        "disgust": 0.0000016270613921371725,
+        "fear": 0.00042229816654450804,
+        "happy": 1.0270092526618743e-10,
+        "neutral": 0.000009073412337923753,
+        "sad": 0.999429743038908,
+        "surprise": 0.00011533605037251646
+      }
+    },
+    {
+      "file": "images/sad_00008.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.89848,
+      "latency_ms": 2006,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.015443263574159496,
+        "disgust": 0.003184447343067995,
+        "fear": 0.072516491504288,
+        "happy": 0.000005798680682291379,
+        "neutral": 0.0019126453080394676,
+        "sad": 0.8984803969567227,
+        "surprise": 0.00845695663304002
+      }
+    },
+    {
+      "file": "images/sad_00009.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.801259,
+      "latency_ms": 746,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.003545264821862302,
+        "disgust": 0.00221984305007016,
+        "fear": 0.14769027230156867,
+        "happy": 0.0000027164636914924203,
+        "neutral": 0.001469194286421768,
+        "sad": 0.8012593393673747,
+        "surprise": 0.04381336970901085
+      }
+    },
+    {
+      "file": "images/sad_00010.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.639512,
+      "latency_ms": 431,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.029680101573163465,
+        "disgust": 0.000074996363592218,
+        "fear": 0.15437745731169739,
+        "happy": 0.001243610914083275,
+        "neutral": 0.6395118868772992,
+        "sad": 0.1669596825031388,
+        "surprise": 0.008152264457025559
+      }
+    },
+    {
+      "file": "images/sad_00011.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.999092,
+      "latency_ms": 1874,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000038757869525431016,
+        "disgust": 0.000004995781766090647,
+        "fear": 0.000019220211129301646,
+        "happy": 0.0003392502677557223,
+        "neutral": 0.9990917218107983,
+        "sad": 0.0005012817856610254,
+        "surprise": 0.0000047722733640596
+      }
+    },
+    {
+      "file": "images/sad_00012.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.954963,
+      "latency_ms": 1155,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.004103807211836217,
+        "disgust": 0.0005442115629028742,
+        "fear": 0.037142846481900374,
+        "happy": 0.0000010464479709716251,
+        "neutral": 0.0004277127657609073,
+        "sad": 0.954962878134453,
+        "surprise": 0.0028174973951756656
+      }
+    },
+    {
+      "file": "images/sad_00013.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.996526,
+      "latency_ms": 1382,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000007664631290389228,
+        "disgust": 5.264481328446144e-8,
+        "fear": 0.0034643244510534636,
+        "happy": 7.700024270537272e-10,
+        "neutral": 6.831880162792402e-7,
+        "sad": 0.996526364126047,
+        "surprise": 9.101887771563158e-7
+      }
+    },
+    {
+      "file": "images/sad_00014.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.967431,
+      "latency_ms": 471,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.017669954959496387,
+        "disgust": 0.00006939785480061118,
+        "fear": 0.008381748713254407,
+        "happy": 0.0000024805513011195285,
+        "neutral": 0.003745134630390876,
+        "sad": 0.9674314459467666,
+        "surprise": 0.002699837343990005
+      }
+    },
+    {
+      "file": "images/sad_00015.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.989288,
+      "latency_ms": 1066,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005543140059612881,
+        "disgust": 0.0003330213754123727,
+        "fear": 0.0029330791115633656,
+        "happy": 5.161608802403566e-7,
+        "neutral": 0.0012578476460870457,
+        "sad": 0.989287779978303,
+        "surprise": 0.0006446156681411066
+      }
+    },
+    {
+      "file": "images/sad_00016.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.999439,
+      "latency_ms": 1618,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000004521135573063532,
+        "disgust": 2.1405053972129748e-7,
+        "fear": 0.000004305396633019372,
+        "happy": 0.00006088446392769727,
+        "neutral": 0.9994394704855918,
+        "sad": 0.0004900061853953254,
+        "surprise": 5.982823393803806e-7
+      }
+    },
+    {
+      "file": "images/sad_00017.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.730372,
+      "latency_ms": 754,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.014970052637262343,
+        "disgust": 0.19524936674321275,
+        "fear": 0.0011535485261574858,
+        "happy": 0.000010478778556777237,
+        "neutral": 0.05727819930133944,
+        "sad": 0.7303717417780768,
+        "surprise": 0.000966612235394451
+      }
+    },
+    {
+      "file": "images/sad_00018.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.939669,
+      "latency_ms": 5694,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0005660822229675748,
+        "disgust": 0.04641270374466896,
+        "fear": 0.0000331085660439545,
+        "happy": 0.005703153955079511,
+        "neutral": 0.9396694499774175,
+        "sad": 0.007416522258727827,
+        "surprise": 0.0001989792750948676
+      }
+    },
+    {
+      "file": "images/sad_00019.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.886673,
+      "latency_ms": 1892,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.05938861222553878,
+        "disgust": 0.006742417360131462,
+        "fear": 0.013903700725928005,
+        "happy": 0.00004374326786307199,
+        "neutral": 0.004706177046949073,
+        "sad": 0.8866731309365963,
+        "surprise": 0.028542218436993394
+      }
+    },
+    {
+      "file": "images/sad_00020.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.999258,
+      "latency_ms": 713,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00010025781278010666,
+        "disgust": 1.8739612981365827e-7,
+        "fear": 0.0004109525191492296,
+        "happy": 9.88460255104118e-10,
+        "neutral": 0.00021581575507822922,
+        "sad": 0.9992575000844619,
+        "surprise": 0.000015285443940536415
+      }
+    },
+    {
+      "file": "images/sad_00021.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "disgust",
+      "confidence": 0.499399,
+      "latency_ms": 1631,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.043409672166409674,
+        "disgust": 0.49939925163195825,
+        "fear": 0.0004143107394855326,
+        "happy": 0.004899209222646617,
+        "neutral": 0.44502459159042335,
+        "sad": 0.006197576587466325,
+        "surprise": 0.0006553880616101486
+      }
+    },
+    {
+      "file": "images/sad_00022.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.999904,
+      "latency_ms": 645,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000015223804852193413,
+        "disgust": 1.4125082393836967e-7,
+        "fear": 0.00007396068994326698,
+        "happy": 4.581906441267771e-11,
+        "neutral": 0.000004917583063198721,
+        "sad": 0.9999039697432771,
+        "surprise": 0.000001786882221137824
+      }
+    },
+    {
+      "file": "images/sad_00023.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.962534,
+      "latency_ms": 1666,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00036076311029620506,
+        "disgust": 0.00034655583827743083,
+        "fear": 0.034810473604187965,
+        "happy": 1.6081102827221806e-7,
+        "neutral": 0.00002598496468800404,
+        "sad": 0.9625338126587266,
+        "surprise": 0.0019222490127955305
+      }
+    },
+    {
+      "file": "images/sad_00024.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.886348,
+      "latency_ms": 6120,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0010420475033360564,
+        "disgust": 0.0005836783760116394,
+        "fear": 0.01483606717091127,
+        "happy": 0.00027184548033888325,
+        "neutral": 0.005479339712698488,
+        "sad": 0.8863481843033694,
+        "surprise": 0.09143883745333443
+      }
+    },
+    {
+      "file": "images/sad_00025.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.417973,
+      "latency_ms": 5246,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.10474639967500592,
+        "disgust": 0.05031083686323503,
+        "fear": 0.07231594257063907,
+        "happy": 0.0010183842510015874,
+        "neutral": 0.06914006183087752,
+        "sad": 0.41797349109398485,
+        "surprise": 0.28449488371525616
+      }
+    },
+    {
+      "file": "images/surprise_00001.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.872135,
+      "latency_ms": 1464,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0005331357026883579,
+        "disgust": 0.00017654035257038688,
+        "fear": 0.04210261450564113,
+        "happy": 0.000010841808322993651,
+        "neutral": 0.0016289524386193584,
+        "sad": 0.08341266451685822,
+        "surprise": 0.8721352506752995
+      }
+    },
+    {
+      "file": "images/surprise_00002.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.388557,
+      "latency_ms": 2988,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0028803704474073878,
+        "disgust": 8.431224633252526e-7,
+        "fear": 0.22227808670546043,
+        "happy": 0.00507649488870607,
+        "neutral": 0.3796186321419055,
+        "sad": 0.0015889336455774655,
+        "surprise": 0.38855663904847976
+      }
+    },
+    {
+      "file": "images/surprise_00003.png",
+      "ground_truth": "surprise",
+      "predicted_label": "happy",
+      "confidence": 0.848793,
+      "latency_ms": 539,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0001326393596936139,
+        "disgust": 0.000002188513921405814,
+        "fear": 0.00008213626351079992,
+        "happy": 0.8487932046642725,
+        "neutral": 0.1506840165605982,
+        "sad": 0.00003671130066453073,
+        "surprise": 0.00026910333733898566
+      }
+    },
+    {
+      "file": "images/surprise_00004.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.96446,
+      "latency_ms": 318,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0002806615769711186,
+        "disgust": 0.0000013658414646126805,
+        "fear": 0.02798073566204141,
+        "happy": 0.0000015229377542369062,
+        "neutral": 0.0004216120259436817,
+        "sad": 0.0068543720142764985,
+        "surprise": 0.9644597299415485
+      }
+    },
+    {
+      "file": "images/surprise_00005.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 0.813182,
+      "latency_ms": 5204,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005570624498029981,
+        "disgust": 0.00013932884960290005,
+        "fear": 0.00350354760191623,
+        "happy": 0.0005265503386532506,
+        "neutral": 0.813182249832918,
+        "sad": 0.17671486858714028,
+        "surprise": 0.00036283029173950405
+      }
+    },
+    {
+      "file": "images/surprise_00006.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.754661,
+      "latency_ms": 640,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000022849611021551407,
+        "disgust": 6.117622438571954e-9,
+        "fear": 0.7546610214984585,
+        "happy": 0.0000010942508329843535,
+        "neutral": 2.8640267076094918e-8,
+        "sad": 0.000011775591566708232,
+        "surprise": 0.24530322429023077
+      }
+    },
+    {
+      "file": "images/surprise_00007.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.875595,
+      "latency_ms": 1700,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000401571313551847,
+        "disgust": 0.000004857020712876641,
+        "fear": 0.015994999386809417,
+        "happy": 0.0000872277499900456,
+        "neutral": 0.10039208366987215,
+        "sad": 0.007524520444219214,
+        "surprise": 0.8755947404148445
+      }
+    },
+    {
+      "file": "images/surprise_00008.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.595246,
+      "latency_ms": 3194,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07160759719408591,
+        "disgust": 0.00021682464894274016,
+        "fear": 0.595246116137734,
+        "happy": 0.006522233621598677,
+        "neutral": 0.10002365246119636,
+        "sad": 0.06858107423511309,
+        "surprise": 0.1578025017013291
+      }
+    },
+    {
+      "file": "images/surprise_00009.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.499368,
+      "latency_ms": 1205,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.001031287159579741,
+        "disgust": 0.00003418198682439646,
+        "fear": 0.4993675442373574,
+        "happy": 0.00002034741463278449,
+        "neutral": 0.00005954001245107663,
+        "sad": 0.0033645016731745346,
+        "surprise": 0.49612259751597987
+      }
+    },
+    {
+      "file": "images/surprise_00010.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.610668,
+      "latency_ms": 5350,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0018787363244039696,
+        "disgust": 0.0005032574094311535,
+        "fear": 0.6106684896189813,
+        "happy": 0.00043575463571658474,
+        "neutral": 0.0004872067365269408,
+        "sad": 0.01010793982418029,
+        "surprise": 0.3759186154507597
+      }
+    },
+    {
+      "file": "images/surprise_00011.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 0.957034,
+      "latency_ms": 2286,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000337571115203598,
+        "disgust": 1.7136874108066297e-7,
+        "fear": 0.012198336438727204,
+        "happy": 0.026295235074783672,
+        "neutral": 0.9570341307725007,
+        "sad": 0.0010304455628573565,
+        "surprise": 0.0031041096671866135
+      }
+    },
+    {
+      "file": "images/surprise_00012.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.60645,
+      "latency_ms": 1336,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.24001328752919493,
+        "disgust": 0.00007462984004027521,
+        "fear": 0.1528725285660262,
+        "happy": 0.00002565304252299721,
+        "neutral": 0.0001567440845255713,
+        "sad": 0.00040727416057551784,
+        "surprise": 0.6064498827771145
+      }
+    },
+    {
+      "file": "images/surprise_00013.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.97591,
+      "latency_ms": 831,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000020050387478968544,
+        "disgust": 3.3872495738949586e-7,
+        "fear": 0.02402490437750227,
+        "happy": 0.000004818928639422169,
+        "neutral": 0.0000028989486097895536,
+        "sad": 0.00003742623069566891,
+        "surprise": 0.9759095624021165
+      }
+    },
+    {
+      "file": "images/surprise_00014.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.829521,
+      "latency_ms": 3334,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.010935792467224615,
+        "disgust": 0.019657686910316892,
+        "fear": 0.036243100677306454,
+        "happy": 0.0024275241018148572,
+        "neutral": 0.04699727049630349,
+        "sad": 0.054217682407956186,
+        "surprise": 0.8295209429390775
+      }
+    },
+    {
+      "file": "images/surprise_00015.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.757208,
+      "latency_ms": 981,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0015702659220516802,
+        "disgust": 0.000014403863913338605,
+        "fear": 0.2394633508241796,
+        "happy": 0.000507007931454674,
+        "neutral": 0.00014625356215741675,
+        "sad": 0.0010902635924963414,
+        "surprise": 0.7572084543037468
+      }
+    },
+    {
+      "file": "images/surprise_00016.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.968027,
+      "latency_ms": 441,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000007206039533465627,
+        "disgust": 3.236237573326484e-8,
+        "fear": 0.03170990443127264,
+        "happy": 5.075001666501581e-7,
+        "neutral": 0.000003311150940411992,
+        "sad": 0.00025233353533542273,
+        "surprise": 0.9680267049803756
+      }
+    },
+    {
+      "file": "images/surprise_00017.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.928231,
+      "latency_ms": 4479,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000002267461705796585,
+        "disgust": 2.9119766250359748e-9,
+        "fear": 0.07174474265262913,
+        "happy": 7.710700075748777e-7,
+        "neutral": 1.013938117845426e-7,
+        "sad": 0.000021266082850006518,
+        "surprise": 0.9282308484270191
+      }
+    },
+    {
+      "file": "images/surprise_00018.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "happy",
+      "confidence": 0.999681,
+      "latency_ms": 4781,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 8.250857967871071e-8,
+        "disgust": 4.9342741315351215e-11,
+        "fear": 8.013952952911527e-7,
+        "happy": 0.999681263372316,
+        "neutral": 0.000007182408484743111,
+        "sad": 2.5144479235147822e-9,
+        "surprise": 0.00031066775153368737
+      }
+    },
+    {
+      "file": "images/surprise_00019.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.860288,
+      "latency_ms": 3274,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0005594652073477028,
+        "disgust": 0.00000429894245232356,
+        "fear": 0.058987846724089105,
+        "happy": 0.002386710582512204,
+        "neutral": 0.07428682246114231,
+        "sad": 0.0034869319655073923,
+        "surprise": 0.8602879241169489
+      }
+    },
+    {
+      "file": "images/surprise_00020.png",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 0.618123,
+      "latency_ms": 510,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005984995992640157,
+        "disgust": 0.0002853626605522797,
+        "fear": 0.004811223381160873,
+        "happy": 0.34850008042024333,
+        "neutral": 0.6181228913424948,
+        "sad": 0.019159245509047424,
+        "surprise": 0.0031362006938610728
+      }
+    },
+    {
+      "file": "images/surprise_00021.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 0.93079,
+      "latency_ms": 2961,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00004234332487536527,
+        "disgust": 2.2278108944797616e-7,
+        "fear": 0.0007741857885124775,
+        "happy": 0.06613127016122862,
+        "neutral": 0.9307904756340116,
+        "sad": 0.0002646194223669619,
+        "surprise": 0.0019968828879155017
+      }
+    },
+    {
+      "file": "images/surprise_00022.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 0.999527,
+      "latency_ms": 3436,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000021016592570403977,
+        "disgust": 4.760154237768556e-9,
+        "fear": 0.00017832658223792465,
+        "happy": 0.000029455742301830597,
+        "neutral": 0.999526648129553,
+        "sad": 0.00010082217697671259,
+        "surprise": 0.000143726016205676
+      }
+    },
+    {
+      "file": "images/surprise_00023.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 0.950443,
+      "latency_ms": 2928,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 2.1131724393187273e-8,
+        "disgust": 8.042070969288405e-10,
+        "fear": 2.2590798667452888e-7,
+        "happy": 0.04955182305735979,
+        "neutral": 0.9504427918266956,
+        "sad": 4.047415036214292e-7,
+        "surprise": 0.000004732530522871807
+      }
+    },
+    {
+      "file": "images/surprise_00024.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.862631,
+      "latency_ms": 776,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.000006385176370866237,
+        "disgust": 6.810961245922193e-8,
+        "fear": 0.13531182140763567,
+        "happy": 1.2434262192927751e-8,
+        "neutral": 6.103693785418742e-7,
+        "sad": 0.0020505543711304324,
+        "surprise": 0.8626305481316099
+      }
+    },
+    {
+      "file": "images/surprise_00025.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 0.99886,
+      "latency_ms": 3223,
+      "model_id": "resemotenet_kaggle_224",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000017807430536571997,
+        "disgust": 5.184170375095415e-9,
+        "fear": 0.000020226137732611407,
+        "happy": 0.0009621590695871346,
+        "neutral": 0.9988598353658342,
+        "sad": 0.000010894229541216063,
+        "surprise": 0.00014509927008086765
+      }
+    }
+  ],
+  "timestamp": "2026-07-01T00:42:44.730519"
+}

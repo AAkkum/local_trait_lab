@@ -1,0 +1,3448 @@
+{
+  "dataset": {
+    "name": "affectnet7_25.zip"
+  },
+  "model": {
+    "model_id": "resemotenet_bs32",
+    "display_name": "resemotenet_bs32",
+    "family": "emotieff"
+  },
+  "metrics": {
+    "accuracy": 0.474286,
+    "macro_f1": 0.473832,
+    "average_latency_ms": 1182.337,
+    "median_latency_ms": 534.0,
+    "evaluated_examples": 175,
+    "failed_examples": 0,
+    "confusion_matrix": {
+      "angry": {
+        "angry": 8,
+        "disgust": 4,
+        "fear": 1,
+        "happy": 0,
+        "neutral": 4,
+        "sad": 7,
+        "surprise": 1
+      },
+      "disgust": {
+        "angry": 4,
+        "disgust": 8,
+        "fear": 1,
+        "happy": 2,
+        "neutral": 2,
+        "sad": 8,
+        "surprise": 0
+      },
+      "fear": {
+        "angry": 1,
+        "disgust": 0,
+        "fear": 14,
+        "happy": 1,
+        "neutral": 2,
+        "sad": 5,
+        "surprise": 2
+      },
+      "happy": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 11,
+        "neutral": 1,
+        "sad": 7,
+        "surprise": 6
+      },
+      "neutral": {
+        "angry": 1,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 0,
+        "neutral": 7,
+        "sad": 15,
+        "surprise": 2
+      },
+      "sad": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happy": 0,
+        "neutral": 2,
+        "sad": 22,
+        "surprise": 1
+      },
+      "surprise": {
+        "angry": 0,
+        "disgust": 0,
+        "fear": 5,
+        "happy": 0,
+        "neutral": 1,
+        "sad": 6,
+        "surprise": 13
+      }
+    },
+    "per_class": {
+      "angry": {
+        "precision": 0.571429,
+        "recall": 0.32,
+        "f1": 0.410256
+      },
+      "disgust": {
+        "precision": 0.666667,
+        "recall": 0.32,
+        "f1": 0.432432
+      },
+      "fear": {
+        "precision": 0.666667,
+        "recall": 0.56,
+        "f1": 0.608696
+      },
+      "happy": {
+        "precision": 0.785714,
+        "recall": 0.44,
+        "f1": 0.564103
+      },
+      "neutral": {
+        "precision": 0.368421,
+        "recall": 0.28,
+        "f1": 0.318182
+      },
+      "sad": {
+        "precision": 0.314286,
+        "recall": 0.88,
+        "f1": 0.463158
+      },
+      "surprise": {
+        "precision": 0.52,
+        "recall": 0.52,
+        "f1": 0.52
+      }
+    }
+  },
+  "predictions": [
+    {
+      "file": "images/angry_00001.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 0.675538,
+      "latency_ms": 1329,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06957856658704731,
+        "disgust": 0.014476456366778093,
+        "fear": 0.0031733062435205213,
+        "happy": 0.18984768485677067,
+        "neutral": 0.6755383419562708,
+        "sad": 0.043293748378194614,
+        "surprise": 0.004091895611418108
+      }
+    },
+    {
+      "file": "images/angry_00002.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.500093,
+      "latency_ms": 1382,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.11683042549022019,
+        "disgust": 0.03336371016395579,
+        "fear": 0.08477110739231254,
+        "happy": 0.034150838445749725,
+        "neutral": 0.19299976321558074,
+        "sad": 0.5000926054159701,
+        "surprise": 0.037791549876211035
+      }
+    },
+    {
+      "file": "images/angry_00003.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.358628,
+      "latency_ms": 212,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.21304563010484565,
+        "disgust": 0.10191575259167657,
+        "fear": 0.19790990483762094,
+        "happy": 0.011003610275773588,
+        "neutral": 0.08538147238687994,
+        "sad": 0.35862786497103133,
+        "surprise": 0.032115764832171864
+      }
+    },
+    {
+      "file": "images/angry_00004.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "surprise",
+      "confidence": 0.422756,
+      "latency_ms": 451,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04549313294068936,
+        "disgust": 0.04262460857063974,
+        "fear": 0.283573894894791,
+        "happy": 0.10231035234143514,
+        "neutral": 0.05334367651428193,
+        "sad": 0.049898254456052366,
+        "surprise": 0.42275608028211037
+      }
+    },
+    {
+      "file": "images/angry_00005.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 0.407636,
+      "latency_ms": 641,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.3484916432898036,
+        "disgust": 0.039816105632112256,
+        "fear": 0.023195568115642624,
+        "happy": 0.07333744860092295,
+        "neutral": 0.40763569476673733,
+        "sad": 0.08263292196985177,
+        "surprise": 0.024890617624929508
+      }
+    },
+    {
+      "file": "images/angry_00006.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.445787,
+      "latency_ms": 1257,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.4457869239598015,
+        "disgust": 0.12870244179195345,
+        "fear": 0.016097444084077053,
+        "happy": 0.00970645606160606,
+        "neutral": 0.21017590579364637,
+        "sad": 0.1743636871568504,
+        "surprise": 0.015167141152065303
+      }
+    },
+    {
+      "file": "images/angry_00007.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.311348,
+      "latency_ms": 602,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.311347785076081,
+        "disgust": 0.30089127885082073,
+        "fear": 0.039708154122364336,
+        "happy": 0.07018280368290818,
+        "neutral": 0.14366342626356285,
+        "sad": 0.10380118178838399,
+        "surprise": 0.030405370215879
+      }
+    },
+    {
+      "file": "images/angry_00008.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.536534,
+      "latency_ms": 1172,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.5365337347998526,
+        "disgust": 0.10874230932216272,
+        "fear": 0.21969216217921206,
+        "happy": 0.004035371392260168,
+        "neutral": 0.04280454380194942,
+        "sad": 0.043413504719760625,
+        "surprise": 0.04477837378480236
+      }
+    },
+    {
+      "file": "images/angry_00009.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.588101,
+      "latency_ms": 1289,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.14943252967471712,
+        "disgust": 0.5881012752152112,
+        "fear": 0.02732353677180719,
+        "happy": 0.08218259159719372,
+        "neutral": 0.060241101172050296,
+        "sad": 0.06392344374381553,
+        "surprise": 0.028795521825204982
+      }
+    },
+    {
+      "file": "images/angry_00010.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.746914,
+      "latency_ms": 224,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.7469135178928578,
+        "disgust": 0.05973559680632513,
+        "fear": 0.1099604570983431,
+        "happy": 0.0013810186682441672,
+        "neutral": 0.01223266622166698,
+        "sad": 0.05510882034599158,
+        "surprise": 0.01466792296657133
+      }
+    },
+    {
+      "file": "images/angry_00011.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.238154,
+      "latency_ms": 575,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.23815429689663817,
+        "disgust": 0.16656996233214896,
+        "fear": 0.1315210019651637,
+        "happy": 0.05889454458070216,
+        "neutral": 0.12944567223375314,
+        "sad": 0.15679289674409005,
+        "surprise": 0.1186216252475038
+      }
+    },
+    {
+      "file": "images/angry_00012.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.658226,
+      "latency_ms": 612,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07604207392002894,
+        "disgust": 0.05781507511612308,
+        "fear": 0.11233786558582974,
+        "happy": 0.033085772240739574,
+        "neutral": 0.018198898837216423,
+        "sad": 0.6582262935372416,
+        "surprise": 0.04429402076282074
+      }
+    },
+    {
+      "file": "images/angry_00013.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.435479,
+      "latency_ms": 1233,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.4354794309995116,
+        "disgust": 0.20112851245310912,
+        "fear": 0.13490006413235162,
+        "happy": 0.004802195256875919,
+        "neutral": 0.04523057868584294,
+        "sad": 0.10782191331821889,
+        "surprise": 0.07063730515409003
+      }
+    },
+    {
+      "file": "images/angry_00014.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.686416,
+      "latency_ms": 186,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.26874456648343636,
+        "disgust": 0.6864158007278185,
+        "fear": 0.03601433517028122,
+        "happy": 0.00024632515096955135,
+        "neutral": 0.0010891801903380074,
+        "sad": 0.00458308358763333,
+        "surprise": 0.002906708689523123
+      }
+    },
+    {
+      "file": "images/angry_00015.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.365786,
+      "latency_ms": 435,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.10199741894121309,
+        "disgust": 0.22315252383905665,
+        "fear": 0.04361978006596968,
+        "happy": 0.014630380368341661,
+        "neutral": 0.2254936045922566,
+        "sad": 0.3657858677220787,
+        "surprise": 0.025320424471083666
+      }
+    },
+    {
+      "file": "images/angry_00016.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.968919,
+      "latency_ms": 2403,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.96891936296554,
+        "disgust": 0.010400964357530778,
+        "fear": 0.0035300068680504055,
+        "happy": 0.0005979252158710181,
+        "neutral": 0.008281781028654393,
+        "sad": 0.007717451737124402,
+        "surprise": 0.0005525078272289578
+      }
+    },
+    {
+      "file": "images/angry_00017.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.505475,
+      "latency_ms": 254,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.22752643534411676,
+        "disgust": 0.04899474147928092,
+        "fear": 0.07882847906989622,
+        "happy": 0.006142164926166811,
+        "neutral": 0.08291185017616273,
+        "sad": 0.5054750842488634,
+        "surprise": 0.05012124475551301
+      }
+    },
+    {
+      "file": "images/angry_00018.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "fear",
+      "confidence": 0.871364,
+      "latency_ms": 284,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1014796182992529,
+        "disgust": 0.004237571292057617,
+        "fear": 0.8713643901157262,
+        "happy": 0.0010691201982060052,
+        "neutral": 0.0005907116266066647,
+        "sad": 0.005865556336678802,
+        "surprise": 0.015393032131471859
+      }
+    },
+    {
+      "file": "images/angry_00019.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "angry",
+      "confidence": 0.731252,
+      "latency_ms": 709,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.731252443385856,
+        "disgust": 0.03098487856819344,
+        "fear": 0.060985876517888046,
+        "happy": 0.0012202737428120881,
+        "neutral": 0.05133590117048131,
+        "sad": 0.1163370859431495,
+        "surprise": 0.007883540671619636
+      }
+    },
+    {
+      "file": "images/angry_00020.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.415953,
+      "latency_ms": 2333,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.18634003139248692,
+        "disgust": 0.06425998233805108,
+        "fear": 0.06365978109359806,
+        "happy": 0.030339171855373392,
+        "neutral": 0.2132424606830564,
+        "sad": 0.415952502570879,
+        "surprise": 0.026206070066555093
+      }
+    },
+    {
+      "file": "images/angry_00021.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.64245,
+      "latency_ms": 242,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.13698958218114182,
+        "disgust": 0.6424496532777131,
+        "fear": 0.018342370556209842,
+        "happy": 0.14840561248903553,
+        "neutral": 0.021348139160934924,
+        "sad": 0.009834833936309236,
+        "surprise": 0.02262980839865537
+      }
+    },
+    {
+      "file": "images/angry_00022.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "sad",
+      "confidence": 0.759123,
+      "latency_ms": 611,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.15994869604431308,
+        "disgust": 0.008278854008472735,
+        "fear": 0.01826778702609156,
+        "happy": 0.0014933261024016983,
+        "neutral": 0.05185778642051175,
+        "sad": 0.7591230866276851,
+        "surprise": 0.00103046377052406
+      }
+    },
+    {
+      "file": "images/angry_00023.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 0.623578,
+      "latency_ms": 521,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.193631553027892,
+        "disgust": 0.022132856165237257,
+        "fear": 0.024045735271716,
+        "happy": 0.04225123286778834,
+        "neutral": 0.6235775335085565,
+        "sad": 0.06414486561125808,
+        "surprise": 0.030216223547551813
+      }
+    },
+    {
+      "file": "images/angry_00024.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "disgust",
+      "confidence": 0.54631,
+      "latency_ms": 1233,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.39121259049978896,
+        "disgust": 0.5463097618669461,
+        "fear": 0.007661319880027404,
+        "happy": 0.011239597531092611,
+        "neutral": 0.02405065036224558,
+        "sad": 0.0134120495546182,
+        "surprise": 0.006114030305281192
+      }
+    },
+    {
+      "file": "images/angry_00025.jpg",
+      "ground_truth": "angry",
+      "predicted_label": "neutral",
+      "confidence": 0.397298,
+      "latency_ms": 2190,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.3567670623976779,
+        "disgust": 0.0216278049869539,
+        "fear": 0.02092740435898369,
+        "happy": 0.018847419255905523,
+        "neutral": 0.39729833298774675,
+        "sad": 0.1788319551625641,
+        "surprise": 0.005700020850168214
+      }
+    },
+    {
+      "file": "images/disgust_00001.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.437194,
+      "latency_ms": 683,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.2993850898262382,
+        "disgust": 0.43719442210096604,
+        "fear": 0.021733583166589833,
+        "happy": 0.09338385391093192,
+        "neutral": 0.08513679262784643,
+        "sad": 0.04972309562803095,
+        "surprise": 0.01344316273939659
+      }
+    },
+    {
+      "file": "images/disgust_00002.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.873315,
+      "latency_ms": 211,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.11198850612268359,
+        "disgust": 0.8733153553470538,
+        "fear": 0.0008182830915111123,
+        "happy": 0.0014603437024078051,
+        "neutral": 0.004744173275617092,
+        "sad": 0.0071978918360489355,
+        "surprise": 0.0004754466246776906
+      }
+    },
+    {
+      "file": "images/disgust_00003.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.974531,
+      "latency_ms": 280,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.015177960250150092,
+        "disgust": 0.9745310585143053,
+        "fear": 0.0009128889352634277,
+        "happy": 0.0021973883111358304,
+        "neutral": 0.0019492841856701907,
+        "sad": 0.0048963774005237005,
+        "surprise": 0.00033504240295150606
+      }
+    },
+    {
+      "file": "images/disgust_00004.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "fear",
+      "confidence": 0.177208,
+      "latency_ms": 462,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.11727702542749145,
+        "disgust": 0.14501654191548446,
+        "fear": 0.17720795730942673,
+        "happy": 0.16086528747445258,
+        "neutral": 0.10842791479733169,
+        "sad": 0.12703291770635208,
+        "surprise": 0.16417235536946093
+      }
+    },
+    {
+      "file": "images/disgust_00005.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.303401,
+      "latency_ms": 1966,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.30340130909393426,
+        "disgust": 0.17146891377835802,
+        "fear": 0.00627416423848842,
+        "happy": 0.17803713203474314,
+        "neutral": 0.2789973219961819,
+        "sad": 0.054059252915397274,
+        "surprise": 0.00776190594289707
+      }
+    },
+    {
+      "file": "images/disgust_00006.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.321377,
+      "latency_ms": 1217,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.3213765002476819,
+        "disgust": 0.24498343352498056,
+        "fear": 0.012710351479537016,
+        "happy": 0.07570879229851535,
+        "neutral": 0.24781762543818456,
+        "sad": 0.07961624415000931,
+        "surprise": 0.0177870528610915
+      }
+    },
+    {
+      "file": "images/disgust_00007.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.588946,
+      "latency_ms": 270,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03569126670714223,
+        "disgust": 0.20835786345771204,
+        "fear": 0.011611059370301385,
+        "happy": 0.05006657958600478,
+        "neutral": 0.10054999903321357,
+        "sad": 0.5889464921979708,
+        "surprise": 0.004776739647655185
+      }
+    },
+    {
+      "file": "images/disgust_00008.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.394606,
+      "latency_ms": 439,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.05528583692797092,
+        "disgust": 0.04160519783764551,
+        "fear": 0.08681651852470335,
+        "happy": 0.015212329851418422,
+        "neutral": 0.23272040157496662,
+        "sad": 0.39460619055152923,
+        "surprise": 0.17375352473176583
+      }
+    },
+    {
+      "file": "images/disgust_00009.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.453194,
+      "latency_ms": 367,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.45319447684328723,
+        "disgust": 0.11087399378630494,
+        "fear": 0.07674898583682171,
+        "happy": 0.008586838833845723,
+        "neutral": 0.0754429357898792,
+        "sad": 0.26266732239850255,
+        "surprise": 0.012485446511358654
+      }
+    },
+    {
+      "file": "images/disgust_00010.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "angry",
+      "confidence": 0.520622,
+      "latency_ms": 447,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.5206220810272514,
+        "disgust": 0.23167987751981486,
+        "fear": 0.044937062349457955,
+        "happy": 0.011274138015310454,
+        "neutral": 0.05556288893596759,
+        "sad": 0.1133494289737329,
+        "surprise": 0.02257452317846481
+      }
+    },
+    {
+      "file": "images/disgust_00011.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.721772,
+      "latency_ms": 302,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1681470201343521,
+        "disgust": 0.7217720664725339,
+        "fear": 0.007790705609632755,
+        "happy": 0.008464549500526278,
+        "neutral": 0.052831092047575794,
+        "sad": 0.02932803211071231,
+        "surprise": 0.011666534124666866
+      }
+    },
+    {
+      "file": "images/disgust_00012.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.550984,
+      "latency_ms": 572,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.23225507865212477,
+        "disgust": 0.5509837493139129,
+        "fear": 0.021582245455078374,
+        "happy": 0.02985003162516435,
+        "neutral": 0.09073800229849491,
+        "sad": 0.05414935906413322,
+        "surprise": 0.020441533591091535
+      }
+    },
+    {
+      "file": "images/disgust_00013.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 0.431961,
+      "latency_ms": 2776,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1024656571243724,
+        "disgust": 0.0631142735791389,
+        "fear": 0.01878059911840042,
+        "happy": 0.2659375777266379,
+        "neutral": 0.43196068684609923,
+        "sad": 0.09932960751806089,
+        "surprise": 0.018411598087290208
+      }
+    },
+    {
+      "file": "images/disgust_00014.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.451767,
+      "latency_ms": 294,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.2947480318931708,
+        "disgust": 0.11924330808596216,
+        "fear": 0.025987983979770264,
+        "happy": 0.0066559846014198325,
+        "neutral": 0.09520352572713994,
+        "sad": 0.45176689451514723,
+        "surprise": 0.006394271197389708
+      }
+    },
+    {
+      "file": "images/disgust_00015.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "neutral",
+      "confidence": 0.37544,
+      "latency_ms": 4346,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.20093871193586996,
+        "disgust": 0.08135456482541323,
+        "fear": 0.04448923673905616,
+        "happy": 0.08980002638741642,
+        "neutral": 0.37544026088666443,
+        "sad": 0.09862217684459645,
+        "surprise": 0.10935502238098327
+      }
+    },
+    {
+      "file": "images/disgust_00016.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.395438,
+      "latency_ms": 691,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.09682517390214992,
+        "disgust": 0.3954381005242905,
+        "fear": 0.0974883080743025,
+        "happy": 0.030166885201854975,
+        "neutral": 0.07046777632087098,
+        "sad": 0.22019578715663674,
+        "surprise": 0.08941796881989425
+      }
+    },
+    {
+      "file": "images/disgust_00017.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "happy",
+      "confidence": 0.452043,
+      "latency_ms": 2142,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02184117715486252,
+        "disgust": 0.05015621763163412,
+        "fear": 0.025139787025063327,
+        "happy": 0.4520428035536571,
+        "neutral": 0.3035408387795274,
+        "sad": 0.050814686351081155,
+        "surprise": 0.09646448950417437
+      }
+    },
+    {
+      "file": "images/disgust_00018.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.862857,
+      "latency_ms": 1934,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.017424979222583042,
+        "disgust": 0.006697623568242986,
+        "fear": 0.05292380499074596,
+        "happy": 0.002397470034282546,
+        "neutral": 0.04558574151326365,
+        "sad": 0.8628569870389178,
+        "surprise": 0.012113393631963865
+      }
+    },
+    {
+      "file": "images/disgust_00019.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.975907,
+      "latency_ms": 256,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00887264338573933,
+        "disgust": 0.9759068664233915,
+        "fear": 0.0016536242943765525,
+        "happy": 0.00038342064697316773,
+        "neutral": 0.0011698370916120996,
+        "sad": 0.011617756411630025,
+        "surprise": 0.0003958517462769824
+      }
+    },
+    {
+      "file": "images/disgust_00020.png",
+      "ground_truth": "disgust",
+      "predicted_label": "happy",
+      "confidence": 0.285009,
+      "latency_ms": 618,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.09254025637372873,
+        "disgust": 0.077229978548821,
+        "fear": 0.20541928213893584,
+        "happy": 0.28500895781050806,
+        "neutral": 0.030182760652337055,
+        "sad": 0.07467681965733548,
+        "surprise": 0.23494194481833375
+      }
+    },
+    {
+      "file": "images/disgust_00021.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.595288,
+      "latency_ms": 298,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.061478783601587025,
+        "disgust": 0.10297889782012166,
+        "fear": 0.021075914892135724,
+        "happy": 0.022352253443195694,
+        "neutral": 0.18508670763190804,
+        "sad": 0.5952875508665617,
+        "surprise": 0.011739891744490066
+      }
+    },
+    {
+      "file": "images/disgust_00022.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "disgust",
+      "confidence": 0.588445,
+      "latency_ms": 4123,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.28033008905402784,
+        "disgust": 0.5884451228538532,
+        "fear": 0.014444772982890486,
+        "happy": 0.014581039470500677,
+        "neutral": 0.04490264817284274,
+        "sad": 0.042526842244004964,
+        "surprise": 0.014769485221880041
+      }
+    },
+    {
+      "file": "images/disgust_00023.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.325381,
+      "latency_ms": 2298,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.13050788669844995,
+        "disgust": 0.17106668294526517,
+        "fear": 0.0833865136458953,
+        "happy": 0.022940066100960377,
+        "neutral": 0.23458246687807513,
+        "sad": 0.3253808313382115,
+        "surprise": 0.03213555239314263
+      }
+    },
+    {
+      "file": "images/disgust_00024.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.368593,
+      "latency_ms": 2249,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.09069129431393701,
+        "disgust": 0.15567394677903806,
+        "fear": 0.019886420534458146,
+        "happy": 0.06488185454109957,
+        "neutral": 0.2830156284787283,
+        "sad": 0.3685932996135722,
+        "surprise": 0.017257555739166843
+      }
+    },
+    {
+      "file": "images/disgust_00025.jpg",
+      "ground_truth": "disgust",
+      "predicted_label": "sad",
+      "confidence": 0.290351,
+      "latency_ms": 1830,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.25053066390337997,
+        "disgust": 0.08207468103545401,
+        "fear": 0.04674615954308993,
+        "happy": 0.021964859047266687,
+        "neutral": 0.2653020892230545,
+        "sad": 0.2903507592094641,
+        "surprise": 0.04303078803829071
+      }
+    },
+    {
+      "file": "images/fear_00001.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.793515,
+      "latency_ms": 477,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02243303766984769,
+        "disgust": 0.019067241203114968,
+        "fear": 0.7935151599467892,
+        "happy": 0.00048302866872293454,
+        "neutral": 0.006230538388185492,
+        "sad": 0.007727983380163799,
+        "surprise": 0.1505430107431761
+      }
+    },
+    {
+      "file": "images/fear_00002.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.627692,
+      "latency_ms": 280,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.007116947907259427,
+        "disgust": 0.007443429540811804,
+        "fear": 0.6276921469683456,
+        "happy": 0.0026622810414951912,
+        "neutral": 0.01947744306690652,
+        "sad": 0.16983378039417216,
+        "surprise": 0.16577397108100955
+      }
+    },
+    {
+      "file": "images/fear_00003.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 0.394882,
+      "latency_ms": 285,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0341819658102204,
+        "disgust": 0.08062070918748095,
+        "fear": 0.1495044841494115,
+        "happy": 0.016156196389954018,
+        "neutral": 0.11204696093406943,
+        "sad": 0.21260739799127507,
+        "surprise": 0.39488228553758864
+      }
+    },
+    {
+      "file": "images/fear_00004.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.478263,
+      "latency_ms": 1686,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.031834434877337295,
+        "disgust": 0.010614144376497627,
+        "fear": 0.47826269677491334,
+        "happy": 0.006353322506239133,
+        "neutral": 0.07941068071253052,
+        "sad": 0.3143329013486899,
+        "surprise": 0.07919181940379223
+      }
+    },
+    {
+      "file": "images/fear_00005.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.829239,
+      "latency_ms": 469,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0019233815003807703,
+        "disgust": 0.0010038007158736208,
+        "fear": 0.8292385694865743,
+        "happy": 0.002805458241769415,
+        "neutral": 0.0013236826178055778,
+        "sad": 0.0055426829530571785,
+        "surprise": 0.1581624244845391
+      }
+    },
+    {
+      "file": "images/fear_00006.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.390621,
+      "latency_ms": 259,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.05683585378649069,
+        "disgust": 0.03167722852978423,
+        "fear": 0.17404184542845244,
+        "happy": 0.0239295191437936,
+        "neutral": 0.14685611669625065,
+        "sad": 0.3906207583459268,
+        "surprise": 0.1760386780693017
+      }
+    },
+    {
+      "file": "images/fear_00007.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "surprise",
+      "confidence": 0.391175,
+      "latency_ms": 2119,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01624089855019197,
+        "disgust": 0.014259228041900714,
+        "fear": 0.31726351263232144,
+        "happy": 0.003992442996781765,
+        "neutral": 0.057137428651995885,
+        "sad": 0.19993180833573304,
+        "surprise": 0.3911746807910751
+      }
+    },
+    {
+      "file": "images/fear_00008.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.575213,
+      "latency_ms": 1078,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1296578776557889,
+        "disgust": 0.01765600235599179,
+        "fear": 0.575213358528706,
+        "happy": 0.005249573273184213,
+        "neutral": 0.06264830764506044,
+        "sad": 0.08280351079808518,
+        "surprise": 0.1267713697431834
+      }
+    },
+    {
+      "file": "images/fear_00009.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.535462,
+      "latency_ms": 452,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.12484939848860095,
+        "disgust": 0.01698514742480778,
+        "fear": 0.03503013094237458,
+        "happy": 0.007443576550943873,
+        "neutral": 0.2752988273655198,
+        "sad": 0.5354618400563844,
+        "surprise": 0.0049310791713684755
+      }
+    },
+    {
+      "file": "images/fear_00010.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "happy",
+      "confidence": 0.303013,
+      "latency_ms": 484,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.058382901646421966,
+        "disgust": 0.149681726083012,
+        "fear": 0.25720973911428396,
+        "happy": 0.3030132750253566,
+        "neutral": 0.012559703146439118,
+        "sad": 0.0779824766563586,
+        "surprise": 0.14117017832812767
+      }
+    },
+    {
+      "file": "images/fear_00011.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.570832,
+      "latency_ms": 368,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0025818622958061004,
+        "disgust": 0.0015788379054080932,
+        "fear": 0.5708324203608772,
+        "happy": 0.0028746493105190423,
+        "neutral": 0.013613136444171248,
+        "sad": 0.02374589072490584,
+        "surprise": 0.38477320295831247
+      }
+    },
+    {
+      "file": "images/fear_00012.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.404571,
+      "latency_ms": 664,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.024218974824924237,
+        "disgust": 0.025695849590010273,
+        "fear": 0.4045711360350418,
+        "happy": 0.005335668044888992,
+        "neutral": 0.009666510614114361,
+        "sad": 0.3940795930011927,
+        "surprise": 0.13643226788982757
+      }
+    },
+    {
+      "file": "images/fear_00013.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.819242,
+      "latency_ms": 346,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00046057637539566765,
+        "disgust": 0.00037811280088375694,
+        "fear": 0.8192422458177513,
+        "happy": 0.0002929449040930562,
+        "neutral": 0.0006276771117832333,
+        "sad": 0.005734232411022633,
+        "surprise": 0.17326421057907043
+      }
+    },
+    {
+      "file": "images/fear_00014.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.504376,
+      "latency_ms": 775,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.017417543153938213,
+        "disgust": 0.01184456806859628,
+        "fear": 0.504376017340754,
+        "happy": 0.0012358223044085966,
+        "neutral": 0.09482843661236155,
+        "sad": 0.23343416161457342,
+        "surprise": 0.13686345090536797
+      }
+    },
+    {
+      "file": "images/fear_00015.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.696398,
+      "latency_ms": 2518,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.015024086044424264,
+        "disgust": 0.00742539668212964,
+        "fear": 0.6963979862493456,
+        "happy": 0.0018801435374510718,
+        "neutral": 0.004192710634146527,
+        "sad": 0.006571162633919995,
+        "surprise": 0.26850851421858307
+      }
+    },
+    {
+      "file": "images/fear_00016.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 0.28104,
+      "latency_ms": 355,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.09608393196560115,
+        "disgust": 0.027127082033316464,
+        "fear": 0.27600533741646666,
+        "happy": 0.008652246681206292,
+        "neutral": 0.28104032757736225,
+        "sad": 0.2236415345366614,
+        "surprise": 0.08744953978938595
+      }
+    },
+    {
+      "file": "images/fear_00017.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.670993,
+      "latency_ms": 850,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01921758695089982,
+        "disgust": 0.017592388193881918,
+        "fear": 0.2826781252813729,
+        "happy": 0.0008795314863938255,
+        "neutral": 0.002085223400060898,
+        "sad": 0.670992785393181,
+        "surprise": 0.006554359294209624
+      }
+    },
+    {
+      "file": "images/fear_00018.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.711902,
+      "latency_ms": 268,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0065448477951312685,
+        "disgust": 0.004576569329097499,
+        "fear": 0.7119015151437084,
+        "happy": 0.0023577455618249946,
+        "neutral": 0.004269988365620631,
+        "sad": 0.25712559461583406,
+        "surprise": 0.013223739188783251
+      }
+    },
+    {
+      "file": "images/fear_00019.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "angry",
+      "confidence": 0.380482,
+      "latency_ms": 313,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.38048247474478786,
+        "disgust": 0.16347924132535643,
+        "fear": 0.2512603737210807,
+        "happy": 0.015149192905282235,
+        "neutral": 0.03360204331999956,
+        "sad": 0.1164103855301801,
+        "surprise": 0.03961628845331335
+      }
+    },
+    {
+      "file": "images/fear_00020.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.338564,
+      "latency_ms": 1533,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06387625935302775,
+        "disgust": 0.028497265324433644,
+        "fear": 0.3385637172349517,
+        "happy": 0.01767714221112646,
+        "neutral": 0.13427270473799915,
+        "sad": 0.09848714839008393,
+        "surprise": 0.3186257627483772
+      }
+    },
+    {
+      "file": "images/fear_00021.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.959488,
+      "latency_ms": 3710,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0016022792383623237,
+        "disgust": 0.0003508271482348516,
+        "fear": 0.029319039732060206,
+        "happy": 0.0001386642100044854,
+        "neutral": 0.008275692574411537,
+        "sad": 0.9594876118501608,
+        "surprise": 0.0008258852467656325
+      }
+    },
+    {
+      "file": "images/fear_00022.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.332508,
+      "latency_ms": 1586,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.022221521809111515,
+        "disgust": 0.024462696894648587,
+        "fear": 0.3325083950646902,
+        "happy": 0.0051659816063490595,
+        "neutral": 0.08481093015883356,
+        "sad": 0.32436949573174273,
+        "surprise": 0.2064609787346245
+      }
+    },
+    {
+      "file": "images/fear_00023.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "fear",
+      "confidence": 0.355958,
+      "latency_ms": 3723,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.070432684130441,
+        "disgust": 0.0313422324093644,
+        "fear": 0.35595779023608737,
+        "happy": 0.00742737871337907,
+        "neutral": 0.11951899832334002,
+        "sad": 0.2556871538109097,
+        "surprise": 0.15963376237647833
+      }
+    },
+    {
+      "file": "images/fear_00024.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "sad",
+      "confidence": 0.832779,
+      "latency_ms": 445,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.015902572723240783,
+        "disgust": 0.02139872382517018,
+        "fear": 0.11225304089377482,
+        "happy": 0.0017411684473411528,
+        "neutral": 0.0013991722278229757,
+        "sad": 0.8327787185593303,
+        "surprise": 0.01452660332331979
+      }
+    },
+    {
+      "file": "images/fear_00025.jpg",
+      "ground_truth": "fear",
+      "predicted_label": "neutral",
+      "confidence": 0.284995,
+      "latency_ms": 1284,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.08056893186410269,
+        "disgust": 0.06330337184331164,
+        "fear": 0.0958951036546726,
+        "happy": 0.1094678291117189,
+        "neutral": 0.28499491836730845,
+        "sad": 0.18587187424511997,
+        "surprise": 0.17989797091376578
+      }
+    },
+    {
+      "file": "images/happy_00001.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.692515,
+      "latency_ms": 548,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.010610146873712015,
+        "disgust": 0.03175499022556293,
+        "fear": 0.021002283611484214,
+        "happy": 0.6925152661927865,
+        "neutral": 0.11568715995584283,
+        "sad": 0.036600381610896245,
+        "surprise": 0.0918297715297153
+      }
+    },
+    {
+      "file": "images/happy_00002.png",
+      "ground_truth": "happy",
+      "predicted_label": "surprise",
+      "confidence": 0.354957,
+      "latency_ms": 501,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07059018459565963,
+        "disgust": 0.04721914920885424,
+        "fear": 0.10240131448826577,
+        "happy": 0.2814464095413715,
+        "neutral": 0.0966156757247118,
+        "sad": 0.04677031208279072,
+        "surprise": 0.3549569543583463
+      }
+    },
+    {
+      "file": "images/happy_00003.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.317445,
+      "latency_ms": 512,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.029401327567697307,
+        "disgust": 0.023198218425300208,
+        "fear": 0.07041318550182012,
+        "happy": 0.3174453298019642,
+        "neutral": 0.2546614973767182,
+        "sad": 0.07240589383154103,
+        "surprise": 0.2324745474949589
+      }
+    },
+    {
+      "file": "images/happy_00004.png",
+      "ground_truth": "happy",
+      "predicted_label": "sad",
+      "confidence": 0.429757,
+      "latency_ms": 543,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.011724540774668012,
+        "disgust": 0.035217179832649395,
+        "fear": 0.0196547790783425,
+        "happy": 0.3954894201100017,
+        "neutral": 0.09285515143663986,
+        "sad": 0.42975664640024164,
+        "surprise": 0.015302282367456654
+      }
+    },
+    {
+      "file": "images/happy_00005.png",
+      "ground_truth": "happy",
+      "predicted_label": "surprise",
+      "confidence": 0.470575,
+      "latency_ms": 495,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01280104470663269,
+        "disgust": 0.015466179326932275,
+        "fear": 0.1698148923447842,
+        "happy": 0.23346704496747156,
+        "neutral": 0.0579583888145664,
+        "sad": 0.0399173546665511,
+        "surprise": 0.47057509517306173
+      }
+    },
+    {
+      "file": "images/happy_00006.png",
+      "ground_truth": "happy",
+      "predicted_label": "sad",
+      "confidence": 0.859878,
+      "latency_ms": 515,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03600697157886937,
+        "disgust": 0.012817745011695691,
+        "fear": 0.06620517397702229,
+        "happy": 0.0021115192904531048,
+        "neutral": 0.009259867188334223,
+        "sad": 0.8598781510904683,
+        "surprise": 0.01372057186315716
+      }
+    },
+    {
+      "file": "images/happy_00007.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.818809,
+      "latency_ms": 545,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0025065840772304357,
+        "disgust": 0.005631587173181582,
+        "fear": 0.017878815731492075,
+        "happy": 0.818809190867809,
+        "neutral": 0.03276303711455702,
+        "sad": 0.02926351957665459,
+        "surprise": 0.09314726545907538
+      }
+    },
+    {
+      "file": "images/happy_00008.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.755983,
+      "latency_ms": 473,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.004749330371480914,
+        "disgust": 0.009886025237873275,
+        "fear": 0.04395689402047191,
+        "happy": 0.7559825915607433,
+        "neutral": 0.005792562915571257,
+        "sad": 0.009440838469438587,
+        "surprise": 0.17019175742442058
+      }
+    },
+    {
+      "file": "images/happy_00009.png",
+      "ground_truth": "happy",
+      "predicted_label": "surprise",
+      "confidence": 0.413237,
+      "latency_ms": 466,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.025380624174610466,
+        "disgust": 0.02188444011498713,
+        "fear": 0.20864796373841893,
+        "happy": 0.03592632186951681,
+        "neutral": 0.033931756095199286,
+        "sad": 0.26099144044331585,
+        "surprise": 0.41323745356395153
+      }
+    },
+    {
+      "file": "images/happy_00010.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.692454,
+      "latency_ms": 484,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.021609100656431214,
+        "disgust": 0.04181422985646884,
+        "fear": 0.06510577692152196,
+        "happy": 0.6924537154670058,
+        "neutral": 0.04707249688150207,
+        "sad": 0.041619550579812516,
+        "surprise": 0.09032512963725771
+      }
+    },
+    {
+      "file": "images/happy_00011.png",
+      "ground_truth": "happy",
+      "predicted_label": "sad",
+      "confidence": 0.425551,
+      "latency_ms": 458,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07045187162473183,
+        "disgust": 0.03334869030801511,
+        "fear": 0.21989466903741742,
+        "happy": 0.06173262154792685,
+        "neutral": 0.06263081758873813,
+        "sad": 0.4255513191052407,
+        "surprise": 0.12639001078792997
+      }
+    },
+    {
+      "file": "images/happy_00012.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.490144,
+      "latency_ms": 491,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.015574163192333675,
+        "disgust": 0.028795530752957293,
+        "fear": 0.042311499005264576,
+        "happy": 0.49014362088130153,
+        "neutral": 0.1790293411275877,
+        "sad": 0.16210962583058286,
+        "surprise": 0.0820362192099723
+      }
+    },
+    {
+      "file": "images/happy_00013.png",
+      "ground_truth": "happy",
+      "predicted_label": "neutral",
+      "confidence": 0.385491,
+      "latency_ms": 492,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.12560024349792998,
+        "disgust": 0.05872730934538694,
+        "fear": 0.030203006128592193,
+        "happy": 0.2036238833066379,
+        "neutral": 0.3854908140291652,
+        "sad": 0.17530825252801596,
+        "surprise": 0.02104649116427185
+      }
+    },
+    {
+      "file": "images/happy_00014.png",
+      "ground_truth": "happy",
+      "predicted_label": "surprise",
+      "confidence": 0.507874,
+      "latency_ms": 522,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.030583116078670685,
+        "disgust": 0.042344379280082674,
+        "fear": 0.20965567125303358,
+        "happy": 0.09023458381414534,
+        "neutral": 0.05479638532542126,
+        "sad": 0.0645120076419705,
+        "surprise": 0.5078738566066759
+      }
+    },
+    {
+      "file": "images/happy_00015.png",
+      "ground_truth": "happy",
+      "predicted_label": "sad",
+      "confidence": 0.372443,
+      "latency_ms": 534,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.08269027659479693,
+        "disgust": 0.1516931214656883,
+        "fear": 0.10489264652048166,
+        "happy": 0.07215416663386622,
+        "neutral": 0.11772020699941554,
+        "sad": 0.3724430700771571,
+        "surprise": 0.09840651170859428
+      }
+    },
+    {
+      "file": "images/happy_00016.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.995378,
+      "latency_ms": 483,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0000638135361879859,
+        "disgust": 0.00028321353090968556,
+        "fear": 0.00042562334092250884,
+        "happy": 0.9953781995710873,
+        "neutral": 0.0011774813222084402,
+        "sad": 0.0004479392122965686,
+        "surprise": 0.002223729486387433
+      }
+    },
+    {
+      "file": "images/happy_00017.png",
+      "ground_truth": "happy",
+      "predicted_label": "surprise",
+      "confidence": 0.347385,
+      "latency_ms": 500,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02851479707671129,
+        "disgust": 0.07736811759649206,
+        "fear": 0.06559434138600231,
+        "happy": 0.27506391571963246,
+        "neutral": 0.159361053910449,
+        "sad": 0.04671324246495737,
+        "surprise": 0.34738453184575546
+      }
+    },
+    {
+      "file": "images/happy_00018.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.526944,
+      "latency_ms": 491,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.029985483938126795,
+        "disgust": 0.05077567842538374,
+        "fear": 0.09223354081462128,
+        "happy": 0.5269444004764577,
+        "neutral": 0.04498592963109722,
+        "sad": 0.12494642102046687,
+        "surprise": 0.13012854569384638
+      }
+    },
+    {
+      "file": "images/happy_00019.png",
+      "ground_truth": "happy",
+      "predicted_label": "sad",
+      "confidence": 0.760311,
+      "latency_ms": 538,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.028575440288388185,
+        "disgust": 0.026240606781934538,
+        "fear": 0.07924273290326277,
+        "happy": 0.042083726806121546,
+        "neutral": 0.04105448342417374,
+        "sad": 0.7603106089930024,
+        "surprise": 0.022492400803116902
+      }
+    },
+    {
+      "file": "images/happy_00020.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.882401,
+      "latency_ms": 519,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0014108998052573313,
+        "disgust": 0.0028856679179552927,
+        "fear": 0.003577061328725179,
+        "happy": 0.8824005127072918,
+        "neutral": 0.06631787225531238,
+        "sad": 0.028448511041907355,
+        "surprise": 0.014959474943550616
+      }
+    },
+    {
+      "file": "images/happy_00021.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.969434,
+      "latency_ms": 481,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00035400079106382906,
+        "disgust": 0.0013715616582521265,
+        "fear": 0.005968180527817661,
+        "happy": 0.9694339966494167,
+        "neutral": 0.0018038941970705954,
+        "sad": 0.001957710911108483,
+        "surprise": 0.019110655265270598
+      }
+    },
+    {
+      "file": "images/happy_00022.png",
+      "ground_truth": "happy",
+      "predicted_label": "happy",
+      "confidence": 0.982808,
+      "latency_ms": 502,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0003028001771104442,
+        "disgust": 0.0020775306908228214,
+        "fear": 0.0015959482780669955,
+        "happy": 0.9828079304994762,
+        "neutral": 0.0030219089450305254,
+        "sad": 0.0016366731218382402,
+        "surprise": 0.008557208287654994
+      }
+    },
+    {
+      "file": "images/happy_00023.png",
+      "ground_truth": "happy",
+      "predicted_label": "sad",
+      "confidence": 0.328363,
+      "latency_ms": 488,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03684493043648987,
+        "disgust": 0.03872578806511489,
+        "fear": 0.08107298539675419,
+        "happy": 0.28308356898595033,
+        "neutral": 0.16002303011609442,
+        "sad": 0.32836272100060737,
+        "surprise": 0.07188697599898887
+      }
+    },
+    {
+      "file": "images/happy_00024.png",
+      "ground_truth": "happy",
+      "predicted_label": "surprise",
+      "confidence": 0.334523,
+      "latency_ms": 508,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.028269015728240966,
+        "disgust": 0.059475976695452674,
+        "fear": 0.12714363544036514,
+        "happy": 0.28823497616059784,
+        "neutral": 0.08544393895949644,
+        "sad": 0.07690925885354784,
+        "surprise": 0.33452319816229914
+      }
+    },
+    {
+      "file": "images/happy_00025.png",
+      "ground_truth": "happy",
+      "predicted_label": "sad",
+      "confidence": 0.370291,
+      "latency_ms": 473,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.054075762581174996,
+        "disgust": 0.049295818173612435,
+        "fear": 0.0683245019005122,
+        "happy": 0.064576616859101,
+        "neutral": 0.2040091104328011,
+        "sad": 0.3702914850688535,
+        "surprise": 0.1894267049839448
+      }
+    },
+    {
+      "file": "images/neutral_00001.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.41817,
+      "latency_ms": 475,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03424474710329861,
+        "disgust": 0.02014952010583843,
+        "fear": 0.13284120426337642,
+        "happy": 0.049417313009844546,
+        "neutral": 0.09888508668733201,
+        "sad": 0.4181702972565979,
+        "surprise": 0.24629183157371212
+      }
+    },
+    {
+      "file": "images/neutral_00002.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.816726,
+      "latency_ms": 464,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.007386643553338343,
+        "disgust": 0.006065702054944883,
+        "fear": 0.024289035503218277,
+        "happy": 0.048262119796562405,
+        "neutral": 0.08869258445054919,
+        "sad": 0.8167264558303929,
+        "surprise": 0.008577458810993794
+      }
+    },
+    {
+      "file": "images/neutral_00003.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.409179,
+      "latency_ms": 484,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.023262201503518556,
+        "disgust": 0.02783485809783154,
+        "fear": 0.06944527108448599,
+        "happy": 0.023554791061285923,
+        "neutral": 0.23593809672585128,
+        "sad": 0.4091793897600452,
+        "surprise": 0.21078539176698155
+      }
+    },
+    {
+      "file": "images/neutral_00004.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.646013,
+      "latency_ms": 499,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.09302801372614093,
+        "disgust": 0.05142026663538602,
+        "fear": 0.05832963467429131,
+        "happy": 0.053210090327262025,
+        "neutral": 0.07362646349546083,
+        "sad": 0.6460134937122041,
+        "surprise": 0.024372037429254846
+      }
+    },
+    {
+      "file": "images/neutral_00005.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.370469,
+      "latency_ms": 511,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.031391162151081516,
+        "disgust": 0.02646355026765572,
+        "fear": 0.07838475727412005,
+        "happy": 0.022630687683048573,
+        "neutral": 0.37046905999866914,
+        "sad": 0.24153354780601527,
+        "surprise": 0.22912723481940983
+      }
+    },
+    {
+      "file": "images/neutral_00006.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.639176,
+      "latency_ms": 455,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.11881975055886691,
+        "disgust": 0.028023197011264687,
+        "fear": 0.054300633158153554,
+        "happy": 0.01596206070753978,
+        "neutral": 0.06116591108420852,
+        "sad": 0.6391756842142277,
+        "surprise": 0.08255276326573883
+      }
+    },
+    {
+      "file": "images/neutral_00007.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.497811,
+      "latency_ms": 487,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.016750000757875375,
+        "disgust": 0.02834197460450778,
+        "fear": 0.024880223412713058,
+        "happy": 0.019850015419324823,
+        "neutral": 0.34982353982859593,
+        "sad": 0.49781072095148615,
+        "surprise": 0.06254352502549697
+      }
+    },
+    {
+      "file": "images/neutral_00008.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.743205,
+      "latency_ms": 495,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.022653437283521937,
+        "disgust": 0.013653381043084055,
+        "fear": 0.06808339720222724,
+        "happy": 0.0107784116955676,
+        "neutral": 0.10363137092802638,
+        "sad": 0.7432049936920436,
+        "surprise": 0.03799500815552916
+      }
+    },
+    {
+      "file": "images/neutral_00009.png",
+      "ground_truth": "neutral",
+      "predicted_label": "surprise",
+      "confidence": 0.522306,
+      "latency_ms": 478,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.016607923242201336,
+        "disgust": 0.008135929378179797,
+        "fear": 0.33891513646065224,
+        "happy": 0.006075791175323039,
+        "neutral": 0.04389644759740611,
+        "sad": 0.06406324060715318,
+        "surprise": 0.5223055315390843
+      }
+    },
+    {
+      "file": "images/neutral_00010.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.898815,
+      "latency_ms": 496,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.013744222521988038,
+        "disgust": 0.009812338815409518,
+        "fear": 0.035612997398978476,
+        "happy": 0.0074029413496791326,
+        "neutral": 0.02667554583578031,
+        "sad": 0.8988145636789538,
+        "surprise": 0.00793739039921075
+      }
+    },
+    {
+      "file": "images/neutral_00011.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.42056,
+      "latency_ms": 513,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06825541023886282,
+        "disgust": 0.038340425814413846,
+        "fear": 0.08199024128999959,
+        "happy": 0.015117714262130136,
+        "neutral": 0.25246561428288394,
+        "sad": 0.4205599925376487,
+        "surprise": 0.12327060157406108
+      }
+    },
+    {
+      "file": "images/neutral_00012.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.528419,
+      "latency_ms": 500,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.025313198499941885,
+        "disgust": 0.026938256921550024,
+        "fear": 0.0469721448143904,
+        "happy": 0.013862600089541433,
+        "neutral": 0.17233216274000107,
+        "sad": 0.5284190100711906,
+        "surprise": 0.18616262686338464
+      }
+    },
+    {
+      "file": "images/neutral_00013.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.383958,
+      "latency_ms": 515,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04672711859818769,
+        "disgust": 0.029212015987977485,
+        "fear": 0.074829463684569,
+        "happy": 0.01801739175643277,
+        "neutral": 0.38395798702406553,
+        "sad": 0.30114970318671347,
+        "surprise": 0.1461063197620541
+      }
+    },
+    {
+      "file": "images/neutral_00014.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.481125,
+      "latency_ms": 516,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1148627858300434,
+        "disgust": 0.036325116047737256,
+        "fear": 0.02062934012086376,
+        "happy": 0.0531915235497134,
+        "neutral": 0.48112464614428235,
+        "sad": 0.27388383423780244,
+        "surprise": 0.01998275406955735
+      }
+    },
+    {
+      "file": "images/neutral_00015.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.355702,
+      "latency_ms": 470,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.10067992535273987,
+        "disgust": 0.08053025166952778,
+        "fear": 0.041670126295562014,
+        "happy": 0.09757988685580893,
+        "neutral": 0.3557021201276935,
+        "sad": 0.22611798348127352,
+        "surprise": 0.09771970621739451
+      }
+    },
+    {
+      "file": "images/neutral_00016.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.359491,
+      "latency_ms": 501,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.15743007135145484,
+        "disgust": 0.046709341247178744,
+        "fear": 0.08733110448463124,
+        "happy": 0.019628569829388796,
+        "neutral": 0.20423589149159962,
+        "sad": 0.35949101769194325,
+        "surprise": 0.1251740039038034
+      }
+    },
+    {
+      "file": "images/neutral_00017.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.361205,
+      "latency_ms": 492,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07247658358645731,
+        "disgust": 0.02681402580801273,
+        "fear": 0.13877379386488814,
+        "happy": 0.020776825415660383,
+        "neutral": 0.361205275792154,
+        "sad": 0.2815079951130582,
+        "surprise": 0.09844550041976914
+      }
+    },
+    {
+      "file": "images/neutral_00018.png",
+      "ground_truth": "neutral",
+      "predicted_label": "surprise",
+      "confidence": 0.45041,
+      "latency_ms": 481,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02615170815503327,
+        "disgust": 0.0343496391710396,
+        "fear": 0.17538634356711866,
+        "happy": 0.1194512815815332,
+        "neutral": 0.07297849093314927,
+        "sad": 0.1212721743176598,
+        "surprise": 0.4504103622744662
+      }
+    },
+    {
+      "file": "images/neutral_00019.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.454215,
+      "latency_ms": 476,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.11763749133584803,
+        "disgust": 0.044589169553981824,
+        "fear": 0.06330830886468447,
+        "happy": 0.020380399172637065,
+        "neutral": 0.255492339460544,
+        "sad": 0.45421481574747596,
+        "surprise": 0.044377475864828556
+      }
+    },
+    {
+      "file": "images/neutral_00020.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.66961,
+      "latency_ms": 483,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.020115372182476547,
+        "disgust": 0.023268898669328273,
+        "fear": 0.013462734107419761,
+        "happy": 0.10556218194262647,
+        "neutral": 0.6696101392205138,
+        "sad": 0.1165297930634312,
+        "surprise": 0.051450880814203875
+      }
+    },
+    {
+      "file": "images/neutral_00021.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.415714,
+      "latency_ms": 491,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.33828335556712696,
+        "disgust": 0.038997538701052485,
+        "fear": 0.06351446313691658,
+        "happy": 0.005877434123308843,
+        "neutral": 0.13001076214295357,
+        "sad": 0.415714316728536,
+        "surprise": 0.00760212960010559
+      }
+    },
+    {
+      "file": "images/neutral_00022.png",
+      "ground_truth": "neutral",
+      "predicted_label": "angry",
+      "confidence": 0.292052,
+      "latency_ms": 541,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.2920522263136536,
+        "disgust": 0.1024790127723242,
+        "fear": 0.037486152272673386,
+        "happy": 0.016985577971274705,
+        "neutral": 0.1766999910561609,
+        "sad": 0.26260434346737527,
+        "surprise": 0.11169269614653794
+      }
+    },
+    {
+      "file": "images/neutral_00023.png",
+      "ground_truth": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.342242,
+      "latency_ms": 483,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03819682187949268,
+        "disgust": 0.0639647699832565,
+        "fear": 0.06708280921921651,
+        "happy": 0.12134366742328707,
+        "neutral": 0.3422421014666146,
+        "sad": 0.13687707539452446,
+        "surprise": 0.2302927546336083
+      }
+    },
+    {
+      "file": "images/neutral_00024.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.483378,
+      "latency_ms": 464,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.08190312762032452,
+        "disgust": 0.17392341617679477,
+        "fear": 0.059719245530876486,
+        "happy": 0.049188635865409114,
+        "neutral": 0.11770765449403194,
+        "sad": 0.48337782918602346,
+        "surprise": 0.03418009112653965
+      }
+    },
+    {
+      "file": "images/neutral_00025.png",
+      "ground_truth": "neutral",
+      "predicted_label": "sad",
+      "confidence": 0.316986,
+      "latency_ms": 488,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04176203469309593,
+        "disgust": 0.03690951723173725,
+        "fear": 0.1051038006012297,
+        "happy": 0.11750421152885841,
+        "neutral": 0.20654619617464443,
+        "sad": 0.3169858330288795,
+        "surprise": 0.17518840674155492
+      }
+    },
+    {
+      "file": "images/sad_00001.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.98768,
+      "latency_ms": 2544,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0026210702110054185,
+        "disgust": 0.0019150028417822835,
+        "fear": 0.00114574768510393,
+        "happy": 0.000041648013005062466,
+        "neutral": 0.006554024293439097,
+        "sad": 0.9876795584323539,
+        "surprise": 0.00004294852331038732
+      }
+    },
+    {
+      "file": "images/sad_00002.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.853218,
+      "latency_ms": 3015,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.011395344001325379,
+        "disgust": 0.002443435356227398,
+        "fear": 0.0543091879506544,
+        "happy": 0.0008350539311700435,
+        "neutral": 0.07173897018002985,
+        "sad": 0.8532182296794338,
+        "surprise": 0.0060597789011591855
+      }
+    },
+    {
+      "file": "images/sad_00003.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.467242,
+      "latency_ms": 3408,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.24760238665782736,
+        "disgust": 0.183648147469881,
+        "fear": 0.017756483146787117,
+        "happy": 0.00250985103860338,
+        "neutral": 0.0773837820087075,
+        "sad": 0.4672418199413618,
+        "surprise": 0.0038575297368316597
+      }
+    },
+    {
+      "file": "images/sad_00004.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.339739,
+      "latency_ms": 3113,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.10348209062911205,
+        "disgust": 0.05058954112104969,
+        "fear": 0.13996495425179642,
+        "happy": 0.028091523482590253,
+        "neutral": 0.12315237895104607,
+        "sad": 0.3397393898981631,
+        "surprise": 0.21498012166624234
+      }
+    },
+    {
+      "file": "images/sad_00005.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.462599,
+      "latency_ms": 1463,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.3732573257849055,
+        "disgust": 0.030319929264753298,
+        "fear": 0.04184806339024444,
+        "happy": 0.0021351287546513688,
+        "neutral": 0.08469806749650377,
+        "sad": 0.4625992994029562,
+        "surprise": 0.005142185905985473
+      }
+    },
+    {
+      "file": "images/sad_00006.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.994938,
+      "latency_ms": 1650,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00027764980668276224,
+        "disgust": 0.0002388397302381785,
+        "fear": 0.0033413182656357563,
+        "happy": 0.000042342539654518916,
+        "neutral": 0.0009849348324062197,
+        "sad": 0.9949381642682946,
+        "surprise": 0.00017675055708789766
+      }
+    },
+    {
+      "file": "images/sad_00007.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.749599,
+      "latency_ms": 1466,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.006374402109846823,
+        "disgust": 0.009469334069863224,
+        "fear": 0.026890386975616406,
+        "happy": 0.005012980521047795,
+        "neutral": 0.16988785432098272,
+        "sad": 0.7495987744724592,
+        "surprise": 0.03276626753018403
+      }
+    },
+    {
+      "file": "images/sad_00008.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.344487,
+      "latency_ms": 1952,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1892113074284259,
+        "disgust": 0.04212135758384466,
+        "fear": 0.10299517607383331,
+        "happy": 0.025730046515183867,
+        "neutral": 0.2657580101772785,
+        "sad": 0.34448680467122766,
+        "surprise": 0.02969729755020598
+      }
+    },
+    {
+      "file": "images/sad_00009.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.859586,
+      "latency_ms": 725,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.013050571513854062,
+        "disgust": 0.008881876890499484,
+        "fear": 0.05314564884998759,
+        "happy": 0.0011507377714558534,
+        "neutral": 0.03797098175630424,
+        "sad": 0.8595856071846453,
+        "surprise": 0.026214576033253573
+      }
+    },
+    {
+      "file": "images/sad_00010.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.610088,
+      "latency_ms": 325,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06535641193203365,
+        "disgust": 0.01847223449147825,
+        "fear": 0.11632171488131453,
+        "happy": 0.01285094239365034,
+        "neutral": 0.14767387036976318,
+        "sad": 0.6100878775000039,
+        "surprise": 0.02923694843175605
+      }
+    },
+    {
+      "file": "images/sad_00011.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.588592,
+      "latency_ms": 1818,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.029295850771474747,
+        "disgust": 0.03843733575108192,
+        "fear": 0.03142731599835898,
+        "happy": 0.08757566330306836,
+        "neutral": 0.20456989387668592,
+        "sad": 0.5885919672472614,
+        "surprise": 0.020101973052068824
+      }
+    },
+    {
+      "file": "images/sad_00012.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.737926,
+      "latency_ms": 1031,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07714171318697,
+        "disgust": 0.03259280813405453,
+        "fear": 0.08703484962772304,
+        "happy": 0.009685118758384573,
+        "neutral": 0.03785994464878362,
+        "sad": 0.7379255869608554,
+        "surprise": 0.017759978683228803
+      }
+    },
+    {
+      "file": "images/sad_00013.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.906563,
+      "latency_ms": 954,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0062180521213590426,
+        "disgust": 0.005169776200071401,
+        "fear": 0.05719629369493743,
+        "happy": 0.0021312135436060745,
+        "neutral": 0.016340892281226992,
+        "sad": 0.9065630084276991,
+        "surprise": 0.006380763731099861
+      }
+    },
+    {
+      "file": "images/sad_00014.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.449501,
+      "latency_ms": 290,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1507165579184745,
+        "disgust": 0.03433225852725143,
+        "fear": 0.024033653293628953,
+        "happy": 0.03201696389510695,
+        "neutral": 0.44950112184361757,
+        "sad": 0.2870472327709807,
+        "surprise": 0.02235221175093977
+      }
+    },
+    {
+      "file": "images/sad_00015.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.475133,
+      "latency_ms": 806,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.07347478473946957,
+        "disgust": 0.14368228486470533,
+        "fear": 0.0377805057811149,
+        "happy": 0.044911038670011075,
+        "neutral": 0.19161418826606147,
+        "sad": 0.4751332862688952,
+        "surprise": 0.033403911409742436
+      }
+    },
+    {
+      "file": "images/sad_00016.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "neutral",
+      "confidence": 0.465408,
+      "latency_ms": 1433,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.029588495302037096,
+        "disgust": 0.008493045842417347,
+        "fear": 0.03080479750196328,
+        "happy": 0.01096764518789561,
+        "neutral": 0.4654079495251876,
+        "sad": 0.44752851300034135,
+        "surprise": 0.007209553640157827
+      }
+    },
+    {
+      "file": "images/sad_00017.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.586718,
+      "latency_ms": 616,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.1597349799876608,
+        "disgust": 0.07617103592334498,
+        "fear": 0.04746318477478044,
+        "happy": 0.007981284147708122,
+        "neutral": 0.09535932944204503,
+        "sad": 0.5867177686747844,
+        "surprise": 0.026572417049676163
+      }
+    },
+    {
+      "file": "images/sad_00018.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.623047,
+      "latency_ms": 5541,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06439643877015953,
+        "disgust": 0.0191953179839738,
+        "fear": 0.1957762044484053,
+        "happy": 0.0034596211873120478,
+        "neutral": 0.0343190290024685,
+        "sad": 0.623047142906784,
+        "surprise": 0.05980624570089688
+      }
+    },
+    {
+      "file": "images/sad_00019.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.736441,
+      "latency_ms": 2178,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.05393799625565568,
+        "disgust": 0.077856751996854,
+        "fear": 0.0674376266586475,
+        "happy": 0.01553213507462393,
+        "neutral": 0.03170586849967515,
+        "sad": 0.7364406894085527,
+        "surprise": 0.01708893210599105
+      }
+    },
+    {
+      "file": "images/sad_00020.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.611019,
+      "latency_ms": 531,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01495522381315858,
+        "disgust": 0.0030533899779918773,
+        "fear": 0.01298229753432468,
+        "happy": 0.0011659407043793327,
+        "neutral": 0.35392578295901356,
+        "sad": 0.6110186821473125,
+        "surprise": 0.0028986828638194627
+      }
+    },
+    {
+      "file": "images/sad_00021.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.619517,
+      "latency_ms": 1473,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.22520120602327476,
+        "disgust": 0.04169298312420061,
+        "fear": 0.03364586677233379,
+        "happy": 0.008397095363729082,
+        "neutral": 0.05603212389165132,
+        "sad": 0.6195174879182758,
+        "surprise": 0.015513236906534649
+      }
+    },
+    {
+      "file": "images/sad_00022.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.906523,
+      "latency_ms": 528,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.011034192711523677,
+        "disgust": 0.018438781714825256,
+        "fear": 0.02746939340162601,
+        "happy": 0.01167529830236067,
+        "neutral": 0.02077574430757004,
+        "sad": 0.9065231927889961,
+        "surprise": 0.004083396773098434
+      }
+    },
+    {
+      "file": "images/sad_00023.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.366741,
+      "latency_ms": 1483,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.11802723194714783,
+        "disgust": 0.23167364620174358,
+        "fear": 0.19083896041623677,
+        "happy": 0.015357600449273593,
+        "neutral": 0.025127910309511867,
+        "sad": 0.3667412239951845,
+        "surprise": 0.05223342668090186
+      }
+    },
+    {
+      "file": "images/sad_00024.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "sad",
+      "confidence": 0.54384,
+      "latency_ms": 5643,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.013791346034553223,
+        "disgust": 0.06001606330908935,
+        "fear": 0.03972957935191654,
+        "happy": 0.18672428743211134,
+        "neutral": 0.11918459874163327,
+        "sad": 0.5438401535843302,
+        "surprise": 0.036713971546365985
+      }
+    },
+    {
+      "file": "images/sad_00025.jpg",
+      "ground_truth": "sad",
+      "predicted_label": "surprise",
+      "confidence": 0.337162,
+      "latency_ms": 3778,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04370535615362219,
+        "disgust": 0.056146049340567994,
+        "fear": 0.07827198035112332,
+        "happy": 0.02433654627815449,
+        "neutral": 0.2607010356945196,
+        "sad": 0.19967689794942667,
+        "surprise": 0.33716213423258573
+      }
+    },
+    {
+      "file": "images/surprise_00001.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "sad",
+      "confidence": 0.919046,
+      "latency_ms": 527,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005415735210924104,
+        "disgust": 0.0038301523046839394,
+        "fear": 0.0432859915324617,
+        "happy": 0.001030588409445777,
+        "neutral": 0.009205884066684216,
+        "sad": 0.919045953891099,
+        "surprise": 0.018185694584701335
+      }
+    },
+    {
+      "file": "images/surprise_00002.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.475098,
+      "latency_ms": 3016,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01152284590061415,
+        "disgust": 0.01427572146625467,
+        "fear": 0.37305558786778137,
+        "happy": 0.0051140072725712514,
+        "neutral": 0.03095999122212828,
+        "sad": 0.0899739730167905,
+        "surprise": 0.4750978732538598
+      }
+    },
+    {
+      "file": "images/surprise_00003.png",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.584156,
+      "latency_ms": 420,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.020921912963547288,
+        "disgust": 0.00858182327384713,
+        "fear": 0.3399627577939534,
+        "happy": 0.007972777994552843,
+        "neutral": 0.01683573423685914,
+        "sad": 0.021569126164433083,
+        "surprise": 0.584155867572807
+      }
+    },
+    {
+      "file": "images/surprise_00004.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.640147,
+      "latency_ms": 235,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005414552843914053,
+        "disgust": 0.0030961334582031846,
+        "fear": 0.17949054509584675,
+        "happy": 0.004375731345492046,
+        "neutral": 0.059887316208556016,
+        "sad": 0.1075883220857947,
+        "surprise": 0.6401473989621933
+      }
+    },
+    {
+      "file": "images/surprise_00005.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "neutral",
+      "confidence": 0.450357,
+      "latency_ms": 5224,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.06483700517567503,
+        "disgust": 0.012725609152751964,
+        "fear": 0.0381616330669853,
+        "happy": 0.009469691826858773,
+        "neutral": 0.4503569827330279,
+        "sad": 0.41210121291097307,
+        "surprise": 0.012347865133728009
+      }
+    },
+    {
+      "file": "images/surprise_00006.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.774327,
+      "latency_ms": 475,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.005466197633661587,
+        "disgust": 0.0036366448753993737,
+        "fear": 0.7743268781572948,
+        "happy": 0.0006823871171454314,
+        "neutral": 0.0029797578946296403,
+        "sad": 0.01484265068348439,
+        "surprise": 0.19806548363838475
+      }
+    },
+    {
+      "file": "images/surprise_00007.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.86542,
+      "latency_ms": 1602,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0010000435290677442,
+        "disgust": 0.0004823845484386104,
+        "fear": 0.12610006103940735,
+        "happy": 0.001663325846479507,
+        "neutral": 0.002475167355328199,
+        "sad": 0.0028595124829369216,
+        "surprise": 0.8654195051983415
+      }
+    },
+    {
+      "file": "images/surprise_00008.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.313434,
+      "latency_ms": 3009,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.04533759825757578,
+        "disgust": 0.026899636018608276,
+        "fear": 0.22242873261874888,
+        "happy": 0.02089758163027158,
+        "neutral": 0.23320042214896905,
+        "sad": 0.13780158420657848,
+        "surprise": 0.3134344451192479
+      }
+    },
+    {
+      "file": "images/surprise_00009.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.504722,
+      "latency_ms": 860,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03319433968684232,
+        "disgust": 0.01885714684919604,
+        "fear": 0.5047218871775143,
+        "happy": 0.009781989828623418,
+        "neutral": 0.06752611102572004,
+        "sad": 0.03523601290167751,
+        "surprise": 0.3306825125304264
+      }
+    },
+    {
+      "file": "images/surprise_00010.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.381936,
+      "latency_ms": 5470,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.03925279300555561,
+        "disgust": 0.03666452749184073,
+        "fear": 0.3065747281240503,
+        "happy": 0.033510078306601535,
+        "neutral": 0.10278439084633348,
+        "sad": 0.09927770487756064,
+        "surprise": 0.3819357773480576
+      }
+    },
+    {
+      "file": "images/surprise_00011.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.691905,
+      "latency_ms": 2223,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01134856895720836,
+        "disgust": 0.0053259402192522235,
+        "fear": 0.24426088515263017,
+        "happy": 0.002828377795265659,
+        "neutral": 0.020666704820185865,
+        "sad": 0.023664168162804127,
+        "surprise": 0.6919053548926536
+      }
+    },
+    {
+      "file": "images/surprise_00012.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.385822,
+      "latency_ms": 1248,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.030859860739761057,
+        "disgust": 0.022046399167180993,
+        "fear": 0.35355687287192283,
+        "happy": 0.04550387119292378,
+        "neutral": 0.07815464778195752,
+        "sad": 0.08405629989726793,
+        "surprise": 0.3858220483489858
+      }
+    },
+    {
+      "file": "images/surprise_00013.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.501162,
+      "latency_ms": 750,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01259232595441686,
+        "disgust": 0.004580089172981637,
+        "fear": 0.5011621192830321,
+        "happy": 0.003879337756017448,
+        "neutral": 0.04744807592531831,
+        "sad": 0.02026259853387113,
+        "surprise": 0.4100754533743624
+      }
+    },
+    {
+      "file": "images/surprise_00014.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "sad",
+      "confidence": 0.305013,
+      "latency_ms": 3170,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.047744930993542836,
+        "disgust": 0.06588062420653411,
+        "fear": 0.09709818604618234,
+        "happy": 0.026710818625535256,
+        "neutral": 0.2309339783066184,
+        "sad": 0.3050134980965389,
+        "surprise": 0.2266179637250482
+      }
+    },
+    {
+      "file": "images/surprise_00015.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.575541,
+      "latency_ms": 900,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.01887280804216347,
+        "disgust": 0.007966737609426022,
+        "fear": 0.57554133367089,
+        "happy": 0.0048499859515782565,
+        "neutral": 0.018927878187243816,
+        "sad": 0.015931675652029045,
+        "surprise": 0.3579095808866693
+      }
+    },
+    {
+      "file": "images/surprise_00016.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "sad",
+      "confidence": 0.475437,
+      "latency_ms": 240,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.00960387203110716,
+        "disgust": 0.00601042814954429,
+        "fear": 0.11928295037358806,
+        "happy": 0.0091714206848813,
+        "neutral": 0.26504247728893277,
+        "sad": 0.47543727936439767,
+        "surprise": 0.11545157210754878
+      }
+    },
+    {
+      "file": "images/surprise_00017.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "fear",
+      "confidence": 0.734031,
+      "latency_ms": 4379,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.008363695074131984,
+        "disgust": 0.0026836637849906894,
+        "fear": 0.7340310738074118,
+        "happy": 0.0011972420979059514,
+        "neutral": 0.0025546486490968245,
+        "sad": 0.0041854680656530415,
+        "surprise": 0.2469842085208096
+      }
+    },
+    {
+      "file": "images/surprise_00018.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.634787,
+      "latency_ms": 4817,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.003725019794317914,
+        "disgust": 0.001058012785701138,
+        "fear": 0.15705222363232346,
+        "happy": 0.20150102421977792,
+        "neutral": 0.0014279948447971861,
+        "sad": 0.0004485821662798707,
+        "surprise": 0.6347871425568026
+      }
+    },
+    {
+      "file": "images/surprise_00019.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.638645,
+      "latency_ms": 3228,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.013808131822284882,
+        "disgust": 0.006470154370083922,
+        "fear": 0.15079963888468934,
+        "happy": 0.0074960349450430164,
+        "neutral": 0.0852343871133218,
+        "sad": 0.09754680259337069,
+        "surprise": 0.6386448502712064
+      }
+    },
+    {
+      "file": "images/surprise_00020.png",
+      "ground_truth": "surprise",
+      "predicted_label": "sad",
+      "confidence": 0.488218,
+      "latency_ms": 414,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02964593168841709,
+        "disgust": 0.016461302750547416,
+        "fear": 0.15973142004782268,
+        "happy": 0.016249389871071374,
+        "neutral": 0.04165838295007657,
+        "sad": 0.4882182701724619,
+        "surprise": 0.2480353025196029
+      }
+    },
+    {
+      "file": "images/surprise_00021.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "sad",
+      "confidence": 0.29309,
+      "latency_ms": 2922,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.09390517326055181,
+        "disgust": 0.05560506273438364,
+        "fear": 0.142228910328564,
+        "happy": 0.09521025709128769,
+        "neutral": 0.11444926477927692,
+        "sad": 0.29309002968863085,
+        "surprise": 0.20551130211730503
+      }
+    },
+    {
+      "file": "images/surprise_00022.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "sad",
+      "confidence": 0.585943,
+      "latency_ms": 3422,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.15369310034398231,
+        "disgust": 0.005252458050963895,
+        "fear": 0.02194039071602372,
+        "happy": 0.0006144478441788004,
+        "neutral": 0.22877364193204172,
+        "sad": 0.585943458278584,
+        "surprise": 0.003782502834225624
+      }
+    },
+    {
+      "file": "images/surprise_00023.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.611301,
+      "latency_ms": 2935,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.007591871013928087,
+        "disgust": 0.004468706892021416,
+        "fear": 0.06674009002449681,
+        "happy": 0.032151069037020426,
+        "neutral": 0.1721837314241473,
+        "sad": 0.10556381219819641,
+        "surprise": 0.6113007194101895
+      }
+    },
+    {
+      "file": "images/surprise_00024.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.523729,
+      "latency_ms": 627,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.0031429753255355444,
+        "disgust": 0.0017029089861203945,
+        "fear": 0.43715934457273437,
+        "happy": 0.006363714301503267,
+        "neutral": 0.012957197971995238,
+        "sad": 0.014944689332537668,
+        "surprise": 0.5237291695095735
+      }
+    },
+    {
+      "file": "images/surprise_00025.jpg",
+      "ground_truth": "surprise",
+      "predicted_label": "surprise",
+      "confidence": 0.598933,
+      "latency_ms": 2434,
+      "model_id": "resemotenet_bs32",
+      "succeeded": true,
+      "failure_reason": null,
+      "scores": {
+        "angry": 0.02271206626080518,
+        "disgust": 0.012969774558483511,
+        "fear": 0.04902996453193056,
+        "happy": 0.0685232016172872,
+        "neutral": 0.2248171752805324,
+        "sad": 0.02301467977062641,
+        "surprise": 0.5989331379803348
+      }
+    }
+  ],
+  "timestamp": "2026-07-01T03:43:35.810675"
+}

@@ -1,0 +1,127 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.0cm]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=black}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\title{Weekly Benchmark Summary: Local Emotion Analysis Prototype}
+\author{Atabey Tarik Akkum}
+\date{1 July 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Purpose of this week}
+The main goal this week was to move the prototype from mock inference to real on-device model comparison for facial emotion recognition. The intended direction was to test a strong task-specific emotion model, compare it against a local multimodal model, and make benchmark outputs exportable for later analysis and supervisor discussion.
+
+The initial plan was to use an ONNX version of the official ResEmoteNet model, because the paper reports strong AffectNet performance. The ResEmoteNet paper reports 72.93\% accuracy on AffectNet and links to a public GitHub repository. During implementation, that linked repository was not available from our environment, so the original implementation/checkpoint could not be used directly. As a practical replacement, I used a Kaggle notebook/checkpoint that provides a ResEmoteNet implementation trained on FER2013, RAF-DB, and AffectNet, and converted that model to ONNX.
+
+I also noted POSTER v2 as another relevant high-performing facial expression recognition project. It is worth keeping as a possible future comparison point, but I did not integrate it this week because the current priority was to get a clean Android ONNX/Gemma benchmark loop working first.
+
+\section*{Implemented model paths}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{EmotiEff / HSEmotion path:} Integrated ONNX Runtime inference for the EmotiEff-style EfficientNet models. The strongest currently tested baseline is \texttt{enet\_b2\_7}, which is a 7-class emotion classifier and therefore directly matches the benchmark label space.
+  \item \textbf{ResEmoteNet path:} The first ResEmoteNet checkpoint I found behaved like a 64x64 input reproduction and gave clearly weaker results. The Kaggle checkpoint was more suitable because it follows a 224x224 RGB preprocessing path, which is closer to the AffectNet setup described in the ResEmoteNet paper. This model was converted to \texttt{ResEmoteNetKaggle\_224x224.onnx} and integrated as a separate variant.
+  \item \textbf{ResEmoteNet validation:} I also benchmarked the earlier 64x64 BS32 variant to make the difference explicit. It is included below as \texttt{ResEmoteNet BS32 64x64} and is substantially weaker than the Kaggle 224x224 checkpoint.
+  \item \textbf{Gemma 4 E2B path:} Integrated Gemma 4 E2B locally through LiteRT-LM. This required storing the 2.4 GB \texttt{.litertlm} model inside the app-private storage, because shared storage paths such as \texttt{/sdcard/Demo} are not readable by the native runtime on GrapheneOS. Single-image inference and full benchmark execution now work.
+  \item \textbf{Export path:} Benchmark results are written as CSV and JSON. The app now also has a share/export button so results can be moved out of app-private storage without ADB.
+\end{itemize}
+
+\section*{Gemma task configuration}
+Gemma is not hardcoded only as an emotion model. The current emotion task is configured through \texttt{assets/gemma\_tasks/emotion\_classification.json}. For benchmarking, the prompt was intentionally shortened to reduce token overhead and runtime failures. The current task asks Gemma to return label-only JSON:
+
+\begin{verbatim}
+{"label":"happy"}
+\end{verbatim}
+
+The Dart parser then converts this into the same seven-label output schema used by EmotiEff and ResEmoteNet. This keeps benchmark exports structurally comparable, although Gemma currently produces one-hot confidence scores rather than calibrated class probabilities.
+
+\section*{Benchmark setup}
+All models were benchmarked on the same balanced AffectNet-7 subset:
+\begin{itemize}[leftmargin=*]
+  \item Dataset: \texttt{affectnet7\_25.zip}
+  \item Classes: angry, disgust, fear, happy, neutral, sad, surprise
+  \item Examples: 25 images per class, 175 images total
+  \item Excluded class: contempt
+  \item All runs completed with 0 failed examples
+\end{itemize}
+
+This subset is useful for fast iteration and debugging, but it is not large enough for final claims. It should be treated as an implementation benchmark and early indication, not as the final evaluation.
+
+\section*{Benchmark results}
+\begin{center}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lrrrrr}
+\toprule
+Model & Accuracy & Macro-F1 & Avg. latency & Median latency & Failures \\
+\midrule
+EmotiEff EfficientNet B2 7-class & 68.57\% & 68.54\% & 1219 ms & 590 ms & 0 \\
+ResEmoteNet Kaggle 224 & 64.57\% & 64.36\% & 1339 ms & 713 ms & 0 \\
+ResEmoteNet BS32 64x64 & 47.43\% & 47.38\% & 1182 ms & 534 ms & 0 \\
+Gemma 4 E2B & 42.86\% & 35.18\% & 6931 ms & 6422 ms & 0 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{center}
+
+\section*{Per-class F1}
+\begin{center}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lrrrr}
+\toprule
+Class & EmotiEff B2 7 & ResEmoteNet 224 & ResEmoteNet 64 & Gemma 4 E2B \\
+\midrule
+angry & 60.71\% & 61.90\% & 41.03\% & 53.06\% \\
+disgust & 66.67\% & 71.11\% & 43.24\% & 7.41\% \\
+fear & 75.86\% & 51.16\% & 60.87\% & 0.00\% \\
+happy & 82.61\% & 82.14\% & 56.41\% & 75.00\% \\
+neutral & 55.81\% & 57.53\% & 31.82\% & 45.28\% \\
+sad & 76.60\% & 66.67\% & 46.32\% & 20.69\% \\
+surprise & 61.54\% & 60.00\% & 52.00\% & 44.83\% \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{center}
+
+\section*{Interpretation}
+\textbf{EmotiEff EfficientNet B2 7-class} is currently the strongest and most practical local baseline. It reached 68.57\% accuracy and 68.54\% macro-F1 on the 175-image AffectNet-7 subset. Its average latency was about 1.22 seconds per image, with a much lower median latency of 590 ms. This makes it the best current candidate for reliable on-device facial emotion recognition.
+
+\textbf{ResEmoteNet Kaggle 224} is competitive but weaker than EmotiEff in this implementation. It reached 64.57\% accuracy and 64.36\% macro-F1. This is much better than the 64x64 BS32 checkpoint, which reached only 47.43\% accuracy and 47.38\% macro-F1 on the same benchmark. The comparison supports the conclusion that preprocessing and checkpoint provenance matter substantially for ResEmoteNet.
+
+For the Kaggle ResEmoteNet checkpoint, I also checked the PyTorch-side behavior against the ONNX/mobile behavior on the same dataset. The result was effectively the same after conversion, so the phone/ONNX path does not appear to reduce accuracy. The main cost of running the converted model on the phone is latency, not classification quality.
+
+\textbf{Gemma 4 E2B} works locally and can process the same benchmark images through a configurable multimodal prompt. However, it is much slower and less accurate for this narrow task. It reached 42.86\% accuracy and 35.18\% macro-F1, with an average latency of about 6.93 seconds per image. This result is still useful scientifically: it shows that a general multimodal model is easy to adapt to a new trait through prompting, but for narrow facial emotion classification it currently underperforms specialized FER models.
+
+\section*{Technical lessons}
+\begin{itemize}[leftmargin=*]
+  \item Specialized emotion models remain much better for this specific trait. EmotiEff is both faster and more accurate than Gemma 4 E2B on this benchmark.
+  \item The 224x224 ResEmoteNet checkpoint was much more plausible than the earlier 64x64 reproduction. The 64x64 result is useful as a negative control.
+  \item Gemma 4 E2B is valuable as an extensible analysis path. It can be controlled through task JSON and can later be reused for screenshots, PDFs, image context, and other privacy-relevant traits.
+  \item Gemma model storage matters on Android. The \texttt{.litertlm} file has to be in app-private storage for the native runtime. Shared storage caused permission problems on GrapheneOS.
+  \item Gemma benchmarking needs stateless requests. Reusing the same conversation for many images caused runtime failures; the current implementation keeps the engine loaded but resets the conversation for each image.
+  \item Exportability is now solved. CSV and JSON exports can be shared from the app and are also available for offline analysis.
+\end{itemize}
+
+\section*{Current recommendation}
+For the next project step, I would keep EmotiEff B2 7 as the main specialized emotion baseline, keep ResEmoteNet Kaggle 224 as a secondary comparison point, keep the 64x64 ResEmoteNet result as evidence for why that checkpoint should not be used as the main baseline, and keep Gemma 4 E2B as the general multimodal local inference path. The current results support the thesis direction: task-specific models are better for a known trait, while Gemma is more interesting for flexible and broader local privacy inference.
+
+\section*{Sources and references}
+\begin{itemize}[leftmargin=*]
+  \item ResEmoteNet paper: \url{https://arxiv.org/html/2409.10545v1}
+  \item ResEmoteNet linked repository from the paper: \url{https://github.com/ArnabKumarRoy02/ResEmoteNet}
+  \item Kaggle ResEmoteNet notebook used for the practical checkpoint: \url{https://www.kaggle.com/code/tngthnhvui/resemotenet-rafdb-fer-affectnet-25/notebook}
+  \item POSTER v2 repository noted for possible later comparison: \url{https://github.com/talented-q/poster_v2}
+  \item EmotiEffLib / HSEmotion repository: \url{https://github.com/sb-ai-lab/EmotiEffLib}
+  \item Google AI Edge Gallery / Gemma local runtime reference: \url{https://github.com/google-ai-edge/gallery}
+  \item Current task configuration: \texttt{assets/gemma\_tasks/emotion\_classification.json}
+  \item Exported benchmark files: \texttt{exports/Gemma4}, \texttt{exports/enet\_b2\_7}, \texttt{exports/resemotenet\_kaggle\_224}, \texttt{exports/resemotenet\_bs32\_64}
+\end{itemize}
+
+\end{document}
