@@ -77,20 +77,29 @@ class GemmaLiteRtRuntime implements GemmaRuntime {
     required String prompt,
   }) async {
     await load();
-    final List<int>? bytes = asset.bytes;
-    if (bytes == null || bytes.isEmpty) {
-      throw const AnalysisFailure(
-        type: AnalysisFailureType.invalidInput,
-        message: 'Gemma image input has no loaded bytes.',
-      );
-    }
+    final Object? response;
+    if (asset.type == InputAssetType.text) {
+      response = await _channel
+          .invokeMethod<Object?>('runTextPrompt', <String, Object?>{
+        'prompt': prompt,
+        'inputFile': asset.displayName,
+      });
+    } else {
+      final List<int>? bytes = asset.bytes;
+      if (bytes == null || bytes.isEmpty) {
+        throw const AnalysisFailure(
+          type: AnalysisFailureType.invalidInput,
+          message: 'Gemma image input has no loaded bytes.',
+        );
+      }
 
-    final Object? response = await _channel
-        .invokeMethod<Object?>('runImagePrompt', <String, Object?>{
-      'prompt': prompt,
-      'imageBytes': Uint8List.fromList(bytes),
-      'inputFile': asset.displayName,
-    });
+      response = await _channel
+          .invokeMethod<Object?>('runImagePrompt', <String, Object?>{
+        'prompt': prompt,
+        'imageBytes': Uint8List.fromList(bytes),
+        'inputFile': asset.displayName,
+      });
+    }
     final Map<Object?, Object?> map = response as Map<Object?, Object?>;
     return GemmaRuntimeOutput(
       rawText: (map['rawText'] as String?) ?? '',

@@ -17,7 +17,9 @@ LabelMappingResult mapScoresToStandardLabels({
   required Map<String, String> backendToStandard,
   required bool logits,
 }) {
-  final Map<String, double> mapped = <String, double>{for (final String label in kEmotionLabels) label: 0.0};
+  final Map<String, double> mapped = <String, double>{
+    for (final String label in kEmotionLabels) label: 0.0
+  };
   final Map<String, String> mappingApplied = <String, String>{};
 
   for (final MapEntry<String, double> entry in rawScores.entries) {
@@ -33,6 +35,7 @@ LabelMappingResult mapScoresToStandardLabels({
     mappingApplied[entry.key] = mappedLabel;
   }
 
-  final Map<String, double> normalized = logits ? softmaxScores(mapped) : normalizeScores(mapped);
+  final Map<String, double> normalized =
+      logits ? softmaxScores(mapped) : normalizeScores(mapped);
   return LabelMappingResult(scores: normalized, mappingApplied: mappingApplied);
 }

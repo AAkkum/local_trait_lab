@@ -46,4 +46,5 @@ flutter {
 
 dependencies {
     implementation("com.google.ai.edge.litertlm:litertlm-android:0.11.0")
+    implementation("androidx.concurrent:concurrent-futures:1.2.0")
 }

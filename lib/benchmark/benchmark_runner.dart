@@ -94,8 +94,10 @@ class BenchmarkRunner {
         );
       }
 
-      final int succeededCount = rows.where((BenchmarkPredictionRow row) => row.succeeded).length;
-      final double averageLatency = succeededCount == 0 ? 0.0 : latencySum / succeededCount;
+      final int succeededCount =
+          rows.where((BenchmarkPredictionRow row) => row.succeeded).length;
+      final double averageLatency =
+          succeededCount == 0 ? 0.0 : latencySum / succeededCount;
       onProgress(
         BenchmarkProgress(
           current: i + 1,

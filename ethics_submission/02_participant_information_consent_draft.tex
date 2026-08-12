@@ -1,0 +1,138 @@
+\documentclass[10pt,a4paper]{article}
+\input{ethics_style.tex}
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Participant Information and Informed Consent}\\[0.3em]
+  {\large Local Trait Inference on Smartphones: User Perceptions of On-Device AI Profiling}
+\end{center}
+\draftbanner
+
+\section*{Information Sheet}
+Please read this information carefully before deciding whether to participate. You may ask questions at any time. Participation is voluntary.
+
+\sectionbox{Who is conducting the study?}
+This study is conducted as part of Atabey Tarik Akkum's bachelor thesis at Technical University of Darmstadt, Department of Computer Science, Science and Technology for Peace and Security (PEASEC).
+
+\textbf{Student researcher:} Atabey Tarik Akkum, \href{mailto:AAkkum@outlook.com}{AAkkum@outlook.com}\\
+\textbf{Thesis supervisor:} Simon Althaus, M.Sc., \href{mailto:althaus@peasec.tu-darmstadt.de}{althaus@peasec.tu-darmstadt.de}\\
+\textbf{Principal investigator:} \confirm{name, institutional address, telephone number, and email}\\
+\textbf{Psychological/user-study contact:} Dr. rer. nat. Nina Gerber, \href{mailto:n.gerber@psychologie.tu-darmstadt.de}{n.gerber@psychologie.tu-darmstadt.de} \confirm{confirm formal role and whether this contact should appear}
+
+\sectionbox{Purpose of the study}
+Modern smartphones can run powerful artificial-intelligence models directly on the device. These models may infer personal interests, activities, plans, education or occupational context, and other traits from locally stored images and documents even when the original files are not uploaded. This study examines what participants expect from this technology, how they perceive file-level and combined profile inferences, and whether local processing changes their privacy assessment.
+
+The model outputs are probabilistic guesses. They may be correct, partly correct, or incorrect. They are not psychological, medical, financial, or legal assessments.
+
+\sectionbox{Who can participate?}
+You may participate if you are at least 18 years old, can provide informed consent, and can use the Android study application. Please do not participate if you do not wish to select any personal files for local analysis.
+
+\sectionbox{What will happen?}
+\begin{enumerate}
+  \item You read this information and provide consent in the app.
+  \item You answer demographic questions, questions about privacy concerns, affinity for technology interaction, and expectations about local smartphone AI.
+  \item You select approximately 20 of your own images or PDF documents. Select only files that you are comfortable using for this study. Do not select images of other identifiable people or documents containing another person's personal information unless that person has independently consented.
+  \item The app analyzes each selected file directly on the phone. For PDF documents, only the first-page preview is analyzed. The app shows a short probabilistic inference after each file.
+  \item You rate how unexpected, sensitive, and accurate each inference appears.
+  \item The app combines the file-level results into one compact possible personal profile. You then answer final questions about local AI profiling and file access.
+  \item A pseudonymized JSON study record is transmitted or exported for research analysis. It contains your questionnaire responses, ratings, model-generated inferences, combined profile, consent decisions, and technical metadata. It does not contain the selected raw files or camera images.
+\end{enumerate}
+
+\sectionbox{Duration and compensation}
+The active study is expected to take approximately 25--40 minutes. Installing the approximately 2.5 GB local AI model for the first time may add waiting time depending on the network, although baseline questions can be answered during the download. Wi-Fi is recommended.
+
+\confirm{State compensation or explicitly state that no compensation/course credit is provided. Confirm the final duration after piloting.}
+
+\sectionbox{Optional front-camera reaction tracking}
+You may separately choose to enable front-camera emotion tracking. If enabled, a low-resolution frame is sampled approximately every 12 seconds while the relevant study interface is active and analyzed directly on the phone. No audio is recorded. Camera frames are deleted immediately after classification and are not exported. The retained record contains only the timestamp, study event, model identifier, predicted emotion label, and confidence. The emotion label may be inaccurate and is not a diagnosis. You can disable this feature at any time without ending the study or losing compensation.
+
+\sectionbox{Possible benefits}
+There is no guaranteed direct benefit. You may learn more about the capabilities and privacy implications of local smartphone AI. The scientific results may help researchers design more transparent permissions, disclosures, and privacy protections for on-device AI systems.
+
+\sectionbox{Possible risks and discomfort}
+The study involves no physical risk beyond ordinary smartphone use. Some model inferences may feel inaccurate, sensitive, surprising, embarrassing, or uncomfortable. You control which files are selected and may skip a file, disable optional camera tracking, pause, or stop the study at any time. You are not required to choose highly sensitive files. The app clearly states that all inferred traits are uncertain guesses.
+
+If you accidentally select a file containing third-party information, stop the analysis or remove the file. Raw files are not included in the research export.
+
+\sectionbox{Voluntary participation and withdrawal}
+Participation is voluntary. You may stop at any time without giving a reason and without disadvantage. Declining optional camera tracking does not affect participation. You may request access, correction, restriction, or deletion of your pseudonymized study record using your study ID until \confirm{the deletion/anonymization cutoff}. Once records have been irreversibly anonymized and can no longer be linked to your study ID, individual deletion is no longer possible.
+
+\newpage
+\section*{Privacy Statement}
+
+Data processing for this study follows the General Data Protection Regulation (GDPR) and the Hessian Data Protection and Freedom of Information Act (HDSIG). Data are used only for the research purposes described here. Processing based on consent follows Article 6(1)(a) GDPR. You may withdraw consent with effect for the future.
+
+\sectionbox{Data controller}
+Technical University of Darmstadt\\
+Karolinenplatz 5, 64289 Darmstadt, Germany\\
+Telephone: +49 6151 16-01\\
+\url{https://www.tu-darmstadt.de}
+
+\sectionbox{Data collected}
+The study collects:
+\begin{itemize}
+  \item a random study identifier;
+  \item age group, gender category with a ``prefer not to say'' option, and highest education category;
+  \item IUIPC-8 privacy-concern responses and ATI technology-affinity responses;
+  \item baseline expectations and final opinions about local AI and privacy;
+  \item per-file ratings of unexpectedness, sensitivity, and perceived accuracy;
+  \item structured file-level inferences and the generated combined profile;
+  \item model identifier/version, processing latency, timestamps, and non-identifying technical metadata; and
+  \item if separately enabled, timestamped emotion labels and confidence values from local front-camera analysis.
+\end{itemize}
+
+The final study version will replace original filenames and local paths with random file identifiers. Names, email addresses, phone numbers, raw selected images/documents, rendered PDF previews, and camera frames are not included in the study record. Recruitment contact information, if required, is stored separately from study data.
+
+\sectionbox{Local processing and transmission}
+Selected files and temporary camera frames are processed locally on the Android phone. Raw files and frames are not sent to the research server. After you have consented, the app exports one pseudonymized record containing questionnaire responses, model outputs, ratings, and technical metadata. Transmission will use encryption to \confirm{the approved TU/PEASEC server and exact location}. The production study will distribute the AI model through an approved method that does not unexpectedly disclose participants' IP addresses to a third-party model host.
+
+\sectionbox{Confidentiality and access}
+Study records are stored under random identifiers. Any recruitment contact details are kept separately. Access is limited to Atabey Tarik Akkum and \confirm{the final named principal investigator/supervisor access list}. Results in the thesis, presentations, or publications are reported in anonymized and aggregated form. No individual participant will be named.
+
+\sectionbox{Storage and deletion}
+Raw selected files are not copied to the research server. Temporary previews and camera frames are deleted immediately after processing or at latest when the local study session ends. Pseudonymized study data are stored on \confirm{approved server/location} until \confirm{retention date or period}. Consent records are stored separately until \confirm{retention date or period}. After the deletion period, identifiable or pseudonymized records are securely deleted; only irreversibly anonymized aggregate results may remain.
+
+\sectionbox{Your rights}
+You have the right to request information about your data, correction, deletion, restriction of processing, objection where applicable, withdrawal of consent, and data portability where applicable. Withdrawal does not affect the lawfulness of processing performed before withdrawal.
+
+For study questions or withdrawal, contact the principal investigator listed above and provide your study ID. For data-protection questions, contact:
+
+Technical University of Darmstadt, Data Protection Officer\\
+Karolinenplatz 5, 64289 Darmstadt\\
+\href{mailto:datenschutz@tu-darmstadt.de}{datenschutz@tu-darmstadt.de}\\
+\url{https://www.tu-darmstadt.de/datenschutz}
+
+You may also lodge a complaint with:
+
+The Hessian Commissioner for Data Protection and Freedom of Information\\
+Wilhelmstrasse 7, 65185 Wiesbaden\\
+Telephone: +49 611 1408-0\\
+\href{mailto:poststelle@datenschutz.hessen.de}{poststelle@datenschutz.hessen.de}
+
+\newpage
+\section*{Declaration of Consent for the App-Based Study}
+
+For an app-based or online study, consent is given through initially unticked checkboxes. Participants must be able to retain or download this information sheet. Required consent statements:
+
+\begin{itemize}[label=$\square$]
+  \item I confirm that I am at least 18 years old.
+  \item I have read and understood the participant information and privacy statement and had the opportunity to ask questions.
+  \item I voluntarily agree to participate and understand that I may stop at any time without giving a reason and without disadvantage.
+  \item I agree that files I deliberately select may be analyzed locally on this phone for this study.
+  \item I confirm that I will select only my own files and will not deliberately select files containing identifiable third parties or their personal information without their consent.
+  \item I agree that my questionnaire responses, consent decisions, ratings, model-generated inferences, combined profile, and technical metadata may be stored and analyzed under a pseudonymous study ID for the purposes described above.
+  \item I understand that selected raw files are not part of the research export and that the model outputs are probabilistic guesses, not confirmed facts or diagnoses.
+\end{itemize}
+
+Separate optional statement, not required for participation:
+
+\begin{itemize}[label=$\square$]
+  \item I voluntarily agree to optional front-camera reaction tracking as described above. I understand that camera frames are analyzed locally and deleted immediately, while derived emotion labels, confidence values, timestamps, and study events are retained. I can disable this feature at any time.
+\end{itemize}
+
+\textbf{Study ID shown to participant:} \rule{0.38\textwidth}{0.4pt}
+
+\vfill
+\textit{The final participant-facing version must contain no red placeholders and must match the implemented app, server configuration, retention policy, and ethics-approved procedure exactly.}
+
+\end{document}

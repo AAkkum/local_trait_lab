@@ -1,0 +1,18 @@
+{
+  "id": "privacy_profile_synthesis",
+  "display_name": "Privacy Profile Synthesis",
+  "system_instructions": "Return JSON only. Create a compact privacy profile from multiple file-level inferences. Select only strong, non-redundant, cross-file conclusions. Do not identify people, claim certainty, sensationalize, or invent evidence.",
+  "user_template": "Synthesize these per-file inferences into one fixed-size participant profile:\n\n{{input_text}}\n\nReturn one JSON object with exactly these keys: headline, profile, key_inferences, privacy_implication, evidence_summary, uncertainty_note. headline must be at most 12 words. profile must be at most 65 words. key_inferences must contain 2 or 3 strings, each at most 22 words. privacy_implication must be at most 35 words. evidence_summary must contain up to 3 short strings for the research export. uncertainty_note must be at most 20 words for the research export. Output length must not increase with the number of files. Do not summarize files one by one or repeat the same idea in different sections. Prioritize conclusions that emerge from combining files and could change how a participant understands local profiling. Be interesting through specificity and evidence, not exaggeration. If evidence is weak, state a limited profile instead of filling space. No markdown, numbering prefixes, or extra keys.",
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "headline",
+      "profile",
+      "key_inferences",
+      "privacy_implication",
+      "evidence_summary",
+      "uncertainty_note"
+    ],
+    "strict_json": true
+  }
+}

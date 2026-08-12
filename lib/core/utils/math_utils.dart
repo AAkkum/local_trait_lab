@@ -5,10 +5,12 @@ Map<String, double> normalizeScores(Map<String, double> rawScores) {
     return <String, double>{};
   }
 
-  final double sum = rawScores.values.fold<double>(0.0, (double a, double b) => a + b);
+  final double sum =
+      rawScores.values.fold<double>(0.0, (double a, double b) => a + b);
   if (sum == 0) {
     final double uniform = 1.0 / rawScores.length;
-    return rawScores.map((String key, double _) => MapEntry<String, double>(key, uniform));
+    return rawScores
+        .map((String key, double _) => MapEntry<String, double>(key, uniform));
   }
 
   return rawScores.map(
@@ -23,7 +25,8 @@ Map<String, double> softmaxScores(Map<String, double> logits) {
 
   final double maxLogit = logits.values.reduce(math.max);
   final Map<String, double> shifted = logits.map(
-    (String key, double value) => MapEntry<String, double>(key, math.exp(value - maxLogit)),
+    (String key, double value) =>
+        MapEntry<String, double>(key, math.exp(value - maxLogit)),
   );
   return normalizeScores(shifted);
 }

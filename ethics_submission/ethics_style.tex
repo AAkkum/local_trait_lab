@@ -1,0 +1,38 @@
+\usepackage[a4paper,margin=2.1cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\definecolor{tudblue}{RGB}{0,90,140}
+\definecolor{draftred}{RGB}{165,35,35}
+\definecolor{lightblue}{RGB}{232,242,247}
+\hypersetup{colorlinks=true,linkcolor=tudblue,urlcolor=tudblue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlist{itemsep=0.25em,topsep=0.35em}
+\renewcommand{\arraystretch}{1.22}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{TU Darmstadt Ethics Commission}
+\rhead{Draft for supervisor review}
+\cfoot{\thepage}
+\newcommand{\checked}{\ensuremath{\boxtimes}}
+\newcommand{\unchecked}{\ensuremath{\square}}
+\newcommand{\confirm}[1]{\textcolor{draftred}{\textbf{TO CONFIRM:} #1}}
+\newcommand{\field}[2]{\textbf{#1}\par #2\par}
+\newcommand{\draftbanner}{%
+  \begin{center}
+  \fcolorbox{draftred}{white}{\parbox{0.91\textwidth}{\centering
+  \textcolor{draftred}{\textbf{DRAFT -- NOT FOR SUBMISSION OR DATA COLLECTION}}\\
+  Administrative and data-management fields marked ``TO CONFIRM'' require supervisor approval.}}
+  \end{center}}
+\newcommand{\sectionbox}[1]{%
+  \vspace{0.4em}\noindent\colorbox{lightblue}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\textbf{#1}}}\vspace{0.35em}}

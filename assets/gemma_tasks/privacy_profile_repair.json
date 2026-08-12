@@ -1,0 +1,18 @@
+{
+  "id": "privacy_profile_repair",
+  "display_name": "Privacy Profile Repair",
+  "system_instructions": "Return valid JSON only. Convert the supplied draft into the requested structure without adding unsupported claims.",
+  "user_template": "Repair this draft profile:\n\n{{input_text}}\n\nReturn exactly one JSON object with keys headline, profile, key_inferences, privacy_implication, evidence_summary, and uncertainty_note. Use double-quoted JSON strings. key_inferences must be an array of 2 or 3 strings and evidence_summary an array of up to 3 strings. All other values must be strings. No markdown, comments, trailing commas, or text outside the JSON object.",
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "headline",
+      "profile",
+      "key_inferences",
+      "privacy_implication",
+      "evidence_summary",
+      "uncertainty_note"
+    ],
+    "strict_json": true
+  }
+}

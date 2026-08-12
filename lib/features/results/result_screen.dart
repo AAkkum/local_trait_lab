@@ -19,11 +19,14 @@ class ResultScreen extends StatelessWidget {
           : ListView(
               padding: const EdgeInsets.all(16),
               children: <Widget>[
-                Text('Model: ${result.modelId}', style: Theme.of(context).textTheme.titleMedium),
+                Text('Model: ${result.modelId}',
+                    style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: 8),
                 if (result.succeeded) ...<Widget>[
-                  Text('Prediction: ${result.prediction!.label}', style: Theme.of(context).textTheme.headlineSmall),
-                  Text('Confidence: ${result.prediction!.confidence.toStringAsFixed(4)}'),
+                  Text('Prediction: ${result.prediction!.label}',
+                      style: Theme.of(context).textTheme.headlineSmall),
+                  Text(
+                      'Confidence: ${result.prediction!.confidence.toStringAsFixed(4)}'),
                   const SizedBox(height: 12),
                   for (final entry in result.prediction!.scores.entries)
                     Padding(
@@ -31,14 +34,17 @@ class ResultScreen extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           SizedBox(width: 80, child: Text(entry.key)),
-                          Expanded(child: LinearProgressIndicator(value: entry.value)),
+                          Expanded(
+                              child:
+                                  LinearProgressIndicator(value: entry.value)),
                           const SizedBox(width: 12),
                           Text(entry.value.toStringAsFixed(4)),
                         ],
                       ),
                     ),
                 ] else ...<Widget>[
-                  Text('Failure: ${result.failure?.message ?? 'Unknown'}', style: const TextStyle(color: Colors.red)),
+                  Text('Failure: ${result.failure?.message ?? 'Unknown'}',
+                      style: const TextStyle(color: Colors.red)),
                 ],
                 const SizedBox(height: 12),
                 Text('Latency: ${result.metadata.latencyMs} ms'),
@@ -50,7 +56,8 @@ class ResultScreen extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(12),
-                      child: SelectableText(const JsonEncoder.withIndent('  ').convert(result.rawOutput)),
+                      child: SelectableText(const JsonEncoder.withIndent('  ')
+                          .convert(result.rawOutput)),
                     ),
                   ],
                 ),
@@ -59,7 +66,8 @@ class ResultScreen extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(12),
-                      child: SelectableText(const JsonEncoder.withIndent('  ').convert(result.metadata.toJson())),
+                      child: SelectableText(const JsonEncoder.withIndent('  ')
+                          .convert(result.metadata.toJson())),
                     ),
                   ],
                 ),

@@ -1,0 +1,62 @@
+\documentclass[10pt]{article}
+\input{ethics_style.tex}
+\lhead{Local Trait Lab}
+\rhead{Supervisor meeting notes}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Ethics Application Meeting Notes}\par
+\vspace{0.25em}
+{\large Meeting on 13 August 2026}\par
+\end{center}
+
+\sectionbox{Decisions needed from Simon / principal investigator}
+\begin{enumerate}
+  \item Confirm the principal investigator who will submit and sign the application.
+  \item Confirm recruitment for approximately 100 adults: personal network, TU mailing lists, participant pool, social media, or a combination.
+  \item Confirm compensation, or explicitly state that participation is unpaid. Avoid dependency relationships in which participation could feel obligatory.
+  \item Confirm whether sessions are supervised, remote on participants' own Android phones, or both.
+  \item Confirm the duration after a pilot. The ethics draft estimates 25--40 minutes plus possible model-download time; the app currently says about 15 minutes.
+  \item Confirm the approved TU/PEASEC server, hosting location, encrypted upload, access-control list, backups, and responsible data handler.
+  \item Confirm deletion periods for pseudonymized study data, anonymized data, and consent records.
+  \item Confirm the last point at which participants can request deletion using their study ID.
+  \item Confirm whether pseudonymized record-level data may be reused. Recommended default: no reuse beyond this project without renewed review.
+  \item Confirm Dr. Nina Gerber's role: participating researcher, co-supervisor, principal investigator, or consultant.
+\end{enumerate}
+
+\sectionbox{Required app and data-flow fixes before data collection}
+\begin{enumerate}
+  \item Replace original filenames and local URIs in exports with random per-file identifiers. Filenames may contain names, account numbers, courses, or other personal information.
+  \item Avoid direct production-study downloads from Hugging Face unless third-party IP-address disclosure is documented and approved. Prefer TU hosting, supervised preinstallation, or another approved route.
+  \item Explicitly delete each temporary camera file immediately after classification and test this behavior. The current camera API creates a temporary image file.
+  \item Decide whether optional reaction tracking covers the whole study. It currently ends when the pre-questionnaire page is left and therefore does not measure reactions to file inferences or the profile.
+  \item Generate a random study ID, include it in the export, and give it to the participant for withdrawal requests.
+  \item Let participants retain the complete information and privacy statement, not only the short in-app consent card.
+  \item Require active answers or explicitly represent missing questionnaire responses rather than silently accepting visual slider defaults.
+  \item Add ``prefer not to say'' for age, self-description for gender, and ``other'' for education.
+  \item Verify that selected files, PDF previews, camera frames, and image bytes never enter exported JSON or server logs.
+  \item Test encrypted transmission, certificate validation, failed uploads, local cleanup, and server deletion before recruitment.
+\end{enumerate}
+
+\sectionbox{Methodological questions}
+\begin{enumerate}
+  \item Keep IUIPC-8 and ATI as validated baseline scales; confirm scoring and analysis with Nina.
+  \item Decide whether the two additional baseline items overlapping ATI or privacy concern are needed.
+  \item Define whether optional emotion labels have a hypothesis or remain exploratory. They are not ground truth for participants' emotions.
+  \item Decide whether approximately 20 files is mandatory, a target, or a maximum, and define handling of incomplete sessions.
+  \item Confirm whether first-page-only PDF analysis is scientifically sufficient and disclose it consistently.
+  \item Predefine primary outcomes, likely per-inference unexpectedness, sensitivity and perceived accuracy, plus final expectation, concern, reassurance, and access-willingness measures.
+  \item Decide how malformed, failed, or clearly inaccurate Gemma outputs enter the analysis and whether participants can flag nonsensical results.
+  \item Decide whether prompts avoid special-category inferences such as health, religion, political opinions, or sexual orientation, or whether these are central and require explicit consent and stronger safeguards.
+\end{enumerate}
+
+\sectionbox{Submission checklist}
+\begin{enumerate}
+  \item Do not collect data before a positive ethics vote.
+  \item Submit one PDF ordered as: application form, participant information and consent, questionnaires, then other supporting material.
+  \item Obtain the principal investigator's signature.
+  \item Remove every red ``TO CONFIRM'' field and all internal draft notes.
+  \item Ensure the app, consent, questionnaire appendix, and actual data flow agree exactly before recruitment.
+\end{enumerate}
+
+\end{document}

@@ -10,6 +10,7 @@ class InputAsset {
     required this.mimeType,
     required this.sizeBytes,
     this.bytes,
+    this.text,
     this.width,
     this.height,
   });
@@ -20,6 +21,7 @@ class InputAsset {
   final String mimeType;
   final int sizeBytes;
   final List<int>? bytes;
+  final String? text;
   final int? width;
   final int? height;
 
@@ -29,6 +31,7 @@ class InputAsset {
         'display_name': displayName,
         'mime_type': mimeType,
         'size_bytes': sizeBytes,
+        'text_length': text?.length,
         'width': width,
         'height': height,
       };
@@ -94,6 +97,7 @@ class AnalysisTaskSpec {
   final LabelSpace? labelSpace;
 
   bool acceptsRequest(AnalysisRequest request) {
-    return request.inputs.every((InputAsset asset) => acceptedInputTypes.contains(asset.type));
+    return request.inputs
+        .every((InputAsset asset) => acceptedInputTypes.contains(asset.type));
   }
 }

@@ -2,6 +2,12 @@ package com.atabey.local_trait_lab
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.pdf.PdfRenderer
+import android.os.Handler
+import android.os.Looper
+import android.os.ParcelFileDescriptor
 import android.util.Log
 import com.google.ai.edge.litertlm.Backend
 import com.google.ai.edge.litertlm.Content
@@ -18,7 +24,10 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
 import java.util.concurrent.CountDownLatch
+import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicReference
 
@@ -29,16 +38,39 @@ class MainActivity : FlutterActivity() {
     private var loadedTopK: Int = 1
     private var loadedTopP: Double = 0.95
     private var loadedTemperature: Double = 0.0
+    private val backgroundExecutor = Executors.newSingleThreadExecutor()
+    private val mainHandler = Handler(Looper.getMainLooper())
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, GEMMA_CHANNEL).setMethodCallHandler { call, result ->
             when (call.method) {
-                "load" -> handleGemmaLoad(call, result)
-                "runImagePrompt" -> handleGemmaRunImagePrompt(call, result)
-                "unload" -> handleGemmaUnload(result)
+                "load" -> runOnWorker { handleGemmaLoad(call, MainThreadResult(result)) }
+                "runImagePrompt" -> runOnWorker { handleGemmaRunImagePrompt(call, MainThreadResult(result)) }
+                "runTextPrompt" -> runOnWorker { handleGemmaRunTextPrompt(call, MainThreadResult(result)) }
+                "renderPdfFirstPage" -> runOnWorker { handleRenderPdfFirstPage(call, MainThreadResult(result)) }
+                "unload" -> runOnWorker { handleGemmaUnload(MainThreadResult(result)) }
                 else -> result.notImplemented()
             }
+        }
+    }
+
+
+    private fun runOnWorker(block: () -> Unit) {
+        backgroundExecutor.execute(block)
+    }
+
+    private inner class MainThreadResult(private val delegate: MethodChannel.Result) : MethodChannel.Result {
+        override fun success(result: Any?) {
+            mainHandler.post { delegate.success(result) }
+        }
+
+        override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+            mainHandler.post { delegate.error(errorCode, errorMessage, errorDetails) }
+        }
+
+        override fun notImplemented() {
+            mainHandler.post { delegate.notImplemented() }
         }
     }
 
@@ -217,6 +249,68 @@ class MainActivity : FlutterActivity() {
         }
     }
 
+    private fun handleGemmaRunTextPrompt(call: MethodCall, result: MethodChannel.Result) {
+        val engine = gemmaEngine
+        if (engine == null) {
+            result.error("GEMMA_NOT_LOADED", "Gemma LiteRT-LM runtime is not loaded.", null)
+            return
+        }
+
+        val conversation = resetGemmaConversation(engine)
+        if (conversation == null) {
+            result.error("GEMMA_NOT_LOADED", "Gemma LiteRT-LM runtime is not loaded.", null)
+            return
+        }
+
+        try {
+            val prompt = call.argument<String>("prompt") ?: ""
+            if (prompt.isBlank()) {
+                result.error("GEMMA_BAD_PROMPT", "Text prompt is empty.", null)
+                return
+            }
+
+            val output = StringBuilder()
+            val errorRef = AtomicReference<String?>(null)
+            val latch = CountDownLatch(1)
+            val start = System.nanoTime()
+            val contents = Contents.of(listOf(Content.Text(prompt)))
+            conversation.sendMessageAsync(
+                contents,
+                object : MessageCallback {
+                    override fun onMessage(message: Message) {
+                        output.append(message.toString())
+                    }
+
+                    override fun onDone() {
+                        latch.countDown()
+                    }
+
+                    override fun onError(throwable: Throwable) {
+                        errorRef.set(throwable.message ?: throwable.toString())
+                        latch.countDown()
+                    }
+                },
+                emptyMap(),
+            )
+
+            val completed = latch.await(180, TimeUnit.SECONDS)
+            if (!completed) {
+                result.error("GEMMA_TIMEOUT", "Gemma text inference timed out after 180 seconds.", null)
+                return
+            }
+            val error = errorRef.get()
+            if (error != null) {
+                result.error("GEMMA_INFERENCE_FAILED", error, null)
+                return
+            }
+            val latencyMs = ((System.nanoTime() - start) / 1_000_000L).toInt()
+            result.success(mapOf("rawText" to output.toString(), "latencyMs" to latencyMs))
+        } catch (error: Throwable) {
+            Log.e(TAG, "Gemma text inference failed", error)
+            result.error("GEMMA_INFERENCE_FAILED", error.message ?: error.toString(), null)
+        }
+    }
+
     private fun resetGemmaConversation(engine: Engine): Conversation? {
         try {
             gemmaConversation?.close()
@@ -234,6 +328,49 @@ class MainActivity : FlutterActivity() {
         )
         gemmaConversation = conversation
         return conversation
+    }
+
+
+    private fun handleRenderPdfFirstPage(call: MethodCall, result: MethodChannel.Result) {
+        try {
+            val pdfBytes = call.argument<ByteArray>("pdfBytes")
+            if (pdfBytes == null || pdfBytes.isEmpty()) {
+                result.error("PDF_EMPTY", "PDF bytes are empty.", null)
+                return
+            }
+
+            val pdfFile = File.createTempFile("local_trait_pdf_", ".pdf", cacheDir)
+            FileOutputStream(pdfFile).use { stream -> stream.write(pdfBytes) }
+            ParcelFileDescriptor.open(pdfFile, ParcelFileDescriptor.MODE_READ_ONLY).use { descriptor ->
+                PdfRenderer(descriptor).use { renderer ->
+                    if (renderer.pageCount <= 0) {
+                        result.error("PDF_NO_PAGES", "PDF has no renderable pages.", null)
+                        return
+                    }
+                    renderer.openPage(0).use { page ->
+                        val maxSide = 1600
+                        val scale = minOf(
+                            maxSide.toFloat() / page.width.toFloat(),
+                            maxSide.toFloat() / page.height.toFloat(),
+                            2.0f,
+                        ).coerceAtLeast(1.0f)
+                        val width = (page.width * scale).toInt()
+                        val height = (page.height * scale).toInt()
+                        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+                        val canvas = Canvas(bitmap)
+                        canvas.drawColor(Color.WHITE)
+                        page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+                        val pngBytes = bitmap.toPngByteArray()
+                        bitmap.recycle()
+                        result.success(mapOf("pngBytes" to pngBytes, "width" to width, "height" to height))
+                    }
+                }
+            }
+            pdfFile.delete()
+        } catch (error: Throwable) {
+            Log.e(TAG, "PDF render failed", error)
+            result.error("PDF_RENDER_FAILED", error.message ?: error.toString(), null)
+        }
     }
 
     private fun handleGemmaUnload(result: MethodChannel.Result) {
@@ -272,6 +409,12 @@ class MainActivity : FlutterActivity() {
         val stream = ByteArrayOutputStream()
         compress(Bitmap.CompressFormat.PNG, 100, stream)
         return stream.toByteArray()
+    }
+
+    override fun onDestroy() {
+        backgroundExecutor.shutdownNow()
+        closeGemma()
+        super.onDestroy()
     }
 
     companion object {

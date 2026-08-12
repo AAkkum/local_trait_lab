@@ -19,11 +19,14 @@ class _LocalTraitLabAppState extends State<LocalTraitLabApp> {
   @override
   void initState() {
     super.initState();
-    final List<RegisteredModel> registry = AnalysisRegistry.buildDefaultModels();
+    final List<RegisteredModel> registry =
+        AnalysisRegistry.buildDefaultModels();
     _controller = AppController(
       registry: registry,
       settingsRepository: InMemorySettingsRepository(
-        AppSettings(modelConfigs: <String, ModelConfig>{for (final RegisteredModel model in registry) model.id: model.config}),
+        AppSettings(modelConfigs: <String, ModelConfig>{
+          for (final RegisteredModel model in registry) model.id: model.config
+        }),
       ),
     );
     _controller.initialize();
@@ -39,7 +42,8 @@ class _LocalTraitLabAppState extends State<LocalTraitLabApp> {
         animation: _controller,
         builder: (BuildContext context, Widget? child) {
           if (!_controller.initialized) {
-            return const Scaffold(body: Center(child: CircularProgressIndicator()));
+            return const Scaffold(
+                body: Center(child: CircularProgressIndicator()));
           }
           return HomeScreen(controller: _controller);
         },

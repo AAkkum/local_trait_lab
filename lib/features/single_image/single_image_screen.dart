@@ -52,18 +52,23 @@ class SingleImageScreen extends StatelessWidget {
                         await controller.runSingleImageAnalysis();
                         if (context.mounted && controller.lastResult != null) {
                           await Navigator.of(context).push(
-                            MaterialPageRoute<void>(builder: (_) => ResultScreen(controller: controller)),
+                            MaterialPageRoute<void>(
+                                builder: (_) =>
+                                    ResultScreen(controller: controller)),
                           );
                         }
                       },
                 icon: controller.isBusy
-                    ? const SizedBox.square(dimension: 16, child: CircularProgressIndicator(strokeWidth: 2))
+                    ? const SizedBox.square(
+                        dimension: 16,
+                        child: CircularProgressIndicator(strokeWidth: 2))
                     : const Icon(Icons.play_arrow),
                 label: const Text('Run local analysis'),
               ),
               if (controller.errorMessage != null) ...<Widget>[
                 const SizedBox(height: 12),
-                Text(controller.errorMessage!, style: const TextStyle(color: Colors.red)),
+                Text(controller.errorMessage!,
+                    style: const TextStyle(color: Colors.red)),
               ],
             ],
           );

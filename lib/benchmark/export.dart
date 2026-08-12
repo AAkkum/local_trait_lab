@@ -92,7 +92,8 @@ class BenchmarkExportService {
     );
 
     final Directory dir = await getApplicationDocumentsDirectory();
-    final String safeName = datasetName.replaceAll(RegExp(r'[^A-Za-z0-9_-]'), '_');
+    final String safeName =
+        datasetName.replaceAll(RegExp(r'[^A-Za-z0-9_-]'), '_');
     final String base = p.join(dir.path, 'benchmark_$safeName');
     final File csvFile = File('${base}_predictions.csv');
     final File jsonFile = File('${base}_summary.json');

@@ -26,7 +26,8 @@ class GemmaAnalysisModel implements AnalysisModel {
   final GemmaOutputParser _outputParser;
   ModelConfig? _config;
   GemmaRuntime? _runtime;
-  PromptTemplate? _taskPromptTemplate;
+  Map<String, PromptTemplate> _taskPromptTemplates =
+      const <String, PromptTemplate>{};
   bool _isLoaded = false;
 
   @override
@@ -39,7 +40,12 @@ class GemmaAnalysisModel implements AnalysisModel {
   String get family => 'gemma';
 
   @override
-  Set<String> get supportedTasks => <String>{'emotion_classification'};
+  Set<String> get supportedTasks => <String>{
+        'emotion_classification',
+        'privacy_inference',
+        'privacy_profile_synthesis',
+        'privacy_profile_repair',
+      };
 
   @override
   bool get isLoaded => _isLoaded;
@@ -50,7 +56,7 @@ class GemmaAnalysisModel implements AnalysisModel {
   @override
   Future<void> load(ModelConfig config) async {
     _config = config;
-    _taskPromptTemplate = await _loadPromptTemplate(config);
+    _taskPromptTemplates = await _loadTaskPromptTemplates(config);
     switch (config.runtimeBackend) {
       case 'mock':
         _runtime = const GemmaMockRuntime();
@@ -111,10 +117,12 @@ class GemmaAnalysisModel implements AnalysisModel {
     }
 
     final InputAsset asset = request.inputs.first;
-    final String prompt = _promptBuilder.buildEmotionPrompt(
+    final PromptTemplate? overrideTemplate =
+        _taskPromptTemplates[request.taskId];
+    final String prompt = _promptBuilder.buildPrompt(
       taskSpec: request.taskSpec,
       asset: asset,
-      overrideTemplate: _taskPromptTemplate,
+      overrideTemplate: overrideTemplate,
     );
 
     final GemmaRuntimeOutput runtimeOutput = await runtime.runTask(
@@ -124,32 +132,28 @@ class GemmaAnalysisModel implements AnalysisModel {
     );
 
     try {
-      final ParsedGemmaOutput parsed =
-          _outputParser.parse(runtimeOutput.rawText);
-      final Prediction prediction = Prediction(
-        label: parsed.label,
-        confidence: roundTo(parsed.scores[parsed.label] ?? 0.0, 6),
-        scores: parsed.scores,
-      );
-      return AnalysisResult(
-        task: request.taskId,
-        modelId: config.variantId,
-        prediction: prediction,
-        rawOutput: runtimeOutput.rawText,
-        metadata: ResultMetadata(
-          inputFile: asset.displayName,
-          latencyMs: runtimeOutput.latencyMs,
-          timestamp: DateTime.now(),
-          modelVersion: config.version,
-          preprocessing: <String, Object?>{'input_type': asset.type.name},
-          labelMappingApplied: <String, String>{
-            for (final String label in kEmotionLabels) label: label
-          },
-          scoreNormalizationMethod: 'as_returned_json',
-          runtimeBackend: runtimeOutput.runtimeBackend,
-          rawOutputRetained: true,
-          debug: runtimeOutput.debug,
-        ),
+      if (request.taskId == 'emotion_classification') {
+        return _buildEmotionResult(
+          request: request,
+          config: config,
+          asset: asset,
+          runtimeOutput: runtimeOutput,
+        );
+      }
+      if (request.taskId == 'privacy_profile_synthesis' ||
+          request.taskId == 'privacy_profile_repair') {
+        return _buildPrivacyProfileSynthesisResult(
+          request: request,
+          config: config,
+          asset: asset,
+          runtimeOutput: runtimeOutput,
+        );
+      }
+      return _buildPrivacyResult(
+        request: request,
+        config: config,
+        asset: asset,
+        runtimeOutput: runtimeOutput,
       );
     } on AnalysisFailure catch (failure) {
       return _failureResult(
@@ -161,18 +165,213 @@ class GemmaAnalysisModel implements AnalysisModel {
     }
   }
 
+  AnalysisResult _buildEmotionResult({
+    required AnalysisRequest request,
+    required ModelConfig config,
+    required InputAsset asset,
+    required GemmaRuntimeOutput runtimeOutput,
+  }) {
+    final ParsedGemmaOutput parsed =
+        _outputParser.parseEmotion(runtimeOutput.rawText);
+    final Prediction prediction = Prediction(
+      label: parsed.label,
+      confidence: roundTo(parsed.scores[parsed.label] ?? 0.0, 6),
+      scores: parsed.scores,
+    );
+    return AnalysisResult(
+      task: request.taskId,
+      modelId: config.variantId,
+      prediction: prediction,
+      rawOutput: runtimeOutput.rawText,
+      metadata: _metadata(
+        asset: asset,
+        config: config,
+        runtimeOutput: runtimeOutput,
+        preprocessing: <String, Object?>{'input_type': asset.type.name},
+        scoreNormalizationMethod: 'as_returned_json',
+        labelMappingApplied: <String, String>{
+          for (final String label in kEmotionLabels) label: label,
+        },
+      ),
+    );
+  }
+
+  AnalysisResult _buildPrivacyResult({
+    required AnalysisRequest request,
+    required ModelConfig config,
+    required InputAsset asset,
+    required GemmaRuntimeOutput runtimeOutput,
+  }) {
+    late final Map<String, dynamic> decoded;
+    try {
+      decoded = _outputParser.parseJsonObject(runtimeOutput.rawText);
+    } on AnalysisFailure {
+      decoded = _privacyTextFallback(runtimeOutput.rawText);
+    }
+    String sensitivity = _safeString(decoded['sensitivity'], 'unknown');
+    if (!request.taskSpec.outputSchema.allowedLabels.contains(sensitivity)) {
+      sensitivity = 'unknown';
+      decoded['sensitivity'] = sensitivity;
+    }
+    final double confidence = switch (sensitivity) {
+      'high' => 0.75,
+      'medium' => 0.5,
+      'low' => 0.25,
+      _ => 0.0,
+    };
+    return AnalysisResult(
+      task: request.taskId,
+      modelId: config.variantId,
+      prediction: Prediction(
+        label: sensitivity,
+        confidence: roundTo(confidence, 6),
+        scores: const <String, double>{},
+      ),
+      rawOutput: decoded,
+      metadata: _metadata(
+        asset: asset,
+        config: config,
+        runtimeOutput: runtimeOutput,
+        preprocessing: <String, Object?>{
+          'input_type': asset.type.name,
+          'privacy_task': 'local_file_preview',
+        },
+        scoreNormalizationMethod: 'not_applicable',
+        labelMappingApplied: const <String, String>{},
+      ),
+    );
+  }
+
+  Map<String, dynamic> _privacyTextFallback(String rawText) {
+    final String compact = rawText.replaceAll(RegExp(r'\s+'), ' ').trim();
+    final String excerpt =
+        compact.length <= 500 ? compact : '${compact.substring(0, 497)}...';
+    return <String, dynamic>{
+      'content_summary': excerpt.isEmpty
+          ? 'Gemma returned no readable privacy inference.'
+          : excerpt,
+      'evidence': const <String>[],
+      'owner_inferences': const <String>[],
+      'private_signals': const <String>[],
+      'profiling_uses': const <String>[],
+      'cross_file_value': '',
+      'sensitivity': 'unknown',
+      'participant_headline': 'No reliable inference available',
+      'participant_message':
+          'The model response could not be structured reliably, so no personal inference is shown.',
+      'parser_fallback': true,
+      'raw_model_output': rawText,
+    };
+  }
+
+  Map<String, dynamic> _profileTextFallback(String rawText) {
+    return <String, dynamic>{
+      'headline': 'Combined profile unavailable',
+      'profile':
+          'The model response could not be structured reliably, so the app cannot show a combined personal profile.',
+      'key_inferences': const <String>[],
+      'privacy_implication': '',
+      'evidence_summary': const <String>[],
+      'uncertainty_note':
+          'Unstructured model output retained for research review.',
+      'parser_fallback': true,
+      'raw_model_output': rawText,
+    };
+  }
+
+  AnalysisResult _buildPrivacyProfileSynthesisResult({
+    required AnalysisRequest request,
+    required ModelConfig config,
+    required InputAsset asset,
+    required GemmaRuntimeOutput runtimeOutput,
+  }) {
+    late final Map<String, dynamic> decoded;
+    try {
+      decoded = _outputParser.parseJsonObject(runtimeOutput.rawText);
+    } on AnalysisFailure {
+      decoded = _profileTextFallback(runtimeOutput.rawText);
+    }
+    return AnalysisResult(
+      task: request.taskId,
+      modelId: config.variantId,
+      prediction: const Prediction(
+        label: 'profile',
+        confidence: 1.0,
+        scores: <String, double>{},
+      ),
+      rawOutput: decoded,
+      metadata: _metadata(
+        asset: asset,
+        config: config,
+        runtimeOutput: runtimeOutput,
+        preprocessing: <String, Object?>{
+          'input_type': asset.type.name,
+          'privacy_task': 'profile_synthesis',
+          'input_text_length': asset.text?.length ?? 0,
+        },
+        scoreNormalizationMethod: 'not_applicable',
+        labelMappingApplied: const <String, String>{},
+      ),
+    );
+  }
+
+  ResultMetadata _metadata({
+    required InputAsset asset,
+    required ModelConfig config,
+    required GemmaRuntimeOutput runtimeOutput,
+    required Map<String, Object?> preprocessing,
+    required Map<String, String> labelMappingApplied,
+    required String scoreNormalizationMethod,
+  }) {
+    return ResultMetadata(
+      inputFile: asset.displayName,
+      latencyMs: runtimeOutput.latencyMs,
+      timestamp: DateTime.now(),
+      modelVersion: config.version,
+      preprocessing: preprocessing,
+      labelMappingApplied: labelMappingApplied,
+      scoreNormalizationMethod: scoreNormalizationMethod,
+      runtimeBackend: runtimeOutput.runtimeBackend,
+      rawOutputRetained: true,
+      debug: runtimeOutput.debug,
+    );
+  }
+
+  String _safeString(Object? value, String fallback) {
+    if (value is String && value.trim().isNotEmpty) return value.trim();
+    return fallback;
+  }
+
   @override
   Future<void> unload() async {
     await _runtime?.close();
     _runtime = null;
     _config = null;
-    _taskPromptTemplate = null;
+    _taskPromptTemplates = const <String, PromptTemplate>{};
     _isLoaded = false;
   }
 
-  Future<PromptTemplate?> _loadPromptTemplate(ModelConfig config) async {
-    final String? assetPath = config.assetConfig['task_config'] as String?;
-    if (assetPath == null || assetPath.trim().isEmpty) return null;
+  Future<Map<String, PromptTemplate>> _loadTaskPromptTemplates(
+      ModelConfig config) async {
+    final String emotionAssetPath =
+        (config.assetConfig['task_config'] as String?) ??
+            'assets/gemma_tasks/emotion_classification.json';
+    final Map<String, String> assetPaths = <String, String>{
+      'emotion_classification': emotionAssetPath,
+      'privacy_inference': 'assets/gemma_tasks/privacy_inference.json',
+      'privacy_profile_synthesis':
+          'assets/gemma_tasks/privacy_profile_synthesis.json',
+      'privacy_profile_repair':
+          'assets/gemma_tasks/privacy_profile_repair.json',
+    };
+    final Map<String, PromptTemplate> templates = <String, PromptTemplate>{};
+    for (final MapEntry<String, String> entry in assetPaths.entries) {
+      templates[entry.key] = await _loadPromptTemplate(entry.value);
+    }
+    return templates;
+  }
+
+  Future<PromptTemplate> _loadPromptTemplate(String assetPath) async {
     final String rawConfig = await rootBundle.loadString(assetPath);
     final Map<String, Object?> decoded =
         jsonDecode(rawConfig) as Map<String, Object?>;

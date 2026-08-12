@@ -1,0 +1,21 @@
+{
+  "id": "privacy_inference",
+  "display_name": "Privacy Inference",
+  "system_instructions": "Return JSON only. Analyze a local phone file for a privacy study. Separate visible evidence from probabilistic owner-level inference. Do not identify people, present guesses as facts, or invent evidence.",
+  "user_template": "Analyze {{file_name}} as a local phone file preview. Return one JSON object with exactly these keys: content_summary, evidence, owner_inferences, private_signals, profiling_uses, cross_file_value, sensitivity, participant_headline, participant_message. content_summary must be at most 30 words. evidence must contain up to 3 directly observable short strings. owner_inferences must contain up to 4 evidence-based possibilities about the owner. private_signals must contain up to 3 personal details or categories the file may expose. profiling_uses must contain up to 3 ways an app or third party could use the inferred information. cross_file_value must describe what this clue could reveal when combined with other files. sensitivity must be low, medium, high, or unknown. participant_headline must be at most 10 words. participant_message must be at most 45 words and present only the strongest non-obvious owner-level inference, not merely describe the file. The presence of a file does not prove ownership, interest, identity, or intent. If evidence is weak, say that no strong personal inference is supported. Do not use canned examples or tailor the schema to a particular file type. No markdown, numbering, or extra keys.",
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "content_summary",
+      "evidence",
+      "owner_inferences",
+      "private_signals",
+      "profiling_uses",
+      "cross_file_value",
+      "sensitivity",
+      "participant_headline",
+      "participant_message"
+    ],
+    "strict_json": true
+  }
+}

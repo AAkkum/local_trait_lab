@@ -137,30 +137,11 @@ class _ModelSettingsCard extends StatelessWidget {
             const SizedBox(height: 8),
             if (model.family == 'gemma') ...<Widget>[
               const SizedBox(height: 8),
-              OutlinedButton.icon(
-                onPressed: () async {
-                  final ModelConfig latestConfig =
-                      controller.configForModel(model.id);
-                  final ModelVariant latestVariant =
-                      model.variantById(latestConfig.variantId);
-                  final String privatePath =
-                      '/data/user/0/com.atabey.local_trait_lab/app_flutter/models/${latestVariant.expectedFileName ?? 'gemma-4-E2B-it.litertlm'}';
-                  await controller.updateModelConfig(
-                    model.id,
-                    latestConfig.copyWith(
-                      runtimeOptions: <String, Object?>{
-                        ...latestConfig.runtimeOptions,
-                        'backend': 'litert_lm',
-                      },
-                      assetConfig: <String, Object?>{
-                        ...latestConfig.assetConfig,
-                        'asset_path': privatePath,
-                      },
-                    ),
-                  );
-                },
-                icon: const Icon(Icons.lock),
-                label: const Text('Use app-private model path'),
+              _GemmaDownloadPanel(
+                controller: controller,
+                model: model,
+                config: config,
+                selectedVariant: selectedVariant,
               ),
             ],
             const SizedBox(height: 8),
@@ -260,19 +241,11 @@ class _ModelSettingsCard extends StatelessWidget {
         'Selected Gemma file is only ${(sourceLength / (1024 * 1024)).toStringAsFixed(1)} MB. This is probably not the real Gemma 4 model.',
       );
     }
-    if (model.family == 'gemma') {
-      if (sourcePath == null) {
-        throw const FileSystemException(
-            'Gemma import needs a real file path, not in-memory bytes. Put the model in /sdcard/Demo and use that path.');
-      }
-      return sourcePath;
-    }
-
     final Directory documents = await getApplicationDocumentsDirectory();
     final Directory modelsDir = Directory(p.join(documents.path, 'models'));
     await modelsDir.create(recursive: true);
-    final String safeName =
-        pickedName.replaceAll(RegExp(r'[^A-Za-z0-9_.-]'), '_');
+    final String safeName = (selectedVariant.expectedFileName ?? pickedName)
+        .replaceAll(RegExp(r'[^A-Za-z0-9_.-]'), '_');
     final File target = File(p.join(modelsDir.path, safeName));
 
     if (sourceBytes != null && sourceBytes.isNotEmpty) {
@@ -282,5 +255,208 @@ class _ModelSettingsCard extends StatelessWidget {
       await source.openRead().pipe(target.openWrite());
     }
     return target.path;
+  }
+}
+
+class _GemmaDownloadPanel extends StatefulWidget {
+  const _GemmaDownloadPanel({
+    required this.controller,
+    required this.model,
+    required this.config,
+    required this.selectedVariant,
+  });
+
+  final AppController controller;
+  final RegisteredModel model;
+  final ModelConfig config;
+  final ModelVariant selectedVariant;
+
+  @override
+  State<_GemmaDownloadPanel> createState() => _GemmaDownloadPanelState();
+}
+
+class _GemmaDownloadPanelState extends State<_GemmaDownloadPanel> {
+  late final TextEditingController _urlController;
+  double? _progress;
+  String? _message;
+  bool _downloading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _urlController = TextEditingController(
+      text: _defaultGemmaDownloadUrl(widget.selectedVariant),
+    );
+  }
+
+  @override
+  void didUpdateWidget(covariant _GemmaDownloadPanel oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selectedVariant.id != widget.selectedVariant.id) {
+      _urlController.text = _defaultGemmaDownloadUrl(widget.selectedVariant);
+    }
+  }
+
+  @override
+  void dispose() {
+    _urlController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('Gemma model file',
+                style: Theme.of(context).textTheme.titleSmall),
+            const SizedBox(height: 8),
+            Text(
+              'The app cannot ship a 2.6 GB model. Download or import it once into app-private storage.',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            const SizedBox(height: 8),
+            TextFormField(
+              controller: _urlController,
+              minLines: 1,
+              maxLines: 3,
+              decoration: const InputDecoration(
+                labelText: 'Download URL',
+                helperText:
+                    'Default uses the LiteRT community Hugging Face file. Paste another direct .litertlm URL if needed.',
+              ),
+            ),
+            const SizedBox(height: 8),
+            FilledButton.icon(
+              onPressed: _downloading ? null : _downloadModel,
+              icon: _downloading
+                  ? const SizedBox.square(
+                      dimension: 16,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(Icons.download),
+              label: Text(
+                  _downloading ? 'Downloading model' : 'Download Gemma model'),
+            ),
+            if (_message != null) ...<Widget>[
+              const SizedBox(height: 8),
+              if (_progress != null) LinearProgressIndicator(value: _progress),
+              const SizedBox(height: 4),
+              Text(_message!, style: Theme.of(context).textTheme.bodySmall),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _downloadModel() async {
+    final Uri? uri = Uri.tryParse(_urlController.text.trim());
+    if (uri == null || !uri.hasScheme) {
+      setState(() => _message = 'Enter a valid model download URL.');
+      return;
+    }
+    setState(() {
+      _downloading = true;
+      _progress = null;
+      _message =
+          'Starting download. This is a multi-GB file and can take several minutes.';
+    });
+    try {
+      final Directory documents = await getApplicationDocumentsDirectory();
+      final Directory modelsDir = Directory(p.join(documents.path, 'models'));
+      await modelsDir.create(recursive: true);
+      final String fileName =
+          widget.selectedVariant.expectedFileName ?? 'gemma_model.litertlm';
+      final File target = File(p.join(modelsDir.path, fileName));
+      final File temp = File('${target.path}.download');
+      if (await temp.exists()) await temp.delete();
+
+      final HttpClientRequest request = await _openWithRedirects(uri);
+      final HttpClientResponse response = await request.close();
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        throw HttpException(
+            'HTTP ${response.statusCode}: ${response.reasonPhrase}',
+            uri: uri);
+      }
+      final int total = response.contentLength;
+      int received = 0;
+      final IOSink sink = temp.openWrite();
+      await for (final List<int> chunk in response) {
+        received += chunk.length;
+        sink.add(chunk);
+        if (mounted) {
+          setState(() {
+            _progress = total > 0 ? received / total : null;
+            _message = total > 0
+                ? 'Downloaded ${(received / (1024 * 1024)).toStringAsFixed(1)} MB / ${(total / (1024 * 1024)).toStringAsFixed(1)} MB'
+                : 'Downloaded ${(received / (1024 * 1024)).toStringAsFixed(1)} MB';
+          });
+        }
+      }
+      await sink.flush();
+      await sink.close();
+      if (await target.exists()) await target.delete();
+      await temp.rename(target.path);
+      await widget.controller.updateModelConfig(
+        widget.model.id,
+        widget.config.copyWith(
+          runtimeOptions: <String, Object?>{
+            ...widget.config.runtimeOptions,
+            'backend': 'litert_lm',
+          },
+          assetConfig: <String, Object?>{
+            ...widget.config.assetConfig,
+            'asset_path': target.path,
+          },
+        ),
+      );
+      if (mounted) {
+        setState(() {
+          _progress = 1.0;
+          _message = 'Download complete. Gemma path updated.';
+        });
+      }
+    } catch (error) {
+      if (mounted) {
+        setState(() {
+          _progress = null;
+          _message = 'Download failed: $error';
+        });
+      }
+    } finally {
+      if (mounted) setState(() => _downloading = false);
+    }
+  }
+
+  Future<HttpClientRequest> _openWithRedirects(Uri uri) async {
+    final HttpClient client = HttpClient();
+    Uri current = uri;
+    for (int i = 0; i < 5; i++) {
+      final HttpClientRequest request = await client.getUrl(current);
+      request.followRedirects = false;
+      final HttpClientResponse response = await request.close();
+      if (response.isRedirect &&
+          response.headers.value(HttpHeaders.locationHeader) != null) {
+        final String location =
+            response.headers.value(HttpHeaders.locationHeader)!;
+        current = current.resolve(location);
+        await response.drain<void>();
+        continue;
+      }
+      return client.getUrl(current);
+    }
+    throw HttpException('Too many redirects', uri: uri);
+  }
+
+  String _defaultGemmaDownloadUrl(ModelVariant variant) {
+    if (variant.id == 'gemma_e4b') {
+      return 'https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm/resolve/main/gemma-4-E4B-it.litertlm?download=true';
+    }
+    return 'https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm/resolve/main/gemma-4-E2B-it.litertlm?download=true';
   }
 }

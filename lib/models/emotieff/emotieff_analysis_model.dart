@@ -62,7 +62,8 @@ class EmotiEffEmotionModel implements AnalysisModel {
         ),
       );
     }
-    if (!supportedTasks.contains(request.taskId) || !request.taskSpec.acceptsRequest(request)) {
+    if (!supportedTasks.contains(request.taskId) ||
+        !request.taskSpec.acceptsRequest(request)) {
       return _failureResult(
         request: request,
         failure: const AnalysisFailure(
@@ -77,22 +78,27 @@ class EmotiEffEmotionModel implements AnalysisModel {
         request: request,
         failure: AnalysisFailure(
           type: AnalysisFailureType.runtimeUnavailable,
-          message: 'EmotiEff local runtime ${config.runtimeBackend} is not yet connected.',
+          message:
+              'EmotiEff local runtime ${config.runtimeBackend} is not yet connected.',
         ),
       );
     }
 
     final InputAsset asset = request.inputs.first;
     try {
-      final EmotiEffRuntimeOutput runtimeOutput = await runtime.classifyEmotion(asset: asset);
+      final EmotiEffRuntimeOutput runtimeOutput =
+          await runtime.classifyEmotion(asset: asset);
       final LabelMappingResult mapped = mapScoresToStandardLabels(
         rawScores: runtimeOutput.rawScores,
         backendToStandard: kEmotiEffBackendToStandard,
         logits: true,
       );
-      final String predictedLabel = mapped.scores.entries.reduce(
-        (MapEntry<String, double> a, MapEntry<String, double> b) => a.value >= b.value ? a : b,
-      ).key;
+      final String predictedLabel = mapped.scores.entries
+          .reduce(
+            (MapEntry<String, double> a, MapEntry<String, double> b) =>
+                a.value >= b.value ? a : b,
+          )
+          .key;
 
       return AnalysisResult(
         task: request.taskId,
@@ -146,7 +152,8 @@ class EmotiEffEmotionModel implements AnalysisModel {
       modelId: _config?.variantId ?? 'emotieff',
       failure: failure,
       metadata: ResultMetadata(
-        inputFile: request.inputs.isNotEmpty ? request.inputs.first.displayName : '',
+        inputFile:
+            request.inputs.isNotEmpty ? request.inputs.first.displayName : '',
         latencyMs: 0,
         timestamp: DateTime.now(),
         modelVersion: _config?.version ?? 'unknown',
