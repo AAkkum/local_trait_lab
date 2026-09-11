@@ -1,8 +1,11 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:image/image.dart' as img;
 import 'package:path_provider/path_provider.dart';
 
 import '../analysis/analysis_model.dart';
@@ -16,8 +19,19 @@ import '../benchmark/benchmark_dataset.dart';
 import '../benchmark/benchmark_runner.dart';
 import '../data/dataset_import/dataset_import_service.dart';
 import '../data/persistence/settings_repository.dart';
-import '../core/utils/math_utils.dart';
 import '../platform/android/pdf_page_renderer.dart';
+
+class PreparedStudyImage {
+  const PreparedStudyImage({
+    required this.bytes,
+    this.width,
+    this.height,
+  });
+
+  final Uint8List bytes;
+  final int? width;
+  final int? height;
+}
 
 class PrivacyStudyFile {
   const PrivacyStudyFile({
@@ -45,24 +59,30 @@ class PrivacyStudyResult {
 class ReactionEmotionSample {
   const ReactionEmotionSample({
     required this.timestamp,
+    required this.stage,
     required this.event,
-    required this.modelId,
-    required this.label,
-    required this.confidence,
+    this.modelId,
+    this.label,
+    this.confidence,
+    this.failureReason,
   });
 
   final DateTime timestamp;
+  final String stage;
   final String event;
-  final String modelId;
-  final String label;
-  final double confidence;
+  final String? modelId;
+  final String? label;
+  final double? confidence;
+  final String? failureReason;
 
   Map<String, Object?> toJson() => <String, Object?>{
         'timestamp': timestamp.toIso8601String(),
+        'stage': stage,
         'event': event,
         'model_id': modelId,
         'label': label,
         'confidence': confidence,
+        'failure_reason': failureReason,
       };
 }
 
@@ -98,6 +118,8 @@ class AppController extends ChangeNotifier {
   static const String _gemmaE2BDownloadUrl =
       'https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm/resolve/main/gemma-4-E2B-it.litertlm?download=true';
   static const int _minimumGemmaModelBytes = 1024 * 1024 * 1024;
+  static const MethodChannel _nativeChannel =
+      MethodChannel('local_trait_lab/gemma_litert');
 
   AppController({
     required List<RegisteredModel> registry,
@@ -135,8 +157,11 @@ class AppController extends ChangeNotifier {
   bool _privacyCancelled = false;
   bool _gemmaModelReady = false;
   bool _isGemmaDownloading = false;
+  bool _isGemmaDownloadPaused = false;
   double? _gemmaDownloadProgress;
   String? _gemmaDownloadStatus;
+  Timer? _gemmaDownloadPollTimer;
+  bool _isPollingGemmaDownload = false;
 
   Future<void> initialize() async {
     _settings = await _settingsRepository.load();
@@ -183,8 +208,15 @@ class AppController extends ChangeNotifier {
   bool get isBusy => _isBusy;
   bool get gemmaModelReady => _gemmaModelReady;
   bool get isGemmaDownloading => _isGemmaDownloading;
+  bool get isGemmaDownloadPaused => _isGemmaDownloadPaused;
   double? get gemmaDownloadProgress => _gemmaDownloadProgress;
   String? get gemmaDownloadStatus => _gemmaDownloadStatus;
+
+  @override
+  void dispose() {
+    _gemmaDownloadPollTimer?.cancel();
+    super.dispose();
+  }
 
   void selectModel(String modelId) {
     _selectedModelId = modelId;
@@ -217,64 +249,86 @@ class AppController extends ChangeNotifier {
     _errorMessage = null;
     _privacyStatusMessage = 'Preparing selected files on device';
     notifyListeners();
+
+    final List<String> failedFiles = <String>[];
     try {
       for (final PlatformFile platformFile in result.files) {
         final String extension = (platformFile.extension ?? '').toLowerCase();
-        final List<int>? bytes = await _loadPlatformFileBytes(platformFile);
-        if (bytes == null || bytes.isEmpty) continue;
-        final String fileId = _privacyFileId(platformFile.name, bytes);
+        final String fileId = _privacyFileIdFromMetadata(platformFile);
         if (_privacyFiles.any((PrivacyStudyFile file) => file.id == fileId)) {
           continue;
         }
-        if (extension == 'pdf') {
-          final RenderedPdfPage page = await PdfPageRenderer.renderFirstPage(
-            Uint8List.fromList(bytes),
-          );
-          _privacyFiles.add(
-            PrivacyStudyFile(
-              id: fileId,
-              originalName: platformFile.name,
-              originalMimeType: 'application/pdf',
-              analysisAsset: InputAsset(
-                type: InputAssetType.image,
-                uri: '${platformFile.path ?? platformFile.name}#page=1',
-                displayName: '${platformFile.name} page 1 preview',
-                mimeType: 'image/png',
-                sizeBytes: page.pngBytes.length,
-                bytes: page.pngBytes,
-                width: page.width,
-                height: page.height,
+
+        _privacyStatusMessage = 'Preparing ${platformFile.name}';
+        notifyListeners();
+
+        try {
+          if (extension == 'pdf') {
+            final RenderedPdfPage page = await _renderPdfPreview(platformFile);
+            final PreparedStudyImage prepared =
+                _prepareStudyImage(page.pngBytes);
+            _privacyFiles.add(
+              PrivacyStudyFile(
+                id: fileId,
+                originalName: platformFile.name,
+                originalMimeType: 'application/pdf',
+                analysisAsset: InputAsset(
+                  type: InputAssetType.image,
+                  uri: '${platformFile.path ?? platformFile.name}#page=1',
+                  displayName: '${platformFile.name} page 1 preview',
+                  mimeType: 'image/jpeg',
+                  sizeBytes: prepared.bytes.length,
+                  bytes: prepared.bytes,
+                  width: prepared.width ?? page.width,
+                  height: prepared.height ?? page.height,
+                ),
+                note:
+                    'PDF support in this prototype renders and analyzes the first page locally.',
               ),
-              note:
-                  'PDF support in this prototype renders and analyzes the first page locally.',
-            ),
-          );
-        } else {
-          _privacyFiles.add(
-            PrivacyStudyFile(
-              id: fileId,
-              originalName: platformFile.name,
-              originalMimeType: _imageMimeType(extension),
-              analysisAsset: InputAsset(
-                type: InputAssetType.image,
-                uri: platformFile.path ?? platformFile.name,
-                displayName: platformFile.name,
-                mimeType: _imageMimeType(extension),
-                sizeBytes: bytes.length,
-                bytes: bytes,
+            );
+          } else {
+            final List<int>? rawBytes =
+                await _loadPlatformFileBytes(platformFile);
+            if (rawBytes == null || rawBytes.isEmpty) {
+              failedFiles.add(platformFile.name);
+              continue;
+            }
+            final PreparedStudyImage prepared = _prepareStudyImage(rawBytes);
+            _privacyFiles.add(
+              PrivacyStudyFile(
+                id: fileId,
+                originalName: platformFile.name,
+                originalMimeType: _imageMimeType(extension),
+                analysisAsset: InputAsset(
+                  type: InputAssetType.image,
+                  uri: platformFile.path ?? platformFile.name,
+                  displayName: platformFile.name,
+                  mimeType: 'image/jpeg',
+                  sizeBytes: prepared.bytes.length,
+                  bytes: prepared.bytes,
+                  width: prepared.width,
+                  height: prepared.height,
+                ),
+                note: 'Image file analyzed directly on device.',
               ),
-              note: 'Image file analyzed directly on device.',
-            ),
-          );
+            );
+          }
+        } catch (error, stackTrace) {
+          debugPrint('Preparing ${platformFile.name} failed: $error');
+          debugPrint('$stackTrace');
+          failedFiles.add(platformFile.name);
         }
+
+        _privacyProgress = _privacyResults.length;
+        notifyListeners();
       }
       _privacyProgress = _privacyResults.length;
       _synthesizedPrivacyProfile = null;
       _privacyStatusMessage = null;
-    } catch (error, stackTrace) {
-      debugPrint('Privacy file import failed: $error');
-      debugPrint('$stackTrace');
-      _errorMessage = error.toString();
+      if (failedFiles.isNotEmpty) {
+        _errorMessage =
+            'Could not prepare ${failedFiles.length} file(s): ${failedFiles.take(3).join(', ')}${failedFiles.length > 3 ? ', ...' : ''}';
+      }
     } finally {
       _privacyStatusMessage = null;
       _isBusy = false;
@@ -493,8 +547,25 @@ class AppController extends ChangeNotifier {
     _privacyCancelled = true;
   }
 
+  void recordReactionCameraUnavailable({
+    required String stage,
+    required String event,
+    required String reason,
+  }) {
+    _reactionSamples.add(
+      ReactionEmotionSample(
+        timestamp: DateTime.now(),
+        stage: stage,
+        event: event,
+        failureReason: reason,
+      ),
+    );
+    notifyListeners();
+  }
+
   Future<void> recordReactionSnapshot({
     required List<int> imageBytes,
+    required String stage,
     required String event,
   }) async {
     if (imageBytes.isEmpty) return;
@@ -530,6 +601,7 @@ class AppController extends ChangeNotifier {
         _reactionSamples.add(
           ReactionEmotionSample(
             timestamp: DateTime.now(),
+            stage: stage,
             event: event,
             modelId: result.modelId,
             label: result.prediction!.label,
@@ -678,100 +750,217 @@ class AppController extends ChangeNotifier {
   Future<void> downloadStudyGemmaModel() async {
     if (_isGemmaDownloading || _gemmaModelReady) return;
     _isGemmaDownloading = true;
+    _isGemmaDownloadPaused = false;
     _gemmaDownloadProgress = null;
     _gemmaDownloadStatus =
-        'Starting the Gemma download. Keep this app open; you can answer the questions below while it downloads.';
+        'Starting a system download. You can leave the app or lock the screen while it continues.';
     notifyListeners();
 
-    final HttpClient client = HttpClient();
-    File? temporaryFile;
     try {
-      final String targetPath = await _gemmaPrivateModelPath();
-      final File targetFile = File(targetPath);
-      await targetFile.parent.create(recursive: true);
-      temporaryFile = File('$targetPath.download');
-      if (await temporaryFile.exists()) await temporaryFile.delete();
-
-      final HttpClientRequest request =
-          await client.getUrl(Uri.parse(_gemmaE2BDownloadUrl));
-      request.followRedirects = true;
-      request.maxRedirects = 5;
-      final HttpClientResponse response = await request.close();
-      if (response.statusCode < 200 || response.statusCode >= 300) {
-        throw HttpException(
-          'Download server returned HTTP ${response.statusCode}.',
-          uri: Uri.parse(_gemmaE2BDownloadUrl),
-        );
+      final Map<String, Object?> status = await _invokeNativeGemmaDownload(
+        'startGemmaDownload',
+        <String, Object?>{
+          'url': _gemmaE2BDownloadUrl,
+          'fileName': _gemmaE2BFileName,
+        },
+      );
+      await _applyGemmaDownloadStatus(status, notify: true);
+      if (_isGemmaDownloading || _isGemmaDownloadPaused) {
+        _scheduleGemmaDownloadPolling();
       }
-
-      final int totalBytes = response.contentLength;
-      int receivedBytes = 0;
-      int lastReportedBytes = 0;
-      final IOSink sink = temporaryFile.openWrite();
-      try {
-        await for (final List<int> chunk in response) {
-          sink.add(chunk);
-          receivedBytes += chunk.length;
-          final bool shouldReport =
-              receivedBytes - lastReportedBytes >= 8 * 1024 * 1024 ||
-                  (totalBytes > 0 && receivedBytes == totalBytes);
-          if (shouldReport) {
-            lastReportedBytes = receivedBytes;
-            _gemmaDownloadProgress =
-                totalBytes > 0 ? receivedBytes / totalBytes : null;
-            _gemmaDownloadStatus = totalBytes > 0
-                ? 'Downloaded ${(receivedBytes / (1024 * 1024)).toStringAsFixed(0)} MB of ${(totalBytes / (1024 * 1024)).toStringAsFixed(0)} MB.'
-                : 'Downloaded ${(receivedBytes / (1024 * 1024)).toStringAsFixed(0)} MB.';
-            notifyListeners();
-          }
-        }
-        await sink.flush();
-      } finally {
-        await sink.close();
-      }
-
-      final int downloadedSize = await temporaryFile.length();
-      if (downloadedSize < _minimumGemmaModelBytes) {
-        throw const FileSystemException(
-          'The downloaded file is too small to be the Gemma 4 E2B model.',
-        );
-      }
-      if (await targetFile.exists()) await targetFile.delete();
-      await temporaryFile.rename(targetPath);
-      temporaryFile = null;
-      await _configureStudyGemmaModel(targetPath);
-      _gemmaModelReady = true;
-      _gemmaDownloadProgress = 1.0;
-      _gemmaDownloadStatus =
-          'Gemma 4 E2B is installed. No further download is needed.';
     } catch (error, stackTrace) {
-      debugPrint('Gemma study download failed: $error');
+      debugPrint('Gemma system download failed to start: $error');
       debugPrint('$stackTrace');
-      if (temporaryFile != null && await temporaryFile.exists()) {
-        await temporaryFile.delete();
-      }
       _gemmaModelReady = false;
+      _isGemmaDownloading = false;
+      _isGemmaDownloadPaused = false;
       _gemmaDownloadProgress = null;
       _gemmaDownloadStatus =
-          'Download failed. Check the connection and try again. $error';
-    } finally {
-      client.close(force: true);
-      _isGemmaDownloading = false;
+          'Download could not start. Check the connection and try again.';
       notifyListeners();
     }
   }
 
+  Future<Map<String, Object?>> _invokeNativeGemmaDownload(
+    String method, [
+    Map<String, Object?> arguments = const <String, Object?>{},
+  ]) async {
+    final Object? response = await _nativeChannel.invokeMethod<Object?>(
+      method,
+      arguments,
+    );
+    if (response is Map) {
+      return Map<String, Object?>.from(response);
+    }
+    return <String, Object?>{'state': 'unknown'};
+  }
+
+  void _scheduleGemmaDownloadPolling() {
+    _gemmaDownloadPollTimer?.cancel();
+    _gemmaDownloadPollTimer = Timer.periodic(
+      const Duration(seconds: 3),
+      (_) => _pollGemmaDownloadStatus(),
+    );
+  }
+
+  Future<void> _pollGemmaDownloadStatus() async {
+    if (_isPollingGemmaDownload) return;
+    _isPollingGemmaDownload = true;
+    try {
+      final Map<String, Object?> status = await _invokeNativeGemmaDownload(
+        'getGemmaDownloadStatus',
+      );
+      await _applyGemmaDownloadStatus(status, notify: true);
+    } catch (error, stackTrace) {
+      debugPrint('Gemma download status polling failed: $error');
+      debugPrint('$stackTrace');
+    } finally {
+      _isPollingGemmaDownload = false;
+    }
+  }
+
+  Future<void> _applyGemmaDownloadStatus(
+    Map<String, Object?> status, {
+    required bool notify,
+  }) async {
+    final String state = (status['state'] as String?) ?? 'unknown';
+    final String? localPath = status['local_path'] as String?;
+    final int downloadedBytes =
+        (status['downloaded_bytes'] as num?)?.toInt() ?? -1;
+    final int totalBytes = (status['total_bytes'] as num?)?.toInt() ?? -1;
+    final double? progress = (status['progress'] as num?)?.toDouble();
+
+    if (state == 'complete' && localPath != null) {
+      final File modelFile = File(localPath);
+      final bool validModel = await modelFile.exists() &&
+          await modelFile.length() >= _minimumGemmaModelBytes;
+      if (validModel) {
+        await _configureStudyGemmaModel(localPath);
+        _gemmaModelReady = true;
+        _isGemmaDownloading = false;
+        _isGemmaDownloadPaused = false;
+        _gemmaDownloadProgress = 1.0;
+        _gemmaDownloadStatus =
+            'Gemma 4 E2B is installed. No further download is needed.';
+        _gemmaDownloadPollTimer?.cancel();
+      } else {
+        _gemmaModelReady = false;
+        _isGemmaDownloading = false;
+        _isGemmaDownloadPaused = false;
+        _gemmaDownloadProgress = null;
+        _gemmaDownloadStatus =
+            'Download finished, but the model file is incomplete. Please retry.';
+        _gemmaDownloadPollTimer?.cancel();
+      }
+    } else if (state == 'running' || state == 'pending') {
+      _gemmaModelReady = false;
+      _isGemmaDownloading = true;
+      _isGemmaDownloadPaused = false;
+      _gemmaDownloadProgress = progress;
+      _gemmaDownloadStatus = _gemmaDownloadStatusText(
+        state: state,
+        downloadedBytes: downloadedBytes,
+        totalBytes: totalBytes,
+        reason: status['reason'] as String?,
+      );
+    } else if (state == 'paused') {
+      _gemmaModelReady = false;
+      _isGemmaDownloading = false;
+      _isGemmaDownloadPaused = true;
+      _gemmaDownloadProgress = progress;
+      _gemmaDownloadStatus = _gemmaDownloadStatusText(
+        state: state,
+        downloadedBytes: downloadedBytes,
+        totalBytes: totalBytes,
+        reason: status['reason'] as String?,
+      );
+    } else if (state == 'failed') {
+      _gemmaModelReady = false;
+      _isGemmaDownloading = false;
+      _isGemmaDownloadPaused = false;
+      _gemmaDownloadProgress = null;
+      _gemmaDownloadStatus =
+          'Download failed. ${(status['reason'] as String?) ?? 'Please try again.'}';
+      _gemmaDownloadPollTimer?.cancel();
+    } else if (state == 'not_found') {
+      _isGemmaDownloading = false;
+      _isGemmaDownloadPaused = false;
+      _gemmaDownloadProgress = null;
+      _gemmaDownloadStatus ??= 'Gemma 4 E2B is not installed yet.';
+      _gemmaDownloadPollTimer?.cancel();
+    }
+
+    if (notify) notifyListeners();
+  }
+
+  String _gemmaDownloadStatusText({
+    required String state,
+    required int downloadedBytes,
+    required int totalBytes,
+    String? reason,
+  }) {
+    final String prefix = switch (state) {
+      'pending' => 'Waiting to start system download.',
+      'paused' =>
+        'Download paused: ${reason ?? 'Android is waiting to retry.'}',
+      _ => 'System download running.',
+    };
+    if (downloadedBytes >= 0 && totalBytes > 0) {
+      return '$prefix Downloaded ${(downloadedBytes / (1024 * 1024)).toStringAsFixed(0)} MB of ${(totalBytes / (1024 * 1024)).toStringAsFixed(0)} MB. You can leave the app or lock the screen.';
+    }
+    if (downloadedBytes >= 0) {
+      return '$prefix Downloaded ${(downloadedBytes / (1024 * 1024)).toStringAsFixed(0)} MB. You can leave the app or lock the screen.';
+    }
+    return '$prefix You can leave the app or lock the screen.';
+  }
+
   Future<void> _refreshGemmaModelStatus({required bool notify}) async {
-    final String targetPath = await _gemmaPrivateModelPath();
-    final File targetFile = File(targetPath);
-    final bool validModel = await targetFile.exists() &&
-        await targetFile.length() >= _minimumGemmaModelBytes;
-    _gemmaModelReady = validModel;
-    _gemmaDownloadProgress = validModel ? 1.0 : null;
-    _gemmaDownloadStatus = validModel
-        ? 'Gemma 4 E2B is already installed. No download is needed.'
-        : 'Gemma 4 E2B is not installed yet.';
-    if (validModel) await _configureStudyGemmaModel(targetPath);
+    final RegisteredModel descriptor =
+        _registry.firstWhere((RegisteredModel model) => model.id == 'gemma');
+    final ModelConfig current =
+        _settings.modelConfigs[descriptor.id] ?? descriptor.config;
+    final String? configuredPath = current.assetConfig['asset_path'] as String?;
+    final List<String> candidatePaths = <String>{
+      if (configuredPath != null && configuredPath.trim().isNotEmpty)
+        configuredPath,
+      await _gemmaPrivateModelPath(),
+    }.toList();
+
+    for (final String candidatePath in candidatePaths) {
+      final File targetFile = File(candidatePath);
+      final bool validModel = await targetFile.exists() &&
+          await targetFile.length() >= _minimumGemmaModelBytes;
+      if (validModel) {
+        _gemmaDownloadPollTimer?.cancel();
+        await _configureStudyGemmaModel(candidatePath);
+        _gemmaModelReady = true;
+        _isGemmaDownloading = false;
+        _isGemmaDownloadPaused = false;
+        _gemmaDownloadProgress = 1.0;
+        _gemmaDownloadStatus =
+            'Gemma 4 E2B is already installed. No download is needed.';
+        if (notify) notifyListeners();
+        return;
+      }
+    }
+
+    try {
+      final Map<String, Object?> status = await _invokeNativeGemmaDownload(
+        'getGemmaDownloadStatus',
+      );
+      await _applyGemmaDownloadStatus(status, notify: false);
+      if (_isGemmaDownloading || _isGemmaDownloadPaused) {
+        _scheduleGemmaDownloadPolling();
+      }
+    } catch (error, stackTrace) {
+      debugPrint('Gemma download status refresh failed: $error');
+      debugPrint('$stackTrace');
+      _gemmaModelReady = false;
+      _isGemmaDownloading = false;
+      _isGemmaDownloadPaused = false;
+      _gemmaDownloadProgress = null;
+      _gemmaDownloadStatus = 'Gemma 4 E2B is not installed yet.';
+    }
     if (notify) notifyListeners();
   }
 
@@ -804,6 +993,48 @@ class AppController extends ChangeNotifier {
       },
     );
     await _settingsRepository.save(_settings);
+  }
+
+  Future<RenderedPdfPage> _renderPdfPreview(PlatformFile platformFile) async {
+    final String? path = platformFile.path;
+    if (path != null && path.trim().isNotEmpty && await File(path).exists()) {
+      return PdfPageRenderer.renderFirstPageFromPath(path);
+    }
+    final List<int>? bytes = await _loadPlatformFileBytes(platformFile);
+    if (bytes == null || bytes.isEmpty) {
+      throw StateError('Could not read selected PDF.');
+    }
+    return PdfPageRenderer.renderFirstPage(Uint8List.fromList(bytes));
+  }
+
+  PreparedStudyImage _prepareStudyImage(List<int> rawBytes) {
+    final Uint8List input =
+        rawBytes is Uint8List ? rawBytes : Uint8List.fromList(rawBytes);
+    final img.Image? decoded = img.decodeImage(input);
+    if (decoded == null) {
+      return PreparedStudyImage(bytes: input);
+    }
+
+    img.Image normalized = img.bakeOrientation(decoded);
+    const int maxSide = 1152;
+    final int longestSide = normalized.width > normalized.height
+        ? normalized.width
+        : normalized.height;
+    if (longestSide > maxSide) {
+      final double scale = maxSide / longestSide;
+      normalized = img.copyResize(
+        normalized,
+        width: (normalized.width * scale).round(),
+        height: (normalized.height * scale).round(),
+        interpolation: img.Interpolation.average,
+      );
+    }
+
+    return PreparedStudyImage(
+      bytes: Uint8List.fromList(img.encodeJpg(normalized, quality: 84)),
+      width: normalized.width,
+      height: normalized.height,
+    );
   }
 
   Future<List<int>?> _loadPlatformFileBytes(PlatformFile platformFile) async {
@@ -899,12 +1130,9 @@ class AppController extends ChangeNotifier {
         .any((PrivacyStudyResult result) => result.file.id == fileId);
   }
 
-  String _privacyFileId(String name, List<int> bytes) {
-    final int firstBytesLength = bytes.length < 2048 ? bytes.length : 2048;
-    final int lastStart = bytes.length > 2048 ? bytes.length - 2048 : 0;
-    final String first = String.fromCharCodes(bytes.take(firstBytesLength));
-    final String last = String.fromCharCodes(bytes.skip(lastStart));
-    return '${name.toLowerCase()}:${bytes.length}:${stableStringHash(first)}:${stableStringHash(last)}';
+  String _privacyFileIdFromMetadata(PlatformFile file) {
+    final String normalizedName = file.name.trim().toLowerCase();
+    return '$normalizedName:${file.size}';
   }
 
   String _imageMimeType(String? extension) {

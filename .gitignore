@@ -7,13 +7,23 @@ pubspec.lock
 
 # Large local benchmark datasets
 tools/affectnet/
-
-# Generated local benchmark subsets
 tools/affectnet7_*/
+tools/affectnet7_*.zip
 
 # Local model artifacts
 ResEmoteNet/*.pth
 ResEmoteNet/onnx/
 ResEmoteNet/.venv/
-tools/affectnet7_*.zip
+
+# Python caches
 **/__pycache__/
+*.pyc
+
+# Local backup files
+*.bak
+*.bak_*
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out

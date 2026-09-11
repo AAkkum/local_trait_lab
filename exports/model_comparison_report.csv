@@ -1,0 +1,5 @@
+model,model_id,family,dataset,accuracy,macro_f1,average_latency_ms,median_latency_ms,evaluated_examples,failed_examples,f1_angry,f1_disgust,f1_fear,f1_happy,f1_neutral,f1_sad,f1_surprise
+enet_b2_7,enet_b2_7,emotieff,affectnet7_25.zip,0.685714,0.685428,1219.171,590.000,175,0,0.607143,0.666667,0.758621,0.826087,0.558140,0.765957,0.615385
+resemotenet_kaggle_224,resemotenet_kaggle_224,emotieff,affectnet7_25.zip,0.645714,0.643603,1338.674,713.000,175,0,0.619048,0.711111,0.511628,0.821429,0.575342,0.666667,0.600000
+resemotenet_bs32,resemotenet_bs32,emotieff,affectnet7_25.zip,0.474286,0.473832,1182.337,534.000,175,0,0.410256,0.432432,0.608696,0.564103,0.318182,0.463158,0.520000
+gemma_e2b,gemma_e2b,gemma,affectnet7_25.zip,0.428571,0.351813,6931.080,6422.000,175,0,0.530612,0.074074,0.000000,0.750000,0.452830,0.206897,0.448276

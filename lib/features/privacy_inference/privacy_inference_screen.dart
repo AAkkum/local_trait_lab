@@ -221,18 +221,34 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
   final Map<String, Map<String, int>> _ratings = <String, Map<String, int>>{};
   final Map<String, Object?> _baselineAnswers = <String, Object?>{};
   final Map<String, Object?> _finalAnswers = <String, Object?>{};
+  final ScrollController _scrollController = ScrollController();
   _StudyStage _stage = _StudyStage.consent;
   bool _consentStudyInfo = false;
   bool _consentLocalAnalysis = false;
   bool _consentProcessedExport = false;
+  bool _consentCameraEmotion = false;
   bool _consentVoluntary = false;
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _moveToStage(_StudyStage nextStage) {
+    setState(() => _stage = nextStage);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_scrollController.hasClients) return;
+      _scrollController.jumpTo(0);
+    });
+  }
 
   Future<void> _pickFiles() async {
     final FilePickerResult? result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: <String>['jpg', 'jpeg', 'png', 'webp', 'pdf'],
       allowMultiple: true,
-      withData: true,
+      withData: false,
     );
     if (result != null) {
       await widget.controller.selectPrivacyFilesFromPickerResult(result);
@@ -250,6 +266,7 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
         'study_information_understood': _consentStudyInfo,
         'local_file_analysis_allowed': _consentLocalAnalysis,
         'processed_result_export_allowed': _consentProcessedExport,
+        'front_camera_emotion_inference_understood': _consentCameraEmotion,
         'voluntary_participation_understood': _consentVoluntary,
       },
       'baseline_answers': _baselineAnswers,
@@ -308,6 +325,7 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
         builder: (BuildContext context, Widget? child) {
           final AppController controller = widget.controller;
           return ListView(
+            controller: _scrollController,
             padding: const EdgeInsets.all(16),
             children: <Widget>[
               if (_stage == _StudyStage.consent) ...<Widget>[
@@ -315,6 +333,7 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
                   studyInfo: _consentStudyInfo,
                   localAnalysis: _consentLocalAnalysis,
                   processedExport: _consentProcessedExport,
+                  cameraEmotion: _consentCameraEmotion,
                   voluntary: _consentVoluntary,
                   onStudyInfoChanged: (bool value) {
                     setState(() => _consentStudyInfo = value);
@@ -325,6 +344,9 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
                   onProcessedExportChanged: (bool value) {
                     setState(() => _consentProcessedExport = value);
                   },
+                  onCameraEmotionChanged: (bool value) {
+                    setState(() => _consentCameraEmotion = value);
+                  },
                   onVoluntaryChanged: (bool value) {
                     setState(() => _consentVoluntary = value);
                   },
@@ -333,7 +355,7 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
                 FilledButton.icon(
                   onPressed: _canContinueFromConsent
                       ? () {
-                          setState(() => _stage = _StudyStage.preQuestionnaire);
+                          _moveToStage(_StudyStage.preQuestionnaire);
                         }
                       : null,
                   icon: const Icon(Icons.arrow_forward),
@@ -342,10 +364,14 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
               ] else if (_stage == _StudyStage.preQuestionnaire) ...<Widget>[
                 _StudyModelDownloadCard(controller: controller),
                 const SizedBox(height: 12),
-                ReactionCameraPanel(controller: controller),
+                ReactionCameraPanel(
+                  controller: controller,
+                  stage: 'before_analysis',
+                ),
                 const SizedBox(height: 12),
                 Text(
-                  controller.isGemmaDownloading
+                  controller.isGemmaDownloading ||
+                          controller.isGemmaDownloadPaused
                       ? 'Please answer the study questions while Gemma downloads. File analysis starts after both are ready.'
                       : 'First, answer these study questions. File analysis starts on the next page.',
                   style: Theme.of(context).textTheme.bodyMedium,
@@ -360,7 +386,7 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
                   onPressed: controller.gemmaModelReady &&
                           !controller.isGemmaDownloading
                       ? () {
-                          setState(() => _stage = _StudyStage.analysis);
+                          _moveToStage(_StudyStage.analysis);
                         }
                       : null,
                   icon: const Icon(Icons.arrow_forward),
@@ -372,6 +398,11 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
                 Text(
                   'Select images or PDFs. Each file can take up to about 30 seconds on this phone. Completed results appear below immediately, so you can evaluate them while the remaining files are still being analyzed.',
                   style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 12),
+                ReactionCameraPanel(
+                  controller: controller,
+                  stage: 'file_analysis',
                 ),
                 const SizedBox(height: 16),
                 _StudyPlanCard(
@@ -471,7 +502,7 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
                                 await controller.synthesizePrivacyProfile();
                             if (!mounted) return;
                             if (profileCreated) {
-                              setState(() => _stage = _StudyStage.finalProfile);
+                              _moveToStage(_StudyStage.finalProfile);
                             }
                           },
                     icon: controller.isBusy
@@ -489,6 +520,11 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 12),
+                ReactionCameraPanel(
+                  controller: controller,
+                  stage: 'final_analysis',
+                ),
+                const SizedBox(height: 12),
                 _AggregateProfileCard(
                   profile: controller.aggregatePrivacyProfile,
                   synthesizedProfile: controller.synthesizedPrivacyProfile,
@@ -501,7 +537,7 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
                 const SizedBox(height: 16),
                 OutlinedButton.icon(
                   onPressed: () {
-                    setState(() => _stage = _StudyStage.analysis);
+                    _moveToStage(_StudyStage.analysis);
                   },
                   icon: const Icon(Icons.arrow_back),
                   label: const Text('Back to file analysis'),
@@ -526,6 +562,7 @@ class _PrivacyInferenceScreenState extends State<PrivacyInferenceScreen> {
       _consentStudyInfo &&
       _consentLocalAnalysis &&
       _consentProcessedExport &&
+      _consentCameraEmotion &&
       _consentVoluntary;
 
   String get _stageTitle {
@@ -547,77 +584,125 @@ class _ConsentCard extends StatelessWidget {
     required this.studyInfo,
     required this.localAnalysis,
     required this.processedExport,
+    required this.cameraEmotion,
     required this.voluntary,
     required this.onStudyInfoChanged,
     required this.onLocalAnalysisChanged,
     required this.onProcessedExportChanged,
+    required this.onCameraEmotionChanged,
     required this.onVoluntaryChanged,
   });
 
   final bool studyInfo;
   final bool localAnalysis;
   final bool processedExport;
+  final bool cameraEmotion;
   final bool voluntary;
   final ValueChanged<bool> onStudyInfoChanged;
   final ValueChanged<bool> onLocalAnalysisChanged;
   final ValueChanged<bool> onProcessedExportChanged;
+  final ValueChanged<bool> onCameraEmotionChanged;
   final ValueChanged<bool> onVoluntaryChanged;
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme colors = Theme.of(context).colorScheme;
-    return Card(
-      color: colors.tertiaryContainer.withValues(alpha: 0.38),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text('Local AI privacy study',
-                style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 8),
-            const Text(
-              'This study is conducted in the context of a bachelor thesis at TU Darmstadt. It investigates how people perceive local AI analysis of private smartphone files.',
+    final TextTheme textTheme = Theme.of(context).textTheme;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Card(
+          color: colors.tertiaryContainer.withValues(alpha: 0.38),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Information Sheet and Privacy Statement',
+                    style: textTheme.titleLarge),
+                const SizedBox(height: 8),
+                const Text(
+                  'Please read this information carefully before taking part in the study. The study is conducted online in the context of a bachelor thesis at TU Darmstadt.',
+                ),
+                const SizedBox(height: 12),
+                Text('Subject of the study', style: textTheme.titleSmall),
+                const Text(
+                  'This study investigates how people perceive privacy implications of local AI analysis on smartphones. The app analyzes selected images or PDF files locally on this Android phone and shows possible personal inferences derived from these files.',
+                ),
+                const SizedBox(height: 12),
+                Text('Process', style: textTheme.titleSmall),
+                const Text(
+                  'First, you answer short questionnaires about privacy concerns, technology affinity, and demographic information. The app downloads a local Gemma AI model of about 2 GB to private app storage; Wi-Fi is recommended. Afterwards, you select around 20 of your own images or PDF files for local analysis, rate the shown inferences, and answer final questions about the resulting profile.',
+                ),
+                const SizedBox(height: 12),
+                Text('Camera emotion inference', style: textTheme.titleSmall),
+                const Text(
+                  'During the study, the app derives front-camera emotion labels while you interact with the study screens. Camera images are processed locally and are not stored.',
+                ),
+                const SizedBox(height: 12),
+                Text('Data and storage', style: textTheme.titleSmall),
+                const Text(
+                  'The study export can contain questionnaire answers, consent decisions, model outputs, summarized inferences, the combined profile, ratings, and front-camera emotion labels with confidence values. Raw selected files and camera images are not stored by the study team. The collected study data are analyzed anonymously and published only in aggregated form.',
+                ),
+                const SizedBox(height: 12),
+                Text('Voluntariness and rights', style: textTheme.titleSmall),
+                const Text(
+                  'Participation is voluntary. You can stop participation at any time. If you stop before submitting the final study data, no data from your participation will be used.',
+                ),
+                const SizedBox(height: 12),
+                Text('Contact', style: textTheme.titleSmall),
+                const Text(
+                  'Head of study: Prof. Dr. Dr. Christian Reuter, PEASEC, reuter@peasec.tu-darmstadt.de. Data handling: Simon Althaus, althaus@peasec.tu-darmstadt.de.',
+                ),
+              ],
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Duration: about 15 minutes. You will answer short questions, select around 20 images or PDFs, see locally generated inferences, and answer final questions about the resulting profile.',
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'Please select only your own files. Do not include photos showing other people unless they have explicitly agreed to be included in this study.',
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'The selected files are analyzed on this phone. The study export may contain questionnaire answers, consent decisions, model outputs, summarized inferences, and optional front-camera emotion labels if you enable reaction tracking. The original selected files and camera images are not intentionally exported by this prototype.',
-            ),
-            const Divider(height: 28),
-            _ConsentCheck(
-              value: studyInfo,
-              label: 'I have read and understood the study information.',
-              onChanged: onStudyInfoChanged,
-            ),
-            _ConsentCheck(
-              value: localAnalysis,
-              label:
-                  'I agree that selected local files may be analyzed on this phone during the study.',
-              onChanged: onLocalAnalysisChanged,
-            ),
-            _ConsentCheck(
-              value: processedExport,
-              label:
-                  'I agree that questionnaire answers and processed inference results may be saved/exported for research evaluation.',
-              onChanged: onProcessedExportChanged,
-            ),
-            _ConsentCheck(
-              value: voluntary,
-              label:
-                  'I understand that participation is voluntary and can be stopped at any time.',
-              onChanged: onVoluntaryChanged,
-            ),
-          ],
+          ),
         ),
-      ),
+        const SizedBox(height: 12),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Declaration of Consent', style: textTheme.titleMedium),
+                const SizedBox(height: 8),
+                const Text('By ticking the boxes below, I confirm that:'),
+                _ConsentCheck(
+                  value: studyInfo,
+                  label:
+                      'I have read and understood the information about the study.',
+                  onChanged: onStudyInfoChanged,
+                ),
+                _ConsentCheck(
+                  value: localAnalysis,
+                  label:
+                      'I understand that the app downloads a local Gemma AI model of about 2 GB, Wi-Fi is recommended, and selected images or PDF files are analyzed locally on this Android phone.',
+                  onChanged: onLocalAnalysisChanged,
+                ),
+                _ConsentCheck(
+                  value: cameraEmotion,
+                  label:
+                      'I understand that front-camera emotion labels and confidence values are derived during participation.',
+                  onChanged: onCameraEmotionChanged,
+                ),
+                _ConsentCheck(
+                  value: processedExport,
+                  label:
+                      'I agree that questionnaire answers and processed inference results may be saved/exported for research evaluation.',
+                  onChanged: onProcessedExportChanged,
+                ),
+                _ConsentCheck(
+                  value: voluntary,
+                  label:
+                      'I understand that participation is voluntary and can be stopped at any time.',
+                  onChanged: onVoluntaryChanged,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -664,7 +749,7 @@ class _StudyModelDownloadCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 8),
             const Text(
-              'This study uses Gemma 4 E2B directly on this phone. The model download is about 2.5 GB, so Wi-Fi is recommended.',
+              'This study uses Gemma 4 E2B directly on this phone. The model download is about 2 GB, so Wi-Fi is recommended.',
             ),
             const SizedBox(height: 8),
             if (controller.gemmaModelReady) ...<Widget>[
@@ -679,7 +764,8 @@ class _StudyModelDownloadCard extends StatelessWidget {
                   ),
                 ],
               ),
-            ] else if (controller.isGemmaDownloading) ...<Widget>[
+            ] else if (controller.isGemmaDownloading ||
+                controller.isGemmaDownloadPaused) ...<Widget>[
               LinearProgressIndicator(
                 value: controller.gemmaDownloadProgress,
               ),
@@ -688,6 +774,14 @@ class _StudyModelDownloadCard extends StatelessWidget {
                 controller.gemmaDownloadStatus ?? 'Downloading Gemma...',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
+              if (controller.isGemmaDownloadPaused) ...<Widget>[
+                const SizedBox(height: 12),
+                FilledButton.icon(
+                  onPressed: controller.downloadStudyGemmaModel,
+                  icon: const Icon(Icons.restart_alt),
+                  label: const Text('Retry Gemma download'),
+                ),
+              ],
             ] else ...<Widget>[
               Text(controller.gemmaDownloadStatus ??
                   'Gemma is not installed yet.'),

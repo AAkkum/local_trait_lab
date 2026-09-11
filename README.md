@@ -1,65 +1,88 @@
 # Local Trait Lab
 
-Android-first Flutter prototype for local smartphone trait inference and model comparison. The current implementation focuses on emotion classification.
+Local Trait Lab is an Android-first Flutter research prototype for studying local AI-based privacy inferences on smartphones. The app lets participants select personal images or PDF files, analyzes them locally with an on-device model, shows inferred personal signals, and records participant reactions for later research evaluation.
 
-## Current State
+The project was built for a bachelor thesis at TU Darmstadt / PEASEC. It is not a production app and is not intended for app-store deployment.
 
-Implemented:
+## Current Capabilities
 
-- Single-image emotion analysis
-- EmotiEff ONNX inference on Android
-- Google ML Kit face detection and largest-face cropping before EmotiEff preprocessing
-- Standardized seven-label output: `angry`, `disgust`, `fear`, `happy`, `neutral`, `sad`, `surprise`
-- Benchmark mode for labeled image datasets
-- Accuracy, macro-F1, per-class precision/recall/F1, confusion matrix, latency metrics
-- CSV and JSON benchmark exports
-- App-private model import so native ONNX Runtime can load model files reliably on Android
-- Mock Gemma adapter and task-spec structure for later multimodal model integration
+- Android-first Flutter app with a complete study flow.
+- In-app information sheet and consent checkboxes.
+- Baseline questionnaire screens for demographics, privacy attitudes, and technology affinity.
+- Local Gemma 4 E2B model download into private app storage.
+- Local image and first-page PDF analysis using Gemma task specifications.
+- Combined profile synthesis from multiple file-level inferences.
+- Per-inference and final study questions.
+- Front-camera emotion-label sampling during study stages. Camera frames are processed locally and are not stored.
+- Export of a pseudonymized study run as JSON.
+- Separate model benchmark workflow for emotion classification.
+- Android ONNX Runtime integration for EmotiEff/HSEmotion-style emotion models.
+- Benchmark metrics: accuracy, macro-F1, per-class precision/recall/F1, confusion matrix, and latency.
 
-Not implemented yet:
-
-- Real Gemma 4 runtime integration
-- Persistent settings storage beyond the current in-memory prototype setup
-- A polished model-management screen
-- User-study questionnaire flow and backend upload of consented study data
-
-## Model Setup
-
-For EmotiEff:
-
-1. Open `Advanced settings`.
-2. Select `EmotiEff`.
-3. Select a model variant, for example `EfficientNet B2 7-class`.
-4. Set local runtime to `ONNX Runtime`.
-5. Use `Import ONNX file` and select the matching `.onnx` model.
-
-The app copies the selected model into private app storage. This is required because Android scoped storage can prevent native ONNX Runtime from reading files directly from shared folders such as `/sdcard/Download`.
-
-Recommended first model:
+## Project Structure
 
 ```text
-enet_b2_7.onnx
+lib/
+  analysis/                 shared model interfaces, requests, results, task specs
+  app/                      app controller and high-level state
+  benchmark/                dataset loading, benchmark runner, metrics, exports
+  features/                 Flutter screens and study UI
+  models/                   Gemma and EmotiEff adapters
+  platform/android/         Android-specific PDF rendering and runtime bridges
+assets/gemma_tasks/         JSON task specifications for Gemma prompts and output schemas
+tools/                      Python utilities for preparing benchmark data
+ResEmoteNet/                local conversion/validation workspace for ResEmoteNet experiments
 ```
 
-The 7-class model matches the app's current benchmark label space. 8-class EmotiEff models include `Contempt`, which is intentionally not mapped into the seven-label setup.
+## Why `tools/` Exists
 
-## Benchmark Dataset Format
+The Flutter app should stay focused on participant interaction and on-device inference. The `tools/` folder is for reproducible offline preparation work that does not belong inside the app runtime.
 
-The app imports benchmark datasets as a ZIP file or a folder with this structure:
+Current example: `tools/prepare_emotion_benchmark_dataset.py` creates app-compatible benchmark folders from an AffectNet-style class-folder dataset. This keeps dataset sampling explicit and repeatable instead of manually copying files.
+
+For job applications, this folder is the right place to show Python work because it demonstrates reproducible data preparation and evaluation support around the app. The current reporting script reads exported benchmark JSON files and creates comparison tables with accuracy, macro-F1, latency, and per-class F1 values.
+
+## Model Artifacts
+
+Large model files are intentionally not included in the repository.
+
+- Gemma 4 E2B is downloaded by the app into private Android app storage.
+- EmotiEff/ONNX models must be imported through the app settings or prepared locally.
+- ResEmoteNet `.pth`, generated `.onnx`, virtual environments, and downloaded benchmark datasets are ignored by Git.
+
+## Privacy Study Flow
+
+1. Participant reads the information sheet and gives consent in the app.
+2. Participant answers baseline questions.
+3. The app prepares the local Gemma model if it is not already installed.
+4. Participant selects images or PDFs.
+5. Each selected file is analyzed locally on the phone.
+6. Participant rates the shown inferences.
+7. The app generates a combined profile from the file-level results.
+8. Participant answers final questions.
+9. The study run can be exported as JSON for research evaluation.
+
+Raw selected files and camera frames are not exported by the app. The exported study data contains consent decisions, questionnaire answers, generated model outputs, ratings, technical metadata, and derived front-camera emotion labels/confidence values.
+
+## Emotion Benchmark Workflow
+
+The benchmark workflow is separate from the participant study flow. It is used to compare emotion-classification backends on labeled datasets.
+
+Expected dataset format:
 
 ```text
 labels.csv
 images/
-  angry_001.png
-  happy_001.png
+  angry_00001.jpg
+  happy_00001.jpg
 ```
 
-`labels.csv`:
+`labels.csv` format:
 
 ```csv
 file,label
-images/happy_001.png,happy
-images/neutral_001.png,neutral
+images/happy_00001.jpg,happy
+images/neutral_00001.jpg,neutral
 ```
 
 Supported labels:
@@ -68,23 +91,32 @@ Supported labels:
 angry, disgust, fear, happy, neutral, sad, surprise
 ```
 
-## FER2013 Conversion
+## Preparing AffectNet-Style Benchmarks
 
-A helper script creates a small app-ready benchmark ZIP from FER2013 CSV files or extracted class-folder datasets.
-
-From a FER2013 CSV:
+Example:
 
 ```bash
-python3 tools/prepare_emotion_benchmark_dataset.py /path/to/fer2013.csv --split test --per-class 5 --output fer2013_test_35.zip
+python3 tools/prepare_emotion_benchmark_dataset.py /path/to/affectnet --output tools/affectnet7_100 --per-class 100 --overwrite
 ```
 
-From an extracted folder dataset:
+The script expects class folders such as `anger`, `disgust`, `fear`, `happy`, `neutral`, `sad`, and `surprise`. The AffectNet folder name `anger` is mapped to the app label `angry`. The `contempt` class is excluded for the seven-label setup.
+
+## Summarizing Benchmark Exports
+
+After exporting benchmark summaries from the app, generate a comparison report with:
 
 ```bash
-python3 tools/prepare_emotion_benchmark_dataset.py /path/to/extracted-fer2013 --split test --per-class 5 --output fer2013_test_35.zip
+python3 tools/summarize_benchmark_exports.py exports
 ```
 
-`--per-class 5` creates a 35-image benchmark sample. Increase this value for larger evaluations.
+This writes:
+
+```text
+exports/model_comparison_report.md
+exports/model_comparison_report.csv
+```
+
+The report ranks models by accuracy and macro-F1, includes latency, and shows per-class F1 values. It does not rerun inference; it only summarizes exported benchmark files.
 
 ## Development Checks
 
@@ -104,5 +136,6 @@ flutter run -d <device-id>
 
 - EmotiEffLib / HSEmotion: https://github.com/sb-ai-lab/EmotiEffLib
 - Google AI Edge Gallery: https://github.com/google-ai-edge/gallery
-- FER2013 dataset: https://www.kaggle.com/datasets/msambare/fer2013
-- FER2013 example repository: https://github.com/gitshanks/fer2013
+- Gemma local model format via Google AI Edge / LiteRT-LM
+- AffectNet dataset family for facial emotion benchmarks
+- ResEmoteNet experiments used for comparison during development

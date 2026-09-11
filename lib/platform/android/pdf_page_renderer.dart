@@ -18,6 +18,19 @@ class PdfPageRenderer {
   static const MethodChannel _channel =
       MethodChannel('local_trait_lab/gemma_litert');
 
+  static Future<RenderedPdfPage> renderFirstPageFromPath(String path) async {
+    final Object? response = await _channel.invokeMethod<Object?>(
+      'renderPdfFirstPageFromPath',
+      <String, Object?>{'path': path},
+    );
+    final Map<Object?, Object?> map = response as Map<Object?, Object?>;
+    return RenderedPdfPage(
+      pngBytes: map['pngBytes'] as Uint8List,
+      width: (map['width'] as num?)?.toInt() ?? 0,
+      height: (map['height'] as num?)?.toInt() ?? 0,
+    );
+  }
+
   static Future<RenderedPdfPage> renderFirstPage(Uint8List pdfBytes) async {
     final Object? response = await _channel.invokeMethod<Object?>(
       'renderPdfFirstPage',

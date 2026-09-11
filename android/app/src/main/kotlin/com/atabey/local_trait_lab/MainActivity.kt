@@ -1,5 +1,10 @@
 package com.atabey.local_trait_lab
 
+import android.Manifest
+import android.content.Context
+import android.content.Intent
+import android.os.Build
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -49,6 +54,9 @@ class MainActivity : FlutterActivity() {
                 "runImagePrompt" -> runOnWorker { handleGemmaRunImagePrompt(call, MainThreadResult(result)) }
                 "runTextPrompt" -> runOnWorker { handleGemmaRunTextPrompt(call, MainThreadResult(result)) }
                 "renderPdfFirstPage" -> runOnWorker { handleRenderPdfFirstPage(call, MainThreadResult(result)) }
+                "renderPdfFirstPageFromPath" -> runOnWorker { handleRenderPdfFirstPageFromPath(call, MainThreadResult(result)) }
+                "startGemmaDownload" -> runOnWorker { handleStartGemmaDownload(call, MainThreadResult(result)) }
+                "getGemmaDownloadStatus" -> runOnWorker { handleGetGemmaDownloadStatus(MainThreadResult(result)) }
                 "unload" -> runOnWorker { handleGemmaUnload(MainThreadResult(result)) }
                 else -> result.notImplemented()
             }
@@ -73,6 +81,91 @@ class MainActivity : FlutterActivity() {
             mainHandler.post { delegate.notImplemented() }
         }
     }
+
+
+    private fun handleStartGemmaDownload(call: MethodCall, result: MethodChannel.Result) {
+        try {
+            val url = call.argument<String>("url") ?: ""
+            val fileName = call.argument<String>("fileName") ?: "gemma_model.litertlm"
+            if (url.isBlank()) {
+                result.error("GEMMA_DOWNLOAD_NO_URL", "No Gemma download URL configured.", null)
+                return
+            }
+
+            val baseDirectory = getExternalFilesDir(null) ?: filesDir
+            val targetDirectory = File(baseDirectory, "models")
+            if (!targetDirectory.exists()) targetDirectory.mkdirs()
+            val targetFile = File(targetDirectory, fileName)
+
+            gemmaDownloadPreferences()
+                .edit()
+                .putString(GemmaDownloadService.KEY_STATE, "pending")
+                .putString(GemmaDownloadService.KEY_PATH, targetFile.absolutePath)
+                .putLong(GemmaDownloadService.KEY_DOWNLOADED_BYTES, 0L)
+                .putLong(GemmaDownloadService.KEY_TOTAL_BYTES, -1L)
+                .remove(GemmaDownloadService.KEY_REASON)
+                .apply()
+
+            requestNotificationPermissionIfNeeded()
+
+            val intent = Intent(this, GemmaDownloadService::class.java).apply {
+                action = GemmaDownloadService.ACTION_START
+                putExtra(GemmaDownloadService.EXTRA_URL, url)
+                putExtra(GemmaDownloadService.EXTRA_FILE_NAME, fileName)
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(intent)
+            } else {
+                startService(intent)
+            }
+
+            result.success(querySavedGemmaDownloadStatus())
+        } catch (error: Throwable) {
+            Log.e(TAG, "Gemma download start failed", error)
+            result.error("GEMMA_DOWNLOAD_FAILED", error.message ?: error.toString(), null)
+        }
+    }
+
+    private fun handleGetGemmaDownloadStatus(result: MethodChannel.Result) {
+        try {
+            result.success(querySavedGemmaDownloadStatus())
+        } catch (error: Throwable) {
+            Log.e(TAG, "Gemma download status failed", error)
+            result.error("GEMMA_DOWNLOAD_STATUS_FAILED", error.message ?: error.toString(), null)
+        }
+    }
+
+    private fun querySavedGemmaDownloadStatus(): Map<String, Any?> {
+        val preferences = gemmaDownloadPreferences()
+        val state = preferences.getString(GemmaDownloadService.KEY_STATE, null)
+            ?: return mapOf("state" to "not_found")
+        val targetPath = preferences.getString(GemmaDownloadService.KEY_PATH, null)
+        val downloadedBytes = preferences.getLong(GemmaDownloadService.KEY_DOWNLOADED_BYTES, -1L)
+        val totalBytes = preferences.getLong(GemmaDownloadService.KEY_TOTAL_BYTES, -1L)
+        val progress = if (totalBytes > 0L && downloadedBytes >= 0L) {
+            downloadedBytes.toDouble() / totalBytes.toDouble()
+        } else {
+            null
+        }
+        return mapOf(
+            "state" to state,
+            "local_path" to targetPath,
+            "downloaded_bytes" to downloadedBytes,
+            "total_bytes" to totalBytes,
+            "progress" to progress,
+            "reason" to preferences.getString(GemmaDownloadService.KEY_REASON, null),
+        )
+    }
+
+    private fun requestNotificationPermissionIfNeeded() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
+        mainHandler.post {
+            if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) return@post
+            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), NOTIFICATION_PERMISSION_REQUEST_CODE)
+        }
+    }
+
+    private fun gemmaDownloadPreferences() = getSharedPreferences(GemmaDownloadService.PREFS, Context.MODE_PRIVATE)
 
     private fun handleGemmaLoad(call: MethodCall, result: MethodChannel.Result) {
         try {
@@ -332,6 +425,7 @@ class MainActivity : FlutterActivity() {
 
 
     private fun handleRenderPdfFirstPage(call: MethodCall, result: MethodChannel.Result) {
+        var pdfFile: File? = null
         try {
             val pdfBytes = call.argument<ByteArray>("pdfBytes")
             if (pdfBytes == null || pdfBytes.isEmpty()) {
@@ -339,37 +433,60 @@ class MainActivity : FlutterActivity() {
                 return
             }
 
-            val pdfFile = File.createTempFile("local_trait_pdf_", ".pdf", cacheDir)
+            pdfFile = File.createTempFile("local_trait_pdf_", ".pdf", cacheDir)
             FileOutputStream(pdfFile).use { stream -> stream.write(pdfBytes) }
-            ParcelFileDescriptor.open(pdfFile, ParcelFileDescriptor.MODE_READ_ONLY).use { descriptor ->
-                PdfRenderer(descriptor).use { renderer ->
-                    if (renderer.pageCount <= 0) {
-                        result.error("PDF_NO_PAGES", "PDF has no renderable pages.", null)
-                        return
-                    }
-                    renderer.openPage(0).use { page ->
-                        val maxSide = 1600
-                        val scale = minOf(
-                            maxSide.toFloat() / page.width.toFloat(),
-                            maxSide.toFloat() / page.height.toFloat(),
-                            2.0f,
-                        ).coerceAtLeast(1.0f)
-                        val width = (page.width * scale).toInt()
-                        val height = (page.height * scale).toInt()
-                        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-                        val canvas = Canvas(bitmap)
-                        canvas.drawColor(Color.WHITE)
-                        page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
-                        val pngBytes = bitmap.toPngByteArray()
-                        bitmap.recycle()
-                        result.success(mapOf("pngBytes" to pngBytes, "width" to width, "height" to height))
-                    }
-                }
-            }
-            pdfFile.delete()
+            renderPdfFirstPageFile(pdfFile, result)
         } catch (error: Throwable) {
             Log.e(TAG, "PDF render failed", error)
             result.error("PDF_RENDER_FAILED", error.message ?: error.toString(), null)
+        } finally {
+            pdfFile?.delete()
+        }
+    }
+
+    private fun handleRenderPdfFirstPageFromPath(call: MethodCall, result: MethodChannel.Result) {
+        try {
+            val path = call.argument<String>("path") ?: ""
+            if (path.isBlank()) {
+                result.error("PDF_EMPTY_PATH", "PDF path is empty.", null)
+                return
+            }
+            renderPdfFirstPageFile(File(path), result)
+        } catch (error: Throwable) {
+            Log.e(TAG, "PDF render by path failed", error)
+            result.error("PDF_RENDER_FAILED", error.message ?: error.toString(), null)
+        }
+    }
+
+    private fun renderPdfFirstPageFile(pdfFile: File, result: MethodChannel.Result) {
+        if (!pdfFile.exists() || pdfFile.length() <= 0L) {
+            result.error("PDF_NOT_FOUND", "PDF file is missing or empty.", null)
+            return
+        }
+        ParcelFileDescriptor.open(pdfFile, ParcelFileDescriptor.MODE_READ_ONLY).use { descriptor ->
+            PdfRenderer(descriptor).use { renderer ->
+                if (renderer.pageCount <= 0) {
+                    result.error("PDF_NO_PAGES", "PDF has no renderable pages.", null)
+                    return
+                }
+                renderer.openPage(0).use { page ->
+                    val maxSide = 1200
+                    val scale = minOf(
+                        maxSide.toFloat() / page.width.toFloat(),
+                        maxSide.toFloat() / page.height.toFloat(),
+                        1.5f,
+                    ).coerceAtLeast(1.0f)
+                    val width = (page.width * scale).toInt()
+                    val height = (page.height * scale).toInt()
+                    val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+                    val canvas = Canvas(bitmap)
+                    canvas.drawColor(Color.WHITE)
+                    page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+                    val pngBytes = bitmap.toPngByteArray()
+                    bitmap.recycle()
+                    result.success(mapOf("pngBytes" to pngBytes, "width" to width, "height" to height))
+                }
+            }
         }
     }
 
@@ -420,5 +537,6 @@ class MainActivity : FlutterActivity() {
     companion object {
         private const val TAG = "LocalTraitGemma"
         private const val GEMMA_CHANNEL = "local_trait_lab/gemma_litert"
+        private const val NOTIFICATION_PERMISSION_REQUEST_CODE = 4103
     }
 }
